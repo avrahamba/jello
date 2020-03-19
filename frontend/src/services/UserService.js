@@ -10,6 +10,7 @@ export default {
     update
 }
 
+
 function getById(userId) {
     return HttpService.get(`user/${userId}`)
 }
@@ -22,7 +23,7 @@ function update(user) {
 }
 
 async function login(userCred) {
-    const user = await HttpService.post('auth/login', userCred);   
+    const user = await HttpService.post('auth/login', userCred);
     return _handleLogin(user)
 }
 async function signup(userCred) {

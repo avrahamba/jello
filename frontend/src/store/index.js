@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import userStore from '@/store/UserStore';
 // import { taskStore } from '@/store/toy.store';
+import { boardStore } from '@/store/board.store';
 // import { userStore } from '@/modules/UserStore';
 //TODO: add stores to main store !
 
@@ -14,5 +16,7 @@ export default new Vuex.Store({
   actions: {
   },
   modules: {
+    userStore,
+    boardStore
   }
 })

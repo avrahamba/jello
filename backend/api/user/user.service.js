@@ -28,7 +28,7 @@ async function query(filterBy = {}) {
 async function getById(userId) {
     const collection = await dbService.getCollection('user')
     try {
-        const user = await collection.findOne({"_id":ObjectId(userId)})
+        const user = await collection.findOne({ "_id": ObjectId(userId) })
         delete user.password
 
         return user
@@ -40,7 +40,7 @@ async function getById(userId) {
 async function getByEmail(email) {
     const collection = await dbService.getCollection('user')
     try {
-        const user = await collection.findOne({email})
+        const user = await collection.findOne({ email })
         return user
     } catch (err) {
         console.log(`ERROR: while finding user ${email}`)
@@ -51,7 +51,7 @@ async function getByEmail(email) {
 async function remove(userId) {
     const collection = await dbService.getCollection('user')
     try {
-        await collection.deleteOne({"_id":ObjectId(userId)})
+        await collection.deleteOne({ "_id": ObjectId(userId) })
     } catch (err) {
         console.log(`ERROR: cannot remove user ${userId}`)
         throw err;
@@ -63,7 +63,7 @@ async function update(user) {
     user._id = ObjectId(user._id);
 
     try {
-        await collection.replaceOne({"_id":user._id}, {$set : user})
+        await collection.replaceOne({ "_id": user._id }, { $set: user })
         return user
     } catch (err) {
         console.log(`ERROR: cannot update user ${user._id}`)
@@ -72,9 +72,70 @@ async function update(user) {
 }
 
 async function add(user) {
+    var newUser = {
+        "email": user.email,
+        "name": user.username,
+        "img": "/cloudinary/",
+        "hashPassword": user.password,
+        "boards": [
+            {
+                "_id": "",
+                "name": "",
+                "background": "#545454"
+            }
+        ],
+        "alerts": [
+            {
+                "alertForUser": "the color change",
+                "isReade": false,
+                "task": {
+                    "_id": "",
+                    "name": ""
+                },
+                "taskList": {
+                    "_id": "",
+                    "name": ""
+                },
+                "board": {
+                    "_id": false,
+                    "name": "",
+                    "background": ""
+                },
+                "user": {
+                    "_id": "",
+                    "name": "",
+                    "img": "/cloudinary/"
+                }
+            }
+        ],
+        "comments": [
+            {
+                "txt": "txt",
+                "isReade": false,
+                "task": {
+                    "_id": "",
+                    "name": ""
+                },
+                "taskList": {
+                    "_id": "",
+                    "name": ""
+                },
+                "board": {
+                    "_id": false,
+                    "name": "",
+                    "background": ""
+                },
+                "user": {
+                    "_id": "",
+                    "name": "",
+                    "img": "/cloudinary/"
+                }
+            }
+        ]
+    }
     const collection = await dbService.getCollection('user')
     try {
-        await collection.insertOne(user);
+        await collection.insertOne(newUser);
         return user;
     } catch (err) {
         console.log(`ERROR: cannot insert user`)
@@ -88,7 +149,7 @@ function _buildCriteria(filterBy) {
         criteria.username = filterBy.txt
     }
     if (filterBy.minBalance) {
-        criteria.balance = {$gte : +filterBy.minBalance}
+        criteria.balance = { $gte: +filterBy.minBalance }
     }
     return criteria;
 }

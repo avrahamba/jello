@@ -1,15 +1,11 @@
 <template>
 <section class="board" v-if="boardData" :style="style">
-
-    <!-- Lists container -->
+<nav-board :boardData="boardData"></nav-board>
     <section class="lists-container">
         <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList">
         </task-list>
-
         <button class="add-list-btn btn">Add a list</button>
-
     </section>
-    <!-- End of lists container -->
 
     <h1>{{boardData.title}}</h1>
 
@@ -19,6 +15,7 @@
 <script>
 import taskList from '../components/task-list.vue'
 import board from './board.json';
+import navBoard from '../components/nav-board.vue';
 export default {
     data() {
         return {
@@ -30,7 +27,8 @@ export default {
         this.boardData = board
     },
     components: {
-        taskList
+        taskList,
+        navBoard
     },
     computed: {
         style() {
