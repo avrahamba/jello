@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import taskList from '../components/tak-list.vue'
+import taskList from '../components/task-list.vue'
 export default {
   data () {
     return {
