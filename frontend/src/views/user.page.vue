@@ -1,8 +1,8 @@
 <template>
-<div class="user-page">
-<h1>User Page</h1>
-<h1>{{user}}</h1>
-</div>
+  <div class="user-page">
+    <h1>User Page</h1>
+    <h1>{{user}}</h1>
+  </div>
 </template>
 
 <script>
@@ -14,16 +14,15 @@ export default {
     };
   },
   computed: {
-    loggedinUser() {
-      debugger
-      var x = this.$store.getters.loggedinUser;
-      return x
-    }
+    loggedinUser() {}
   },
   created() {
     console.log("this.loggedinUser", this.user);
+    debugger;
+    var x = this.$store.getters.loggedinUser;
+    debugger
+    this.user = x;
   },
-  methods: {
-  },
+  methods: {}
 };
 </script>

@@ -13,10 +13,10 @@
 import taskList from '../components/task-list.vue'
 import board from './board.json';
 export default {
-  data () {
+  data() {
     return {
       boardData: null
-    }
+    };
   },
   created () {
     const id = this.$route.params.id
@@ -25,7 +25,7 @@ export default {
   components: {
     taskList
   }
-}
+};
 </script>
 
 <style>
