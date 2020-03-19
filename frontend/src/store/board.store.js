@@ -56,15 +56,24 @@ export const boardStore = {
     },
     actions: {
         //* Board Actions
+        async getBoards(context,{userId}) {
+            try {
+                const boards = await boardService.query(userId);
+                return boards;
+            }
+            catch{
+                context.commit('setBoard', boardCopy);
+            }
+        },
+
         async getBoard(context, { boardId }) {
-            const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {
                 const board = await boardService.getById(boardId);
                 context.commit('setBoard', board);
                 return board;
             }
             catch{
-                context.commit('setBoard', boardCopy);
+                return null
             }
         },
 

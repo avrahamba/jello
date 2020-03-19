@@ -11,10 +11,11 @@
         </div>
 
     </div>
-
-    <div class="logo">
-        <h1>Jello</h1>
-    </div>
+    <router-link to="/">
+        <div class="logo">
+            <h1>Jello</h1>
+        </div>
+    </router-link>
 
     <div class="user-settings">
 

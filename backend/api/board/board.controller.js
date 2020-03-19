@@ -14,6 +14,19 @@ async function getBoards(req, res) {
     }
 }
 
+async function getBoard(req, res) {
+    try {
+        const boards = await boardService.getById(req.params.id)
+        res.json(boards)
+    } catch (err) {
+        logger.error('Cannot get boards', err);
+        res.status(500).send({ error: 'cannot get boards' })
+        
+    }
+}
+
+
+
 async function deleteBoard(req, res) {
     await boardService.remove(req.params.id)
     res.end()
@@ -30,6 +43,7 @@ async function addBoard(req, res) {
 }
 
 module.exports = {
+    getBoard,
     getBoards,
     deleteBoard,
     addBoard

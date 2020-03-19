@@ -1,7 +1,7 @@
 import httpService from './HttpService';
 
 export const boardService = {
-    // query,
+    query,
     getById,
     removeBoard,
     save,
@@ -10,11 +10,11 @@ export const boardService = {
     getEmptyBoard
 }
 
-// function query(boardId) {
-//     return httpService.get(`board/${boardId}`);
-// }
+async function query(userId) {
+    return httpService.get(`board/${userId}`);
+}
 function getById(id) {
-    return httpService.get(`board/${id}`);
+    return httpService.get(`board/id/${id}`);
 }
 function removeBoard(id) {
     return httpService.delete(`board/${id}`);

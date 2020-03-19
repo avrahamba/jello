@@ -1,6 +1,6 @@
 <template>
 <section class="board" v-if="boardData" :style="style">
-<nav-board :boardData="boardData"></nav-board>
+    <nav-board :boardData="boardData"></nav-board>
     <section class="lists-container">
         <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList">
         </task-list>
@@ -11,7 +11,6 @@
 
 <script>
 import taskList from '../components/task-list.vue'
-import board from './board.json';
 import navBoard from '../components/nav-board.vue';
 export default {
     data() {
@@ -20,8 +19,16 @@ export default {
         }
     },
     created() {
-        const id = this.$route.params.id
-        this.boardData = board
+        const boardId = this.$route.params.id
+        this.$store.dispatch({ type: 'getBoard', boardId })
+            .then(board => {
+                if (board.failed) {
+                    this.$router.push('/')
+                    return
+                }
+                this.boardData = board
+            })
+
     },
     components: {
         taskList,
