@@ -6,9 +6,6 @@
         </task-list>
         <button class="add-list-btn btn">Add a list</button>
     </section>
-
-    <h1>{{boardData.title}}</h1>
-
 </section>
 </template>
 
