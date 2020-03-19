@@ -33,3 +33,58 @@ const router = new VueRouter({
 })
 
 export default router
+
+
+// import Vue from 'vue'
+// import Router from 'vue-router'
+// import Home from './views/Home.vue'
+// import About from './views/About.vue'
+// import Test from './views/Test.vue'
+// import UserDetails from './views/UserDetails.vue'
+// import toyAppPage from '@/views/toy-app.page';
+// import toyEditPage from '@/views/toy-edit.page';
+// import toyDetailsPage from '@/views/toy-details.page';
+
+// Vue.use(Router)
+
+// export default new Router({
+//   mode: 'history',
+//   base: process.env.BASE_URL,
+//   routes: [
+//     {
+//       path: '/',
+//       name: 'home',
+//       component: Home
+//     },
+//     {
+//       path: '/about',
+//       name: 'about',
+//       component: About
+//     },
+//     {
+//       path: '/test',
+//       name: 'test',
+//       component: Test
+//     },
+//     {
+//       path: '/user/:id',
+//       name: 'user-details',
+//       component: UserDetails
+//     },
+//     {
+//       path: '/toy',
+//       name: 'toy-app',
+//       component: toyAppPage
+//     },
+//     {
+//       path: '/toy/edit/:id?',
+//       name: 'toy-edit',
+//       component: toyEditPage
+//     },
+//     {
+//       path: '/toy/:id',
+//       name: 'toy-details',
+//       component: toyDetailsPage
+//     }
+//   ]
+// })
