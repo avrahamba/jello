@@ -105,3 +105,207 @@ Thu, 19 Mar 2020 13:56:44 GMT - Error - Cannot get boards
 Thu, 19 Mar 2020 13:56:45 GMT - Error - Cannot get boards
 Thu, 19 Mar 2020 14:00:37 GMT - Info - Server is running on port: 3030
 Thu, 19 Mar 2020 14:01:54 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 14:15:33 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 14:59:06 GMT - Debug - ron@ron, 123, 123, undefined
+Thu, 19 Mar 2020 14:59:07 GMT - Debug - auth.service - signup with email: ron@ron, username: 123
+Thu, 19 Mar 2020 14:59:09 GMT - Debug - auth.route - new account created: {"email":"ron@ron","password":"$2b$10$TD19Hzpkt5a9QX1XTsP2gO.X122OJcZFtyIMxaeN2CkHE2nToOV1a","username":"123","_id":"5e7388bb572b1e1db8955e1f"}
+Thu, 19 Mar 2020 14:59:09 GMT - Debug - auth.service - login with email: ron@ron
+Thu, 19 Mar 2020 15:01:21 GMT - Debug - ron33, 123, 123, undefined
+Thu, 19 Mar 2020 15:01:21 GMT - Debug - auth.service - signup with email: ron33, username: 123
+Thu, 19 Mar 2020 15:01:21 GMT - Debug - auth.route - new account created: {"email":"ron33","password":"$2b$10$axlsl8lC97/Jdts4FYnzCehQzmBvHrYXY3m5T.6ZRZ1QVKPdLCyyK","username":"123","_id":"5e738941572b1e1db8955e20"}
+Thu, 19 Mar 2020 15:01:21 GMT - Debug - auth.service - login with email: ron33
+Thu, 19 Mar 2020 15:05:13 GMT - Debug - qwe, qwe, qwe, undefined
+Thu, 19 Mar 2020 15:05:13 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Thu, 19 Mar 2020 15:05:14 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$EB5svXbqrl0ooF5a8wF1HOd3ccYuLkgIsSROz6PtLGv3kznWsK5pC","username":"qwe","_id":"5e738a29572b1e1db8955e21"}
+Thu, 19 Mar 2020 15:05:14 GMT - Debug - auth.service - login with email: qwe
+Thu, 19 Mar 2020 15:06:16 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 15:06:28 GMT - Debug - qwe, qwe, qwe, undefined
+Thu, 19 Mar 2020 15:06:28 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Thu, 19 Mar 2020 15:06:28 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$WYAGL9gTCC8f7pBhxvokWumHwZn0f1qOfKcxC1xgS7ymlXXocdZQu","username":"qwe"}
+Thu, 19 Mar 2020 15:06:28 GMT - Debug - auth.service - login with email: qwe
+Thu, 19 Mar 2020 15:22:37 GMT - Debug - ron@ron, wohoo, 123, undefined
+Thu, 19 Mar 2020 15:22:37 GMT - Debug - auth.service - signup with email: ron@ron, username: wohoo
+Thu, 19 Mar 2020 15:22:38 GMT - Debug - auth.route - new account created: {"email":"ron@ron","password":"$2b$10$8AdZVOzkiXv3LzhiP3wwVeR9Jp0iBwEp8bt1bKk.zu7JMreLl.Qeu","username":"wohoo"}
+Thu, 19 Mar 2020 15:22:38 GMT - Debug - auth.service - login with email: ron@ron
+Thu, 19 Mar 2020 15:22:38 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 15:54:43 GMT - Debug - ron@123, ron, 123, undefined
+Thu, 19 Mar 2020 15:54:43 GMT - Debug - auth.service - signup with email: ron@123, username: ron
+Thu, 19 Mar 2020 15:54:44 GMT - Debug - auth.route - new account created: {"email":"ron@123","password":"$2b$10$PscH5lqhp5FAtT5CapWyHevZOb70FB178YlxoKM.2ExNvul5eje3W","username":"ron"}
+Thu, 19 Mar 2020 15:54:44 GMT - Debug - auth.service - login with email: ron@123
+Thu, 19 Mar 2020 15:54:44 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 15:57:12 GMT - Debug - ron@12341, ron, 123, undefined
+Thu, 19 Mar 2020 15:57:12 GMT - Debug - auth.service - signup with email: ron@12341, username: ron
+Thu, 19 Mar 2020 15:57:12 GMT - Debug - auth.route - new account created: {"email":"ron@12341","password":"$2b$10$M5wwGWAEOcdJkuUjgdJK0OAznMx9GKHxASQ954Nap8ua1bGtKfw76","username":"ron"}
+Thu, 19 Mar 2020 15:57:12 GMT - Debug - auth.service - login with email: ron@12341
+Thu, 19 Mar 2020 15:57:12 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:01:28 GMT - Debug - ron@12341, ron, 123, undefined
+Thu, 19 Mar 2020 16:01:28 GMT - Debug - auth.service - signup with email: ron@12341, username: ron
+Thu, 19 Mar 2020 16:01:29 GMT - Debug - auth.route - new account created: {"email":"ron@12341","password":"$2b$10$Wf7s3WGJf1tvtPNvlgBc5OKPjA8vvdcs1nxWSarUVVeiRIKaIBmPm","username":"ron"}
+Thu, 19 Mar 2020 16:01:29 GMT - Debug - auth.service - login with email: ron@12341
+Thu, 19 Mar 2020 16:01:29 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:02:02 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:02:11 GMT - Debug - ron@12341, ron, 123, undefined
+Thu, 19 Mar 2020 16:02:11 GMT - Debug - auth.service - signup with email: ron@12341, username: ron
+Thu, 19 Mar 2020 16:02:13 GMT - Debug - auth.route - new account created: {"email":"ron@12341","password":"$2b$10$bpyCTGX5AcOzF7WRnLU00uufMo9IxU0V1SZPrU/6UXJPWr.yxXbfa","username":"ron"}
+Thu, 19 Mar 2020 16:02:13 GMT - Debug - auth.service - login with email: ron@12341
+Thu, 19 Mar 2020 16:02:14 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:03:06 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:03:29 GMT - Debug - ron@12341, ron, 123, undefined
+Thu, 19 Mar 2020 16:03:29 GMT - Debug - auth.service - signup with email: ron@12341, username: ron
+Thu, 19 Mar 2020 16:03:31 GMT - Debug - auth.route - new account created: {"email":"ron@12341","password":"$2b$10$N3Kv3unvGLVEo//qV8dhdut6qVOJ035Xc.T8I3Ylo4AFqguDsPiPq","username":"ron"}
+Thu, 19 Mar 2020 16:03:31 GMT - Debug - auth.service - login with email: ron@12341
+Thu, 19 Mar 2020 16:03:32 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:04:11 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:04:23 GMT - Debug - 123, 123, 123, undefined
+Thu, 19 Mar 2020 16:04:23 GMT - Debug - auth.service - signup with email: 123, username: 123
+Thu, 19 Mar 2020 16:04:25 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$xtNdAF0WyJDXjyCK5lp3hemlH4fK.4TU3vGSTqrCVNLEti8Jc.nL6","username":"123"}
+Thu, 19 Mar 2020 16:04:25 GMT - Debug - auth.service - login with email: 123
+Thu, 19 Mar 2020 16:04:25 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:07:04 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:07:09 GMT - Debug - 123, 123, 123, undefined
+Thu, 19 Mar 2020 16:07:09 GMT - Debug - auth.service - signup with email: 123, username: 123
+Thu, 19 Mar 2020 16:07:09 GMT - Error - [SIGNUP] Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0-deuxa.mongodb.net
+Thu, 19 Mar 2020 16:07:36 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:07:45 GMT - Debug - 123, 123, 123, undefined
+Thu, 19 Mar 2020 16:07:45 GMT - Debug - auth.service - signup with email: 123, username: 123
+Thu, 19 Mar 2020 16:07:45 GMT - Error - [SIGNUP] Error: querySrv ECONNREFUSED _mongodb._tcp.cluster0-deuxa.mongodb.net
+Thu, 19 Mar 2020 16:19:58 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:19:58 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:20:03 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$d98GvpiO0CPq3w7YZorCoeonincEMe0Vm1axQAapPZZLb8hXy9kTm","username":"123"}
+Thu, 19 Mar 2020 16:20:03 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:20:03 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:20:40 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:20:43 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:20:43 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:20:46 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$r.BL7NntCenogwm5p.mu6uvNtwgehoyBDIWJovMctPQKLvlUC.XOu","username":"123"}
+Thu, 19 Mar 2020 16:20:46 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:20:46 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:21:35 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:21:42 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:21:42 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:21:48 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$KDMDUTobXH05UtUATVG1FetmbYFV7LQEggz8gNN3TN.qXGWWEjAeu","username":"123"}
+Thu, 19 Mar 2020 16:21:48 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:21:48 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:22:50 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:22:54 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:22:54 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:22:58 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$ckLC1/yJ5xpZdYtWQ9sTdetCFViQsQuWp6bPlAzFQflRnIIzUh81O","username":"123"}
+Thu, 19 Mar 2020 16:22:58 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:22:58 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:23:21 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:23:24 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:23:24 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:23:28 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$GBW6kmwK03IJBhNuTeihJOqQ1IYmF1o2Mu6UjtlzHQy5swNa/4j0q","username":"123"}
+Thu, 19 Mar 2020 16:23:28 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:23:28 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:24:17 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:24:21 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:24:21 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:24:26 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$3jGXx1BiAbYIXj9V/R6nTOxGawvGMryRAKneW9yJS861VNRaQrzim","username":"123"}
+Thu, 19 Mar 2020 16:24:26 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:24:26 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:24:50 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:24:53 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:24:53 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:24:56 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$Qec44vAr.eX5Ep/TzONAuekK.CoabQifVeG746biOtcaHn3JiLtQy","username":"123"}
+Thu, 19 Mar 2020 16:24:56 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:24:56 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:25:28 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:25:30 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:25:30 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:25:34 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$aFgyJwbH6j1altanSQCvkeM073o2uSlcAKvT2KDJJTXI0jpVhr2My","username":"123"}
+Thu, 19 Mar 2020 16:25:34 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:25:34 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:26:06 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:26:08 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:26:08 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:26:14 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$ZF18kL7yFAHNUKPstXNx0O1LHbGEdYLFM1WbnDmzw7lzjboZ5sj3.","username":"123"}
+Thu, 19 Mar 2020 16:26:14 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:26:15 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:27:50 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:27:52 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:27:52 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:27:56 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$du1vwIKhBlJxIapc/NNgl.Cjr18CTTah8WdZ/tzRZDZjOeUBR/33m","username":"123"}
+Thu, 19 Mar 2020 16:27:56 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:27:56 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:29:06 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:29:06 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:29:07 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$ySk/gC/ex1VEbQlByieRK.DAC7U.HGXUgK7hJU7dB2bOT7k3YRBYW","username":"123"}
+Thu, 19 Mar 2020 16:29:07 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:29:07 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:30:35 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:34:04 GMT - Debug - ron@123`, 123, 123, undefined
+Thu, 19 Mar 2020 16:34:04 GMT - Debug - auth.service - signup with email: ron@123`, username: 123
+Thu, 19 Mar 2020 16:34:16 GMT - Debug - auth.route - new account created: {"email":"ron@123`","password":"$2b$10$6mhNhYQ1ZBHXUiAcinJgfe0ZoZMxJcDbVrJ1lVJmDYE1I.MKkdHKC","username":"123"}
+Thu, 19 Mar 2020 16:34:16 GMT - Debug - auth.service - login with email: ron@123`
+Thu, 19 Mar 2020 16:34:17 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:36:28 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 16:36:28 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 16:36:29 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$Fg2JPNkaQL/swT6BuNgtoOL2BqswDnN3zw1YRem//eyQiYNrd9huC","username":"123"}
+Thu, 19 Mar 2020 16:36:29 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 16:36:30 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:44:59 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 16:59:24 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 16:59:24 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 16:59:28 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$iVcqqQaVRWHYacjW1dLDVOIiaZfRzTDYhBfHc9sdre6NJ0oYt7xRi","username":"123"}
+Thu, 19 Mar 2020 16:59:28 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 16:59:28 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 16:59:33 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 16:59:33 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 16:59:34 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$qAnaxUKSXhdJ3oHXzWAQXOZDqeAKpYr1uiiHjJiauB07lK5kuehu6","username":"123"}
+Thu, 19 Mar 2020 16:59:34 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 16:59:34 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 17:00:51 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 17:00:56 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 17:00:56 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 17:01:03 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$fFwBCQAOp6s8IwTYuant5ecB/VwoIlzaHXGinkhxE9Z2CILu00TFq","username":"123"}
+Thu, 19 Mar 2020 17:01:03 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 17:01:03 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 17:01:27 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 17:01:34 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 17:01:34 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 17:01:39 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$abCIFUBiAIroLVgNox4h4eWeErsTLmNodnp/KKXU/aSnxvheSIbgm","username":"123"}
+Thu, 19 Mar 2020 17:01:39 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 17:01:39 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 17:56:14 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 17:56:21 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 17:56:21 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 17:56:23 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$DBe3sI0AXQ6ZGuDJMp9vs.AyuSnwT3ZIY7dv1TEQAMh17nJIogKxu","username":"123"}
+Thu, 19 Mar 2020 17:56:23 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 17:56:24 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 17:57:41 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 18:06:22 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 18:06:22 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 18:06:25 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$vDcRANBNAPHm42auA9MeHOUP2n8PARBB3Wg5gxHSYYnr1BaimtlRe","username":"123"}
+Thu, 19 Mar 2020 18:06:25 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 18:06:26 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 18:08:07 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 18:08:15 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 18:08:15 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 18:08:18 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$290gfeI84b5KOYupN.NXx.IfhMeUWmpudVLQhA1rgSkE/oJ4n6/p2","username":"123"}
+Thu, 19 Mar 2020 18:08:18 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 18:08:19 GMT - Error - [SIGNUP] Error: data and hash arguments required
+Thu, 19 Mar 2020 18:09:20 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 18:09:28 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 18:09:28 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 18:09:31 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$SQyFgrNeWGZ.J0RCSHaqueoeTUax4XadoGDWTOxxxRpqC8YiP9tMW","username":"123"}
+Thu, 19 Mar 2020 18:09:31 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 18:09:36 GMT - Debug - ronron, 123, 123, undefined
+Thu, 19 Mar 2020 18:09:36 GMT - Debug - auth.service - signup with email: ronron, username: 123
+Thu, 19 Mar 2020 18:09:37 GMT - Debug - auth.route - new account created: {"email":"ronron","password":"$2b$10$lnAnK/vfnaFROaZKTs7dtuon1p10rs6UintqqgkSf9pf0otUpqmp2","username":"123"}
+Thu, 19 Mar 2020 18:09:37 GMT - Debug - auth.service - login with email: ronron
+Thu, 19 Mar 2020 18:10:08 GMT - Debug - i made it!, 123, wohoo, undefined
+Thu, 19 Mar 2020 18:10:08 GMT - Debug - auth.service - signup with email: i made it!, username: 123
+Thu, 19 Mar 2020 18:10:08 GMT - Debug - auth.route - new account created: {"email":"i made it!","password":"$2b$10$d0IzfPvAAlxNJruswhMESe1XJagvfFGEn8tcRlewKwcEq9xGHxU2e","username":"123"}
+Thu, 19 Mar 2020 18:10:08 GMT - Debug - auth.service - login with email: i made it!
+Thu, 19 Mar 2020 18:13:22 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 18:14:50 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 18:16:59 GMT - Debug - 123, 123, 123, undefined
+Thu, 19 Mar 2020 18:16:59 GMT - Debug - auth.service - signup with email: 123, username: 123
+Thu, 19 Mar 2020 18:16:59 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$Gvi1OREZ1MBFSbJq89Rx9ueYKeSKHxqUNwFJWxvVIB4OEbSl8/dWa","username":"123"}
+Thu, 19 Mar 2020 18:16:59 GMT - Debug - auth.service - login with email: 123
+Thu, 19 Mar 2020 18:17:11 GMT - Debug - auth.service - login with email: 123
+Thu, 19 Mar 2020 18:29:23 GMT - Debug - 123, 123, 123, undefined
+Thu, 19 Mar 2020 18:29:23 GMT - Debug - auth.service - signup with email: 123, username: 123
+Thu, 19 Mar 2020 18:29:25 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$HG89JSO4x/wJlBGhgBVa0.f0PLTchEr40t5M/RckDPePiPG0lacoS","username":"123"}
+Thu, 19 Mar 2020 18:29:25 GMT - Debug - auth.service - login with email: 123
