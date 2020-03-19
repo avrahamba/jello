@@ -228,7 +228,7 @@ body {
     align-items: start;
     padding: 0 0.8rem 0.8rem;
     overflow-x: auto;
-    height: calc(100vh - 94px);
+    height: calc(100vh - 87px);
 }
 
 .task-list {
@@ -282,6 +282,7 @@ body {
     margin-bottom: 0.6rem;
     word-wrap: break-word;
     cursor: pointer;
+    text-align: left;
 }
 
 .task-preview:last-of-type {

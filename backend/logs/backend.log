@@ -309,3 +309,4 @@ Thu, 19 Mar 2020 18:29:23 GMT - Debug - 123, 123, 123, undefined
 Thu, 19 Mar 2020 18:29:23 GMT - Debug - auth.service - signup with email: 123, username: 123
 Thu, 19 Mar 2020 18:29:25 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$HG89JSO4x/wJlBGhgBVa0.f0PLTchEr40t5M/RckDPePiPG0lacoS","username":"123"}
 Thu, 19 Mar 2020 18:29:25 GMT - Debug - auth.service - login with email: 123
+Thu, 19 Mar 2020 20:41:00 GMT - Info - Server is running on port: 3030

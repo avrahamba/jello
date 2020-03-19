@@ -13,7 +13,7 @@
     </div>
 
     <div class="logo">
-        <h1><i class="fab fa-trello logo-icon" aria-hidden="true"></i>Trello</h1>
+        <h1>Jello</h1>
     </div>
 
     <div class="user-settings">
