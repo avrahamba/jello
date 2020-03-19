@@ -1,0 +1,49 @@
+[33mcommit 01907756215d7aad42215180090c371d6287b8bb[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Ron Hershkovitz <ron9hm1@gmail.com>
+Date:   Thu Mar 19 12:31:44 2020 +0200
+
+    cmp change
+
+[33mcommit d2f8bcff881056a0c7dfd863eb4a8f848b399dc3[m
+Author: Ron Hershkovitz <ron9hm1@gmail.com>
+Date:   Thu Mar 19 12:29:52 2020 +0200
+
+    task-list v1
+
+[33mcommit 68b2fc7be0dff66b779be3935b6ebfe7d2efb70b[m
+Merge: 3d50f3d 53faa1a
+Author: Ron Hershkovitz <ron9hm1@gmail.com>
+Date:   Thu Mar 19 12:28:39 2020 +0200
+
+    Merge branch 'master' of https://github.com/avrahamba/jello
+
+[33mcommit 3d50f3d158ff2fe4b066d7061ec7f6367f9e26ec[m
+Author: Ron Hershkovitz <ron9hm1@gmail.com>
+Date:   Thu Mar 19 12:28:30 2020 +0200
+
+    npm i - ron
+
+[33mcommit 53faa1a6628095db05cea8c43f41d0d3d583a0fe[m
+Merge: ef9d053 1896b94
+Author: Itay Sorin <itaysorin0@gmail.com>
+Date:   Thu Mar 19 12:24:13 2020 +0200
+
+    Merge branch 'master' of https://github.com/avrahamba/jello
+
+[33mcommit ef9d053b0ad54ade2acae773f27ab17fe71d02ce[m
+Author: Itay Sorin <itaysorin0@gmail.com>
+Date:   Thu Mar 19 12:23:39 2020 +0200
+
+    added task component
+
+[33mcommit 1896b948121719150a4dca61992fbb8f2ea00273[m
+Author: avraham <b.a.avraham@gmail.com>
+Date:   Thu Mar 19 12:11:31 2020 +0200
+
+    add navbar
+
+[33mcommit acd5073c3f4d18332cae05863bc34bb665de7a7e[m
+Author: avraham <b.a.avraham@gmail.com>
+Date:   Thu Mar 19 11:16:39 2020 +0200
+
+    a
