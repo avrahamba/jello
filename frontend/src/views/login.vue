@@ -8,6 +8,7 @@
         <form @submit.prevent="updateUser">
           <input type="text" v-model="userToEdit.username" />
         </form>
+        <router-link to="/userPage">User Page</router-link>
         <button @click="doLogout">Logout</button>
       </h3>
     </div>
