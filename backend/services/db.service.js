@@ -8,7 +8,7 @@ module.exports = {
 }
 
 // Database Name
-const dbName = 'tester_db';
+const dbName = 'jello_db';
 
 var dbConn = null;
 
