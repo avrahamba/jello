@@ -1,0 +1,89 @@
+Sun, 15 Mar 2020 10:26:43 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 10:43:24 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 10:57:43 GMT - Debug - kiki@kiki.kiki, Kiki, kiki
+Sun, 15 Mar 2020 10:57:43 GMT - Debug - auth.service - signup with email: kiki@kiki.kiki, username: Kiki
+Sun, 15 Mar 2020 10:57:43 GMT - Debug - auth.route - new account created: {"email":"kiki@kiki.kiki","password":"$2b$10$QGyWJkk7YCEHLa56.AtXaeOTgU3PqO2eiKxy4GVyrnnLkx4TkrSa2","username":"Kiki","_id":"5e6e0a275f1a402e144ebfd2"}
+Sun, 15 Mar 2020 10:57:43 GMT - Debug - auth.service - login with email: kiki@kiki.kiki
+Sun, 15 Mar 2020 11:20:49 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 11:21:08 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 19:42:05 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 19:48:49 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 20:16:02 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 20:16:25 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 20:17:13 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 20:39:50 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 20:40:55 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 22:35:18 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 22:40:25 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 22:40:37 GMT - Debug - kosta, kostkao, goncharov
+Sun, 15 Mar 2020 22:40:37 GMT - Debug - auth.service - signup with email: kosta, username: kostkao
+Sun, 15 Mar 2020 22:40:43 GMT - Error - [SIGNUP] MongoNetworkError: failed to connect to server [cluster0-shard-00-00-kxjdx.mongodb.net:27017] on first connect [MongoError: bad auth Authentication failed.
+    at C:\Users\User\Desktop\Serverless + Cloudinary\final-e2e-proj\backend\node_modules\mongodb\lib\core\auth\auth_provider.js:46:25
+    at C:\Users\User\Desktop\Serverless + Cloudinary\final-e2e-proj\backend\node_modules\mongodb\lib\core\auth\scram.js:240:11
+    at _callback (C:\Users\User\Desktop\Serverless + Cloudinary\final-e2e-proj\backend\node_modules\mongodb\lib\core\connection\connect.js:349:5)
+    at Connection.messageHandler (C:\Users\User\Desktop\Serverless + Cloudinary\final-e2e-proj\backend\node_modules\mongodb\lib\core\connection\connect.js:378:5)
+    at Connection.emit (events.js:210:5)
+    at processMessage (C:\Users\User\Desktop\Serverless + Cloudinary\final-e2e-proj\backend\node_modules\mongodb\lib\core\connection\connection.js:384:10)
+    at TLSSocket.<anonymous> (C:\Users\User\Desktop\Serverless + Cloudinary\final-e2e-proj\backend\node_modules\mongodb\lib\core\connection\connection.js:553:15)
+    at TLSSocket.emit (events.js:210:5)
+    at addChunk (_stream_readable.js:309:12)
+    at readableAddChunk (_stream_readable.js:290:11) {
+  ok: 0,
+  errmsg: 'bad auth Authentication failed.',
+  code: 8000,
+  codeName: 'AtlasError',
+  name: 'MongoError',
+  [Symbol(mongoErrorContextSymbol)]: {}
+}]
+Sun, 15 Mar 2020 22:42:27 GMT - Info - Server is running on port: 3030
+Sun, 15 Mar 2020 22:43:06 GMT - Debug - sdofj, lskdfj, sdkfj
+Sun, 15 Mar 2020 22:43:06 GMT - Debug - auth.service - signup with email: sdofj, username: lskdfj
+Sun, 15 Mar 2020 22:43:07 GMT - Debug - auth.route - new account created: {"email":"sdofj","password":"$2b$10$oTprarVON1el50o/2kt5/.lv/ySGVsoH/5ehRXWIYkTreHxGT8DWS","username":"lskdfj","_id":"5e6eaf7a947ae47bac2396b0"}
+Sun, 15 Mar 2020 22:43:07 GMT - Debug - auth.service - login with email: sdofj
+Mon, 16 Mar 2020 00:39:01 GMT - Info - Server is running on port: 3030
+Mon, 16 Mar 2020 00:43:38 GMT - Info - Server is running on port: 3030
+Mon, 16 Mar 2020 00:53:46 GMT - Info - Server is running on port: 3030
+Mon, 16 Mar 2020 00:55:31 GMT - Debug - auth.service - login with email: ksdf
+Mon, 16 Mar 2020 00:56:28 GMT - Debug - auth.service - login with email: kosta
+Mon, 16 Mar 2020 01:00:48 GMT - Debug - sdl, l, ls
+Mon, 16 Mar 2020 01:00:48 GMT - Debug - auth.service - signup with email: sdl, username: l
+Mon, 16 Mar 2020 01:00:48 GMT - Debug - auth.route - new account created: {"email":"sdl","password":"$2b$10$WNESpKbqvVyGblonXaYp8uXFMjvaXF4rXcgB9p3tdAvbGFygQ/dBC","username":"l","_id":"5e6ecfc005a690771c33c5b2"}
+Mon, 16 Mar 2020 01:00:48 GMT - Debug - auth.service - login with email: sdl
+Mon, 16 Mar 2020 01:11:38 GMT - Debug - kosta, kosta, kosta
+Mon, 16 Mar 2020 01:11:38 GMT - Debug - auth.service - signup with email: kosta, username: kosta
+Mon, 16 Mar 2020 01:11:38 GMT - Debug - auth.route - new account created: {"email":"kosta","password":"$2b$10$GOTDlc2k3yMtEbcK04XFKealfl4nJxvLYUpTQOST8up.T.8vTN6YG","username":"kosta","_id":"5e6ed24a05a690771c33c5b3"}
+Mon, 16 Mar 2020 01:11:38 GMT - Debug - auth.service - login with email: kosta
+Mon, 16 Mar 2020 01:12:55 GMT - Debug - auth.service - login with email: kosta
+Mon, 16 Mar 2020 01:13:09 GMT - Debug - auth.service - login with email: kosta
+Mon, 16 Mar 2020 01:20:09 GMT - Info - Server is running on port: 3030
+Mon, 16 Mar 2020 01:22:49 GMT - Debug - kost, kost, kost, undefined
+Mon, 16 Mar 2020 01:22:49 GMT - Debug - auth.service - signup with email: kost, username: kost
+Mon, 16 Mar 2020 01:22:50 GMT - Debug - auth.route - new account created: {"email":"kost","password":"$2b$10$tW1ZWEBYy6ctE7B3NY2kJO2jP6n/BW67Lxlrd6Cqi/LebLjPapWUy","username":"kost","_id":"5e6ed4eae1b7083cecf56772"}
+Mon, 16 Mar 2020 01:22:50 GMT - Debug - auth.service - login with email: kost
+Mon, 16 Mar 2020 01:24:26 GMT - Debug - piter, pooki, shmiter, undefined
+Mon, 16 Mar 2020 01:24:26 GMT - Debug - auth.service - signup with email: piter, username: pooki
+Mon, 16 Mar 2020 01:24:27 GMT - Debug - auth.route - new account created: {"email":"piter","password":"$2b$10$OlUAp0DJivNK1YC/cUNPr.qe.4ozkHTXh6TnbVybK3utxg/Wa8zoC","username":"pooki","_id":"5e6ed54be1b7083cecf56773"}
+Mon, 16 Mar 2020 01:24:27 GMT - Debug - auth.service - login with email: piter
+Mon, 16 Mar 2020 01:30:53 GMT - Debug - xoxo, xoxo, xoxo, https://res.cloudinary.com/ddarfzyr2/image/upload/v1584322248/lemj9gjzihimzoxr58za.jpg
+Mon, 16 Mar 2020 01:30:53 GMT - Debug - auth.service - signup with email: xoxo, username: xoxo
+Mon, 16 Mar 2020 01:30:53 GMT - Debug - auth.route - new account created: {"email":"xoxo","password":"$2b$10$1DyovjNtOSesP3wK6wbVfOGPj5kJ5BLlWusckhWD8Owa9y7gRLO4m","username":"xoxo","image":"https://res.cloudinary.com/ddarfzyr2/image/upload/v1584322248/lemj9gjzihimzoxr58za.jpg","_id":"5e6ed6cde1b7083cecf56774"}
+Mon, 16 Mar 2020 01:30:53 GMT - Debug - auth.service - login with email: xoxo
+Mon, 16 Mar 2020 07:17:01 GMT - Info - Server is running on port: 3030
+Mon, 16 Mar 2020 07:19:14 GMT - Debug - jar, binx, jar, https://res.cloudinary.com/ddarfzyr2/image/upload/v1584343138/jlsugaqwcjkvttrl431p.jpg
+Mon, 16 Mar 2020 07:19:14 GMT - Debug - auth.service - signup with email: jar, username: binx
+Mon, 16 Mar 2020 07:19:14 GMT - Debug - auth.route - new account created: {"email":"jar","password":"$2b$10$BgtT.TnXEiqPZVxrVdKUAeG7WJ1uglCOwRJVJVltZQU7MDMOgxVYe","username":"binx","image":"https://res.cloudinary.com/ddarfzyr2/image/upload/v1584343138/jlsugaqwcjkvttrl431p.jpg","_id":"5e6f2872c01f4f299074e78c"}
+Mon, 16 Mar 2020 07:19:14 GMT - Debug - auth.service - login with email: jar
+Mon, 16 Mar 2020 08:47:58 GMT - Info - Server is running on port: 3030
+Mon, 16 Mar 2020 09:17:42 GMT - Debug - shukibd@gmail.com, Shuk, 123, undefined
+Mon, 16 Mar 2020 09:17:42 GMT - Debug - auth.service - signup with email: shukibd@gmail.com, username: Shuk
+Mon, 16 Mar 2020 09:17:42 GMT - Debug - auth.route - new account created: {"email":"shukibd@gmail.com","password":"$2b$10$INlmhmA.LR44o4JMaLjF9eleO6JqwBk1zaInnLejplW8xHVUSnYGq","username":"Shuk","_id":"5e6f4436a720582bb0b7bc3f"}
+Mon, 16 Mar 2020 09:17:42 GMT - Debug - auth.service - login with email: shukibd@gmail.com
+Mon, 16 Mar 2020 09:19:52 GMT - Debug - xxx, zxx, xxx, undefined
+Mon, 16 Mar 2020 09:19:52 GMT - Debug - auth.service - signup with email: xxx, username: zxx
+Mon, 16 Mar 2020 09:19:52 GMT - Debug - auth.route - new account created: {"email":"xxx","password":"$2b$10$slCucoqRVD2t0Thp6MIa4uMp9zyWMOKLdDHzlDXWIUMEvabNl3LYS","username":"zxx","_id":"5e6f44b8a720582bb0b7bc40"}
+Mon, 16 Mar 2020 09:19:52 GMT - Debug - auth.service - login with email: xxx
+Mon, 16 Mar 2020 09:21:17 GMT - Info - Server is running on port: 3030
+Mon, 16 Mar 2020 09:21:50 GMT - Debug - aviv@theking.com, avivJS, 123, undefined
+Mon, 16 Mar 2020 09:21:50 GMT - Debug - auth.service - signup with email: aviv@theking.com, username: avivJS
+Mon, 16 Mar 2020 09:21:50 GMT - Debug - auth.route - new account created: {"email":"aviv@theking.com","password":"$2b$10$rWhONRQPbBEZSR6vXlBHbOcOsLIEl7BodOwwRND1LZb8ETXaDX2W6","username":"avivJS","_id":"5e6f452e75645d14f876f657"}
+Mon, 16 Mar 2020 09:21:50 GMT - Debug - auth.service - login with email: aviv@theking.com
