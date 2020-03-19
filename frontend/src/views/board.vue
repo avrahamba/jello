@@ -15,7 +15,7 @@ export default {
   },
   created () {
     const id = this.$route.params.id
-    
+
   },
   components: {
     taskList
