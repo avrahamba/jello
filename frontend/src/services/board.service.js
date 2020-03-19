@@ -6,7 +6,8 @@ export const boardService = {
     removeBoard,
     save,
     getEmptyList,
-    getEmptyTask
+    getEmptyTask,
+    getEmptyBoard
 }
 
 // function query(boardId) {
@@ -38,6 +39,14 @@ function getEmptyList() {
         id: "",
         title: "",
         tasks: []
+    }
+}
+
+function getEmptyBoard() {
+    return {
+        id: "",
+        title: "",
+        background: ""
     }
 }
 
