@@ -12,14 +12,12 @@
       </h3>
     </div>
     <div v-else>
-    <form @submit.prevent="doSignup">
-      <input type="text" v-model="signupCred.email" placeholder="Email">
+    <form  @submit.prevent="doLogin">
+      <input type="text" v-model="loginCred.email" placeholder="Email">
       <br />
-      <input type="text" v-model="signupCred.password" placeholder="Password">
+      <input type="text" v-model="loginCred.password" placeholder="Password">
       <br />
-      <input type="text" v-model="signupCred.username" placeholder="Username">
-      <br />
-      <button>Signup</button>
+      <button>Login</button>
     </form>
     </div>
     <hr />
@@ -30,7 +28,6 @@
         <button @click="removeUser(user._id)">x</button>
       </li>
     </ul>
-
   </div>
 </template>
 
