@@ -4,9 +4,9 @@ export const boardService = {
     // query,
     getById,
     remove,
-    // save,
-    // getEmptyCreterea,
-    // getEmptyBoard
+    save,
+    getEmptyList,
+    getEmptyTask
 }
 
 // function query(boardId) {
@@ -15,27 +15,39 @@ export const boardService = {
 function getById(id) {
     return httpService.get(`board/${id}`);
 }
-function remove(id) {
+function removeBoard(id) {
     return httpService.delete(`board/${id}`);
 }
 
-function getEmptyBoard() {
+function getEmptyTask() {
     return {
-        name: '',
-        price: 0,
-        type: '',
-        img: '',
-        inStock: false
+        id: "",
+        title: "",
+        desc: "",
+        labels: [],
+        cover: {},
+        atachment: [],
+        checklists: [],
+        members: [],
+        msgs: []
     }
 }
 
- async function save(board) {
-     let prm; 
-     if (board._id) prm = httpService.put(`board/${board._id}`, board);
-     else {
-        board.createdAt = new Date();
-        prm = httpService.post('board', board);
-     }
-     return await prm;
- }
+function getEmptyList() {
+    return {
+        id: "",
+        title: "",
+        tasks: []
+    }
+}
+
+async function save(board) {
+    let prm;
+    //  if (board._id) prm = httpService.put(`board/${board._id}`, board);
+    //  else {
+    //     board.createdAt = new Date();
+    prm = httpService.post('board', board);
+
+    return await prm;
+}
 
