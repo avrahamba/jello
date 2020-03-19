@@ -19,5 +19,23 @@ function remove(id) {
     return httpService.delete(`board/${id}`);
 }
 
+function getEmptyBoard() {
+    return {
+        name: '',
+        price: 0,
+        type: '',
+        img: '',
+        inStock: false
+    }
+}
 
+ async function save(board) {
+     let prm; 
+     if (board._id) prm = httpService.put(`board/${board._id}`, board);
+     else {
+        board.createdAt = new Date();
+        prm = httpService.post('board', board);
+     }
+     return await prm;
+ }
 
