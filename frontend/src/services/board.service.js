@@ -3,7 +3,7 @@ import httpService from './HttpService';
 export const boardService = {
     // query,
     getById,
-    remove,
+    removeBoard,
     save,
     getEmptyList,
     getEmptyTask

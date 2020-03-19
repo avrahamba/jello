@@ -18,9 +18,7 @@ export default {
   },
   created() {
     console.log("this.loggedinUser", this.user);
-    debugger;
     var x = this.$store.getters.loggedinUser;
-    debugger
     this.user = x;
   },
   methods: {}
