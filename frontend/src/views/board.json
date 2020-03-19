@@ -1,5 +1,9 @@
 {
     "_id": "5e726a3ff73d112b0cc0deee",
+    "title":"proj1",
+    "style":{
+        "background":"#664422"
+    },
     "users": [
         {
             "_id": "bbb",
