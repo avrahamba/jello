@@ -87,3 +87,21 @@ Mon, 16 Mar 2020 09:21:50 GMT - Debug - aviv@theking.com, avivJS, 123, undefined
 Mon, 16 Mar 2020 09:21:50 GMT - Debug - auth.service - signup with email: aviv@theking.com, username: avivJS
 Mon, 16 Mar 2020 09:21:50 GMT - Debug - auth.route - new account created: {"email":"aviv@theking.com","password":"$2b$10$rWhONRQPbBEZSR6vXlBHbOcOsLIEl7BodOwwRND1LZb8ETXaDX2W6","username":"avivJS","_id":"5e6f452e75645d14f876f657"}
 Mon, 16 Mar 2020 09:21:50 GMT - Debug - auth.service - login with email: aviv@theking.com
+Thu, 19 Mar 2020 13:35:47 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:36:30 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:51:08 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:52:10 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:54:02 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:54:08 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 13:54:34 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:55:32 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:55:36 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 13:55:58 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:56:02 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 13:56:20 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:56:22 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 13:56:40 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 13:56:44 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 13:56:45 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 14:00:37 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 14:01:54 GMT - Info - Server is running on port: 3030
