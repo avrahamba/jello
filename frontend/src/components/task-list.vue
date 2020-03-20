@@ -9,7 +9,6 @@
         </div>
         <div>
           <button @click="createTask" class="create">Add Card</button>
-          <button @click="deleteList" class="create">delete list</button>
           <button @click="changeAddTaskMode" class="close">&times;</button>
           <button>...</button>
         </div>
@@ -49,22 +48,12 @@ export default {
         .then(res => {
           this.newTask.title = "";
         });
-    },
-    deleteList() {
-      this.addTaskMode = false;
-      this.$store
-        .dispatch({
-          type: "removeList",
-          listId: this.taskListData.id
-        })
-        .then(res => {
-          console.log("list deleted", res);
-        });
     }
   },
   components: {
     taskPreview
-  }
+  },
+  created() {}
 };
 </script>
 

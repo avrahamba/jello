@@ -111,7 +111,7 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
-
+        //!work
         async removeList(context, { listId }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {
@@ -156,10 +156,8 @@ export const boardStore = {
 
         async addTask(context, { taskListId, newTask }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const task = boardService.getEmptyTask(context.state.board._id);
-
+            const task = boardService.getEmptyTask(taskListId);
             task.title = newTask.title
-
             const taskObj = { task, taskListId }
 
             try {
@@ -171,10 +169,13 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
-        async removeTask(context, { taskObj }) {
+        async removeTask(context, { taskListId, taskId }) {
+            debugger
+            // taskObj = taskListId + taskId
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {
                 //remove the task from the local board(not copy) 
+                const taskObj = { taskId, taskListId }
                 context.commit('removeTask', taskObj);
                 const res = await boardService.save(context.state.board);
                 return res
