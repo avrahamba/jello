@@ -8,39 +8,39 @@ export const boardStore = {
     },
     mutations: {
         //* Board Mutations
-        setBoard(state, { board }) {
+        setBoard(state,  board ) {
             state.board = board;
         },
         //* List Mutations
-        addList(state, { list }) {
+        addList(state, list ) {
             state.board.taskLists.unshift(list);
         },
-        saveList(state, { list }) {
-            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.listId);
+        saveList(state, list ) {
+            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
             if (idx !== -1) state.board.taskLists[ListIdx].splice(ListIdx, 1, list);
         },
-        removeList(state, listId) {
-            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.listId);
+        removeList(state, taskListId) {
+            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskListId);
             if (idx !== -1) state.board.taskLists[ListIdx].splice(ListIdx, 1);
         },
 
         //* Task Mutations
-        addTask(state, { taskObj }) {
-            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.listId);
-            state.board.taskLists[ListIdx].unshift(taskObj.task)
+        addTask(state,  taskObj ) {
+            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
+            state.board.taskLists[ListIdx].tasks.push(taskObj.task)
         },
-        saveTask(state, { taskObj }) {
-            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.listId);
+        saveTask(state,  taskObj ) {
+            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
             const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.taskId);
             if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1, taskObj.task);;
         },
         removeTask(state, taskObj) {
-            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.listId);
+            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
             const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.taskId);
             if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1);
         },
         setCurrTask(state, taskObj) {
-            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.listId);
+            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
             const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.taskId);
             const task = state.board.taskLists[ListIdx].tasks[taskIdx]
             state.currTask = task;
@@ -143,10 +143,13 @@ export const boardStore = {
             }
         },
 
-        async addTask(context, { listID }) {
+        async addTask(context, { taskListId, newTask }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const emptyTask = boardService.getEmptyTask();
-            const taskObj = { emptyTask, listID }
+            const task = boardService.getEmptyTask();
+
+            task.title = newTask.title
+            
+            const taskObj = { task, taskListId }
 
             try {
                 context.commit('addTask', taskObj);

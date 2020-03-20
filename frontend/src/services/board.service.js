@@ -22,7 +22,7 @@ function removeBoard(id) {
 
 function getEmptyTask() {
     return {
-        id: "",
+        id: _makeId(),
         title: "",
         desc: "",
         labels: [],
@@ -52,11 +52,20 @@ function getEmptyBoard() {
 
 async function save(board) {
     let prm;
-    //  if (board._id) prm = httpService.put(`board/${board._id}`, board);
-    //  else {
-    //     board.createdAt = new Date();
-    prm = httpService.post('board', board);
-
+    if (board._id) prm = httpService.put(`board/`, board);
+    else {
+        board.createdAt = new Date();
+        prm = httpService.post('board', board);
+    }
     return await prm;
 }
 
+
+function _makeId(length = 7) {
+    var txt = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i++) {
+        txt += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return txt;
+}

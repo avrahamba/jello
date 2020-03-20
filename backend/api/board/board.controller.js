@@ -34,11 +34,13 @@ async function deleteBoard(req, res) {
 
 async function addBoard(req, res) {
     var board = req.body;
-    board.byUserId = req.session.user._id;
     board = await boardService.add(board)
-    board.byUser = req.session.user;
-    // TODO - need to find aboutUser
-    board.aboutUser = {} 
+    res.send(board)
+}
+
+async function saveBoard(req, res) {
+    var board = req.body;
+    board = await boardService.save(board)
     res.send(board)
 }
 
@@ -46,5 +48,6 @@ module.exports = {
     getBoard,
     getBoards,
     deleteBoard,
-    addBoard
+    addBoard,
+    saveBoard
 }

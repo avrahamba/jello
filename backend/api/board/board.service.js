@@ -64,6 +64,19 @@ async function add(board) {
     }
 }
 
+async function save(board) {
+    board._id = ObjectId(board._id);
+    const collection = await dbService.getCollection('board')
+    try {
+        await collection.replaceOne({_id:board._id},board);
+        return board;
+    } catch (err) {
+        console.log(`ERROR: cannot insert user`)
+        throw err;
+    }
+}
+
+
 function _buildCriteria(filterBy) {
     const criteria = {};
     return criteria;
@@ -73,7 +86,8 @@ module.exports = {
     getById,
     query,
     remove,
-    add
+    add,
+    save
 }
 
 
