@@ -1,9 +1,8 @@
 <template>
   <div id="app">
-    <div id="nav">
     <navbarCmp/>
-    </div>
     <router-view/>
+    
   </div>
 </template>
 <script>

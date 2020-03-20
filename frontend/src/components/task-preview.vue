@@ -1,15 +1,16 @@
 <template>
-  <section class="task-preview">
-      <!-- <pre>{{task}}</pre> -->
-      <h3>{{task.title}}</h3>
-  </section>
+<router-link :to="'/task/'+task.id">
+    <section class="task-preview">
+        {{task.title}}
+    </section>
+</router-link>
 </template>
 
 <script>
 /* eslint-disable */
 export default {
-    props:{
-        task:Object
+    props: {
+        task: Object
     }
 }
 </script>

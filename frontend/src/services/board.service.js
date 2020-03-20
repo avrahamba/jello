@@ -1,27 +1,30 @@
 import httpService from './HttpService';
 
 export const boardService = {
-    // query,
+    query,
     getById,
     removeBoard,
     save,
     getEmptyList,
-    getEmptyTask
+    getEmptyTask,
+    getEmptyBoard
 }
 
-// function query(boardId) {
-//     return httpService.get(`board/${boardId}`);
-// }
+async function query(userId) {
+    return httpService.get(`board/${userId}`);
+}
 function getById(id) {
-    return httpService.get(`board/${id}`);
+    return httpService.get(`board/id/${id}`);
 }
 function removeBoard(id) {
     return httpService.delete(`board/${id}`);
 }
 
-function getEmptyTask() {
+function getEmptyTask(id) {
+    if (id) id += '-' + _makeId()
+    else id = _makeId()
     return {
-        id: "",
+        id,
         title: "",
         desc: "",
         labels: [],
@@ -41,13 +44,30 @@ function getEmptyList() {
     }
 }
 
+function getEmptyBoard() {
+    return {
+        id: "",
+        title: "",
+        background: ""
+    }
+}
+
 async function save(board) {
     let prm;
-    //  if (board._id) prm = httpService.put(`board/${board._id}`, board);
-    //  else {
-    //     board.createdAt = new Date();
-    prm = httpService.post('board', board);
-
+    if (board._id) prm = httpService.put(`board/`, board);
+    else {
+        board.createdAt = new Date();
+        prm = httpService.post('board', board);
+    }
     return await prm;
 }
 
+
+function _makeId(length = 7) {
+    var txt = '';
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    for (let i = 0; i < length; i++) {
+        txt += possible.charAt(Math.floor(Math.random() * possible.length));
+    }
+    return txt;
+}

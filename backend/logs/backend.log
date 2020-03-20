@@ -309,3 +309,58 @@ Thu, 19 Mar 2020 18:29:23 GMT - Debug - 123, 123, 123, undefined
 Thu, 19 Mar 2020 18:29:23 GMT - Debug - auth.service - signup with email: 123, username: 123
 Thu, 19 Mar 2020 18:29:25 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$HG89JSO4x/wJlBGhgBVa0.f0PLTchEr40t5M/RckDPePiPG0lacoS","username":"123"}
 Thu, 19 Mar 2020 18:29:25 GMT - Debug - auth.service - login with email: 123
+Thu, 19 Mar 2020 20:41:00 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 20:42:57 GMT - Debug - avraham@jello, Avraham Ben Arosh, Pa$$w0rd, undefined
+Thu, 19 Mar 2020 20:42:57 GMT - Debug - auth.service - signup with email: avraham@jello, username: Avraham Ben Arosh
+Thu, 19 Mar 2020 20:42:58 GMT - Debug - auth.route - new account created: {"email":"avraham@jello","password":"$2b$10$Q5U9XoyGENZuU.iWkAk.MuPqi96.0ik2Uol16w8VAc05gvXTuRJ2K","username":"Avraham Ben Arosh"}
+Thu, 19 Mar 2020 20:42:58 GMT - Debug - auth.service - login with email: avraham@jello
+Thu, 19 Mar 2020 21:01:45 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:03:12 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:09:37 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:10:13 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:10:15 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 21:10:24 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 21:10:27 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 21:10:31 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:10:31 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 21:11:35 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:11:37 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 21:13:27 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:13:37 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 21:22:13 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:48:25 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 21:49:08 GMT - Info - Server is running on port: 3030
+Thu, 19 Mar 2020 22:03:36 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:03:43 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:05:07 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:05:46 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:05:52 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:06:15 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:06:24 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:07:37 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:07:59 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:08:03 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:08:08 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:08:27 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:08:33 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:09:07 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:09:34 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:09:48 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:09:52 GMT - Error - Cannot get boards
+Thu, 19 Mar 2020 22:11:19 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 00:29:23 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 00:34:05 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 01:16:22 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:17:18 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:17:53 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:18:16 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:19:02 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:22:26 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:22:56 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:25:44 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:25:49 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:27:50 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:28:10 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:28:55 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:29:19 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 01:29:57 GMT - Error - Cannot get boards
