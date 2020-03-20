@@ -4,7 +4,13 @@
         {{taskListData.title}}
     </h2>
     <div class="list-items">
-        <task-preview v-for="task in taskListData.tasks" :task="task" :key="task.id"></task-preview>
+        <transition-group type="transition" :name="'flip-list'">
+
+        <draggable v-model="tasks"  @start="drag=true" @end="drag=false">
+            <task-preview v-for="task in tasks" :task="task" :key="task.id"></task-preview>
+        </draggable>
+        </transition-group>
+
         <div v-if="addTaskMode" class="add-task-aria">
             <div>
                 <input type="text" v-model="newTask.title">
@@ -18,10 +24,11 @@
         <button v-else @click="changeAddTaskMode" class="add-card-btn btn">Add a card</button>
     </div>
 </section>
+
 </template>
 
 <script>
-/* eslint-disable */
+import draggable from 'vuedraggable'
 import taskPreview from './task-preview.vue'
 export default {
     props: {
@@ -35,6 +42,24 @@ export default {
             }
         }
     },
+    computed: {
+        tasks: {
+            get() {
+                return this.taskListData.tasks
+            },
+            set(value) {
+                this.taskListData.tasks = value
+            }
+        },
+        dragOptions() {
+            return {
+                animation: "200",
+                ghostClass: "ghost",
+                group: "task-list-items"
+            }
+        }
+
+    },
     methods: {
         changeAddTaskMode() {
             this.addTaskMode = !this.addTaskMode
@@ -42,11 +67,12 @@ export default {
         createTask() {
             this.addTaskMode = false
             this.$store.dispatch({ type: 'addTask', taskListId: this.taskListData.id, newTask: this.newTask })
-                .then(() =>  this.newTask.title = '')
+                .then(() => this.newTask.title = '')
         }
     },
     components: {
-        taskPreview
+        taskPreview,
+        draggable
     }
 }
 </script>

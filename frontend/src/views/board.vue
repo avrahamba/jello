@@ -1,15 +1,21 @@
 <template>
 <section class="board" v-if="boardData" :style="style">
     <nav-board :boardData="boardData"></nav-board>
-    <section class="lists-container">
-        <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList">
-        </task-list>
+    <section >
+
+        <draggable class="lists-container" draggable=".task-list" v-model="boardData.taskLists" @start="drag=true" @end="drag=false">
+
+            <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList">
+            </task-list>
+            
         <button class="add-list-btn btn">Add a list</button>
+        </draggable>
     </section>
 </section>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import taskList from '../components/task-list.vue'
 import navBoard from '../components/nav-board.vue';
 export default {
@@ -40,7 +46,8 @@ export default {
     },
     components: {
         taskList,
-        navBoard
+        navBoard,
+        draggable
     },
     computed: {
         style() {
