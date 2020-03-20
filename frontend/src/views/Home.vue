@@ -17,12 +17,11 @@ export default {
     };
   },
   created() {
-    this.$store
-      .dispatch({
-        type: "getBoards",
-        userId: this.$store.getters.loggedinUser._id
-      })
-      .then(boards => (this.boards = boards));
+    if (this.$store.getters.loggedinUser) {
+      this.$router.push({ path: "/userPage" });
+    }
+    // this.$store.dispatch({ type: 'getBoards',userId: this.$store.getters.loggedinUser.id })
+    //     .then(boards => this.boards = boards)
   },
   components: {
     HelloWorld
