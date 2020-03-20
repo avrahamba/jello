@@ -50,6 +50,9 @@ export const boardStore = {
         currBoard(state) {
             return state.currBoard;
         },
+        board(state) {
+            return state.board;
+        },
         currTask(state) {
             return state.currTask;
         }
@@ -145,7 +148,7 @@ export const boardStore = {
 
         async addTask(context, { taskListId, newTask }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const task = boardService.getEmptyTask();
+            const task = boardService.getEmptyTask(context.state.board._id);
 
             task.title = newTask.title
             

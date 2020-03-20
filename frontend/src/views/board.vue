@@ -13,13 +13,21 @@
 import taskList from '../components/task-list.vue'
 import navBoard from '../components/nav-board.vue';
 export default {
+    props: {
+        board: Object,
+    },
     data() {
         return {
             boardData: null
         }
     },
     created() {
-        const boardId = this.$route.params.id
+        console.log('this.board :', this.board);
+        if (this.board) {
+            this.boardData = this.board
+            return
+        }
+        const boardId = this.boardId || this.$route.params.id
         this.$store.dispatch({ type: 'getBoard', boardId })
             .then(board => {
                 if (board.failed) {

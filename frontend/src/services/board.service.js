@@ -20,9 +20,11 @@ function removeBoard(id) {
     return httpService.delete(`board/${id}`);
 }
 
-function getEmptyTask() {
+function getEmptyTask(id) {
+    if (id) id += '-' + _makeId()
+    else id = _makeId()
     return {
-        id: _makeId(),
+        id,
         title: "",
         desc: "",
         labels: [],
