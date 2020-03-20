@@ -1,14 +1,11 @@
 <template>
 <section class="board" v-if="boardData" :style="style">
     <nav-board :boardData="boardData"></nav-board>
-    <section >
-
-        <draggable class="lists-container" draggable=".task-list" v-model="boardData.taskLists" @start="drag=true" @end="drag=false">
-
+    <section>
+        <draggable class="lists-container" draggable=".task-list" v-model="boardData.taskLists" @end="move">
             <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList">
             </task-list>
-            
-        <button class="add-list-btn btn">Add a list</button>
+            <button class="add-list-btn btn">Add a list</button>
         </draggable>
     </section>
 </section>
@@ -44,10 +41,11 @@ export default {
             })
 
     },
-    components: {
-        taskList,
-        navBoard,
-        draggable
+    methods: {
+        move({ oldIndex, newIndex }) {
+            console.log('oldIndex :', oldIndex);
+            console.log('newIndex :', newIndex);
+        }
     },
     computed: {
         style() {
@@ -57,6 +55,11 @@ export default {
                 }
             else return ''
         }
+    },
+    components: {
+        taskList,
+        navBoard,
+        draggable
     },
 }
 </script>

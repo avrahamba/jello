@@ -4,12 +4,11 @@
         {{taskListData.title}}
     </h2>
     <div class="list-items">
-        <transition-group type="transition" :name="'flip-list'">
-
-        <draggable v-model="tasks"  @start="drag=true" @end="drag=false">
-            <task-preview v-for="task in tasks" :task="task" :key="task.id"></task-preview>
+        <draggable v-model="tasks" v-bind="dragOptions"  @end="endMove">
+            <transition-group type="transition" tag="div" :data-id="taskListData.id" :name="taskListData.id">
+                <task-preview v-for="task in tasks" :task="task" :key="task.id"></task-preview>
+            </transition-group>
         </draggable>
-        </transition-group>
 
         <div v-if="addTaskMode" class="add-task-aria">
             <div>
@@ -24,7 +23,6 @@
         <button v-else @click="changeAddTaskMode" class="add-card-btn btn">Add a card</button>
     </div>
 </section>
-
 </template>
 
 <script>
@@ -39,7 +37,7 @@ export default {
             addTaskMode: false,
             newTask: {
                 title: ''
-            }
+            },
         }
     },
     computed: {
@@ -52,8 +50,9 @@ export default {
             }
         },
         dragOptions() {
+
             return {
-                animation: "200",
+                animation: 0,
                 ghostClass: "ghost",
                 group: "task-list-items"
             }
@@ -68,6 +67,15 @@ export default {
             this.addTaskMode = false
             this.$store.dispatch({ type: 'addTask', taskListId: this.taskListData.id, newTask: this.newTask })
                 .then(() => this.newTask.title = '')
+        },
+        endMove({oldIndex,newIndex,from,to}){
+            const idMoveFrom = from.dataset.id;
+            const idMoveTo = to.dataset.id;
+            
+            console.log('idMoveFrom :', idMoveFrom);
+            console.log('idMoveTo :', idMoveTo);
+            console.log('oldIndex :', oldIndex);
+            console.log('newIndex :', newIndex);
         }
     },
     components: {

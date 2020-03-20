@@ -19,7 +19,8 @@ export default {
         }
     },
     created() {
-        this.$store.dispatch({ type: 'getBoards',userId: this.$store.getters.loggedinUser.id })
+        const userId =  (this.$store.getters.loggedinUser)? this.$store.getters.loggedinUser.id:''
+        this.$store.dispatch({ type: 'getBoards',userId })
             .then(boards => this.boards = boards)
     },
     components: {
