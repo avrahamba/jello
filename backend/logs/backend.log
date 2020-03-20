@@ -480,3 +480,20 @@ Fri, 20 Mar 2020 11:25:59 GMT - Debug - itay, itay, itay, undefined
 Fri, 20 Mar 2020 11:25:59 GMT - Debug - auth.service - signup with email: itay, username: itay
 Fri, 20 Mar 2020 11:26:00 GMT - Debug - auth.route - new account created: {"email":"itay","password":"$2b$10$fDKUCncYJSMMlr4Mjp/EGuqEaIEgJcKSfxuMR7Qo4GfjTsZjeJmDW","username":"itay"}
 Fri, 20 Mar 2020 11:26:00 GMT - Debug - auth.service - login with email: itay
+Fri, 20 Mar 2020 11:33:36 GMT - Debug - itay1, itay1, itay1, undefined
+Fri, 20 Mar 2020 11:33:36 GMT - Debug - auth.service - signup with email: itay1, username: itay1
+Fri, 20 Mar 2020 11:33:37 GMT - Debug - auth.route - new account created: {"email":"itay1","password":"$2b$10$w1FZHpJNIhiiKHB6ryV8HOvZaQKVJA7i5lRh7tnnt9Ve5M1cjWkyq","username":"itay1"}
+Fri, 20 Mar 2020 11:33:37 GMT - Debug - auth.service - login with email: itay1
+Fri, 20 Mar 2020 11:35:20 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 11:36:05 GMT - Debug - itay, itay, itay, undefined
+Fri, 20 Mar 2020 11:36:05 GMT - Debug - auth.service - signup with email: itay, username: itay
+Fri, 20 Mar 2020 11:36:06 GMT - Debug - auth.route - new account created: {"email":"itay","password":"$2b$10$YIqmThw5G8LvQE9ooKHovuf0Y4I0PkMNBPo7eoQUY77c/zos7MpU6","username":"itay"}
+Fri, 20 Mar 2020 11:36:06 GMT - Debug - auth.service - login with email: itay
+Fri, 20 Mar 2020 11:37:17 GMT - Debug - uuuu, uuuu, uuuu, undefined
+Fri, 20 Mar 2020 11:37:17 GMT - Debug - auth.service - signup with email: uuuu, username: uuuu
+Fri, 20 Mar 2020 11:37:18 GMT - Debug - auth.route - new account created: {"email":"uuuu","password":"$2b$10$7A8us5FUreF6.j5DtWg.x.D8kwpyoiGKbY5txTA6/A9Q2v1fisC96","username":"uuuu"}
+Fri, 20 Mar 2020 11:37:18 GMT - Debug - auth.service - login with email: uuuu
+Fri, 20 Mar 2020 11:39:12 GMT - Debug - 2, 2, 2, undefined
+Fri, 20 Mar 2020 11:39:12 GMT - Debug - auth.service - signup with email: 2, username: 2
+Fri, 20 Mar 2020 11:39:12 GMT - Debug - auth.route - new account created: {"email":"2","password":"$2b$10$kp6fSZmUmjTLMnktW/IKj.mbELpl0yI82pcqR2xuucAvu3O3oiOVi","username":"2"}
+Fri, 20 Mar 2020 11:39:12 GMT - Debug - auth.service - login with email: 2
