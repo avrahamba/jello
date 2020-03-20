@@ -364,3 +364,12 @@ Fri, 20 Mar 2020 01:28:10 GMT - Error - Cannot get boards
 Fri, 20 Mar 2020 01:28:55 GMT - Error - Cannot get boards
 Fri, 20 Mar 2020 01:29:19 GMT - Error - Cannot get boards
 Fri, 20 Mar 2020 01:29:57 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 07:42:51 GMT - Debug - auth.service - login with email: admin
+Fri, 20 Mar 2020 08:17:16 GMT - Debug - itay, itay, itay, undefined
+Fri, 20 Mar 2020 08:17:16 GMT - Debug - auth.service - signup with email: itay, username: itay
+Fri, 20 Mar 2020 08:17:18 GMT - Debug - auth.route - new account created: {"email":"itay","password":"$2b$10$SSAQPoHG/pbZsN1PB5fdhObXW3ZSBozW7ryzAhueaQvRhzqTChYWy","username":"itay","_id":"5e747c0d77b87c5928fc59f6"}
+Fri, 20 Mar 2020 08:17:18 GMT - Debug - auth.service - login with email: itay
+Fri, 20 Mar 2020 09:34:39 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 09:37:29 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 09:42:04 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 09:42:58 GMT - Info - Server is running on port: 3030

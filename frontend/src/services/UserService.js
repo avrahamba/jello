@@ -14,6 +14,7 @@ export default {
 function getById(userId) {
     return HttpService.get(`user/${userId}`)
 }
+
 function remove(userId) {
     return HttpService.delete(`user/${userId}`)
 }
