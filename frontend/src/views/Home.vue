@@ -1,30 +1,27 @@
 <template>
-<div class="home">
-    <router-link to="/signup">Sign Up</router-link> |
+  <div class="home">
+    <router-link to="/signup">Sign Up</router-link>|
     <router-link to="/login">Login</router-link>
-    <router-link v-for="board in boards" :key="board._id" :to="'/'+board._id">
-        {{board.title}}
-    </router-link>
-</div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-    name: 'Home',
-    data() {
-        return {
-            boards: []
-        }
-    },
-    created() {
-        const userId =  (this.$store.getters.loggedinUser)? this.$store.getters.loggedinUser.id:''
-        this.$store.dispatch({ type: 'getBoards',userId })
-            .then(boards => this.boards = boards)
-    },
-    components: {
-        HelloWorld
+  name: "Home",
+  data() {
+    return {
+      boards: []
+    };
+  },
+  created() {
+    if (this.$store.getters.loggedinUser) {
+      this.$router.push({ path: "/userPage" });
     }
-}
+  },
+  components: {
+    HelloWorld
+  }
+};
 </script>

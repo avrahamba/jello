@@ -61,15 +61,11 @@ export default {
       if(!cred.email || !cred.password) return this.msg = 'Please enter user/password'
       await this.$store.dispatch({type :'login', userCred:cred})
       this.loginCred = {};
+      this.$router.push({path:"/userPage"})
       
     },   
     doLogout() {
       this.$store.dispatch({type: 'logout'})
-    },
-    doSignup() {
-      const cred = this.signupCred
-      if(!cred.email || !cred.password ||!cred.username) return this.msg = 'Please fill up the form'
-      this.$store.dispatch({type: 'signup', userCred: cred})
     },
     getAllUsers() {
       this.$store.dispatch({type: 'loadUsers'})

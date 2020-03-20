@@ -1,7 +1,14 @@
 <template>
   <div class="user-page">
     <h1>User Page</h1>
-    <h1>{{user}}</h1>
+    <div v-for="board in user.boards" :key="board._id">
+      <h3>board id:{{board._id}}</h3>
+      <h3>name:{{board.name}}</h3>
+      <h3>color:{{board.background}}</h3>
+
+        <router-link v-for="board in boards" :key="board._id" :to="'/'+board._id">{{board.title}}</router-link>
+
+    </div>
   </div>
 </template>
 
@@ -10,16 +17,19 @@ export default {
   name: "user-page",
   data() {
     return {
-      user: this.loggedinUser
+      user: this.loggedinUser,
+      boards: []
     };
-  },
-  computed: {
-    loggedinUser() {}
   },
   created() {
     console.log("this.loggedinUser", this.user);
-    var x = this.$store.getters.loggedinUser;
-    this.user = x;
+    this.user = this.$store.getters.loggedinUser;
+    this.$store
+      .dispatch({
+        type: "getBoards",
+        userId: this.$store.getters.loggedinUser.id
+      })
+      .then(boards => (this.boards = boards));
   },
   methods: {}
 };

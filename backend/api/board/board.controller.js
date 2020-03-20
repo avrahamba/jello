@@ -1,27 +1,31 @@
 const logger = require('../../services/logger.service')
 const boardService = require('./board.service')
- 
+
 // TODO: needs error handling! try, catch
 
 async function getBoards(req, res) {
     try {
-        const boards = await boardService.query(req.query)
+        console.log('in boardsssss');
+
+        const boards = await boardService.query(req.params.id)
         res.json(boards)
     } catch (err) {
         logger.error('Cannot get boards', err);
         res.status(500).send({ error: 'cannot get boards' })
-        
+
     }
 }
 
 async function getBoard(req, res) {
     try {
+        console.log('in getBoard !! new');
+
         const boards = await boardService.getById(req.params.id)
         res.json(boards)
     } catch (err) {
         logger.error('Cannot get boards', err);
         res.status(500).send({ error: 'cannot get boards' })
-        
+
     }
 }
 

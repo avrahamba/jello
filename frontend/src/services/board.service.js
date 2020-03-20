@@ -22,7 +22,7 @@ function removeBoard(id) {
 
 function getEmptyTask(id) {
     if (id) id += '-' + _makeId()
-    else id = _makeId()
+    // else id = _makeId()
     return {
         id,
         title: "",
@@ -36,9 +36,11 @@ function getEmptyTask(id) {
     }
 }
 
-function getEmptyList() {
+function getEmptyList(id) {
+    if (id) id += '-' + _makeId()
+    // else id = _makeId()
     return {
-        id: "",
+        id,
         title: "",
         tasks: []
     }

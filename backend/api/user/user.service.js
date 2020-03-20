@@ -79,8 +79,8 @@ async function add(user) {
         "hashPassword": user.password,
         "boards": [
             {
-                "_id": "",
-                "name": "",
+                "_id": "5e7377611c9d4400009f5d97",
+                "name": "proj1",
                 "background": "#545454"
             }
         ],
@@ -133,6 +133,7 @@ async function add(user) {
             }
         ]
     }
+    console.log(newUser)
     const collection = await dbService.getCollection('user')
     try {
         await collection.insertOne(newUser);

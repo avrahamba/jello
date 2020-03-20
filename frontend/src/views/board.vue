@@ -17,20 +17,20 @@ import taskList from '../components/task-list.vue'
 import navBoard from '../components/nav-board.vue';
 export default {
     props: {
-        board: Object,
+        board: Object
     },
     data() {
         return {
             boardData: null
-        }
+        };
     },
     created() {
-        console.log('this.board :', this.board);
         if (this.board) {
-            this.boardData = this.board
-            return
+            this.boardData = this.board;
+            return;
         }
-        const boardId = this.boardId || this.$route.params.id
+        const boardId = this.boardId || this.$route.params.id;
+
         this.$store.dispatch({ type: 'getBoard', boardId })
             .then(board => {
                 if (board.failed) {
@@ -40,27 +40,39 @@ export default {
                 this.boardData = board
             })
 
-    },
+  },
     methods: {
-        move({ oldIndex, newIndex }) {
+        createList() {
+            this.$store
+                .dispatch({
+                    type: "addList"
+                })
+                .then(res => {
+                    console.log("list added");
+                });
+        },
+          move({ oldIndex, newIndex }) {
             console.log('oldIndex :', oldIndex);
             console.log('newIndex :', newIndex);
         }
-    },
+  },
     computed: {
         style() {
-            if (this.boardData.style.background && !this.boardData.style.background.includes('http'))
+            if (
+                this.boardData.style.background &&
+                !this.boardData.style.background.includes("http")
+            )
                 return {
-                    'background-color': this.boardData.style.background
+                    boardData: null
                 }
-            else return ''
-        }
+        },
     },
     components: {
         taskList,
         navBoard,
         draggable
     },
+
 }
 </script>
 

@@ -8,28 +8,30 @@ export const boardStore = {
     },
     mutations: {
         //* Board Mutations
-        setBoard(state,  board ) {
+        setBoard(state, board) {
             state.board = board;
         },
         //* List Mutations
-        addList(state, list ) {
-            state.board.taskLists.unshift(list);
+        addList(state, list) {
+            state.board.taskLists.push(list);
         },
-        saveList(state, list ) {
+        saveList(state, list) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
-            if (idx !== -1) state.board.taskLists[ListIdx].splice(ListIdx, 1, list);
+            if (ListIdx !== -1) state.board.taskLists.splice(ListIdx, 1, list);
         },
+        //!word
         removeList(state, taskListId) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskListId);
-            if (idx !== -1) state.board.taskLists[ListIdx].splice(ListIdx, 1);
+            if (ListIdx !== -1) state.board.taskLists.splice(ListIdx, 1);
+
         },
 
         //* Task Mutations
-        addTask(state,  taskObj ) {
+        addTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
             state.board.taskLists[ListIdx].tasks.push(taskObj.task)
         },
-        saveTask(state,  taskObj ) {
+        saveTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
             const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.taskId);
             if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1, taskObj.task);;
@@ -59,16 +61,19 @@ export const boardStore = {
     },
     actions: {
         //* Board Actions
-        async getBoards(context,{userId}) {
+        //!work
+        async getBoards(context, { userId }) {
             try {
                 const boards = await boardService.query(userId);
                 return boards;
             }
             catch{
-                context.commit('setBoard', boardCopy);
+                console.log('im in catch of getboards');
+
+                // context.commit('setBoard', boardCopy);
             }
         },
-
+        //!work
         async getBoard(context, { boardId }) {
             try {
                 const board = await boardService.getById(boardId);
@@ -92,10 +97,10 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
-
+        //!work
         async addList(context) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const newList = boardService.getEmptyList();
+            const newList = boardService.getEmptyList(context.state.board._id);
             try {
                 context.commit('addList', newList);
                 const res = await boardService.save(context.state.board);
@@ -111,6 +116,9 @@ export const boardStore = {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {
                 context.commit('removeList', listId);
+                console.log(context.state.board);
+
+
                 const res = await boardService.save(context.state.board);
                 return res
 
@@ -151,7 +159,7 @@ export const boardStore = {
             const task = boardService.getEmptyTask(context.state.board._id);
 
             task.title = newTask.title
-            
+
             const taskObj = { task, taskListId }
 
             try {
