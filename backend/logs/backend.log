@@ -364,3 +364,102 @@ Fri, 20 Mar 2020 01:28:10 GMT - Error - Cannot get boards
 Fri, 20 Mar 2020 01:28:55 GMT - Error - Cannot get boards
 Fri, 20 Mar 2020 01:29:19 GMT - Error - Cannot get boards
 Fri, 20 Mar 2020 01:29:57 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 09:54:06 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 09:54:22 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 09:54:22 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 09:54:25 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$mysNUy08.xkBwS4E./NvrOi4djPZN6lRkWUBBxo2DIz9XKJmo9VxO","username":"qwe"}
+Fri, 20 Mar 2020 09:54:25 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:18:53 GMT - Debug - auth.service - login with email: 123
+Fri, 20 Mar 2020 10:19:09 GMT - Debug - 123, 123, 123, undefined
+Fri, 20 Mar 2020 10:19:09 GMT - Debug - auth.service - signup with email: 123, username: 123
+Fri, 20 Mar 2020 10:19:09 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$mKPHpf.U7nhEE6jJDFx2DOQNI0hCshpwplfOjJmf9XgU0C25PIROW","username":"123"}
+Fri, 20 Mar 2020 10:19:09 GMT - Debug - auth.service - login with email: 123
+Fri, 20 Mar 2020 10:20:10 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 10:20:20 GMT - Debug - 123, 123, 123, undefined
+Fri, 20 Mar 2020 10:20:20 GMT - Debug - auth.service - signup with email: 123, username: 123
+Fri, 20 Mar 2020 10:20:22 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$I6Z6n5qUCe71mj7SbC8fI.LCR7m4u1i6TRsP1R4WvSX33QWR7ZSgy","username":"123"}
+Fri, 20 Mar 2020 10:20:22 GMT - Debug - auth.service - login with email: 123
+Fri, 20 Mar 2020 10:21:15 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 10:21:36 GMT - Debug - sdfjkl, werlkj, werjlk, undefined
+Fri, 20 Mar 2020 10:21:36 GMT - Debug - auth.service - signup with email: sdfjkl, username: werlkj
+Fri, 20 Mar 2020 10:21:36 GMT - Debug - auth.route - new account created: {"email":"sdfjkl","password":"$2b$10$sVKHYsHuAZxjsPc.VCpU2.Xjv1LuxjwJO1vvueRpYrNAmZuz.IPDS","username":"werlkj"}
+Fri, 20 Mar 2020 10:21:36 GMT - Debug - auth.service - login with email: sdfjkl
+Fri, 20 Mar 2020 10:24:45 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 10:25:06 GMT - Debug - 123, 123, 123, undefined
+Fri, 20 Mar 2020 10:25:06 GMT - Debug - auth.service - signup with email: 123, username: 123
+Fri, 20 Mar 2020 10:25:07 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$Z8FYRZCei5Nb1Je5EmgFRe.oFBlnVl3WXUGhpm35ttDyJz0bOMqUS","username":"123"}
+Fri, 20 Mar 2020 10:25:07 GMT - Debug - auth.service - login with email: 123
+Fri, 20 Mar 2020 10:37:44 GMT - Info - Server is running on port: 3030
+Fri, 20 Mar 2020 10:37:51 GMT - Debug - 123, 123, 123, undefined
+Fri, 20 Mar 2020 10:37:51 GMT - Debug - auth.service - signup with email: 123, username: 123
+Fri, 20 Mar 2020 10:37:54 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$18AkBNv0L.TJPAl8JwNIV.S3XQILSK01tnZ5XhiJZ8qpfF8NZRSEK","username":"123"}
+Fri, 20 Mar 2020 10:37:54 GMT - Debug - auth.service - login with email: 123
+Fri, 20 Mar 2020 10:39:10 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:39:10 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:39:10 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$Vik2mjGYityMAn9O/xNlROi4zoH22yBEmvQUgdvpPdiXq3nsECRxO","username":"qwe"}
+Fri, 20 Mar 2020 10:39:10 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:40:16 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:40:16 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:40:16 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$1yc0TtDXaO/uldlSDHSk6uBU1w.3aqTku4KdXXW6rxPIeFM6tOMEu","username":"qwe"}
+Fri, 20 Mar 2020 10:40:16 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:44:06 GMT - Debug - ron, 123, ron, undefined
+Fri, 20 Mar 2020 10:44:06 GMT - Debug - auth.service - signup with email: ron, username: 123
+Fri, 20 Mar 2020 10:44:06 GMT - Debug - auth.route - new account created: {"email":"ron","password":"$2b$10$SRwiVXGOIfEnVBwVtK.yJ.nqFH96fc5zpzim4gXpODJ6BYs1gnkGW","username":"123"}
+Fri, 20 Mar 2020 10:44:06 GMT - Debug - auth.service - login with email: ron
+Fri, 20 Mar 2020 10:49:37 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:49:37 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:49:38 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$Hpk/GzsLqCedXkeBTLjyJ.OYzfqWDEAu4q8uL8QOFv4GG.KTWQb8a","username":"qwe"}
+Fri, 20 Mar 2020 10:49:38 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:51:00 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:51:00 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:51:00 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$aSfrrS14lQ5qzKjhlXhkleF0bzCy6EdVou6kn6Ba5oojL921ngoqW","username":"qwe"}
+Fri, 20 Mar 2020 10:51:00 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:51:29 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:51:29 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:51:30 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$8wmqQ2CTSgb1/ZMFzn0PweBiPj3otNzPRw2w8x9dvwp4wlms4YqcC","username":"qwe"}
+Fri, 20 Mar 2020 10:51:30 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:55:40 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:55:40 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:55:40 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$pCaWjml1l3nwSUUGcjUYzeje2S38sf/Wtb.mM1hccYRb1Qc6RDGU.","username":"qwe"}
+Fri, 20 Mar 2020 10:55:40 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:56:16 GMT - Debug - 123, 123, 123, undefined
+Fri, 20 Mar 2020 10:56:16 GMT - Debug - auth.service - signup with email: 123, username: 123
+Fri, 20 Mar 2020 10:56:16 GMT - Debug - auth.route - new account created: {"email":"123","password":"$2b$10$pwvFOMCncWa0s4t.WRAaiulOc7tM8RtThc9yN/Y9BeF4YoMFYZtGu","username":"123"}
+Fri, 20 Mar 2020 10:56:16 GMT - Debug - auth.service - login with email: 123
+Fri, 20 Mar 2020 10:56:54 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:56:54 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:56:55 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$C3gyw2tv6XE6Zz9glBL8JuQuSM76JJjf4oA7scggCGUKdJWU3v7bu","username":"qwe"}
+Fri, 20 Mar 2020 10:56:55 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:57:19 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:57:19 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:57:19 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$Y3AIHx5dipnon1npvrCgkuAnl5UEjINUyQf8bSI1l64BP8W.OGMxe","username":"qwe"}
+Fri, 20 Mar 2020 10:57:19 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:58:00 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:58:00 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:58:01 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$B0az6ZHNAnLuvdKcnj/hveA6LtqSEfJ4uvGSouOwVl4KeWlaCxua2","username":"qwe"}
+Fri, 20 Mar 2020 10:58:01 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:58:23 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:58:23 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:58:23 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$4td/LePagDo1NjZGNAJ0zermEF6TmD17d0KhOPluruB4ez6XDuM7S","username":"qwe"}
+Fri, 20 Mar 2020 10:58:23 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 10:58:51 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 10:58:51 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 10:58:51 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$fo7y.emhRgsb10GQm9g3Ue80b2SyruaUAAzIEiVUBRsFscOaM7sxW","username":"qwe"}
+Fri, 20 Mar 2020 10:58:51 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 11:01:31 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 11:01:31 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 11:01:31 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$nzZQbHHnqsv2VCcczMcEDek.tWj8F6Eiea2QkiggxCbrN9mDFOh02","username":"qwe"}
+Fri, 20 Mar 2020 11:01:31 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 11:02:05 GMT - Debug - qwe, QWE, QWE, undefined
+Fri, 20 Mar 2020 11:02:05 GMT - Debug - auth.service - signup with email: qwe, username: QWE
+Fri, 20 Mar 2020 11:02:06 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$rBhI1UYwE.kybVSU4vXUVOc0y6tUyVszUbYUrW8v5EBnENLOSHfJa","username":"QWE"}
+Fri, 20 Mar 2020 11:02:06 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 11:02:06 GMT - Error - [SIGNUP] Invalid email or password
+Fri, 20 Mar 2020 11:02:37 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 11:02:37 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 11:02:38 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$6sQcGL5mSho7hshAX0u01u.B2O9qU57RvhcIk5QGT/FSovYaHS9GW","username":"qwe"}
+Fri, 20 Mar 2020 11:02:38 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 11:02:59 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 11:02:59 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 11:03:00 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$epHvZBvLgocR19nw2Z7z/OCBKk8N8yK0P4KVFdmj5vkoUwrumKYpy","username":"qwe"}
+Fri, 20 Mar 2020 11:03:00 GMT - Debug - auth.service - login with email: qwe

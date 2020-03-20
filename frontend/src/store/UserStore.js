@@ -1,4 +1,6 @@
 import UserService from '../services/UserService.js'
+import router from "@/router"
+
 
 var localLoggedinUser = null;
 if (sessionStorage.user) localLoggedinUser = JSON.parse(sessionStorage.user);
@@ -43,6 +45,7 @@ export default {
             await UserService.logout()
             context.commit({type: 'setUsers', users: []})
             context.commit({type: 'setUser', user: null})
+            router.push({ path: "/" });
         },
         async loadUsers(context) {
             const users = await UserService.getUsers();
