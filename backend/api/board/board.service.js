@@ -5,10 +5,9 @@ const ObjectId = require('mongodb').ObjectId
 async function getById(id) {
     const collection = await dbService.getCollection('board')
     try {
-        const boardIds = id.split('-');
-        console.log(boardIds);
+        const boardId = id.split('-');
 
-        const board = await collection.findOne({ "_id": ObjectId(id) })
+        const board = await collection.findOne({ "_id": ObjectId(boardId[0]) })
         return board
     } catch (err) {
         console.log('ERROR: cannot find boards')

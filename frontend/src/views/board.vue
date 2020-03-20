@@ -16,7 +16,8 @@
         <button class="add-list-btn btn" @click="createList">Add a list</button>
       </draggable>
     </section>
-  </section>
+    <router-view></router-view>
+</section>
 </template>
 
 <script>

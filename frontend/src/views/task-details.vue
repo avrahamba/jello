@@ -26,7 +26,6 @@ export default {
     } else {
       console.log("no");
     }
-    
   },
   components: { board }
 };

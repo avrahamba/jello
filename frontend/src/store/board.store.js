@@ -129,10 +129,15 @@ export const boardStore = {
         },
 
         //*Task ACtions
-        async getTask(context, { taskObj }) {
+        async getTask(context, { taskId, taskListId }) {
+            // taskObj = taskId + 
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            const taskObj = { taskId, taskListId }
+
             try {
-                context.commit('setCurrToy', taskObj);
+                context.commit('setCurrTask', taskObj);
+                const res = await boardService.getById();
+                return res
                 //TODO: ask aviv what about returning an object after get action ! return task ?
 
             }
@@ -174,9 +179,9 @@ export const boardStore = {
         async removeTask(context, { taskListId, taskId }) {
             // taskObj = taskListId + taskId
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            const taskObj = { taskId, taskListId }
             try {
                 //remove the task from the local board(not copy) 
-                const taskObj = { taskId, taskListId }
                 context.commit('removeTask', taskObj);
                 const res = await boardService.save(context.state.board);
                 return res
