@@ -5,9 +5,9 @@
       <h3>board id:{{board._id}}</h3>
       <h3>name:{{board.name}}</h3>
       <h3>color:{{board.background}}</h3>
-      <router-link :to="'/'+board._id">
-        {{board.name}}
-    </router-link>
+
+        <router-link v-for="board in boards" :key="board._id" :to="'/'+board._id">{{board.title}}</router-link>
+
     </div>
   </div>
 </template>

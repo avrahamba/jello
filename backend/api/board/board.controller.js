@@ -5,7 +5,6 @@ const boardService = require('./board.service')
 
 async function getBoards(req, res) {
     try {
-        console.log('in boardsssss');
 
         const boards = await boardService.query(req.params.id)
         res.json(boards)
@@ -18,7 +17,6 @@ async function getBoards(req, res) {
 
 async function getBoard(req, res) {
     try {
-        console.log('in getBoard !! new');
 
         const boards = await boardService.getById(req.params.id)
         res.json(boards)

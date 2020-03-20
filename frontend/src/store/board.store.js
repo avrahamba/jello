@@ -33,8 +33,8 @@ export const boardStore = {
         },
         saveTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
-            const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.taskId);
-            if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1, taskObj.task);;
+            const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.updatedTask.taskId);
+            if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1, taskObj.updatedTask);;
         },
         removeTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
@@ -142,8 +142,10 @@ export const boardStore = {
 
         },
 
-        async saveTask(context, { taskObj }) {
+        async saveTask(context, { taskListId, updatedTask }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            const taskObj = { taskListId, updatedTask }
+
             try {
                 context.commit('saveTask', taskObj);
                 const res = await boardService.save(context.state.board);
@@ -153,7 +155,7 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
-
+        //!work
         async addTask(context, { taskListId, newTask }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             const task = boardService.getEmptyTask(taskListId);
@@ -170,7 +172,6 @@ export const boardStore = {
             }
         },
         async removeTask(context, { taskListId, taskId }) {
-            debugger
             // taskObj = taskListId + taskId
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {

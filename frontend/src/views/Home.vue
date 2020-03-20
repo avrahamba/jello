@@ -2,7 +2,6 @@
   <div class="home">
     <router-link to="/signup">Sign Up</router-link>|
     <router-link to="/login">Login</router-link>
-    <router-link v-for="board in boards" :key="board._id" :to="'/'+board._id">{{board.title}}</router-link>
   </div>
 </template>
 
@@ -20,8 +19,6 @@ export default {
     if (this.$store.getters.loggedinUser) {
       this.$router.push({ path: "/userPage" });
     }
-    // this.$store.dispatch({ type: 'getBoards',userId: this.$store.getters.loggedinUser.id })
-    //     .then(boards => this.boards = boards)
   },
   components: {
     HelloWorld

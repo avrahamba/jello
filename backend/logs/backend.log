@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Sun, 15 Mar 2020 10:26:43 GMT - Info - Server is running on port: 3030
 Sun, 15 Mar 2020 10:43:24 GMT - Info - Server is running on port: 3030
 Sun, 15 Mar 2020 10:57:43 GMT - Debug - kiki@kiki.kiki, Kiki, kiki
@@ -497,3 +498,5 @@ Fri, 20 Mar 2020 11:39:12 GMT - Debug - 2, 2, 2, undefined
 Fri, 20 Mar 2020 11:39:12 GMT - Debug - auth.service - signup with email: 2, username: 2
 Fri, 20 Mar 2020 11:39:12 GMT - Debug - auth.route - new account created: {"email":"2","password":"$2b$10$kp6fSZmUmjTLMnktW/IKj.mbELpl0yI82pcqR2xuucAvu3O3oiOVi","username":"2"}
 Fri, 20 Mar 2020 11:39:12 GMT - Debug - auth.service - login with email: 2
+=======
+>>>>>>> 431092dd555d8a7a488a390267387867f45660f4
