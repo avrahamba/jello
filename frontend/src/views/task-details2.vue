@@ -3,7 +3,10 @@
     <router-link :to="'/'+boardId">
       <div class="screen"></div>
     </router-link>
-    <modal name="hello-world">hello, world!</modal>
+    <modals-container />
+    <modal name="editModal">
+    <h1>im edit modal</h1>
+    </modal>
   </section>
 </template>
 
@@ -15,12 +18,13 @@ export default {
     };
   },
   mounted() {
-    this.$modal.show("hello-world");
+      this.$modal.show("editModal");
   },
   created() {
     var params = this.$route.params.id;
-    this.boardId = params.split('-')[0]
+    this.boardId = params.split("-")[0];
   },
+  methods: {}
 };
 </script>
 
