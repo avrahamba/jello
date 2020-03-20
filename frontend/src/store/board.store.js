@@ -33,17 +33,17 @@ export const boardStore = {
         },
         saveTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
-            const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.updatedTask.taskId);
+            const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.updatedTask.taskId);
             if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1, taskObj.updatedTask);;
         },
         removeTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
-            const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.taskId);
+            const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.taskId);
             if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1);
         },
         setCurrTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
-            const taskIdx = state.board.taskLists[ListIdx].findIndex(task => task.id === taskObj.taskId);
+            const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.taskId);
             const task = state.board.taskLists[ListIdx].tasks[taskIdx]
             state.currTask = task;
         }
@@ -129,14 +129,14 @@ export const boardStore = {
         },
 
         //*Task ACtions
-        async getTask(context, { taskId, taskListId }) {
+        async getTask(context, { taskId, taskListId, boardId }) {
             // taskObj = taskId + 
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const taskObj = { taskId, taskListId }
+            const taskObj = { taskId, taskListId, boardId }
 
             try {
                 context.commit('setCurrTask', taskObj);
-                const res = await boardService.getById();
+                const res = await boardService.getById(boardId);
                 return res
                 //TODO: ask aviv what about returning an object after get action ! return task ?
 
@@ -147,9 +147,9 @@ export const boardStore = {
 
         },
 
-        async saveTask(context, { taskListId, updatedTask }) {
+        async saveTask(context, { taskId, taskListId, boardId }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const taskObj = { taskListId, updatedTask }
+            const taskObj = { taskId, taskListId, boardId }
 
             try {
                 context.commit('saveTask', taskObj);
@@ -176,10 +176,10 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
-        async removeTask(context, { taskListId, taskId }) {
+        async removeTask(context, { taskId, taskListId, boardId }) {
             // taskObj = taskListId + taskId
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const taskObj = { taskId, taskListId }
+            const taskObj = { taskId, taskListId, boardId }
             try {
                 //remove the task from the local board(not copy) 
                 context.commit('removeTask', taskObj);
