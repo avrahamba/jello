@@ -1,0 +1,15 @@
+Fri, 20 Mar 2020 12:44:26 GMT - Debug - qwe, qwe, qwe, undefined
+Fri, 20 Mar 2020 12:44:26 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Fri, 20 Mar 2020 12:44:26 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$h5zjVWFfFKCEuXFAteBJg.dK68gX90b7xvrMH0t1xasTXyBx3FbCK","username":"qwe"}
+Fri, 20 Mar 2020 12:44:26 GMT - Debug - auth.service - login with email: qwe
+Fri, 20 Mar 2020 13:01:20 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:02:40 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:03:06 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:05:51 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:07:09 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:08:27 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:09:09 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:10:35 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:12:35 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:14:41 GMT - Error - Cannot get boards
+Fri, 20 Mar 2020 13:17:52 GMT - Error - Cannot get boards

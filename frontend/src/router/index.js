@@ -5,7 +5,7 @@ import signup from '../views/signup.vue'
 import login from '../views/login.vue'
 import userPage from '../views/user.page.vue'
 import board from '../views/board.vue'
-import taskDetails from '../views/task-details.vue';
+import taskDetails from '../views/task-details2.vue';
 
 Vue.use(VueRouter)
 
@@ -25,28 +25,42 @@ const routes = [
     name: 'login',
     component: login
   },
-   {
+  {
     path: '/userPage',
     name: 'user-page',
     component: userPage
   },
+  // {
+  //   path: '/:id',
+  //   name: 'board',
+  //   component: board
+  // },
+  // {
+  //   path: '/task/:id',
+  //   name: 'task-details',
+  //   component: taskDetails
+  // },
   {
-    path: '/:id',
-    name: 'board',
-    component: board
-  },
-  {
-    path: '/task/:id',
-    name: 'task-details',
-    component: taskDetails
+    path: '/:id', name: 'board', component: board,
+    children: [
+      {
+        // UserProfile will be rendered inside User's <router-view>
+        // when /user/:id/profile is matched
+        path: '/task/:id',
+        name: 'task-details',
+        component: taskDetails
+      }
+    ]
   }
 ]
+  
+    
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+      mode: 'history',
+      base: process.env.BASE_URL,
+      routes
+    })
 
 export default router
 // import Vue from 'vue'

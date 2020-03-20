@@ -8,6 +8,7 @@
             <button class="add-list-btn btn">Add a list</button>
         </draggable>
     </section>
+    <router-view></router-view>
 </section>
 </template>
 
