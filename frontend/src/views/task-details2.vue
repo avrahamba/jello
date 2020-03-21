@@ -6,9 +6,8 @@
     <modals-container />
     <modal name="editModal">
       <div>
-      
-      <date-picker></date-picker>
-      
+        <date-picker></date-picker>
+        <tag-picker></tag-picker>
       </div>
     </modal>
   </section>
@@ -16,19 +15,16 @@
 
 <script>
 import datePicker from "../components/date-picker.vue";
+import tagPicker from "../components/tag-picker.vue";
 export default {
   data() {
     return {
-      boardId: null
+      boardId: null,
+      currTask: null
     };
   },
   mounted() {
     this.$modal.show("editModal");
-  },
-  computed: {
-    currTask() {
-      return this.$store.getters.currTask;
-    }
   },
   created() {
     var taskId = this.$route.params.id;
@@ -38,16 +34,21 @@ export default {
     taskListId = taskListId.join("-");
     this.boardId = boardId;
 
-    this.$store.dispatch({
-      type: "getTask",
-      taskId,
-      taskListId,
-      boardId
-    });
+    this.$store
+      .dispatch({
+        type: "getTask",
+        taskId,
+        taskListId,
+        boardId
+      })
+      .then(currTask => {
+        this.currTask = currTask;
+      });
   },
   methods: {},
-  components:{
-    datePicker
+  components: {
+    datePicker,
+    tagPicker
   }
 };
 </script>

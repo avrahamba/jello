@@ -138,8 +138,15 @@ export const boardStore = {
 
             try {
                 context.commit('setCurrTask', taskObj);
-                const res = await boardService.getById(boardId);
-                return res
+                const board = await boardService.getById(boardId);
+                const ListIdx = board.taskLists.findIndex(
+                    list => list.id === taskListId
+                );
+                const taskIdx = board.taskLists[ListIdx].tasks.findIndex(
+                    task => task.id === taskId
+                );
+                return board.taskLists[ListIdx].tasks[taskIdx];
+
 
             }
             catch{
