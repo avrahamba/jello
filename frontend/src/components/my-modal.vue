@@ -5,11 +5,11 @@
         <div class="overlay" @click.self="closeModal">
           <div class="modal" v-if="currTask">
             {{currTask}}
-            <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
+            <label-picker v-model="taskToSave.labels"></label-picker>
             <button @click="add">+</button>
             <button @click="save">save</button>
 
-            <date-picker></date-picker>
+            <date-picker v-model="taskToSave.dueDate" @input="log"></date-picker>
             <show-members></show-members>
           </div>
         </div>
@@ -36,6 +36,7 @@ export default {
       this.$router.push("/" + this.boardId);
     },
     add() {
+      //TODO: think about a solution for this problem !
       this.taskToSave.labels = [
         { name: "New Feature", type: "", isActive: true, id: 0 },
         { name: "User stories", type: "success", isActive: true, id: 1 },
@@ -47,6 +48,9 @@ export default {
 
     save() {
       this.$emit("save", this.taskToSave);
+    },
+    log() {
+      console.log(this.taskToSave.dueDate);
     }
   },
   props: {

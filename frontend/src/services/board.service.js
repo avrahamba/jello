@@ -42,7 +42,8 @@ function getEmptyTask(id) {
         atachment: [],
         checklists: [],
         members: [],
-        msgs: []
+        msgs: [],
+        dueDate: []
     }
 }
 
