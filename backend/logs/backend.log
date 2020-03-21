@@ -619,3 +619,7 @@ Sat, 21 Mar 2020 17:55:41 GMT - Debug - auth.service - signup with email: avraha
 Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.route - new account created: {"email":"avraham@jello","password":"$2b$10$PdVXLmDpDbRlFAEuOykex.DIQ2H9ZxgNHzEV0fKNsOQR5O34C6VgW","username":"avraham"}
 Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.service - login with email: avraham@jello
 Sat, 21 Mar 2020 17:56:05 GMT - Debug - auth.service - login with email: avraham@jello
+Sat, 21 Mar 2020 19:20:31 GMT - Debug - kl, k, k, undefined
+Sat, 21 Mar 2020 19:20:31 GMT - Debug - auth.service - signup with email: kl, username: k
+Sat, 21 Mar 2020 19:20:31 GMT - Debug - auth.route - new account created: {"email":"kl","password":"$2b$10$XAFcBAeB9mQw2O7Fy6grK.7EyRAK9WI.Ll6ZrEZXMBxl9CcgEpXg2","username":"k"}
+Sat, 21 Mar 2020 19:20:31 GMT - Debug - auth.service - login with email: kl
