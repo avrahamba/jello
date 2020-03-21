@@ -619,3 +619,4 @@ Sat, 21 Mar 2020 17:55:41 GMT - Debug - auth.service - signup with email: avraha
 Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.route - new account created: {"email":"avraham@jello","password":"$2b$10$PdVXLmDpDbRlFAEuOykex.DIQ2H9ZxgNHzEV0fKNsOQR5O34C6VgW","username":"avraham"}
 Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.service - login with email: avraham@jello
 Sat, 21 Mar 2020 17:56:05 GMT - Debug - auth.service - login with email: avraham@jello
+Sat, 21 Mar 2020 19:15:21 GMT - Info - Server is running on port: 3030

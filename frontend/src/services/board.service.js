@@ -7,7 +7,7 @@ export const boardService = {
     save,
     getEmptyList,
     getEmptyTask,
-    getEmptyBoard
+    getEmptyBoard,
 }
 
 async function query(userId) {
@@ -63,9 +63,6 @@ function getEmptyBoard() {
         background: ""
     }
 }
-
-
-
 
 function _makeId(length = 7) {
     var txt = '';

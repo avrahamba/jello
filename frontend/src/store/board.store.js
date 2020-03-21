@@ -46,7 +46,18 @@ export const boardStore = {
             const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.taskId);
             const task = state.board.taskLists[ListIdx].tasks[taskIdx]
             state.currTask = task;
-
+        },
+        moveList(state,{oldIndex,newIndex}){
+            const list1 =  state.board.taskLists[oldIndex]
+            const list2 =  state.board.taskLists[newIndex]
+            state.board.taskLists.splice(oldIndex,1,list1)
+            state.board.taskLists.splice(newIndex,1,list2)
+        },
+        moveListAgain(state,{oldIndex,newIndex}){
+            const list1 =  state.board.taskLists[oldIndex]
+            const list2 =  state.board.taskLists[newIndex]
+            state.board.taskLists.splice(oldIndex,1,list2)
+            state.board.taskLists.splice(newIndex,1,list1)
         }
     },
     getters: {
@@ -58,8 +69,7 @@ export const boardStore = {
         },
         currTask(state) {
             return JSON.parse(JSON.stringify(state.currTask));
-
-        }
+        },
     },
     actions: {
         //* Board Actions
@@ -202,9 +212,11 @@ export const boardStore = {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             const moveObj = {oldIndex,newIndex}
             try {
-
+                context.commit('moveList', moveObj);
+                const res = await boardService.save(context.state.board)
+                return res
             }catch{
-                
+                context.commit('moveListAgain', moveObj);
             }
         }
     }
