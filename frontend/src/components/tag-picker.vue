@@ -1,6 +1,6 @@
 <template>
   <section>
-    <el-tag v-for="tag in tags" :key="tag.name" closable :type="tag.type">{{tag.name}}</el-tag>
+    <el-tag v-for="label in labels" :key="label.name" closable :type="label.type">{{label.name}}</el-tag>
   </section>
 </template>
 
@@ -9,14 +9,12 @@
 export default {
   data() {
     return {
-      tags: [
-        { name: "Tag 1", type: "" },
-        { name: "Tag 2", type: "success" },
-        { name: "Tag 3", type: "info" },
-        { name: "Tag 4", type: "warning" },
-        { name: "Tag 5", type: "danger" }
-      ]
+      labels: this.value
     };
-  }
+  },
+  props: {
+    value: Array
+  },
+  created() {}
 };
 </script>

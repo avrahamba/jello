@@ -33,13 +33,13 @@ export const boardStore = {
         },
         saveTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
-            const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.updatedTask.taskId);
-            if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1, taskObj.updatedTask);;
+            const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.taskToSave.id);
+            if (taskIdx !== -1 && ListIdx !== -1) state.board.taskLists[ListIdx].tasks.splice(taskIdx, 1, taskObj.taskToSave);
         },
         removeTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
             const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.taskId);
-            if (taskIdx !== -1 || ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1);
+            if (taskIdx !== -1 && ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1);
         },
         setCurrTask(state, taskObj) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
@@ -155,14 +155,14 @@ export const boardStore = {
 
         },
 
-        async saveTask(context, { taskId, taskListId, boardId }) {
+        async saveTask(context, { taskListId, boardId, taskToSave }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const taskObj = { taskId, taskListId, boardId }
+            const taskObj = { taskListId, boardId, taskToSave }
 
             try {
                 context.commit('saveTask', taskObj);
-                const res = await boardService.save(context.state.board);
-                return res
+                const board = await boardService.save(context.state.board);
+                return board
             }
             catch{
                 context.commit('setBoard', boardCopy);

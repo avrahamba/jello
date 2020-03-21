@@ -16,6 +16,16 @@ async function query(userId) {
 function getById(id) {
     return httpService.get(`board/id/${id}`);
 }
+async function save(board) {
+    let prm;
+    if (board._id) prm = httpService.put(`board/id/${board._id}`, board);
+    else {
+        board.createdAt = new Date();
+        prm = httpService.post('board', board);
+    }
+    return await prm;
+}
+
 function removeBoard(id) {
     return httpService.delete(`board/${id}`);
 }
@@ -54,15 +64,7 @@ function getEmptyBoard() {
     }
 }
 
-async function save(board) {
-    let prm;
-    if (board._id) prm = httpService.put(`board/`, board);
-    else {
-        board.createdAt = new Date();
-        prm = httpService.post('board', board);
-    }
-    return await prm;
-}
+
 
 
 function _makeId(length = 7) {

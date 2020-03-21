@@ -3,15 +3,19 @@
     <transition name="modal">
       <div v-if="isOpen">
         <div class="overlay" @click.self="closeModal">
-          <div class="modal">
-            <tag-picker></tag-picker>
+          <div class="modal" v-if="currTask">
+            {{currTask}}
+            <tag-picker @input="save" v-model="taskToSave.labels"></tag-picker>
+            <button @click="add">+</button>
+            <button @click="save">save</button>
+
             <date-picker></date-picker>
             <show-members></show-members>
           </div>
         </div>
       </div>
     </transition>
-    <button @click="isOpen = !isOpen;">{{ isOpen ? "Close" : "Open" }} modal</button>
+    <!-- <button @click="isOpen = !isOpen;">{{ isOpen ? "Close" : "Open" }} modal</button> -->
   </section>
 </template>
 
@@ -22,13 +26,20 @@ import tagPicker from "./tag-picker.vue";
 export default {
   data: function() {
     return {
-      isOpen: false
+      isOpen: false,
+      taskToSave: null
     };
   },
   methods: {
     closeModal() {
       this.isOpen = false;
       this.$router.push("/" + this.boardId);
+    },
+    add() {
+      this.taskToSave.labels.push({ name: "Added tag", type: "success" });
+    },
+    save() {
+      this.$emit("save", this.taskToSave);
     }
   },
   props: {
@@ -37,6 +48,14 @@ export default {
   },
   created() {
     this.isOpen = true;
+    this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
+    this.taskToSave.labels = [
+      // { name: "Tag 1", type: "" },
+      // { name: "Tag 2", type: "success" },
+      // { name: "Tag 3", type: "info" },
+      // { name: "Tag 4", type: "warning" },
+      // { name: "Tag 5", type: "danger" }
+    ];
   },
   components: {
     tagPicker,
