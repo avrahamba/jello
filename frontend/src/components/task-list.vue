@@ -54,7 +54,7 @@ export default {
     },
     dragOptions() {
       return {
-        animation: 0,
+        animation: "200",
         ghostClass: "ghost",
         group: "task-list-items"
       };

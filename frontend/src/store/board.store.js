@@ -198,5 +198,14 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
+        async moveList(context,{oldIndex,newIndex}){
+            const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            const moveObj = {oldIndex,newIndex}
+            try {
+
+            }catch{
+                
+            }
+        }
     }
 }   

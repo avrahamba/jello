@@ -6,6 +6,7 @@
         class="lists-container"
         draggable=".task-list"
         v-model="boardData.taskLists"
+        v-bind="dragOptions"
         @end="move"
       >
         <task-list
@@ -59,8 +60,7 @@ export default {
         });
     },
     move({ oldIndex, newIndex }) {
-      console.log("oldIndex :", oldIndex);
-      console.log("newIndex :", newIndex);
+        this.$store.dispatch({type:'moveList',oldIndex,newIndex})
     }
   },
   computed: {
@@ -72,6 +72,13 @@ export default {
         return {
           boardData: null
         };
+    },
+    dragOptions() {
+      return {
+        animation: "200",
+        ghostClass: "ghost",
+        group: "task-list-items"
+      };
     }
   },
   components: {

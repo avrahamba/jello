@@ -613,3 +613,9 @@ Sat, 21 Mar 2020 14:56:29 GMT - Info - Server is running on port: 3030
 Sat, 21 Mar 2020 14:58:10 GMT - Info - Server is running on port: 3030
 Sat, 21 Mar 2020 14:59:30 GMT - Info - Server is running on port: 3030
 Sat, 21 Mar 2020 15:01:56 GMT - Info - Server is running on port: 3030
+Sat, 21 Mar 2020 17:32:44 GMT - Info - Server is running on port: 3030
+Sat, 21 Mar 2020 17:55:41 GMT - Debug - avraham@jello, avraham, 123, undefined
+Sat, 21 Mar 2020 17:55:41 GMT - Debug - auth.service - signup with email: avraham@jello, username: avraham
+Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.route - new account created: {"email":"avraham@jello","password":"$2b$10$PdVXLmDpDbRlFAEuOykex.DIQ2H9ZxgNHzEV0fKNsOQR5O34C6VgW","username":"avraham"}
+Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.service - login with email: avraham@jello
+Sat, 21 Mar 2020 17:56:05 GMT - Debug - auth.service - login with email: avraham@jello
