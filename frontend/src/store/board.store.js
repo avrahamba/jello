@@ -19,7 +19,7 @@ export const boardStore = {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
             if (ListIdx !== -1) state.board.taskLists.splice(ListIdx, 1, list);
         },
-        //!word
+        //!work
         removeList(state, taskListId) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskListId);
             if (ListIdx !== -1) state.board.taskLists.splice(ListIdx, 1);
@@ -46,6 +46,7 @@ export const boardStore = {
             const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.taskId);
             const task = state.board.taskLists[ListIdx].tasks[taskIdx]
             state.currTask = task;
+
         }
     },
     getters: {
