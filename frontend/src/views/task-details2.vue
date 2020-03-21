@@ -5,7 +5,7 @@
     </router-link>
     <modals-container />
     <modal name="editModal">
-      <h1>im edit modal</h1>
+      <h1>{{currTask}}</h1>
     </modal>
   </section>
 </template>
@@ -20,6 +20,11 @@ export default {
   mounted() {
     this.$modal.show("editModal");
   },
+  computed: {
+    currTask() {
+      return this.$store.getters.currTask;
+    }
+  },
   created() {
     var taskId = this.$route.params.id;
     var taskListId = taskId.split("-");
@@ -28,16 +33,12 @@ export default {
     taskListId = taskListId.join("-");
     this.boardId = boardId;
 
-    this.$store
-      .dispatch({
-        type: "getTask",
-        taskId,
-        taskListId,
-        boardId
-      })
-      .then(board => {
-        console.log("board", board);
-      });
+    this.$store.dispatch({
+      type: "getTask",
+      taskId,
+      taskListId,
+      boardId
+    });
   },
   methods: {}
 };

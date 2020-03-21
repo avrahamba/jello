@@ -57,7 +57,8 @@ export const boardStore = {
             return state.board;
         },
         currTask(state) {
-            return state.currTask;
+            return JSON.parse(JSON.stringify(state.currTask));
+
         }
     },
     actions: {
@@ -139,7 +140,6 @@ export const boardStore = {
                 context.commit('setCurrTask', taskObj);
                 const res = await boardService.getById(boardId);
                 return res
-                //TODO: ask aviv what about returning an object after get action ! return task ?
 
             }
             catch{
