@@ -5,7 +5,7 @@
         <div class="overlay" @click.self="closeModal">
           <div class="modal" v-if="currTask">
             {{currTask}}
-            <tag-picker @input="save" v-model="taskToSave.labels"></tag-picker>
+            <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
             <button @click="add">+</button>
             <button @click="save">save</button>
 
@@ -22,7 +22,7 @@
 <script>
 import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
-import tagPicker from "./tag-picker.vue";
+import labelPicker from "./label-picker.vue";
 export default {
   data: function() {
     return {
@@ -36,8 +36,15 @@ export default {
       this.$router.push("/" + this.boardId);
     },
     add() {
-      this.taskToSave.labels.push({ name: "Added tag", type: "success" });
+      this.taskToSave.labels = [
+        { name: "New Feature", type: "", isActive: true, id: 0 },
+        { name: "User stories", type: "success", isActive: true, id: 1 },
+        { name: "Task", type: "info", isActive: true, id: 2 },
+        { name: "Issue", type: "warning", isActive: true, id: 3 },
+        { name: "Bug", type: "danger", isActive: true, id: 4 }
+      ];
     },
+
     save() {
       this.$emit("save", this.taskToSave);
     }
@@ -49,16 +56,9 @@ export default {
   created() {
     this.isOpen = true;
     this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
-    this.taskToSave.labels = [
-      // { name: "Tag 1", type: "" },
-      // { name: "Tag 2", type: "success" },
-      // { name: "Tag 3", type: "info" },
-      // { name: "Tag 4", type: "warning" },
-      // { name: "Tag 5", type: "danger" }
-    ];
   },
   components: {
-    tagPicker,
+    labelPicker,
     showMembers,
     datePicker
   }
