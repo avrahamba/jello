@@ -582,3 +582,10 @@ Sat, 21 Mar 2020 11:05:25 GMT - Error - Cannot get boards
 Sat, 21 Mar 2020 11:08:56 GMT - Error - Cannot get boards
 Sat, 21 Mar 2020 11:10:10 GMT - Error - Cannot get boards
 >>>>>>> 9b2e10977ac24c996dbe215bbca2f0ff5af6d088
+Sat, 21 Mar 2020 11:21:01 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 13:07:48 GMT - Debug - yes, yes, yes, undefined
+Sat, 21 Mar 2020 13:07:48 GMT - Debug - auth.service - signup with email: yes, username: yes
+Sat, 21 Mar 2020 13:07:48 GMT - Debug - auth.route - new account created: {"email":"yes","password":"$2b$10$Nv6fmiMtk0plITtyMMiJdOuMIFEA8kX9P7ggHESkkXp2BtEycP5NG","username":"yes"}
+Sat, 21 Mar 2020 13:07:48 GMT - Debug - auth.service - login with email: yes
+Sat, 21 Mar 2020 13:09:17 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 13:10:28 GMT - Error - Cannot get boards

@@ -1,24 +1,12 @@
 <template>
   <section class="task-details">
-    <router-link :to="'/'+boardId">
-      <div class="screen"></div>
-    </router-link>
-    <modals-container />
-    <modal name="editModal">
-      <div>
-      
-      <date-picker></date-picker>
-      <show-members></show-members>
-      {{currTask.desc}}
-      <pre>{{currTask}}</pre>
-      </div>
-    </modal>
+    <myModal :currTask="currTask" :boardId="boardId"></myModal>
   </section>
 </template>
 
 <script>
-import datePicker from "../components/date-picker.vue";
-import showMembers from "../components/show-members.vue";
+
+import myModal from "../components/my-modal.vue";
 export default {
   data() {
     return {
@@ -46,12 +34,12 @@ export default {
       })
       .then(currTask => {
         this.currTask = currTask;
+        console.log(this.currTask);
       });
   },
   methods: {},
-  components:{
-    datePicker,
-    showMembers
+  components: {
+    myModal
   }
 };
 </script>
