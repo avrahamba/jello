@@ -10,7 +10,7 @@
             <button @click="save">save</button>
 
             <date-picker></date-picker>
-            <show-members></show-members>
+            <show-members @input="save" v-model="taskToSave.members"></show-members>
           </div>
         </div>
       </div>

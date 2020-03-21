@@ -12,6 +12,10 @@ export default {
   data() {
     return {};
   },
+  created(){
+    debugger
+    console.log(this.members) 
+  },
   props: {
     members: Array
   }
