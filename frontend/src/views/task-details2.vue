@@ -5,12 +5,17 @@
     </router-link>
     <modals-container />
     <modal name="editModal">
-      <h1>{{currTask}}</h1>
+      <div>
+      
+      <date-picker></date-picker>
+      
+      </div>
     </modal>
   </section>
 </template>
 
 <script>
+import datePicker from "../components/date-picker.vue";
 export default {
   data() {
     return {
@@ -40,7 +45,10 @@ export default {
       boardId
     });
   },
-  methods: {}
+  methods: {},
+  components:{
+    datePicker
+  }
 };
 </script>
 
