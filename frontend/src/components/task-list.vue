@@ -2,10 +2,11 @@
   <section class="task-list">
     <h2>{{taskListData.title}}</h2>
     <div class="list-items">
-      <draggable v-model="tasks" v-bind="dragOptions" @end="endMove">
+      <draggable draggable=".task-preview" v-model="tasks" v-bind="dragOptions" @end="endMove">
         <transition-group
           type="transition"
           tag="div"
+          
           :data-id="taskListData.id"
           :name="taskListData.id"
         >

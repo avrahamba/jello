@@ -77,7 +77,7 @@ export default {
       return {
         animation: "200",
         ghostClass: "ghost",
-        group: "task-list-items"
+        group: "task-list"
       };
     }
   },
