@@ -620,3 +620,10 @@ Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.route - new account created: {"emai
 Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.service - login with email: avraham@jello
 Sat, 21 Mar 2020 17:56:05 GMT - Debug - auth.service - login with email: avraham@jello
 Sat, 21 Mar 2020 19:15:21 GMT - Info - Server is running on port: 3030
+Sat, 21 Mar 2020 19:54:55 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:54:55 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:54:56 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:54:59 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:55:02 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:55:05 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:55:09 GMT - Info - Server is running on port: 3030

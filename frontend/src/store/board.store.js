@@ -13,7 +13,13 @@ export const boardStore = {
         },
         //* List Mutations
         addList(state, list) {
+            list.isNew = true
             state.board.taskLists.push(list);
+        },
+        //* List Mutations
+        endAddList(state, list) {
+           delete list.isNew
+            state.board.taskLists.splice(-1,list);
         },
         saveList(state, list) {
             const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
@@ -47,17 +53,22 @@ export const boardStore = {
             const task = state.board.taskLists[ListIdx].tasks[taskIdx]
             state.currTask = task;
         },
-        moveList(state,{oldIndex,newIndex}){
-            const list1 =  state.board.taskLists[oldIndex]
-            const list2 =  state.board.taskLists[newIndex]
-            state.board.taskLists.splice(oldIndex,1,list1)
-            state.board.taskLists.splice(newIndex,1,list2)
+        removeChangeMoveList(state, { oldIndex, newIndex }) {
+            const list1 = state.board.taskLists[oldIndex]
+            const list2 = state.board.taskLists[newIndex]
+            state.board.taskLists.splice(oldIndex, 1, list2)
+            state.board.taskLists.splice(newIndex, 1, list1)
         },
-        moveListAgain(state,{oldIndex,newIndex}){
-            const list1 =  state.board.taskLists[oldIndex]
-            const list2 =  state.board.taskLists[newIndex]
-            state.board.taskLists.splice(oldIndex,1,list2)
-            state.board.taskLists.splice(newIndex,1,list1)
+        removeChangeMoveTask(state, { idMoveFrom, idMoveTo, oldIndex, newIndex }) {
+            const listFrom = state.board.taskLists.find(tl => tl.id === idMoveFrom)
+            const listTo = state.board.taskLists.find(tl => tl.id === idMoveTo)
+            const taskMove = listTo.tasks[newIndex]
+            listFrom.tasks.splice(oldIndex, 0, taskMove)
+            listTo.tasks.splice(newIndex, 1)
+        },
+        removeChangeListTitle(state, { listId, oldTitle }) {
+            const list = state.board.taskLists.find(tl => tl.id === listId)
+            list.title = oldTitle
         }
     },
     getters: {
@@ -208,15 +219,31 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
-        async moveList(context,{oldIndex,newIndex}){
-            const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const moveObj = {oldIndex,newIndex}
+        async moveList(context, { oldIndex, newIndex }) {
+            const moveObj = { oldIndex, newIndex }
             try {
-                context.commit('moveList', moveObj);
                 const res = await boardService.save(context.state.board)
                 return res
-            }catch{
+            } catch{
                 context.commit('moveListAgain', moveObj);
+            }
+        },
+        async moveTask(context, { idMoveFrom, idMoveTo, oldIndex, newIndex }) {
+            const moveObj = { idMoveFrom, idMoveTo, oldIndex, newIndex }
+            try {
+                const res = await boardService.save(context.state.board)
+                return res
+            } catch{
+                context.commit('removeChangeMoveTask', moveObj);
+            }
+        },
+        async changeTitle(context, { listId, oldTitle }) {
+            const changeObj = { listId, oldTitle }
+            try {
+                const res = await boardService.save(context.state.board)
+                return res
+            } catch{
+                context.commit('removeChangeListTitle', changeObj);
             }
         }
     }
