@@ -9,6 +9,14 @@ import '@fortawesome/fontawesome-free/css/all.css'
 import '@fortawesome/fontawesome-free/js/all.js'
 import VModal from 'vue-js-modal'
 Vue.use(VModal, { dynamic: true, dynamicDefaults: { clickToClose: false } })
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import locale from 'element-ui/lib/locale/lang/en'
+Vue.use(ElementUI, { locale })
+
+
+
+
 Vue.config.productionTip = false
 
 new Vue({
