@@ -6,8 +6,11 @@
     <modals-container />
     <modal name="editModal">
       <div>
-        <date-picker></date-picker>
-        <tag-picker></tag-picker>
+      
+      <date-picker></date-picker>
+      <show-members></show-members>
+      {{currTask.desc}}
+      <pre>{{currTask}}</pre>
       </div>
     </modal>
   </section>
@@ -15,7 +18,7 @@
 
 <script>
 import datePicker from "../components/date-picker.vue";
-import tagPicker from "../components/tag-picker.vue";
+import showMembers from "../components/show-members.vue";
 export default {
   data() {
     return {
@@ -46,9 +49,9 @@ export default {
       });
   },
   methods: {},
-  components: {
+  components:{
     datePicker,
-    tagPicker
+    showMembers
   }
 };
 </script>
