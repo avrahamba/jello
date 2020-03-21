@@ -5,7 +5,9 @@
     </router-link>
     <modals-container />
     <modal name="editModal">
-      <h1>{{currTask}}</h1>
+      <div class="main-container-modal">
+
+      </div>
     </modal>
   </section>
 </template>
