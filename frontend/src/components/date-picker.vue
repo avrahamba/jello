@@ -1,6 +1,5 @@
 <template>
   <div class="block">
-    <span class="demonstration">Default</span>
     <el-date-picker
       v-model="value1"
       type="daterange"
