@@ -1,7 +1,8 @@
 <template>
-  <div class="block">
-    <el-date-picker
-      v-model="value1"
+  <div class="date-container">
+  <h3>Due Date</h3>
+    <el-date-picker class="date-picker-container"
+      v-model="value"
       type="daterange"
       range-separator="To"
       start-placeholder="Start date"
@@ -14,7 +15,7 @@
   export default {
     data() {
       return {
-        value1: '',
+        value: '',
       };
     }
   };

@@ -8,7 +8,9 @@
       <div>
       
       <date-picker></date-picker>
-      
+      <show-members></show-members>
+      {{currTask.desc}}
+      <pre>{{currTask}}</pre>
       </div>
     </modal>
   </section>
@@ -16,6 +18,7 @@
 
 <script>
 import datePicker from "../components/date-picker.vue";
+import showMembers from "../components/show-members.vue";
 export default {
   data() {
     return {
@@ -47,7 +50,8 @@ export default {
   },
   methods: {},
   components:{
-    datePicker
+    datePicker,
+    showMembers
   }
 };
 </script>
