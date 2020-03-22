@@ -1,5 +1,6 @@
 <template>
-  <section v-if="value">
+    <section v-if="value" class="label-preview">
+    label
     <el-tag
       class="labels-container"
       v-for="label in labelsActive"
@@ -11,8 +12,8 @@
       @close="handleClose(label.id)"
     >{{label.name}}</el-tag>
   </section>
-</template>
 
+</template>
 
 <script>
 export default {
@@ -36,5 +37,10 @@ export default {
       }
     }
   }
-};
+
+}
 </script>
+
+<style>
+
+</style>

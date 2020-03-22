@@ -626,4 +626,21 @@ Sat, 21 Mar 2020 19:20:31 GMT - Debug - auth.route - new account created: {"emai
 Sat, 21 Mar 2020 19:20:31 GMT - Debug - auth.service - login with email: kl
 =======
 Sat, 21 Mar 2020 19:15:21 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
 >>>>>>> cb4ac3d04412051006cf45c2781229660206770b
+=======
+Sat, 21 Mar 2020 19:54:55 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:54:55 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:54:56 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:54:59 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:55:02 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:55:05 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 19:55:09 GMT - Info - Server is running on port: 3030
+Sat, 21 Mar 2020 22:08:37 GMT - Error - Cannot get boards
+Sat, 21 Mar 2020 22:55:24 GMT - Info - Server is running on port: 3030
+>>>>>>> 62d30bc2a973f055102487a1a1eed810a954fc4b
+Sun, 22 Mar 2020 11:12:44 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 11:14:21 GMT - Debug - l, l, l, undefined
+Sun, 22 Mar 2020 11:14:21 GMT - Debug - auth.service - signup with email: l, username: l
+Sun, 22 Mar 2020 11:14:24 GMT - Debug - auth.route - new account created: {"email":"l","password":"$2b$10$fXQnYvhY2HLEGHjrh1WZ/um1C6CmUwKZtCDxTW.zUODe1nBMSWIbm","username":"l"}
+Sun, 22 Mar 2020 11:14:24 GMT - Debug - auth.service - login with email: l

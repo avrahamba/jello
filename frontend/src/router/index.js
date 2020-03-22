@@ -5,7 +5,7 @@ import signup from '../views/signup.vue'
 import login from '../views/login.vue'
 import userPage from '../views/user.page.vue'
 import board from '../views/board.vue'
-import taskDetails from '../views/task-details2.vue';
+import taskDetails from '../views/task-details.vue';
 
 Vue.use(VueRouter)
 
