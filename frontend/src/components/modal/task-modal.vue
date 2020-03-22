@@ -1,84 +1,65 @@
 <template>
-  <section class="task-modal">
+<section class="task-modal">
     <transition name="modal">
-      <div v-if="isOpen">
-        <div class="overlay" @click.self="closeModal">
-          <div class="modal" v-if="currTask">
-            <div class="title-area">
-              <input
-                class="task-title"
-                type="text"
-                @blur="saveTitle"
-                @keydown="keydownTitle"
-                placeholder="Title"
-                v-model="taskToSave.title"
-              />
-              <br />in list
-              <a href="#">{{listName}}</a>
-            </div>
-            <div class="date-area" v-if="currTask">
-              <date-picker
-                v-if="currTask.dueDate.length||addDateMode"
-                v-model="taskToSave.dueDate"
-                @input="save"
-              ></date-picker>
-            </div>
-            <div class="detail-area">
-              <div class="members-labels-contaner">
-                <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
-                <label-preview
-                  v-if="taskToSave.labels.length"
-                  @input="save"
-                  v-model="taskToSave.labels"
-                ></label-preview>
-              </div>
+        <div v-if="isOpen">
+            <div class="overlay" @click.self="closeModal">
+                <div class="modal" v-if="currTask">
+                    <div class="cover-area">
+                    </div>
+                    <div class="title-area">
+                        <input class="task-title" type="text" @blur="saveTitle" @keydown="keydownTitle" placeholder="Title" v-model="taskToSave.title" />
+                        <br />in list
+                        <a href="#">{{listName}}</a>
+                    </div>
+                    <div class="detail-area">
+                        <div class="date-area" v-if="currTask">
+                            <date-picker v-if="currTask.dueDate.length||addDateMode" v-model="taskToSave.dueDate" @input="save"></date-picker>
+                        </div>
+                        <div class="members-labels-contaner">
+                            <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
+                            <label-preview v-if="taskToSave.labels.length" @input="save" v-model="taskToSave.labels"></label-preview>
+                        </div>
 
-              <h3>Description</h3>
-              <textarea
-                v-if="editDesc"
-                ref="descriptionTextarea"
-                placeholder="Add a more detailed description…"
-                v-model="taskToSave.desc"
-                @blur="saveDesc"
-                cols="30"
-                rows="10"
-              ></textarea>
-              <p @click="startEditDesc" v-else>{{descToView}}</p>
+                        <h3>Description</h3>
+                        <textarea v-if="editDesc" ref="descriptionTextarea" placeholder="Add a more detailed description…" v-model="taskToSave.desc" @blur="saveDesc" cols="30" rows="10"></textarea>
+                        <p @click="startEditDesc" v-else>{{descToView}}</p>
+                        <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
+                        <activity-chat :user="loggedinUser" :massage="taskToSave.msgs"></activity-chat>
+                        <pre>{{taskToSave}}</pre>
+                    </div>
+                    <div class="add-area">
+                        <div>
+                            <button v-if="!isJoin" @click="join">Join</button>
+                        </div>
+                        <h3>ADD TO CARD</h3>
+                        <div>
+                            <button>Members</button>
+                        </div>
+                        <div class="edit-labels-container">
+                            <button @click="addLabelMode =! addLabelMode">Labels</button>
+                            <template v-if="addLabelMode">
+                                <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
+                                <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
+                            </template>
+                        </div>
+                        <div>
+                            <button>Checklist</button>
+                        </div>
+                        <div>
+                            <button @click="addDateMode=!addDateMode">Due Date</button>
+                        </div>
+                        <div>
+                            <button>Attachment</button>
+                        </div>
+                        <div>
+                            <button>Cover</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
-            <div class="add-area">
-              <div>
-                <button v-if="!isJoin" @click="join">Join</button>
-              </div>
-              <h3>ADD TO CARD</h3>
-              <div>
-                <button>Members</button>
-              </div>
-              <div class="edit-labels-container">
-                <button @click="addLabelMode =! addLabelMode">Labels</button>
-                <template v-if="addLabelMode">
-                  <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
-                  <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
-                </template>
-              </div>
-              <div>
-                <button>Checklist</button>
-              </div>
-              <div>
-                <button @click="addDateMode=!addDateMode">Due Date</button>
-              </div>
-              <div>
-                <button>Attachment</button>
-              </div>
-              <div>
-                <button>Cover</button>
-              </div>
-            </div>
-          </div>
         </div>
-      </div>
     </transition>
-  </section>
+</section>
 </template>
 
 <script>
@@ -88,96 +69,101 @@ import labelPicker from "./label-picker.vue";
 import labelPreview from "./label-preview.vue";
 import filePicker from "./file-picker.vue";
 import windowOverlay from "../window-overlay.vue";
+import activityChat from './chat/activity-chat.vue';
 export default {
-  props: {
-    boardId: String,
-    currTask: Object
-  },
-  data: function() {
-    return {
-      isOpen: false,
-      taskToSave: null,
-      editDesc: false,
-      addLabelMode: false,
-      addDateMode: false
-    };
-  },
+    props: {
+        boardId: String,
+        currTask: Object
+    },
+    data: function () {
+        return {
+            isOpen: false,
+            taskToSave: null,
+            editDesc: false,
+            addLabelMode: false,
+            addDateMode: false
+        };
+    },
 
-  created() {
-    this.isOpen = true;
-    this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
-  },
-  methods: {
-    closeModal() {
-      this.isOpen = false;
-      this.$router.push("/" + this.boardId);
+    created() {
+        this.isOpen = true;
+        this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
     },
-    save() {
-      this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
+    methods: {
+        closeModal() {
+            this.isOpen = false;
+            this.$router.push("/" + this.boardId);
+        },
+        save() {
+            this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
+        },
+        saveTitle() {
+            if (this.currTask.title) this.save();
+        },
+        startEditDesc() {
+            this.editDesc = true;
+            setTimeout(() => {
+                const el = this.$refs.descriptionTextarea;
+                el.focus();
+            }, 0);
+        },
+        saveDesc() {
+            this.save();
+            this.editDesc = false;
+        },
+        keydownTitle(ev) {
+            if (ev.key === "Enter") {
+                if (this.currTask.title) this.save();
+                ev.target.blur();
+            }
+        },
+        join() {
+            const user = this.$store.getters.loggedinUser;
+            this.taskToSave.members.push({
+                id: user._id,
+                name: user.name,
+                avatar: user.avatar
+            });
+            this.save();
+        },
+        setLabel(label) {
+            const idx = this.taskToSave.labels.findIndex(
+                currLabel => currLabel.id === label.id
+            );
+            if (idx === -1) {
+                this.taskToSave.labels.push(label);
+            } else {
+                this.taskToSave.labels.splice(idx, 1);
+            }
+            this.save();
+        }
     },
-    saveTitle() {
-      if (this.currTask.title) this.save();
+    computed: {
+        listName() {
+            return this.$store.getters.currList.title;
+        },
+        descToView() {
+            if (this.taskToSave.desc) return this.taskToSave.desc;
+            return "Add a more detailed description…";
+        },
+        isJoin() {
+            return !!this.taskToSave.members.find(
+                user => user.id === this.$store.getters.loggedinUser._id
+            );
+        },
+        loggedinUser() {
+            return this.$store.getters.loggedinUser
+        }
     },
-    startEditDesc() {
-      this.editDesc = true;
-      setTimeout(() => {
-        const el = this.$refs.descriptionTextarea;
-        el.focus();
-      }, 0);
-    },
-    saveDesc() {
-      this.save();
-      this.editDesc = false;
-    },
-    keydownTitle(ev) {
-      if (ev.key === "Enter") {
-        if (this.currTask.title) this.save();
-        ev.target.blur();
-      }
-    },
-    join() {
-      const user = this.$store.getters.loggedinUser;
-      this.taskToSave.members.push({
-        id: user._id,
-        name: user.name,
-        avatar: user.avatar
-      });
-      this.save();
-    },
-    setLabel(label) {
-      const idx = this.taskToSave.labels.findIndex(
-        currLabel => currLabel.id === label.id
-      );
-      if (idx === -1) {
-        this.taskToSave.labels.push(label);
-      } else {
-        this.taskToSave.labels.splice(idx, 1);
-      }
-      this.save();
+    components: {
+        labelPicker,
+        showMembers,
+        datePicker,
+        labelPreview,
+        windowOverlay,
+        filePicker,
+        activityChat
     }
-  },
-  computed: {
-    listName() {
-      return this.$store.getters.currList.title;
-    },
-    descToView() {
-      if (this.taskToSave.desc) return this.taskToSave.desc;
-      return "Add a more detailed description…";
-    },
-    isJoin() {
-      return !!this.taskToSave.members.find(
-        user => user.id === this.$store.getters.loggedinUser._id
-      );
-    }
-  },
-  components: {
-    labelPicker,
-    showMembers,
-    datePicker,
-    labelPreview,
-    windowOverlay,
-    filePicker
-  }
 };
 </script>
 

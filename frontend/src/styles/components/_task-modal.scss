@@ -13,21 +13,25 @@
       font-family: Helvetica, Arial, sans-serif;
       display: grid;
       grid-template-columns: 1fr 200px;
-      grid-template-rows: 80px 1fr;
-      .title-area {
+      grid-template-rows: auto 80px 1fr;
+      .cover-area {
         grid-column: 1 /-1;
         grid-row: 1/ 2;
       }
+      .title-area {
+        grid-column: 1 /-1;
+        grid-row: 2/ 3;
+      }
       .detail-area {
         grid-column: 1/ 2;
-        grid-row: 2 /3;
-        .members-labels-contaner{
+        grid-row: 3 /4;
+        .members-labels-contaner {
           display: flex;
         }
       }
       .add-area {
         grid-column: 2 /3;
-        grid-row: 2/ 3;
+        grid-row: 3/ 4;
       }
       button {
         padding: 7px;
