@@ -619,7 +619,16 @@ Sat, 21 Mar 2020 17:55:41 GMT - Debug - auth.service - signup with email: avraha
 Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.route - new account created: {"email":"avraham@jello","password":"$2b$10$PdVXLmDpDbRlFAEuOykex.DIQ2H9ZxgNHzEV0fKNsOQR5O34C6VgW","username":"avraham"}
 Sat, 21 Mar 2020 17:56:03 GMT - Debug - auth.service - login with email: avraham@jello
 Sat, 21 Mar 2020 17:56:05 GMT - Debug - auth.service - login with email: avraham@jello
+<<<<<<< HEAD
+Sat, 21 Mar 2020 19:20:31 GMT - Debug - kl, k, k, undefined
+Sat, 21 Mar 2020 19:20:31 GMT - Debug - auth.service - signup with email: kl, username: k
+Sat, 21 Mar 2020 19:20:31 GMT - Debug - auth.route - new account created: {"email":"kl","password":"$2b$10$XAFcBAeB9mQw2O7Fy6grK.7EyRAK9WI.Ll6ZrEZXMBxl9CcgEpXg2","username":"k"}
+Sat, 21 Mar 2020 19:20:31 GMT - Debug - auth.service - login with email: kl
+=======
 Sat, 21 Mar 2020 19:15:21 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
+>>>>>>> cb4ac3d04412051006cf45c2781229660206770b
+=======
 Sat, 21 Mar 2020 19:54:55 GMT - Error - Cannot get boards
 Sat, 21 Mar 2020 19:54:55 GMT - Error - Cannot get boards
 Sat, 21 Mar 2020 19:54:56 GMT - Error - Cannot get boards
@@ -629,6 +638,14 @@ Sat, 21 Mar 2020 19:55:05 GMT - Error - Cannot get boards
 Sat, 21 Mar 2020 19:55:09 GMT - Info - Server is running on port: 3030
 Sat, 21 Mar 2020 22:08:37 GMT - Error - Cannot get boards
 Sat, 21 Mar 2020 22:55:24 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
+>>>>>>> 62d30bc2a973f055102487a1a1eed810a954fc4b
+Sun, 22 Mar 2020 11:12:44 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 11:14:21 GMT - Debug - l, l, l, undefined
+Sun, 22 Mar 2020 11:14:21 GMT - Debug - auth.service - signup with email: l, username: l
+Sun, 22 Mar 2020 11:14:24 GMT - Debug - auth.route - new account created: {"email":"l","password":"$2b$10$fXQnYvhY2HLEGHjrh1WZ/um1C6CmUwKZtCDxTW.zUODe1nBMSWIbm","username":"l"}
+Sun, 22 Mar 2020 11:14:24 GMT - Debug - auth.service - login with email: l
+=======
 <<<<<<< HEAD
 Sun, 22 Mar 2020 07:42:21 GMT - Info - Server is running on port: 3030
 Sun, 22 Mar 2020 07:44:50 GMT - Debug - qw, qw, qw, undefined
@@ -642,3 +659,4 @@ Sun, 22 Mar 2020 07:44:57 GMT - Debug - auth.service - login with email: qw
 =======
 Sun, 22 Mar 2020 07:25:01 GMT - Info - Server is running on port: 3030
 >>>>>>> 35182be812ff3ae50f50461052f96d82cb776344
+>>>>>>> 88d3e1ad73578fef8c5f6dc2ec9d9cdb2cfe2379

@@ -40,10 +40,11 @@ function getEmptyTask(id) {
         desc: "",
         labels: [],
         cover: {},
-        atachment: [],
+        attachments: [],
         checklists: [],
         members: [],
-        msgs: []
+        msgs: [],
+        dueDate: []
     }
 }
 

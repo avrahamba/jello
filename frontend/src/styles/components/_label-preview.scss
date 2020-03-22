@@ -1,6 +1,37 @@
-.label-preview{
-    .labels-container {
-        margin: 1px;
-        display: flex;
+.label-preview {
+    h3{
+        padding-left: 10px;
+        text-align: left;
+    }
+  .labels-container {
+    margin: 10px;
+    display: flex;
+    .label {
+      min-width: 50px;
+      border-radius: 5px;
+      padding: 10px;
+      margin-right: 10px;
+      color: #fff;
+      font-size: rem(19px);
+      font-weight: 700;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    button.add-Label{
+        all:unset;
+        width: 25px;
+        border-radius: 5px;
+        padding: 10px;
+        margin-right: 10px;
+        color: #000;
+        font-size: rem(24px);
+        font-weight: 700;
+        &:hover {
+            background-color: #ccc;
+          cursor: pointer;
         }
+  
+    }
+  }
 }

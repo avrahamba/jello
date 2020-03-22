@@ -1,65 +1,57 @@
 <template>
-    <section v-if="value" class="label-preview">
-    <h3>Label</h3>
+<section v-if="value" class="label-preview">
+    <h3>LABEL</h3>
     <div class="labels-container">
-    <div class="label"
-        v-for="label in labels"
-        :key="label.id"
-        :type="label.type"
-        :style="{'background-color':label.color}"
-        @click="openLabelPiker(label)"
-    >
-      {{label.name}}
-      <label-picker @close="label.inEdit=false" v-if="label.inEdit"></label-picker>
+        <div class="label" v-for="label in labels" :key="label.id" :type="label.type" :style="{'background-color':label.color}" @click="add = true">
+            {{label.name}}
+        </div>
+        <button @click="add = true" class="add-Label">+</button>
+        <template v-if="add">
+            <window-overlay :dark="false" @close="add=false"></window-overlay>
+            <label-picker v-model="labels"></label-picker>
+        </template>
     </div>
-    <button @click="openLabelPiker" class="add-Label">+</button>
-    </div>
-    <pre>
-      {{labelsActive}}
-    </pre>
-    <!-- <el-tag
-      class="labels-container"
-      v-for="label in labelsActive"
-      :key="label.id"
-      closable
-      :type="label.type"
-      size="mini"
-      effect="dark"
-      @close="handleClose(label.id)"
-    >{{label.name}}</el-tag> -->
-  </section>
-
+</section>
 </template>
 
 <script>
+import windowOverlay from '../window-overlay.vue';
 import labelPicker from './label-picker.vue';
 export default {
-  data() {
-    return {
-      labels: this.value
-    };
-  },
-  props: {
-    value: Array
-  },
-  methods: {
-    handleClose(id) {
-      this.labels[id].isActive = false;
+    props: {
+        value: Array
     },
-    openLabelPiker(label){
-      label.inEdit =!label.inEdit
+    data() {
+        return {
+            add: false
+        }
+    },
+    methods: {
+        handleClose(id) {
+            this.labels[id].isActive = false;
+        },
+        close() {
+            let labels = this.labels
+            if (!labels) labels = []
+            labels =labels.map(label=>{label.inEdit=false;return label})
+            this.$emit('input', labels)
+        },
+    },
+    computed: {
+        labels: {
+            get() {
+                return this.value
+            },
+        set(newValue) {
+
+this.$emit('input', newValue)
+        }
+        },
+    },
+    components: {
+        labelPicker,
+        windowOverlay
     }
-  },
-  computed: {
-    labelsActive() {
-      if (this.labels.length) {
-        return this.labels.filter(label => label.isActive);
-      }
-    }
-  },
-  components:{
-    labelPicker
-  }
 
 }
 </script>
