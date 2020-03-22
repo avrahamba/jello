@@ -13,7 +13,7 @@
       font-family: Helvetica, Arial, sans-serif;
       display: grid;
       grid-template-columns: 1fr 200px;
-      grid-template-rows: 150px 1fr;
+      grid-template-rows: 80px 1fr;
       .title-area {
         grid-column: 1 /-1;
         grid-row: 1/ 2;
@@ -21,6 +21,9 @@
       .detail-area {
         grid-column: 1/ 2;
         grid-row: 2 /3;
+        .members-labels-contaner{
+          display: flex;
+        }
       }
       .add-area {
         grid-column: 2 /3;
