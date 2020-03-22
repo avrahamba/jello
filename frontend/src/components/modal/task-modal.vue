@@ -36,12 +36,12 @@
                             </button>
                         </div>
                         <div class="edit-labels-container">
-                            <button @click="addLabelMode=!addLabelMode">
+                            <button @click="addLabelMode =! addLabelMode">
                                 Labels
                             </button>
                             <template v-if="addLabelMode">
                                 <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
-                                <label-picker @set="setLabel"></label-picker>
+                                <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
                             </template>
                         </div>
                         <div>
@@ -95,7 +95,7 @@ export default {
     },
     created() {
         this.isOpen = true;
-        this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
+        this.taskToSave = JSON.parse(JSON.stringify(this.currTask))
     },
     methods: {
         closeModal() {
@@ -134,15 +134,6 @@ export default {
             })
             this.save();
         },
-        setLabel(label) {
-            const idx = this.taskToSave.labels.findIndex(currLabel => currLabel.id === label.id);
-            if (idx === -1) {
-                this.taskToSave.labels.push(label)
-            } else {
-                this.taskToSave.labels.splice(idx, 1)
-            }
-            this.save()
-        }
     },
     computed: {
         listName() {
