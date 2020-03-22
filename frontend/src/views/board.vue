@@ -16,27 +16,15 @@ import draggable from "vuedraggable";
 import taskList from "../components/task-list.vue";
 import navBoard from "../components/nav-board.vue";
 export default {
-    props: {
-        board: Object
-    },
-    data() {
-        return {
-            boardData: null
-        };
-    },
     created() {
-        if (this.board) {
-            this.boardData = this.board;
-            return;
-        }
         const boardId = this.boardId || this.$route.params.id;
 
-        this.$store.dispatch({ type: "getBoard", boardId }).then(board => {
+        this.$store.dispatch({ type: "getBoard", boardId })
+        .then(board => {
             if (board.failed) {
                 this.$router.push("/");
                 return;
             }
-            this.boardData = board;
         });
     },
     methods: {
@@ -54,6 +42,9 @@ export default {
         }
     },
     computed: {
+        boardData(){
+return this.$store.getters.board
+        },
         style() {
             if (
                 this.boardData.style.background &&
