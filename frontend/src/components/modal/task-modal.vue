@@ -13,14 +13,14 @@
                         in list <a href="#">{{listName}}</a>
                     </div>
                     <div class="detail-area">
-
-                        <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
+                        <div class="members-labels-contaner">
+                            <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
+                            <label-preview @input="save" v-model="taskToSave.labels"></label-preview>
+                        </div>
 
                         <h3>Description</h3>
                         <textarea v-if="editDesc" ref="descriptionTextarea" placeholder="Add a more detailed description…" v-model="taskToSave.desc" @blur="saveDesc" cols="30" rows="10"></textarea>
                         <p @click="startEditDesc" v-else>{{descToView}}</p>
-
-                        <label-preview @input="save" v-model="taskToSave.labels"></label-preview>
 
                     </div>
                     <div class="add-area">
@@ -39,7 +39,10 @@
                             <button @click="addLabelMode=!addLabelMode">
                                 Labels
                             </button>
-                            <label-picker v-if="addLabelMode" @add="addLabel"></label-picker>
+                            <template v-if="addLabelMode">
+                                <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
+                                <label-picker @set="setLabel"></label-picker>
+                            </template>
                         </div>
                         <div>
                             <button>
@@ -76,6 +79,7 @@ import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
 import labelPreview from './label-preview.vue';
+import windowOverlay from '../window-overlay.vue';
 export default {
     props: {
         boardId: String,
@@ -130,10 +134,15 @@ export default {
             })
             this.save();
         },
-        addLabel(label) {
-          this.taskToSave.labels.push(label)
-this.save()
-}
+        setLabel(label) {
+            const idx = this.taskToSave.labels.findIndex(currLabel => currLabel.id === label.id);
+            if (idx === -1) {
+                this.taskToSave.labels.push(label)
+            } else {
+                this.taskToSave.labels.splice(idx, 1)
+            }
+            this.save()
+        }
     },
     computed: {
         listName() {
@@ -151,7 +160,8 @@ this.save()
         labelPicker,
         showMembers,
         datePicker,
-        labelPreview
+        labelPreview,
+        windowOverlay
     }
 };
 </script>
