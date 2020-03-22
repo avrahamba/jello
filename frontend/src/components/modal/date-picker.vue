@@ -2,11 +2,13 @@
   <div class="date-container">
   <h3>Due Date</h3>
     <el-date-picker class="date-picker-container"
-      v-model="value"
+      v-model="dueDate"
       type="daterange"
       range-separator="To"
       start-placeholder="Start date"
-      end-placeholder="End date">
+      end-placeholder="End date"
+      @change="save"
+      >
     </el-date-picker>
   </div>
 </template>
@@ -15,8 +17,21 @@
   export default {
     data() {
       return {
-        value: '',
+        dueDate: this.value,
       };
+    },
+    props: {
+    value: Array
+  },
+  methods: {
+    save(){
+      debugger
+      this.dueDate
+      this.$emit('input',this.dueDate)
     }
+  },
+  created(){
+   
+  }
   };
 </script>

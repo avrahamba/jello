@@ -36,6 +36,7 @@ function getEmptyTask(id) {
     return {
         id,
         title: "",
+        dueDate:[],
         desc: "",
         labels: [],
         cover: {},

@@ -4,13 +4,16 @@
         <div v-if="isOpen">
             <div class="overlay" @click.self="closeModal">
                 <div class="modal" v-if="currTask">
-                    <!-- <pre>
+                    <pre>
                     {{taskToSave}}
-                    </pre> -->
+                    </pre> 
                     <div class="title-area">
                         <input class="task-title" type="text" @blur="saveTitle" @keydown="keydownTitle" placeholder="Title" v-model="taskToSave.title">
                         <br>
                         in list <a href="#">{{listName}}</a>
+                    </div>
+                    <div class="date-area" v-if="currTask">
+                        <date-picker v-if="currTask.dueDate.length||addDateMode" v-model="taskToSave.dueDate" @input="save"></date-picker> 
                     </div>
                     <div class="detail-area">
 
@@ -47,9 +50,8 @@
                             </button>
                         </div>
                         <div>
-                            <button>
+                            <button @click="addDateMode=!addDateMode">
                                 Due Date
-                                <!-- <date-picker></date-picker> -->
                             </button>
                         </div>
                         <div>
@@ -86,7 +88,8 @@ export default {
             isOpen: false,
             taskToSave: null,
             editDesc: false,
-            addLabelMode: false
+            addLabelMode: false,
+            addDateMode:false
         };
     },
     created() {
@@ -99,6 +102,7 @@ export default {
             this.$router.push("/" + this.boardId);
         },
         save() {
+            debugger
             this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
         },
         saveTitle() {
