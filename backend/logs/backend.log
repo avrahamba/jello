@@ -660,3 +660,41 @@ Sun, 22 Mar 2020 07:44:57 GMT - Debug - auth.service - login with email: qw
 Sun, 22 Mar 2020 07:25:01 GMT - Info - Server is running on port: 3030
 >>>>>>> 35182be812ff3ae50f50461052f96d82cb776344
 >>>>>>> 88d3e1ad73578fef8c5f6dc2ec9d9cdb2cfe2379
+Sun, 22 Mar 2020 13:52:08 GMT - Debug - yes, product manager, yes, undefined
+Sun, 22 Mar 2020 13:52:08 GMT - Debug - auth.service - signup with email: yes, username: product manager
+Sun, 22 Mar 2020 13:52:08 GMT - Debug - auth.route - new account created: {"email":"yes","password":"$2b$10$cpYTp4X3rtenbE8dElSxNOUyvrlkfhpnkFQbbHMyCRUmNVpYBODV6","username":"product manager"}
+Sun, 22 Mar 2020 13:52:08 GMT - Debug - auth.service - login with email: yes
+Sun, 22 Mar 2020 17:30:47 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:31:28 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:31:34 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:32:02 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:32:14 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:32:59 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:33:46 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:33:51 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:33:56 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:34:02 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:34:30 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 17:38:49 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 17:39:13 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:39:58 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 17:40:09 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:40:15 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:48:27 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:52:33 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:52:43 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 17:55:55 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 17:56:18 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 17:57:19 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 17:57:48 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 17:58:37 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 18:05:16 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 18:07:02 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 18:09:20 GMT - Debug - kokok, koko, kokokok, undefined
+Sun, 22 Mar 2020 18:09:20 GMT - Debug - auth.service - signup with email: kokok, username: koko
+Sun, 22 Mar 2020 18:09:20 GMT - Debug - auth.route - new account created: {"email":"kokok","password":"$2b$10$9lsucxEdczLIyCWk6gQjzefxvlffp1yVa5SbX25HXZDFPC5AEYaeS","username":"koko"}
+Sun, 22 Mar 2020 18:09:20 GMT - Debug - auth.service - login with email: kokok
+Sun, 22 Mar 2020 18:34:33 GMT - Debug - 777, 777, 777, undefined
+Sun, 22 Mar 2020 18:34:33 GMT - Debug - auth.service - signup with email: 777, username: 777
+Sun, 22 Mar 2020 18:34:34 GMT - Debug - auth.route - new account created: {"email":"777","password":"$2b$10$UwaWRaXzqWIQ1V0RyPDTjekovy5fXC6jW5XR1m6GCwD3NkmfIZ51K","username":"777"}
+Sun, 22 Mar 2020 18:34:34 GMT - Debug - auth.service - login with email: 777

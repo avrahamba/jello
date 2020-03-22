@@ -5,9 +5,10 @@
       <h3>board id:{{board._id}}</h3>
       <h3>name:{{board.name}}</h3>
       <h3>color:{{board.background}}</h3>
+      <button @click="addNewBoard">Add new board</button>
+      <!-- add modal for new board - create button will fire an action to board store (addBoard(user)) -->
 
-        <router-link v-for="board in boards" :key="board._id" :to="'/'+board._id">{{board.title}}</router-link>
-
+      <router-link v-for="board in boards" :key="board._id" :to="'/'+board._id">{{board.title}}</router-link>
     </div>
   </div>
 </template>
@@ -18,7 +19,12 @@ export default {
   data() {
     return {
       user: this.loggedinUser,
-      boards: []
+      boards: [],
+      prefs: {
+        title: "test for new board",
+        style: { background: "#FFFFF" },
+        public: true
+      }
     };
   },
   created() {
@@ -26,10 +32,27 @@ export default {
     this.$store
       .dispatch({
         type: "getBoards",
-        userId: this.$store.getters.loggedinUser.id
+        userId: this.$store.getters.loggedinUser._id
       })
       .then(boards => (this.boards = boards));
   },
-  methods: {}
+  methods: {
+    addNewBoard() {
+      this.$store
+        .dispatch({
+          type: "addBoard",
+          user: this.$store.getters.loggedinUser,
+          prefs: this.prefs
+        })
+        .then(() => {
+          this.$store
+            .dispatch({
+              type: "getBoards",
+              userId: this.$store.getters.loggedinUser._id
+            })
+            .then(boards => (this.boards = boards));
+        });
+    }
+  }
 };
 </script>
