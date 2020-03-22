@@ -29,7 +29,11 @@
             <div class="detail-area">
               <div class="members-labels-contaner">
                 <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
-                <label-preview @input="save" v-model="taskToSave.labels"></label-preview>
+                <label-preview
+                  v-if="taskToSave.labels.length"
+                  @input="save"
+                  v-model="taskToSave.labels"
+                ></label-preview>
               </div>
 
               <h3>Description</h3>
@@ -44,6 +48,7 @@
               ></textarea>
               <p @click="startEditDesc" v-else>{{descToView}}</p>
             </div>
+            <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
             <div class="add-area">
               <div>
                 <button v-if="!isJoin" @click="join">Join</button>
@@ -53,10 +58,10 @@
                 <button>Members</button>
               </div>
               <div class="edit-labels-container">
-                <button @click="addLabelMode=!addLabelMode">Labels</button>
+                <button @click="addLabelMode =! addLabelMode">Labels</button>
                 <template v-if="addLabelMode">
                   <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
-                  <label-picker @set="setLabel"></label-picker>
+                  <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
                 </template>
               </div>
               <div>
@@ -76,7 +81,6 @@
         </div>
       </div>
     </transition>
-    <!-- <button @click="isOpen = !isOpen;">{{ isOpen ? "Close" : "Open" }} modal</button> -->
   </section>
 </template>
 
@@ -85,6 +89,7 @@ import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
 import labelPreview from "./label-preview.vue";
+import filePicker from "./file-picker.vue";
 import windowOverlay from "../window-overlay.vue";
 export default {
   props: {
@@ -100,6 +105,7 @@ export default {
       addDateMode: false
     };
   },
+
   created() {
     this.isOpen = true;
     this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
@@ -110,7 +116,6 @@ export default {
       this.$router.push("/" + this.boardId);
     },
     save() {
-      debugger;
       this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
     },
     saveTitle() {
@@ -173,7 +178,8 @@ export default {
     showMembers,
     datePicker,
     labelPreview,
-    windowOverlay
+    windowOverlay,
+    filePicker
   }
 };
 </script>
