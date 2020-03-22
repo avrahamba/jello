@@ -1,0 +1,34 @@
+.massage-write {
+  display: flex;
+  .comment-frame {
+    box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+    position: relative;
+
+    .comment-box {
+      &:hover {
+      }
+      button.btn {
+        all: unset;
+        background-color: none;
+        position: absolute;
+
+        bottom: 8px;
+        left: 12px;
+        user-select: none;
+        cursor: pointer;
+      }
+      textarea {
+        border: none;
+        resize: none;
+        overflow: hidden;
+        overflow-wrap: break-word;
+        height: 20px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.in-focuse .comment-box {
+  padding-bottom: 56px;
+}

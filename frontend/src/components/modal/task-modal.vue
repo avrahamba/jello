@@ -24,8 +24,8 @@
                         <textarea v-if="editDesc" ref="descriptionTextarea" placeholder="Add a more detailed description…" v-model="taskToSave.desc" @blur="saveDesc" cols="30" rows="10"></textarea>
                         <p @click="startEditDesc" v-else>{{descToView}}</p>
                         <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
-                        <activity-chat :user="loggedinUser" :massage="taskToSave.msgs"></activity-chat>
-                        <pre>{{taskToSave}}</pre>
+                        <activity-chat :user="loggedinUser" :massages="taskToSave.msgs" @save="saveMsgs"></activity-chat>
+                        <!-- <pre>{{taskToSave}}</pre> -->
                     </div>
                     <div class="add-area">
                         <div>
@@ -136,6 +136,11 @@ export default {
                 this.taskToSave.labels.splice(idx, 1);
             }
             this.save();
+        },
+        saveMsgs(msgs){
+
+            this.taskToSave.msgs = msgs
+            this.save()
         }
     },
     computed: {
