@@ -6,7 +6,6 @@
 </template>
 
 <script>
-import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
   name: "Home",
@@ -20,8 +19,5 @@ export default {
       this.$router.push({ path: "/userPage" });
     }
   },
-  components: {
-    HelloWorld
-  }
 };
 </script>

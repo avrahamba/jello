@@ -1,33 +1,52 @@
 <template>
-  <section class="task-details">
-    <board v-if="boardData" :board="boardData"></board>
-    <router-link :to="'/'+boardData._id">
-      <div class="screen"></div>
-    </router-link>
+  <section class="task-details" v-if="currTask">
+    <task-modal @save="saveTask" :currTask="currTask" :boardId="boardId"></task-modal>
   </section>
 </template>
 
 <script>
-import board from "./board.vue";
+import taskModal from "../components/modal/task-modal.vue";
 export default {
   data() {
     return {
-      boardData: null,
-      task: null
+      boardId: null,
+      currTask: null,
     };
   },
+  mounted() {
+    this.$modal.show("editModal");
+  },
   created() {
-    const id = this.$route.params.id;
-    const boardId = id.substring(0, id.indexOf("-"));
-    let tmpBoard = this.$store.getters.board;
-    if (tmpBoard && tmpBoard._id === boardId) {
-      this.boardData = tmpBoard;
-      console.log("yes");
-    } else {
-      console.log("no");
+    const taskId = this.$route.params.id;
+    const boardId = taskId.split("-")[0];
+    this.boardId = boardId;
+
+    this.$store
+      .dispatch({
+        type: "getTask",
+        taskId,
+        boardId
+      })
+      .then(currTask => {
+        this.currTask = currTask;
+      });
+  },
+  methods: {
+    saveTask(taskToSave) {
+      this.$store
+        .dispatch({
+          type: "saveTask",
+          boardId: this.boardId,
+          taskToSave
+        })
+        // .then(currTask => {
+        //   this.$router.push("/" + this.boardId);
+        // });
     }
   },
-  components: { board }
+  components: {
+    taskModal
+  }
 };
 </script>
 
