@@ -18,7 +18,7 @@
                     <div class="detail-area">
                         <div class="members-labels-contaner">
                             <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
-                            <label-preview @input="save" v-model="taskToSave.labels"></label-preview>
+                            <label-preview v-if="taskToSave.labels.length" @input="save" v-model="taskToSave.labels"></label-preview>
                         </div>
 
                         <h3>Description</h3>
@@ -106,7 +106,6 @@ export default {
             this.$router.push("/" + this.boardId);
         },
         save() {
-            debugger
             this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
         },
         saveTitle() {
