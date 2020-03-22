@@ -6,7 +6,7 @@ const boardService = require('./board.service')
 async function getBoards(req, res) {
     try {
 
-        const boards = await boardService.query(req.params.id)
+        const boards = await boardService.query(req.params.userId)
         res.json(boards)
     } catch (err) {
         logger.error('Cannot get boards', err);
@@ -35,8 +35,8 @@ async function deleteBoard(req, res) {
 }
 
 async function addBoard(req, res) {
-    var board = req.body;
-    board = await boardService.add(board)
+    var wrapper = req.body;
+    board = await boardService.add(wrapper)
     res.send(board)
 }
 

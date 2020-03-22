@@ -52,16 +52,28 @@ async function remove(boardId) {
 }
 
 
-async function add(board) {
-    board.byUserId = ObjectId(board.byUserId);
-    board.aboutUserId = ObjectId(board.aboutUserId);
+async function add(wrapper) {
+    const user = wrapper.user;
+    const prefs = wrapper.prefs
+    const miniUser = {
+        _id: user._id,
+        name: user.name,
+        email: user.email
+    }
 
+    const newBoard = {
+        title: prefs.title,
+        users: [miniUser],
+        taskLists: [],
+        style: { background: prefs.style.background }
+
+    }
     const collection = await dbService.getCollection('board')
     try {
-        await collection.insertOne(board);
-        return board;
+        await collection.insertOne(newBoard);
+        return newBoard;
     } catch (err) {
-        console.log(`ERROR: cannot insert user`)
+        console.log(`ERROR: Cannot add new board `)
         throw err;
     }
 }
@@ -70,7 +82,6 @@ async function save(board) {
     board._id = ObjectId(board._id);
     const collection = await dbService.getCollection('board')
     try {
-
         await collection.replaceOne({ _id: board._id }, board);
         return board;
     } catch (err) {

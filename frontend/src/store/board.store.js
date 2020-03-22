@@ -122,6 +122,16 @@ export const boardStore = {
                 return null
             }
         },
+        async addBoard(context, { user, prefs }) {
+            try {
+                const board = await boardService.addBoard(user, prefs);
+                context.commit('setBoard', board);
+                return board;
+            }
+            catch{
+                return null
+            }
+        },
 
         //* List Actions
         async saveList(context, { list }) {
@@ -199,6 +209,8 @@ export const boardStore = {
         //!work
         async addTask(context, { taskListId, newTask }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            console.log(boardCopy);
+
             const task = boardService.getEmptyTask(context.state.board._id);
             task.title = newTask.title
             const taskObj = { task, taskListId }

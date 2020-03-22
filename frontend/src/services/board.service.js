@@ -7,7 +7,7 @@ export const boardService = {
     save,
     getEmptyList,
     getEmptyTask,
-    getEmptyBoard,
+    addBoard
 }
 
 async function query(userId) {
@@ -18,6 +18,7 @@ function getById(id) {
 }
 async function save(board) {
     let prm;
+
     if (board._id) prm = httpService.put(`board/id/${board._id}`, board);
     else {
         board.createdAt = new Date();
@@ -36,7 +37,7 @@ function getEmptyTask(id) {
     return {
         id,
         title: "",
-        dueDate:[],
+        dueDate: [],
         desc: "",
         labels: [],
         cover: {},
@@ -58,12 +59,10 @@ function getEmptyList(id) {
     }
 }
 
-function getEmptyBoard() {
-    return {
-        id: "",
-        title: "",
-        background: ""
-    }
+function addBoard(user, prefs) {
+    var wrapper = { user, prefs }
+
+    return httpService.post(`board/`, wrapper);
 }
 
 function _makeId(length = 7) {
