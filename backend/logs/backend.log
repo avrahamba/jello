@@ -629,4 +629,16 @@ Sat, 21 Mar 2020 19:55:05 GMT - Error - Cannot get boards
 Sat, 21 Mar 2020 19:55:09 GMT - Info - Server is running on port: 3030
 Sat, 21 Mar 2020 22:08:37 GMT - Error - Cannot get boards
 Sat, 21 Mar 2020 22:55:24 GMT - Info - Server is running on port: 3030
+<<<<<<< HEAD
+Sun, 22 Mar 2020 07:42:21 GMT - Info - Server is running on port: 3030
+Sun, 22 Mar 2020 07:44:50 GMT - Debug - qw, qw, qw, undefined
+Sun, 22 Mar 2020 07:44:50 GMT - Debug - auth.service - signup with email: qw, username: qw
+Sun, 22 Mar 2020 07:44:51 GMT - Debug - qw, qw, qw, undefined
+Sun, 22 Mar 2020 07:44:51 GMT - Debug - auth.service - signup with email: qw, username: qw
+Sun, 22 Mar 2020 07:44:57 GMT - Debug - auth.route - new account created: {"email":"qw","password":"$2b$10$kA8sdofXQPwOf6OPJN052.BU94mGOYlUwfm4heQCrQdAY9aAYN1lC","username":"qw"}
+Sun, 22 Mar 2020 07:44:57 GMT - Debug - auth.service - login with email: qw
+Sun, 22 Mar 2020 07:44:57 GMT - Debug - auth.route - new account created: {"email":"qw","password":"$2b$10$ZQq7CA35oWyhoWYVumwNueF/6GobyRzWy6xbbjZL8hCaTulNEhysC","username":"qw"}
+Sun, 22 Mar 2020 07:44:57 GMT - Debug - auth.service - login with email: qw
+=======
 Sun, 22 Mar 2020 07:25:01 GMT - Info - Server is running on port: 3030
+>>>>>>> 35182be812ff3ae50f50461052f96d82cb776344
