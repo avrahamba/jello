@@ -106,7 +106,6 @@ export default {
             this.$router.push("/" + this.boardId);
         },
         save() {
-            debugger
             this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
         },
         saveTitle() {

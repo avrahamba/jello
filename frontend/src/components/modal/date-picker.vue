@@ -25,7 +25,6 @@
   },
   methods: {
     save(){
-      debugger
       this.dueDate
       this.$emit('input',this.dueDate)
     }
