@@ -1,8 +1,8 @@
 <template>
-<div>
+<div class="task-preview">
     
 <router-link :to="'/task/'+task.id">
-    <section class="task-preview">
+    <section >
         {{task.title}}
     </section>
 </router-link>

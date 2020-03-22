@@ -14,9 +14,6 @@ export default {
       listId: null
     };
   },
-  mounted() {
-    this.$modal.show("editModal");
-  },
   created() {
     var taskId = this.$route.params.id;
     var taskListId = taskId.split("-");

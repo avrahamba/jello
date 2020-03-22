@@ -22,7 +22,6 @@ export default {
     };
   },
   created() {
-    console.log("this.loggedinUser", this.user);
     this.user = this.$store.getters.loggedinUser;
     this.$store
       .dispatch({
