@@ -694,3 +694,7 @@ Sun, 22 Mar 2020 18:09:20 GMT - Debug - kokok, koko, kokokok, undefined
 Sun, 22 Mar 2020 18:09:20 GMT - Debug - auth.service - signup with email: kokok, username: koko
 Sun, 22 Mar 2020 18:09:20 GMT - Debug - auth.route - new account created: {"email":"kokok","password":"$2b$10$9lsucxEdczLIyCWk6gQjzefxvlffp1yVa5SbX25HXZDFPC5AEYaeS","username":"koko"}
 Sun, 22 Mar 2020 18:09:20 GMT - Debug - auth.service - login with email: kokok
+Sun, 22 Mar 2020 18:34:33 GMT - Debug - 777, 777, 777, undefined
+Sun, 22 Mar 2020 18:34:33 GMT - Debug - auth.service - signup with email: 777, username: 777
+Sun, 22 Mar 2020 18:34:34 GMT - Debug - auth.route - new account created: {"email":"777","password":"$2b$10$UwaWRaXzqWIQ1V0RyPDTjekovy5fXC6jW5XR1m6GCwD3NkmfIZ51K","username":"777"}
+Sun, 22 Mar 2020 18:34:34 GMT - Debug - auth.service - login with email: 777

@@ -65,7 +65,8 @@ async function add(wrapper) {
         title: prefs.title,
         users: [miniUser],
         taskLists: [],
-        style: { background: prefs.style.background }
+        style: { background: prefs.style.background },
+        public: prefs.public
 
     }
     const collection = await dbService.getCollection('board')

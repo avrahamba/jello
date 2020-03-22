@@ -20,7 +20,11 @@ export default {
     return {
       user: this.loggedinUser,
       boards: [],
-      prefs: { title: "test for new board", style: { background: "#FFFFF" } }
+      prefs: {
+        title: "test for new board",
+        style: { background: "#FFFFF" },
+        public: true
+      }
     };
   },
   created() {
