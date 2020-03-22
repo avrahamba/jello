@@ -1,4 +1,6 @@
 import httpService from './HttpService';
+import {utilsServie} from './utils.service';
+
 
 export const boardService = {
     query,
@@ -32,8 +34,7 @@ function removeBoard(id) {
 }
 
 function getEmptyTask(id) {
-    if (id) id += '-' + _makeId()
-    // else id = _makeId()
+    if (id) id += '-' + utilsServie.makeId()
     return {
         id,
         title: "",
@@ -50,8 +51,7 @@ function getEmptyTask(id) {
 }
 
 function getEmptyList(id) {
-    if (id) id += '-' + _makeId()
-    // else id = _makeId()
+    if (id) id += '-' + utilsServie.makeId()
     return {
         id,
         title: "",
@@ -65,11 +65,3 @@ function addBoard(user, prefs) {
     return httpService.post(`board/`, wrapper);
 }
 
-function _makeId(length = 7) {
-    var txt = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return txt;
-}

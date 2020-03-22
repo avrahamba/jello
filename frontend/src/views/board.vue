@@ -20,18 +20,18 @@ export default {
         const boardId = this.boardId || this.$route.params.id;
 
         this.$store.dispatch({ type: "getBoard", boardId })
-        .then(board => {
-            if (board.failed) {
-                this.$router.push("/");
-                return;
-            }
-        });
+            .then(board => {
+                if (board.failed) {
+                    this.$router.push("/");
+                    return;
+                }
+            });
     },
     methods: {
         createList() {
             this.$store
                 .dispatch({
-                        type: "addList"
+                    type: "addList"
                 })
                 .then(res => {
 
@@ -42,8 +42,8 @@ export default {
         }
     },
     computed: {
-        boardData(){
-return this.$store.getters.board
+        boardData() {
+            return this.$store.getters.board
         },
         style() {
             if (
