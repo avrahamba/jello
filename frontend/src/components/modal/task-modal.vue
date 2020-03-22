@@ -4,9 +4,9 @@
       <div v-if="isOpen">
         <div class="overlay" @click.self="closeModal">
           <div class="modal" v-if="currTask">
-            <!-- <pre>
+            <pre>
                     {{taskToSave}}
-            </pre>-->
+                    </pre>
             <div class="title-area">
               <input
                 class="task-title"
@@ -19,8 +19,18 @@
               <br />in list
               <a href="#">{{listName}}</a>
             </div>
+            <div class="date-area" v-if="currTask">
+              <date-picker
+                v-if="currTask.dueDate.length||addDateMode"
+                v-model="taskToSave.dueDate"
+                @input="save"
+              ></date-picker>
+            </div>
             <div class="detail-area">
-              <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
+              <div class="members-labels-contaner">
+                <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
+                <label-preview @input="save" v-model="taskToSave.labels"></label-preview>
+              </div>
 
               <h3>Description</h3>
               <textarea
@@ -33,9 +43,6 @@
                 rows="10"
               ></textarea>
               <p @click="startEditDesc" v-else>{{descToView}}</p>
-              <pre>{{taskToSave}}</pre>
-              <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
-              <label-preview @input="save" v-model="taskToSave.labels"></label-preview>
             </div>
             <div class="add-area">
               <div>
@@ -47,16 +54,16 @@
               </div>
               <div class="edit-labels-container">
                 <button @click="addLabelMode=!addLabelMode">Labels</button>
-                <label-picker v-if="addLabelMode" @add="addLabel"></label-picker>
+                <template v-if="addLabelMode">
+                  <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
+                  <label-picker @set="setLabel"></label-picker>
+                </template>
               </div>
               <div>
                 <button>Checklist</button>
               </div>
               <div>
-                <button>
-                  Due Date
-                  <!-- <date-picker></date-picker> -->
-                </button>
+                <button @click="addDateMode=!addDateMode">Due Date</button>
               </div>
               <div>
                 <button>Attachment</button>
@@ -78,7 +85,7 @@ import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
 import labelPreview from "./label-preview.vue";
-import filePicker from "./file-picker.vue";
+import windowOverlay from "../window-overlay.vue";
 export default {
   props: {
     boardId: String,
@@ -89,7 +96,8 @@ export default {
       isOpen: false,
       taskToSave: null,
       editDesc: false,
-      addLabelMode: false
+      addLabelMode: false,
+      addDateMode: false
     };
   },
   created() {
@@ -102,6 +110,7 @@ export default {
       this.$router.push("/" + this.boardId);
     },
     save() {
+      debugger;
       this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
     },
     saveTitle() {
@@ -133,8 +142,15 @@ export default {
       });
       this.save();
     },
-    addLabel(label) {
-      this.taskToSave.labels.push(label);
+    setLabel(label) {
+      const idx = this.taskToSave.labels.findIndex(
+        currLabel => currLabel.id === label.id
+      );
+      if (idx === -1) {
+        this.taskToSave.labels.push(label);
+      } else {
+        this.taskToSave.labels.splice(idx, 1);
+      }
       this.save();
     }
   },
@@ -157,7 +173,7 @@ export default {
     showMembers,
     datePicker,
     labelPreview,
-    filePicker
+    windowOverlay
   }
 };
 </script>

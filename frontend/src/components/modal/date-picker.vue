@@ -1,15 +1,15 @@
 <template>
-  <div class="date-container" v-if="value">
+  <div class="date-container">
     <h3>Due Date</h3>
     <el-date-picker
       class="date-picker-container"
-      v-model="date"
+      v-model="dueDate"
       type="daterange"
       range-separator="To"
-      @change="pickDate"
       default-value="2010-10-01"
       start-placeholder="Start date"
       end-placeholder="End date"
+      @change="save"
     ></el-date-picker>
   </div>
 </template>
@@ -18,16 +18,19 @@
 export default {
   data() {
     return {
-      date: this.values
+      dueDate: this.value
     };
   },
   props: {
     value: Array
   },
   methods: {
-    pickDate() {
-      this.$emit("input", this.date);
+    save() {
+      debugger;
+      this.dueDate;
+      this.$emit("input", this.dueDate);
     }
-  }
+  },
+  created() {}
 };
 </script>

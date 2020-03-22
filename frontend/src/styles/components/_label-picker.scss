@@ -1,4 +1,7 @@
-.labels-container {
-margin: 1px;
-
+.edit-labels-container {
+  position: relative;
+}
+.label-picker {
+  position: absolute;
+  background-color: #555;
 }
