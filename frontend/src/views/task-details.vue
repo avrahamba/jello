@@ -6,6 +6,7 @@
 
 <script>
 import taskModal from "../components/modal/task-modal.vue";
+import {socketService} from '../services/SocketService.js';
 export default {
   data() {
     return {
@@ -39,9 +40,9 @@ export default {
           boardId: this.boardId,
           taskToSave
         })
-        // .then(currTask => {
-        //   this.$router.push("/" + this.boardId);
-        // });
+        .then(currTask => {
+          socketService.emit('change task',taskToSave)
+        });
     }
   },
   components: {

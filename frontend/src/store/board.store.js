@@ -81,6 +81,17 @@ export const boardStore = {
         removeChangeListTitle(state, { listId, oldTitle }) {
             const list = state.board.taskLists.find(tl => tl.id === listId)
             list.title = oldTitle
+        },
+        changeTask(state, newTask){
+            let taskIdx;
+            const currList = state.board.taskLists.find(tl => {
+                const findTaskIdx = tl.tasks.findIndex(task => task.id === newTask.id)
+                if (findTaskIdx!==-1) {
+                    taskIdx = findTaskIdx;
+                    return true
+                }
+            })
+            currList.tasks.splice(taskIdx,1,newTask)
         }
     },
     getters: {
@@ -264,6 +275,9 @@ export const boardStore = {
             } catch{
                 context.commit('removeChangeListTitle', changeObj);
             }
+        },
+        async changeTask(context,{task}){
+            context.commit('changeTask',task)
         }
     }
 }   

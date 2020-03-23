@@ -28,6 +28,7 @@
 <script>
 import draggable from "vuedraggable";
 import taskPreview from "./task-preview.vue";
+import { socketService } from '../services/SocketService.js';
 export default {
     props: {
         taskListData: Object
@@ -44,10 +45,10 @@ export default {
     },
     created() {
 
-      if(this.taskListData.isNew){
-        this.startEditTitle()
-        this.$store.commit('endAddList',this.taskListData)
-      }
+        if (this.taskListData.isNew) {
+            this.startEditTitle()
+            this.$store.commit('endAddList', this.taskListData)
+        }
     },
     computed: {
         tasks: {
@@ -74,6 +75,8 @@ export default {
             const idMoveFrom = from.dataset.id;
             const idMoveTo = to.dataset.id;
             this.$store.dispatch({ type: 'moveTask', idMoveFrom, idMoveTo, oldIndex, newIndex })
+                .then(() => { socketService.emit('change board') })
+
         },
         createTask() {
             this.addTaskMode = false;
