@@ -2,9 +2,10 @@ import io from 'socket.io-client';
 const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/'
     : '//localhost:3030'
+    // : '//192.168.43.254:3030'
 var socket;
 
-export default {
+export const socketService = {
     setup,
     terminate,
     on,
