@@ -35,8 +35,10 @@ async function logout() {
     await HttpService.post('auth/logout');
     sessionStorage.clear();
 }
-function getUsers() {
-    return HttpService.get('user')
+function getUsers(filterBy) {
+    var queryParams = new URLSearchParams()
+    queryParams.set('name', filterBy.txt)
+    return HttpService.get(`user?${queryParams}`)
 }
 
 function _handleLogin(user) {

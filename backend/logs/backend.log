@@ -714,3 +714,26 @@ Sun, 22 Mar 2020 20:52:32 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 20:52:32 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 21:32:49 GMT - Info - Server is running on port: 3030
 >>>>>>> df8d1e74dbcfebd3678b894c40b95033d4a29352
+Mon, 23 Mar 2020 15:35:29 GMT - Debug - eee, eee, eee, undefined
+Mon, 23 Mar 2020 15:35:30 GMT - Debug - auth.service - signup with email: eee, username: eee
+Mon, 23 Mar 2020 15:35:35 GMT - Debug - eee, eee, eee, undefined
+Mon, 23 Mar 2020 15:35:35 GMT - Debug - auth.service - signup with email: eee, username: eee
+Mon, 23 Mar 2020 15:35:35 GMT - Debug - auth.route - new account created: {"email":"eee","password":"$2b$10$ayIrlaEu.9KUnHaof/VZTOQxIViF0jtul0I5IOlqY3D7QUFo77Ukm","username":"eee"}
+Mon, 23 Mar 2020 15:35:36 GMT - Debug - auth.service - login with email: eee
+Mon, 23 Mar 2020 15:35:36 GMT - Debug - auth.route - new account created: {"email":"eee","password":"$2b$10$pPC8xTVkW.2GtP3umeKcSeEXYW0KtIEzkX43/mjfICfv8azvoEtI2","username":"eee"}
+Mon, 23 Mar 2020 15:35:36 GMT - Debug - auth.service - login with email: eee
+Mon, 23 Mar 2020 17:27:44 GMT - Debug - qwe, qwe, qwe, undefined
+Mon, 23 Mar 2020 17:27:45 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Mon, 23 Mar 2020 17:27:45 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$Ywre1noTi99x8UYWqEyUhejduduWICtvTQqCowIeasSLEgfpVVP3S","username":"qwe"}
+Mon, 23 Mar 2020 17:27:45 GMT - Debug - auth.service - login with email: qwe
+Mon, 23 Mar 2020 17:28:41 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 17:49:13 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 17:51:12 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 17:54:28 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 18:38:47 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 18:41:19 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 18:49:04 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 19:08:40 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 19:10:46 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 20:48:49 GMT - Error - Cannot get boards
+Mon, 23 Mar 2020 20:50:19 GMT - Error - Cannot get boards

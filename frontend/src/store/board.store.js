@@ -132,7 +132,18 @@ export const boardStore = {
                 return null
             }
         },
-
+        //* Board Actions
+        async saveBoard(context, updatedBoard) {
+        const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            try {
+        context.commit('setBoard', updatedBoard);
+        const res = await boardService.save(context.state.board);
+        return res
+         }
+        catch{
+            context.commit('setBoard', boardCopy);
+            }
+        },
         //* List Actions
         async saveList(context, { list }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));

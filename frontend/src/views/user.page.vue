@@ -7,11 +7,11 @@
       <h3>color:{{board.background}}</h3>
       <button @click="addNewBoard">Add new board</button>
       <!-- add modal for new board - create button will fire an action to board store (addBoard(user)) -->
-
       <div :class="'board-card '+board.title" v-for="board in boards" :key="board._id">
-        <button @click="addMembers">Add Memebers</button>
+        <button @click="addMembers(board)">Add Memebers</button>
         <router-link :to="'/'+board._id">{{board.title}}</router-link>
-        <add-members v-if="isAddMembers"></add-members>
+        <add-members v-if="board.isAddMembers" @filter="filter" @updateBoard="updateBoard" :users="users" :currBoard="board"></add-members>
+        <pre>{{board}}</pre>
       </div>
     </div>
   </div>
@@ -24,22 +24,38 @@ export default {
   data() {
     return {
       user: this.loggedinUser,
-      isAddMembers: false,
+      users: [],
       boards: [],
       prefs: {
-        title: "test for new board",
+        title: "test ron",
         style: { background: "#FFFFF" },
         public: true
       }
     };
   },
   created() {
+    console.log(this.boards)
     this.user = this.$store.getters.loggedinUser;
+    this.filter({txt: ""},)
     this.getBoardsFromStore();
   },
   methods: {
-    addMembers() {
-      this.isAddMembers = !this.isAddMembers;
+    filter(userFilter) {
+      this.$store
+        .dispatch({ type: "loadFilter", userFilter })
+        .then((users)=> {
+          this.users = users;
+        });
+    },
+    updateBoard(updatedBoard) {
+      this.$store
+        .dispatch({ type: "saveBoard", updatedBoard })
+        .then(function(res) {
+          console.log(res);
+        });
+    },
+    addMembers(board) {
+      board.isAddMembers = !board.isAddMembers;
     },
     getBoardsFromStore() {
       this.$store
