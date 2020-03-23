@@ -48,7 +48,12 @@
               ></textarea>
               <p @click="startEditDesc" v-else>{{descToView}}</p>
 
-              <checklist-list :checklists="taskToSave.checklists" @save="saveCheckList"></checklist-list>
+              <checklist-list
+                v-if="taskToSave.checklists"
+                :boardId="boardId"
+                :checklists="taskToSave.checklists"
+                @save="saveCheckList"
+              ></checklist-list>
 
               <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
 
@@ -84,7 +89,17 @@
                 <button>Attachment</button>
               </div>
               <div>
-                <button>Cover</button>
+                <div class="edit-cover-container">
+                  <button @click="isCoverMode = !isCoverMode">Cover</button>
+                  <template v-if="isCoverMode">
+                    <window-overlay :dark="false" @close="isCoverMode=false"></window-overlay>
+                    <cover-picker
+                      @input="save"
+                      v-model="taskToSave.cover"
+                      :covers="taskToSave.attachments"
+                    ></cover-picker>
+                  </template>
+                </div>
               </div>
             </div>
           </div>
@@ -102,6 +117,7 @@ import labelPicker from "./label-picker.vue";
 import labelPreview from "./label-preview.vue";
 import filePicker from "./file-picker.vue";
 import coverPreview from "./cover-preview.vue";
+import coverPicker from "./cover-picker.vue";
 import windowOverlay from "../window-overlay.vue";
 import activityChat from "./chat/activity-chat.vue";
 import addChecklist from "./checklist/add-checklist.vue";
@@ -118,7 +134,8 @@ export default {
       editDesc: false,
       addLabelMode: false,
       addDateMode: false,
-      addCheckListMode: false
+      addCheckListMode: false,
+      isCoverMode: false
     };
   },
 
@@ -208,6 +225,9 @@ export default {
     },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
+    },
+    isCover() {
+      // return this.taskToSave.attachments.length < 1 ? this.taskToSave.cover = {} :
     }
   },
   components: {
@@ -220,7 +240,8 @@ export default {
     activityChat,
     addChecklist,
     checklistList,
-    coverPreview
+    coverPreview,
+    coverPicker
   }
 };
 </script>
