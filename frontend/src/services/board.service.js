@@ -1,5 +1,5 @@
 import httpService from './HttpService';
-import {utilsServie} from './utils.service';
+import { utilsServie } from './utils.service';
 
 
 export const boardService = {
