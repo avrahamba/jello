@@ -1,15 +1,22 @@
-.label-picker {
+.cover-picker {
   position: fixed;
-  top: 10px;
+  bottom: 10px;
   height: 275px;
   width: 292px;
   background-color: #fff;
   border-radius: 3px;
   box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
-  .lable {
-      display: flex;
-      justify-content: space-between;
+  .covers {
       padding: 10px;
       margin-bottom: 5px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      
+      .cover {
+        width: 50px;
+        height: 50px;
+      }
+      
   }
 }

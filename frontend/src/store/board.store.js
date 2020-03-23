@@ -49,10 +49,16 @@ export const boardStore = {
             })
             state.board.taskLists[taskListIdx].tasks.splice(taskIdx, 1, taskToSave)
         },
-        removeTask(state, taskObj) {
-            const ListIdx = state.board.taskLists.findIndex(list => list.id === taskObj.taskListId);
-            const taskIdx = state.board.taskLists[ListIdx].tasks.findIndex(task => task.id === taskObj.taskId);
-            if (taskIdx !== -1 && ListIdx !== -1) state.board.taskLists[ListIdx].splice(taskIdx, 1);
+        removeTask(state, taskId) {
+            let taskIdx;
+            const taskListIdx = state.board.taskLists.findIndex(tl => {
+                const findTask = tl.tasks.findIndex(task => task.id === taskId)
+                if (findTask === -1) return false
+                taskIdx = findTask
+                return true
+            })
+
+            state.board.taskLists[taskListIdx].tasks.splice(taskIdx, 1);
         },
         setCurrTask(state, { taskId }) {
             let task;
@@ -81,6 +87,20 @@ export const boardStore = {
         removeChangeListTitle(state, { listId, oldTitle }) {
             const list = state.board.taskLists.find(tl => tl.id === listId)
             list.title = oldTitle
+        },
+        changeTask(state, newTask) {
+            let taskIdx;
+            const currList = state.board.taskLists.find(tl => {
+                const findTaskIdx = tl.tasks.findIndex(task => task.id === newTask.id)
+                if (findTaskIdx !== -1) {
+                    taskIdx = findTaskIdx;
+                    return true
+                }
+            })
+            currList.tasks.splice(taskIdx, 1, newTask)
+        },
+        changeTitleBoard(state, title) {
+            state.board.title = title
         }
     },
     getters: {
@@ -235,13 +255,11 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
-        async removeTask(context, { taskId, taskListId, boardId }) {
-            // taskObj = taskListId + taskId
+        async removeTask(context, { taskId }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
-            const taskObj = { taskId, taskListId, boardId }
             try {
                 //remove the task from the local board(not copy) 
-                context.commit('removeTask', taskObj);
+                context.commit('removeTask', taskId);
                 const res = await boardService.save(context.state.board);
                 return res
             }
@@ -274,6 +292,26 @@ export const boardStore = {
                 return res
             } catch{
                 context.commit('removeChangeListTitle', changeObj);
+            }
+        },
+        async changeTitleBoard(context, { title }) {
+            const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            try {
+                context.commit('changeTitleBoard', title);
+                const res = await boardService.putData(context.state.board._id, { type: 'changeTitleBoard', title })
+                return res
+            } catch{
+                context.commit('setBoard', boardCopy);
+            }
+        },
+        async changeTask(context, { task }) {
+            context.commit('changeTask', task)
+        },
+        async dataFromSocket(context, { data }) {
+            switch (data.type) {
+                case 'changeTitleBoard':
+                    context.commit('changeTitleBoard', data.title);
+                    break;
             }
         }
     }

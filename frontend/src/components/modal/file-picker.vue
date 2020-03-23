@@ -10,6 +10,7 @@
     >
       <i class="el-icon-plus"></i>
     </el-upload>
+
     <el-dialog :visible.sync="dialogVisible">
       <img width="100%" :src="dialogImageUrl" alt />
     </el-dialog>
@@ -45,7 +46,6 @@ export default {
       imgService.uploadImg(file).then(res => {
         file.url = res.url;
         this.fileList.push(file);
-        console.log(this.fileList);
         this.$emit("input", this.fileList);
       });
     }
@@ -54,17 +54,3 @@ export default {
   }
 };
 </script>
-
-
- "attachments": [
-    {
-      "headers": {},
-      "withCredentials": false,
-      "file": {
-        "uid": 1584879130746
-      },
-      "filename": "file",
-      "action": "",
-      "url": "http://res.cloudinary.com/dy31deyp1/image/upload/v1584879130/se57sxcspxqidet3fnma.png"
-    }
-  ],

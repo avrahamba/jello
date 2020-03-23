@@ -1,8 +1,8 @@
 <template>
 <section class="board" v-if="boardData" :style="style">
-    <nav-board :boardData="boardData"></nav-board>
+    <nav-board @changeTitle="changeTitle" :boardData="boardData"></nav-board>
     <section ref="taskListsLection">
-        <draggable class="lists-container" draggable=".task-list" v-model="boardData.taskLists" v-bind="dragOptions" @end="move">
+        <draggable handle="h2" class="lists-container" draggable=".task-list" v-model="boardData.taskLists" v-bind="dragOptions" @end="move">
             <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList"></task-list>
             <button class="add-list-btn btn" @click="createList">Add a list</button>
         </draggable>
@@ -15,6 +15,7 @@
 import draggable from "vuedraggable";
 import taskList from "../components/task-list.vue";
 import navBoard from "../components/nav-board.vue";
+import { socketService } from '../services/SocketService.js';
 export default {
     created() {
         const boardId = this.boardId || this.$route.params.id;
@@ -25,7 +26,31 @@ export default {
                     this.$router.push("/");
                     return;
                 }
-            });
+                return board
+            }).then(board => {
+                socketService.setup();
+                socketService.emit('connect-to-board', board._id)
+
+                socketService.on('change board', () => {
+                    this.$store.dispatch({ type: "getBoard", boardId })
+                        .then(board => {
+                            if (board.failed) {
+                                return;
+                            }
+                        });
+                })
+
+                socketService.on('change-task', (task) => {
+                    this.$store.dispatch({ type: 'changeTask', task })
+                })
+                socketService.on('change-data', (data) => {
+                    this.$store.dispatch({ type: 'dataFromSocket', data })
+                })
+            })
+
+    },
+    destroyed() {
+        socketService.terminate()
     },
     methods: {
         createList() {
@@ -39,6 +64,10 @@ export default {
         },
         move({ oldIndex, newIndex }) {
             this.$store.dispatch({ type: 'moveList', oldIndex, newIndex })
+                .then(() => { socketService.emit('change board') })
+        },
+        changeTitle(title) {
+            this.$store.dispatch({ type: 'changeTitleBoard', title })
         }
     },
     computed: {

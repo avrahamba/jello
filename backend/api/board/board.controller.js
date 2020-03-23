@@ -35,14 +35,19 @@ async function deleteBoard(req, res) {
 }
 
 async function addBoard(req, res) {
-    var wrapper = req.body;
+    let wrapper = req.body;
     board = await boardService.add(wrapper)
     res.send(board)
 }
 
 async function saveBoard(req, res) {
-    var board = req.body;
+    let board = req.body;
     board = await boardService.save(board)
+    res.send(board)
+}
+
+async function changeData(req, res){
+    let board = await boardService.changeData(req.params.id,req.body )
     res.send(board)
 }
 
@@ -51,5 +56,6 @@ module.exports = {
     getBoards,
     deleteBoard,
     addBoard,
-    saveBoard
+    saveBoard,
+    changeData
 }
