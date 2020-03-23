@@ -9,7 +9,8 @@ export const boardService = {
     save,
     getEmptyList,
     getEmptyTask,
-    addBoard
+    addBoard,
+    putData
 }
 
 async function query(userId) {
@@ -65,3 +66,6 @@ function addBoard(user, prefs) {
     return httpService.post(`board/`, wrapper);
 }
 
+async function putData(boardId, objData) {
+    return httpService.put(`board/data/${boardId}`, objData);
+}

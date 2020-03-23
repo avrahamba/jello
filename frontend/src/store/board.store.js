@@ -88,18 +88,18 @@ export const boardStore = {
             const list = state.board.taskLists.find(tl => tl.id === listId)
             list.title = oldTitle
         },
-        changeTask(state, newTask){
+        changeTask(state, newTask) {
             let taskIdx;
             const currList = state.board.taskLists.find(tl => {
                 const findTaskIdx = tl.tasks.findIndex(task => task.id === newTask.id)
-                if (findTaskIdx!==-1) {
+                if (findTaskIdx !== -1) {
                     taskIdx = findTaskIdx;
                     return true
                 }
             })
-            currList.tasks.splice(taskIdx,1,newTask)
+            currList.tasks.splice(taskIdx, 1, newTask)
         },
-        changeTitleBoard(state,title){
+        changeTitleBoard(state, title) {
             state.board.title = title
         }
     },
@@ -287,14 +287,21 @@ export const boardStore = {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {
                 context.commit('changeTitleBoard', title);
-                const res = await boardService.save(context.state.board)
+                const res = await boardService.putData(context.state.board._id, { type: 'changeTitleBoard', title })
                 return res
             } catch{
                 context.commit('setBoard', boardCopy);
             }
         },
-        async changeTask(context,{task}){
-            context.commit('changeTask',task)
+        async changeTask(context, { task }) {
+            context.commit('changeTask', task)
+        },
+        async dataFromSocket(context, { data }) {
+            switch (data.type) {
+                case 'changeTitleBoard':
+                    context.commit('changeTitleBoard', data.title);
+                    break;
+            }
         }
     }
 }   

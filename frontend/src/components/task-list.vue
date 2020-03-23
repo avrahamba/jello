@@ -1,10 +1,13 @@
 <template>
 <section class="task-list" :ref="taskListData.id">
-<div class="title">
+    <div class="title">
 
-    <input placeholder="Title" v-if="editTitleMode" class="edit-title-list" type="text" v-model="taskListData.title" ref="editTitle" @keydown="onKeyEditTitle" @blur="blurEditTitle">
-    <h2 v-else @click="startEditTitle">{{taskListData.title}}</h2>
-</div>
+        <input placeholder="Title" v-if="editTitleMode" class="edit-title-list" type="text" v-model="taskListData.title" ref="editTitle" @keydown="onKeyEditTitle" @blur="blurEditTitle">
+        <template v-else>
+            <h2 @click="startEditTitle">{{taskListData.title}}</h2>
+            <button>&times;</button>
+        </template>
+    </div>
     <div class="list-items">
         <draggable draggable=".task-preview" v-model="tasks" v-bind="dragOptions" @end="endMove">
             <transition-group type="transition" tag="div" :data-id="taskListData.id" :name="taskListData.id">
@@ -72,8 +75,8 @@ export default {
     methods: {
         changeAddTaskMode() {
             this.addTaskMode = !this.addTaskMode;
-            if(this.addTaskMode){
-                setTimeout(()=>{this.$refs.inputTxtAddTask.focus()},0)
+            if (this.addTaskMode) {
+                setTimeout(() => { this.$refs.inputTxtAddTask.focus() }, 0)
             }
         },
         endMove({ oldIndex, newIndex, from, to }) {
