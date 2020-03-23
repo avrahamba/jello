@@ -24,7 +24,7 @@
                         <textarea v-if="editDesc" ref="descriptionTextarea" placeholder="Add a more detailed description…" v-model="taskToSave.desc" @blur="saveDesc" cols="30" rows="10"></textarea>
                         <p @click="startEditDesc" v-else>{{descToView}}</p>
 
-                        <checklist-list :checklists="taskToSave.checklists" @save="saveCheckList"></checklist-list>
+                        <checklist-list v-if="taskToSave.checklists" :boardId="boardId" :checklists="taskToSave.checklists" @save="saveCheckList"></checklist-list>
 
                         <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
 
