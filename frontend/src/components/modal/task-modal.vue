@@ -101,6 +101,9 @@
                   </template>
                 </div>
               </div>
+              <div class="remove">
+                <button @click="startRemoveTask">Remove The task</button>
+              </div>
             </div>
           </div>
         </div>
@@ -122,6 +125,7 @@ import windowOverlay from "../window-overlay.vue";
 import activityChat from "./chat/activity-chat.vue";
 import addChecklist from "./checklist/add-checklist.vue";
 import checklistList from "./checklist/checklist-list.vue";
+import Swal from "sweetalert2";
 export default {
   props: {
     boardId: String,
@@ -208,6 +212,26 @@ export default {
     saveCheckList(checklists) {
       this.taskToSave.checklists = checklists;
       this.save();
+    },
+    startRemoveTask() {
+      Swal.fire({
+        title: `Are you sure of You won't remove the Task?`,
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d33",
+        cancelButtonColor: "#3085d6",
+        confirmButtonText: "Yes, delete it!"
+      }).then(result => {
+        if (result.value) {
+          this.$store
+            .dispatch({ type: "removeTask", taskId: this.taskToSave.id })
+            .then(() => {
+              this.$router.push("/" + this.boardId);
+              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              socketService.emit("change board");
+            });
+        }
+      });
     }
   },
   computed: {
@@ -225,10 +249,10 @@ export default {
     },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
+    },
+    isCover() {
+      // return this.taskToSave.attachments.length < 1 ? this.taskToSave.cover = {} :
     }
-    // isCover() {
-    //   // return this.taskToSave.attachments.length < 1 ? this.taskToSave.cover = {} :
-    // }
   },
   components: {
     labelPicker,

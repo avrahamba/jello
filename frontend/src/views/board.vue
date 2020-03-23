@@ -1,6 +1,6 @@
 <template>
 <section class="board" v-if="boardData" :style="style">
-    <nav-board :boardData="boardData"></nav-board>
+    <nav-board @changeTitle="changeTitle" :boardData="boardData"></nav-board>
     <section ref="taskListsLection">
         <draggable handle="h2" class="lists-container" draggable=".task-list" v-model="boardData.taskLists" v-bind="dragOptions" @end="move">
             <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList"></task-list>
@@ -41,7 +41,7 @@ export default {
                 })
 
                 socketService.on('change-task', (task) => {
-                    this.$store.dispatch({type:'changeTask',task})
+                    this.$store.dispatch({ type: 'changeTask', task })
                 })
             })
 
@@ -61,6 +61,10 @@ export default {
         },
         move({ oldIndex, newIndex }) {
             this.$store.dispatch({ type: 'moveList', oldIndex, newIndex })
+                .then(() => { socketService.emit('change board') })
+        },
+        changeTitle(title) {
+            this.$store.dispatch({ type: 'changeTitleBoard', title })
                 .then(() => { socketService.emit('change board') })
         }
     },
