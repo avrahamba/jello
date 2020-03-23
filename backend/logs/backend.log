@@ -698,6 +698,7 @@ Sun, 22 Mar 2020 18:34:33 GMT - Debug - 777, 777, 777, undefined
 Sun, 22 Mar 2020 18:34:33 GMT - Debug - auth.service - signup with email: 777, username: 777
 Sun, 22 Mar 2020 18:34:34 GMT - Debug - auth.route - new account created: {"email":"777","password":"$2b$10$UwaWRaXzqWIQ1V0RyPDTjekovy5fXC6jW5XR1m6GCwD3NkmfIZ51K","username":"777"}
 Sun, 22 Mar 2020 18:34:34 GMT - Debug - auth.service - login with email: 777
+<<<<<<< HEAD
 Sun, 22 Mar 2020 18:39:08 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 18:39:20 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 18:39:40 GMT - Error - Cannot get boards
@@ -705,3 +706,11 @@ Sun, 22 Mar 2020 18:39:46 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 18:40:15 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 18:40:17 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 18:41:27 GMT - Info - Server is running on port: 3030
+=======
+Sun, 22 Mar 2020 20:52:14 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 20:52:23 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 20:52:29 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 20:52:32 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 20:52:32 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 21:32:49 GMT - Info - Server is running on port: 3030
+>>>>>>> df8d1e74dbcfebd3678b894c40b95033d4a29352

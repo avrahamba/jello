@@ -23,9 +23,13 @@
                         <h3>Description</h3>
                         <textarea v-if="editDesc" ref="descriptionTextarea" placeholder="Add a more detailed description…" v-model="taskToSave.desc" @blur="saveDesc" cols="30" rows="10"></textarea>
                         <p @click="startEditDesc" v-else>{{descToView}}</p>
+
+                        <checklist-list :checklists="taskToSave.checklists" @save="saveCheckList"></checklist-list>
+
                         <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
-                        <activity-chat :user="loggedinUser" :massage="taskToSave.msgs"></activity-chat>
-                        <pre>{{taskToSave}}</pre>
+
+                        <activity-chat :user="loggedinUser" :massages="taskToSave.msgs" @save="saveMsgs"></activity-chat>
+                        <!-- <pre>{{taskToSave}}</pre> -->
                     </div>
                     <div class="add-area">
                         <div>
@@ -42,8 +46,12 @@
                                 <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
                             </template>
                         </div>
-                        <div>
-                            <button>Checklist</button>
+                        <div class="add-chacklist-container">
+                            <button @click="addCheckListMode = !addCheckListMode">Checklist</button>
+                            <template v-if="addCheckListMode">
+                                <window-overlay :dark="false" @close="addCheckListMode = false"></window-overlay>
+                                <add-checklist @close="addCheckListMode = false" @add="addChecklist"></add-checklist>
+                            </template>
                         </div>
                         <div>
                             <button @click="addDateMode=!addDateMode">Due Date</button>
@@ -63,6 +71,7 @@
 </template>
 
 <script>
+import { utilsServie } from '../../services/utils.service.js';
 import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
@@ -70,6 +79,8 @@ import labelPreview from "./label-preview.vue";
 import filePicker from "./file-picker.vue";
 import windowOverlay from "../window-overlay.vue";
 import activityChat from './chat/activity-chat.vue';
+import addChecklist from './checklist/add-checklist.vue';
+import checklistList from './checklist/checklist-list.vue';
 export default {
     props: {
         boardId: String,
@@ -81,7 +92,8 @@ export default {
             taskToSave: null,
             editDesc: false,
             addLabelMode: false,
-            addDateMode: false
+            addDateMode: false,
+            addCheckListMode: false
         };
     },
 
@@ -136,6 +148,26 @@ export default {
                 this.taskToSave.labels.splice(idx, 1);
             }
             this.save();
+        },
+        saveMsgs(msgs) {
+
+            this.taskToSave.msgs = msgs
+            this.save()
+        },
+        addChecklist(title) {
+            const checklist = {
+                id: this.boardId + '-' + utilsServie.makeId(),
+                title,
+                checkItems: []
+            }
+            this.taskToSave.checklists.push(checklist)
+            this.addCheckListMode = false
+            this.save()
+        },
+        saveCheckList(checklists) {
+            this.taskToSave.checklists = checklists
+            this.save()
+
         }
     },
     computed: {
@@ -162,7 +194,9 @@ export default {
         labelPreview,
         windowOverlay,
         filePicker,
-        activityChat
+        activityChat,
+        addChecklist,
+        checklistList
     }
 };
 </script>
