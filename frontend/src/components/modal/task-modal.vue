@@ -225,10 +225,10 @@ export default {
     },
     loggedinUser() {
       return this.$store.getters.loggedinUser;
-    },
-    isCover() {
-      // return this.taskToSave.attachments.length < 1 ? this.taskToSave.cover = {} :
     }
+    // isCover() {
+    //   // return this.taskToSave.attachments.length < 1 ? this.taskToSave.cover = {} :
+    // }
   },
   components: {
     labelPicker,

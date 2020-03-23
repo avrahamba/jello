@@ -754,3 +754,7 @@ Mon, 23 Mar 2020 12:52:49 GMT - Info - Server is running on port: 3030
 Mon, 23 Mar 2020 12:56:22 GMT - Info - Server is running on port: 3030
 Mon, 23 Mar 2020 12:57:10 GMT - Info - Server is running on port: 3030
 Mon, 23 Mar 2020 13:05:00 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 16:27:35 GMT - Debug - gg, hh, hh, undefined
+Mon, 23 Mar 2020 16:27:35 GMT - Debug - auth.service - signup with email: gg, username: hh
+Mon, 23 Mar 2020 16:27:35 GMT - Debug - auth.route - new account created: {"email":"gg","password":"$2b$10$b/zla8j89QHyTX3Q7i6rd.RYesCYTDGZ6eNH29nrzcsmugZIzzaR2","username":"hh"}
+Mon, 23 Mar 2020 16:27:35 GMT - Debug - auth.service - login with email: gg
