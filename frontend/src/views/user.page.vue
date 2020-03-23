@@ -8,17 +8,23 @@
       <button @click="addNewBoard">Add new board</button>
       <!-- add modal for new board - create button will fire an action to board store (addBoard(user)) -->
 
-      <router-link v-for="board in boards" :key="board._id" :to="'/'+board._id">{{board.title}}</router-link>
+      <div :class="'board-card '+board.title" v-for="board in boards" :key="board._id">
+        <button @click="addMembers">Add Memebers</button>
+        <router-link :to="'/'+board._id">{{board.title}}</router-link>
+        <add-members v-if="isAddMembers"></add-members>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import addMembers from "../components/add-members.vue";
 export default {
   name: "user-page",
   data() {
     return {
       user: this.loggedinUser,
+      isAddMembers: false,
       boards: [],
       prefs: {
         title: "test for new board",
@@ -29,30 +35,31 @@ export default {
   },
   created() {
     this.user = this.$store.getters.loggedinUser;
-    this.$store
-      .dispatch({
-        type: "getBoards",
-        userId: this.$store.getters.loggedinUser._id
-      })
-      .then(boards => (this.boards = boards));
+    this.getBoardsFromStore();
   },
   methods: {
-    addNewBoard() {
+    addMembers() {
+      this.isAddMembers = !this.isAddMembers;
+    },
+    getBoardsFromStore() {
       this.$store
         .dispatch({
-          type: "addBoard",
-          user: this.$store.getters.loggedinUser,
-          prefs: this.prefs
+          type: "getBoards",
+          userId: this.$store.getters.loggedinUser._id
         })
-        .then(() => {
-          this.$store
-            .dispatch({
-              type: "getBoards",
-              userId: this.$store.getters.loggedinUser._id
-            })
-            .then(boards => (this.boards = boards));
-        });
+        .then(boards => (this.boards = boards));
+    },
+    addNewBoard() {
+      this.$store.dispatch({
+        type: "addBoard",
+        user: this.$store.getters.loggedinUser,
+        prefs: this.prefs
+      });
+      this.getBoardsFromStore();
     }
+  },
+  components: {
+    addMembers
   }
 };
 </script>
