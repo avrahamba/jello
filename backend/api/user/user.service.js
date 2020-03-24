@@ -1,6 +1,7 @@
 
-const dbService = require('../../services/db.service')
-const ObjectId = require('mongodb').ObjectId
+const mongoose = require("mongoose");
+const User = mongoose.model("User");
+
 
 module.exports = {
     query,
@@ -25,38 +26,24 @@ async function query(filterBy = {}) {
     //     throw err;
     // }
 }
-
+//!DONE
 async function getById(userId) {
-    // const collection = await dbService.getCollection('user')
-    // try {
-    //     const user = await collection.findOne({ "_id": ObjectId(userId) })
-    //     delete user.password
-
-    //     return user
-    // } catch (err) {
-    //     console.log(`ERROR: while finding user ${userId}`)
-    //     throw err;
-    // }
+    const user = await User.findById(userId);
+    delete user.password
+    return user
 }
+
+
 async function getByEmail(email) {
-    // const collection = await dbService.getCollection('user')
-    // try {
-    //     const user = await collection.findOne({ email })
-    //     return user
-    // } catch (err) {
-    //     console.log(`ERROR: while finding user ${email}`)
-    //     throw err;
-    // }
+
+    const user = await User.findOne({ email })
+    return user
 }
 
 async function remove(userId) {
-    // const collection = await dbService.getCollection('user')
-    // try {
-    //     await collection.deleteOne({ "_id": ObjectId(userId) })
-    // } catch (err) {
-    //     console.log(`ERROR: cannot remove user ${userId}`)
-    //     throw err;
-    // }
+
+    await collection.deleteOne({ "_id": ObjectId(userId) })
+
 }
 
 async function update(user) {

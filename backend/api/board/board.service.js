@@ -1,7 +1,6 @@
 
 const emitter = require('../../services/emitter.service');
 const mongoose = require("mongoose");
-const User = mongoose.model("User");
 const Board = mongoose.model("Board");
 
 
