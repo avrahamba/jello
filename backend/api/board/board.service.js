@@ -33,7 +33,7 @@ async function query(userId) {
                 title: board.title,
                 background: board.style.background,
                 onUser,
-                isAddMembers:false
+                isAddMembers: false
             }
         })
     } catch (err) {
@@ -111,7 +111,7 @@ async function changeData(boardId, data) {
             case 'moveList':
                 {
                     const { oldIndex, newIndex } = data
-                    const list = board.taskLists.splice(oldIndex,1)[0]
+                    const list = board.taskLists.splice(oldIndex, 1)[0]
                     board.taskLists.splice(newIndex, 0, list)
                 }
                 break;
@@ -120,7 +120,7 @@ async function changeData(boardId, data) {
                     const { idMoveFrom, idMoveTo, oldIndex, newIndex } = data;
                     const oldListIdx = board.taskLists.findIndex(list => list.id === idMoveFrom);
                     const newListIdx = board.taskLists.findIndex(list => list.id === idMoveTo);
-                    const task = board.taskLists[oldListIdx].tasks.splice(oldIndex,1)[0]
+                    const task = board.taskLists[oldListIdx].tasks.splice(oldIndex, 1)[0]
                     board.taskLists[newListIdx].tasks.splice(newIndex, 0, task)
                 }
                 break;
@@ -131,10 +131,73 @@ async function changeData(boardId, data) {
                     board.taskLists[listIdx].tasks.push(task)
                 }
                 break;
+            case 'addList':
+                {
+                    const { newList } = data;
+                    board.taskLists.push(newList)
+                }
+                break;
+            case 'setListTitle':
+                {
+                    const { taskListId, title } = data;
+                    const listIdx = board.taskLists.findIndex(list => list.id === taskListId);
+                    board.taskLists[listIdx].title = title
+                }
+                break;
+            case 'removeTask':
+                {
+                    const { taskId } = data;
+                    let taskIdx
+                    const tasklistIdx = board.taskLists.findIndex(list => {
+                        taskIdx = list.tasks.findIndex(task => task.id === taskId)
+                        if (taskIdx !== -1) return true
+                        return false
+                    });
+                    board.taskLists[tasklistIdx].tasks.splice(taskIdx, 1)
+                }
+                break;
+            case 'saveTask':
+                {
+                    const { objSave } = data
+                    const { taskId, type } = objSave
+                    let taskIdx;
+                    const taskListIdx = board.taskLists.findIndex(tl => {
+                        const findTask = tl.tasks.findIndex(task => task.id === taskId)
+                        if (findTask === -1) return false
+                        taskIdx = findTask
+                        return true
+                    })
+                    const task = board.taskLists[taskListIdx].tasks[taskIdx]
+                    switch (type) {
+                        case 'setTitle':
+                            task.title = objSave.title
+                            break;
+                        case 'setDueDate':
+                            task.dueDate = objSave.dueDate
+                            break;
+                        case 'setLabel':
+                            task.labels = objSave.labels
+                            break;
+                        case 'attachments':
+                            task.attachments = objSave.attachments
+                            break;
+                        case 'editDesc':
+                            task.desc = objSave.desc
+                            break;
+                        case 'setChecklists':
+                            task.checklists = objSave.checklists
+                            break;
+                        case 'setMsgs':
+                            task.msgs = objSave.msgs
+                            break;
+                    }
+                    board.taskLists[taskListIdx].tasks.splice(taskIdx, 1, task)
+                }
+                break
         }
-        
+
         await collection.replaceOne({ _id: ObjectId(boardId) }, board);
-        emitter.emit('sendSocket', { data, boardId })
+        emitter.emit('sendSocket' + data.socketId, { data, boardId })
         return board
     }
 

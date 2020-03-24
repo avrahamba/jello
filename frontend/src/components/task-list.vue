@@ -1,7 +1,7 @@
 <template>
 <section class="task-list" :ref="taskListData.id">
     <div class="title">
-        <input placeholder="Title" v-if="editTitleMode" class="edit-title-list" type="text" v-model="taskListData.title" ref="editTitle" @keydown="onKeyEditTitle" @blur="blurEditTitle">
+        <input placeholder="Title" v-if="editTitleMode" class="edit-title-list" type="text" v-model="copyTitle" ref="editTitle" @keydown="onKeyEditTitle" @blur="blurEditTitle">
         <template v-else>
             <h2 @click="startEditTitle">{{taskListData.title}}</h2>
             <button @click="barIsOpen = true"><i class="fa fa-ellipsis-h"></i></button>
@@ -131,13 +131,12 @@ export default {
         },
         onKeyEditTitle(ev) {
             if (ev.key === 'Enter') {
-                this.editTitleMode = false
-                this.$store.dispatch({ type: 'changeTitle', listId: this.taskListData.id, oldTitle: this.copyTitle })
+                this.blurEditTitle()
             }
         },
         blurEditTitle() {
             this.editTitleMode = false
-            this.$store.dispatch({ type: 'changeTitle', listId: this.taskListData.id, oldTitle: this.copyTitle })
+            this.$store.dispatch({ type: 'setListTitle', taskListId: this.taskListData.id, title: this.copyTitle })
         },
         removeList() {
             Swal.fire({
