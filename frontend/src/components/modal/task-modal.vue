@@ -11,7 +11,7 @@
               <input
                 class="task-title"
                 type="text"
-                @blur="saveTitle"
+                @blur="setTitle"
                 @keydown="keydownTitle"
                 placeholder="Title"
                 v-model="taskToSave.title"
@@ -24,14 +24,14 @@
                 <date-picker
                   v-if="currTask.dueDate.length||addDateMode"
                   v-model="taskToSave.dueDate"
-                  @input="save"
+                  @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
                 ></date-picker>
               </div>
               <div class="members-labels-contaner">
                 <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
                 <label-preview
                   v-if="taskToSave.labels.length"
-                  @input="save"
+                  @input="save('setLabel',{labels: taskToSave.labels})"
                   v-model="taskToSave.labels"
                 ></label-preview>
               </div>
@@ -55,46 +55,66 @@
                 @save="saveCheckList"
               ></checklist-list>
 
-              <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
+              <file-picker
+                v-model="taskToSave.attachments"
+                @input="save('attachments',{attachments: taskToSave.attachments})"
+              ></file-picker>
 
               <activity-chat :user="loggedinUser" :massages="taskToSave.msgs" @save="saveMsgs"></activity-chat>
               <!-- <pre>{{taskToSave}}</pre> -->
             </div>
             <div class="add-area">
               <div>
-                <button v-if="!isJoin" @click="join">Join</button>
+                <button v-if="!isJoin" @click="join">
+                  <i class="fas fa-plus"></i> Join
+                </button>
               </div>
               <h3>ADD TO CARD</h3>
               <div>
-                <button>Members</button>
+                <button>
+                  <i class="fas fa-users"></i> Members
+                </button>
               </div>
               <div class="edit-labels-container">
-                <button @click="addLabelMode =! addLabelMode">Labels</button>
+                <button @click="addLabelMode =! addLabelMode">
+                  <i class="fas fa-tags"></i> Labels
+                </button>
                 <template v-if="addLabelMode">
                   <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
-                  <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
+                  <label-picker
+                    @input="save('setLabel',{labels: taskToSave.labels})"
+                    v-model="taskToSave.labels"
+                  ></label-picker>
                 </template>
               </div>
               <div class="add-chacklist-container">
-                <button @click="addCheckListMode = !addCheckListMode">Checklist</button>
+                <button @click="addCheckListMode = !addCheckListMode">
+                  <i class="fas fa-tasks"></i> Checklist
+                </button>
                 <template v-if="addCheckListMode">
                   <window-overlay :dark="false" @close="addCheckListMode = false"></window-overlay>
                   <add-checklist @close="addCheckListMode = false" @add="addChecklist"></add-checklist>
                 </template>
               </div>
               <div>
-                <button @click="addDateMode=!addDateMode">Due Date</button>
+                <button @click="addDateMode=!addDateMode">
+                  <i class="far fa-calendar-alt"></i> Due Date
+                </button>
               </div>
               <div>
-                <button>Attachment</button>
+                <button>
+                  <i class="far fa-file-image"></i> Attachment
+                </button>
               </div>
               <div>
                 <div class="edit-cover-container">
-                  <button @click="isCoverMode = !isCoverMode">Cover</button>
+                  <button @click="isCoverMode = !isCoverMode">
+                    <i class="fas fa-portrait"></i> Cover
+                  </button>
                   <template v-if="isCoverMode">
                     <window-overlay :dark="false" @close="isCoverMode=false"></window-overlay>
                     <cover-picker
-                      @input="save"
+                      @input="save('setLabel',{labels: taskToSave.labels})"
                       v-model="taskToSave.cover"
                       :covers="taskToSave.attachments"
                     ></cover-picker>
@@ -102,7 +122,9 @@
                 </div>
               </div>
               <div class="remove">
-                <button @click="startRemoveTask">Remove The task</button>
+                <button @click="startRemoveTask">
+                  <i class="far fa-trash-alt"></i> Remove
+                </button>
               </div>
             </div>
           </div>
@@ -114,7 +136,7 @@
 
 <script>
 import { utilsServie } from "../../services/utils.service.js";
-import {  socketService } from '../../services/SocketService.js';
+import { socketService } from "../../services/SocketService.js";
 import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
@@ -153,11 +175,12 @@ export default {
       this.isOpen = false;
       this.$router.push("/" + this.boardId);
     },
-    save() {
-      this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
+    save(type, obj) {
+      this.$emit("save", { type, taskId: this.taskToSave.id, ...obj });
     },
-    saveTitle() {
-      if (this.currTask.title) this.save();
+    setTitle() {
+      if (this.currTask.title)
+        this.save("setTitle", { title: this.taskToSave.title });
     },
     startEditDesc() {
       this.editDesc = true;
@@ -167,12 +190,13 @@ export default {
       }, 0);
     },
     saveDesc() {
-      this.save();
+      this.save("editDesc", { desc: this.taskToSave.desc });
       this.editDesc = false;
     },
     keydownTitle(ev) {
       if (ev.key === "Enter") {
-        if (this.currTask.title) this.save();
+        if (this.currTask.title)
+          this.save("setTitle", { title: this.taskToSave.title });
         ev.target.blur();
       }
     },
@@ -183,22 +207,11 @@ export default {
         name: user.name,
         avatar: user.avatar
       });
-      this.save();
-    },
-    setLabel(label) {
-      const idx = this.taskToSave.labels.findIndex(
-        currLabel => currLabel.id === label.id
-      );
-      if (idx === -1) {
-        this.taskToSave.labels.push(label);
-      } else {
-        this.taskToSave.labels.splice(idx, 1);
-      }
-      this.save();
+      this.save("addMember", { user });
     },
     saveMsgs(msgs) {
       this.taskToSave.msgs = msgs;
-      this.save();
+      this.save("setMsgs", { msgs });
     },
     addChecklist(title) {
       const checklist = {
@@ -208,11 +221,11 @@ export default {
       };
       this.taskToSave.checklists.push(checklist);
       this.addCheckListMode = false;
-      this.save();
+      this.save("setChecklists", { checklists: this.taskToSave.checklists });
     },
     saveCheckList(checklists) {
       this.taskToSave.checklists = checklists;
-      this.save();
+      this.save("setChecklists", { checklists: this.taskToSave.checklists });
     },
     startRemoveTask() {
       Swal.fire({
@@ -253,6 +266,14 @@ export default {
     },
     isCover() {
       // return this.taskToSave.attachments.length < 1 ? this.taskToSave.cover = {} :
+    }
+  },
+  watch: {
+    currTask: {
+      deep: true,
+      handler() {
+        this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
+      }
     }
   },
   components: {

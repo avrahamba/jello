@@ -7,9 +7,8 @@ function connectSockets(io) {
     io.on('connection', socket => {
 
 
-        emitter.on('sendSocket', ({ data, boardId }) => {
-            if (data.socketId === socket.id)
-                socket.broadcast.to(boardId).emit('change-data', data)
+        emitter.on('sendSocket' + socket.id, ({ data, boardId }) => {
+            socket.broadcast.to(boardId).emit('change-data', data)
         })
 
 
