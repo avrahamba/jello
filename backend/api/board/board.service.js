@@ -28,12 +28,12 @@ async function query(userId) {
 
         return boards.map(board => {
             const onUser = (userId && board.users.findIndex(user => user._id === userId) !== -1)
-
             return {
                 _id: board._id,
                 title: board.title,
                 background: board.style.background,
-                onUser
+                onUser,
+                isAddMembers:false
             }
         })
     } catch (err) {
