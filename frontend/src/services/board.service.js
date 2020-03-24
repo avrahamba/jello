@@ -22,7 +22,6 @@ function getById(id) {
 }
 async function save(board) {
     let prm;
-
     if (board._id) prm = httpService.put(`board/id/${board._id}`, board);
     else {
         board.createdAt = new Date();

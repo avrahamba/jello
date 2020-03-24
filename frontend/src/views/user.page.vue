@@ -11,7 +11,6 @@
         <button @click="addMembers(board)">Add Memebers</button>
         <router-link :to="'/'+board._id">{{board.title}}</router-link>
         <add-members v-if="board.isAddMembers" @filter="filter" @updateBoard="updateBoard" :users="users" :currBoard="board"></add-members>
-        <pre>{{board}}</pre>
       </div>
     </div>
   </div>
