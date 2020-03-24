@@ -2,8 +2,9 @@
   <section ref="container" class="cover-picker">
     <h3>covers</h3>
     <div class="covers" v-if="covers">
-      <div class="cover" v-for="(cover) in covers" :key="cover.file.uid" @click="set(cover)">
+      <div class="cover" v-for="(cover,idx) in covers" :key="cover.file.uid" @click="set(cover)">
         <img v-if="cover.url" :src="cover.url" alt />
+        <span class="selected" v-if="isCovers[idx]">✔️</span>
       </div>
     </div>
   </section>
@@ -31,8 +32,11 @@ export default {
       this.cover = cover;
       this.$emit("input", this.cover);
     }
+  },
+  computed: {
+    isCovers() {
+      return this.covers.map(cover => cover.url === this.cover.url);
+    }
   }
 };
 </script>
-
-

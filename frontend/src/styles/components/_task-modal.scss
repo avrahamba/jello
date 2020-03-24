@@ -34,11 +34,33 @@
         grid-row: 3/ 4;
       }
       button {
-        padding: 7px;
-        margin-top: 10px;
-        background-color: green;
-        color: white;
-        font-size: 1.1rem;
+        text-align: left;
+        color: #172b4d;
+        background-color: #eaecf0;
+        box-shadow: none;
+        border: none;
+        border-radius: 3px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        height: 32px;
+        margin-top: 8px;
+        width: 100%;
+        overflow: hidden;
+        padding: 6px 0 6px 6px;
+        text-decoration: none;
+        text-overflow: ellipsis;
+        -webkit-transition: all .3s ease;
+        transition: all .3s ease;
+        outline: none;
+        line-height: 15px;
+        position: relative;
+        &:hover{
+          background-color: #cdd2d4;
+          color: #4d4d4d;
+          text-decoration: underline;
+        }
+ 
       }
     }
 

@@ -4,6 +4,9 @@ const cors = require('cors')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
+const longjohn = require('longjohn'); // Long trace stack (for async)
+longjohn.async_trace_limit = 5;   // defaults to 10
+longjohn.empty_frame = 'ASYNC CALLBACKS :';
 
 const app = express()
 const http = require('http').createServer(app);
@@ -14,7 +17,19 @@ const userRoutes = require('./api/user/user.routes')
 const boardRoutes = require('./api/board/board.routes')
 
 const connectSockets = require('./api/socket/socket.routes')
+const mongoose = require("./services/db.service");
 
+process.on('unhandledRejection', async function (error) {
+    console.error(error);
+});
+
+process.on('uncaughtException', async function (error) {
+    console.error(error);
+    process.exit(1) //mandatory (as per the Node docs)
+});
+
+// Create a new Mongoose connection instance
+mongoose.connect();
 
 app.use(cookieParser())
 app.use(bodyParser.json());

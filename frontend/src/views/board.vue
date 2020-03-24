@@ -18,6 +18,7 @@ import navBoard from "../components/nav-board.vue";
 import { socketService } from '../services/SocketService.js';
 export default {
     created() {
+        //TODO: remove this.boardId never called.
         const boardId = this.boardId || this.$route.params.id;
 
         this.$store.dispatch({ type: "getBoard", boardId })
