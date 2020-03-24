@@ -35,7 +35,7 @@
 
 <script>
 export default {
-  name: "test",
+  name: "signup",
   data() {
     return {
       loginCred: {},

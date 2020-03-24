@@ -7,11 +7,11 @@ const user = new Schema(
         name: String,
         img: String,
         hashPassword: String,
-        boards: {
+        boards: [{
             _id: String,
             name: String,
             background: String
-        },
+        }],
         alerts: [
             {
                 alertForUser: String,
