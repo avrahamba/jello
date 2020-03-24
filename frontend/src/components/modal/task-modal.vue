@@ -62,35 +62,51 @@
             </div>
             <div class="add-area">
               <div>
-                <button v-if="!isJoin" @click="join">Join</button>
+                <button v-if="!isJoin" @click="join">
+                  <i class="fas fa-plus"></i> Join
+                </button>
               </div>
               <h3>ADD TO CARD</h3>
               <div>
-                <button>Members</button>
+                <button>
+                  <i class="fas fa-users"></i> Members
+                </button>
               </div>
               <div class="edit-labels-container">
-                <button @click="addLabelMode =! addLabelMode">Labels</button>
+                <button @click="addLabelMode =! addLabelMode" >
+                  <i class="fas fa-tags"></i>
+                  Labels
+                </button>
+
                 <template v-if="addLabelMode">
                   <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
                   <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
                 </template>
               </div>
               <div class="add-chacklist-container">
-                <button @click="addCheckListMode = !addCheckListMode">Checklist</button>
+                <button @click="addCheckListMode = !addCheckListMode">
+                  <i class="fas fa-tasks"></i> Checklist
+                </button>
                 <template v-if="addCheckListMode">
                   <window-overlay :dark="false" @close="addCheckListMode = false"></window-overlay>
                   <add-checklist @close="addCheckListMode = false" @add="addChecklist"></add-checklist>
                 </template>
               </div>
               <div>
-                <button @click="addDateMode=!addDateMode">Due Date</button>
+                <button @click="addDateMode=!addDateMode">
+                  <i class="far fa-calendar-alt"></i> Due Date
+                </button>
               </div>
               <div>
-                <button>Attachment</button>
+                <button>
+                  <i class="far fa-file-image"></i> Attachment
+                </button>
               </div>
               <div>
                 <div class="edit-cover-container">
-                  <button @click="isCoverMode = !isCoverMode">Cover</button>
+                  <button @click="isCoverMode = !isCoverMode">
+                    <i class="fas fa-portrait"></i> Cover
+                  </button>
                   <template v-if="isCoverMode">
                     <window-overlay :dark="false" @close="isCoverMode=false"></window-overlay>
                     <cover-picker
@@ -102,7 +118,9 @@
                 </div>
               </div>
               <div class="remove">
-                <button @click="startRemoveTask">Remove The task</button>
+                <button @click="startRemoveTask">
+                  <i class="far fa-trash-alt"></i> Remove
+                </button>
               </div>
             </div>
           </div>
@@ -114,7 +132,7 @@
 
 <script>
 import { utilsServie } from "../../services/utils.service.js";
-import {  socketService } from '../../services/SocketService.js';
+import { socketService } from "../../services/SocketService.js";
 import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";

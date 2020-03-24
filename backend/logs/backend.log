@@ -740,3 +740,7 @@ Mon, 23 Mar 2020 20:48:49 GMT - Error - Cannot get boards
 Mon, 23 Mar 2020 20:50:19 GMT - Error - Cannot get boards
 =======
 >>>>>>> efe6b725186acdbe8522d8b22fdf9b3e3daf6e9e
+Tue, 24 Mar 2020 10:04:47 GMT - Debug - rrrr, ffff, ffff, undefined
+Tue, 24 Mar 2020 10:04:47 GMT - Debug - auth.service - signup with email: rrrr, username: ffff
+Tue, 24 Mar 2020 10:04:48 GMT - Debug - auth.route - new account created: {"email":"rrrr","password":"$2b$10$M.2VHTVrblDATR1rNieGD.zlw13m/1oDhSlDypcsyBp/P49.R1czy","username":"ffff"}
+Tue, 24 Mar 2020 10:04:48 GMT - Debug - auth.service - login with email: rrrr
