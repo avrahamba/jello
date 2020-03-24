@@ -741,6 +741,23 @@ Mon, 23 Mar 2020 20:48:49 GMT - Error - Cannot get boards
 Mon, 23 Mar 2020 20:50:19 GMT - Error - Cannot get boards
 =======
 >>>>>>> efe6b725186acdbe8522d8b22fdf9b3e3daf6e9e
+<<<<<<< HEAD
+Tue, 24 Mar 2020 11:54:12 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:01:13 GMT - Debug - qwe, qwe, qwe, undefined
+Tue, 24 Mar 2020 12:01:13 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Tue, 24 Mar 2020 12:01:18 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$FzmhGK.fNNyI/hETZqHpj.asok5ZPZIh9A.rm4TCh1.tjeJKVEGfi","username":"qwe"}
+Tue, 24 Mar 2020 12:01:18 GMT - Debug - auth.service - login with email: qwe
+Tue, 24 Mar 2020 12:01:33 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 12:02:09 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 12:03:57 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 12:16:03 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 12:18:03 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:20:06 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:21:57 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:27:49 GMT - Info - Server is running on port: 3030
+=======
+>>>>>>> 45dfe7247c9e29f90f34059db19693672a01dfb8
+=======
 Tue, 24 Mar 2020 10:04:47 GMT - Debug - rrrr, ffff, ffff, undefined
 Tue, 24 Mar 2020 10:04:47 GMT - Debug - auth.service - signup with email: rrrr, username: ffff
 Tue, 24 Mar 2020 10:04:48 GMT - Debug - auth.route - new account created: {"email":"rrrr","password":"$2b$10$M.2VHTVrblDATR1rNieGD.zlw13m/1oDhSlDypcsyBp/P49.R1czy","username":"ffff"}
@@ -761,4 +778,8 @@ Tue, 24 Mar 2020 13:25:18 GMT - Info - Server is running on port: 3030
 Tue, 24 Mar 2020 16:04:38 GMT - Info - Server is running on port: 3030
 Tue, 24 Mar 2020 16:04:57 GMT - Error - Cannot get boards
 Tue, 24 Mar 2020 16:10:30 GMT - Error - Cannot get boards
+<<<<<<< HEAD
+>>>>>>> 9f3ab9fb0bdd3224807b4dd69179bd79ed4fa9be
+=======
 Tue, 24 Mar 2020 17:10:16 GMT - Info - Server is running on port: 3030
+>>>>>>> 726e6cd87b6c9b5e27253f3347ef49b7570aaabc

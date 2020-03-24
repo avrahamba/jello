@@ -3,43 +3,101 @@ const mongoose = require("mongoose"),
 
 const user = new Schema(
     {
+        email: {
+            type: String,
+            unique: true,
+            require: true
+        },
         name: {
             type: String,
             unique: true,
             require: true
         },
-        partnerAddresses: Array,
-        temporaryToken: String,
-        permanentToken: {
+        img: {
+            type: String,
+        },
+        hashPassword: {
+            type: String,
+        },
+        boards: {
             type: [
                 {
-                    token: String,
-                    lastUpdated: Date,
-                    name: String
+                    _id: String,
+                    name: String,
+                    background: String
                 }
             ],
             default: []
         },
-        expirationTime: Date,
-        created: {
-            type: Date,
-            default: Date.now
+        alerts: {
+            type: [
+                {
+                    alertForUser: String,
+                    isReade: String,
+                    task: {
+                        type: {
+                            _id: String,
+                            name: String
+                        }
+                    },
+                    taskList: {
+                        type: {
+                            _id: String,
+                            name: String
+                        }
+                    },
+                    board: {
+                        type: {
+                            _id: String,
+                            name: String,
+                            background: String
+                        }
+                    },
+                    user: {
+                        type: {
+                            _id: String,
+                            name: String,
+                            img: String
+                        }
+                    }
+                }
+            ],
+            default: []
         },
-        updated: {
-            type: Date,
-            default: Date.now
-        },
-        deleted: {
-            type: Boolean,
-            default: false
-        },
-        cymulateWafHeader: {
-            type: Boolean,
-            default: false
-        },
-        edrHideOutput: {
-            type: Boolean,
-            default: false
+        comments: {
+            type: [
+                {
+                    txt: String,
+                    isReade: String,
+                    task: {
+                        type: {
+                            _id: String,
+                            name: String
+                        }
+                    },
+                    taskList: {
+                        type: {
+                            _id: String,
+                            name: String
+                        }
+                    },
+                    board: {
+                        type: {
+                            _id: String,
+                            name: String,
+                            background: String
+                        }
+                    },
+                    user: {
+                        type: {
+                            _id: String,
+                            name: String,
+                            img: String
+                        }
+                    }
+                }
+            ],
+            default: []
         }
     },
     { collection: "user" }

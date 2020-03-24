@@ -24,7 +24,7 @@ export default {
       userFilter: {
         txt: ""
       },
-      updatedBoard: {},
+      updatedMiniBoard: {},
       currUserToAdd: {}
     };
   },
@@ -38,17 +38,22 @@ export default {
         name: user.name,
         email: user.email
       };
-      const updatedBoardID = { boardId: this.updatedBoard._id }
-       this.$store.dispatch({ type: "getBoard", updatedBoardID })
-        .then(board => {
-          board.members.push(miniUser);
-          this.users = users;
-          this.$emit("updateBoard", this.updatedBoard);
+      const boardId = this.updatedMiniBoard._id;
+      this.$store.dispatch({ type: "getBoard", boardId }).then(board => {
+        let updatedBoard = board;
+        debugger;
+        let isSameUser = updatedBoard.users.find(user => {
+          return user._id === miniUser._id;
         });
+        if (!isSameUser) {
+          updatedBoard.users.push(miniUser);
+          this.$emit("updateBoard", updatedBoard);
+        }
+      });
     }
   },
   created() {
-    this.updatedBoard = JSON.parse(JSON.stringify(this.currBoard));
+    this.updatedMiniBoard = JSON.parse(JSON.stringify(this.currBoard));
   }
 };
 </script>
