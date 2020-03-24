@@ -19,6 +19,9 @@ module.exports = {
 }
 
 async function connect() {
+    // Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
+    // by default, you need to set it to false.
+    mongoose.set('useFindAndModify', false);
     /*if (dbConn) return dbConn;
     try {
         const client = await MongoClient.connect(config.dbURL, { useUnifiedTopology: true });
@@ -39,7 +42,6 @@ async function connect() {
         useUnifiedTopology: true
     });
 
-    console.log('MongoDB Server:', config.dbURL);
 
     const mongo = mongoose.connection;
     mongo.on('error', error => console.log('mongo: ' + error.name))
