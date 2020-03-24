@@ -47,7 +47,6 @@ export default {
         });
     },
     updateBoard(updatedBoard) {
-      debugger
       this.$store
         .dispatch({ type: "saveBoard", updatedBoard })
         .then(function(res) {

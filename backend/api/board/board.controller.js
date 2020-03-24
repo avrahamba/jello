@@ -45,8 +45,8 @@ async function saveBoard(req, res) {
     res.send(board)
 }
 
-async function changeData(req, res){
-    let board = await boardService.changeData(req.params.id,req.body )
+async function changeData(req, res) {
+    let board = await boardService.changeData(req.params.id, req.body)
     res.send(board)
 }
 

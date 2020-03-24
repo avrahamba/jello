@@ -1,5 +1,6 @@
 import httpService from './HttpService';
 import { utilsServie } from './utils.service';
+import { socketService } from './SocketService';
 
 
 export const boardService = {
@@ -21,7 +22,6 @@ function getById(id) {
 }
 async function save(board) {
     let prm;
-    debugger
     if (board._id) prm = httpService.put(`board/id/${board._id}`, board);
     else {
         board.createdAt = new Date();
@@ -67,5 +67,6 @@ function addBoard(user, prefs) {
 }
 
 async function putData(boardId, objData) {
+    objData.socketId = socketService.getSocketId()
     return httpService.put(`board/data/${boardId}`, objData);
 }

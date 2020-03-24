@@ -228,7 +228,7 @@ export default {
             .dispatch({ type: "removeTask", taskId: this.taskToSave.id })
             .then(() => {
               this.$router.push("/" + this.boardId);
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your task has been deleted.", "success");
               socketService.emit("change board");
             });
         }

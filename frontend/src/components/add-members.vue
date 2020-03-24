@@ -38,13 +38,18 @@ export default {
         name: user.name,
         email: user.email
       };
-      const boardId =  this.updatedMiniBoard._id 
-       this.$store.dispatch({ type: "getBoard", boardId })
-        .then(board => {
-          let updatedBoard =board
+      const boardId = this.updatedMiniBoard._id;
+      this.$store.dispatch({ type: "getBoard", boardId }).then(board => {
+        let updatedBoard = board;
+        debugger;
+        let isSameUser = updatedBoard.users.find(user => {
+          return user._id === miniUser._id;
+        });
+        if (!isSameUser) {
           updatedBoard.users.push(miniUser);
           this.$emit("updateBoard", updatedBoard);
-        });
+        }
+      });
     }
   },
   created() {
