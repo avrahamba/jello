@@ -3,7 +3,80 @@ const mongoose = require("mongoose"),
 
 const board = new Schema(
     {
-        name: {
+
+        title: String,
+        users: [{
+            _id: String,
+            name: String,
+            email: String
+        }],
+        taskLists: [{
+            id: String,
+            title: String,
+            tasks: [{
+                id: String,
+                title: String,
+                dueDate: [
+                    String,
+                    String
+                ],
+                desc: String,
+                labels: [
+                    {
+                        name: String,
+                        color: String,
+                        inEdit: Boolean,
+                        isActive: Boolean,
+                        id: Number
+                    }
+                ],
+                cover: {},
+                attachments: [
+                    {
+                        headers: {},
+                        withCredentials: Boolean,
+                        file: {
+                            uid: Number
+                        },
+                        filename: String,
+                        action: String,
+                        url: String,
+                        uid: Number,
+                        status: String
+                    }
+                ],
+                checklists: [
+                    {
+                        id: String,
+                        title: String,
+                        checkItems: [
+                            {
+                                id: String,
+                                txt: String,
+                                isDone: Boolean
+                            }
+                        ]
+                    }
+                ],
+                members: [
+                    {
+                        _id: String,
+                        name: String
+                    }
+                ],
+                msgs: [{
+                    user: {
+                        _id: String,
+                        name: String
+                    },
+                    txt: String,
+                    createdAt: Number
+                }]
+            }]
+        }],
+        style: { background: String },
+        public: Boolean
+   /*     name: {
             type: String,
             unique: true,
             require: true
@@ -41,7 +114,7 @@ const board = new Schema(
             type: Boolean,
             default: false
         }
-    },
+    }*/,
     { collection: "board" }
 );
 
