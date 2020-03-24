@@ -3,102 +3,65 @@ const mongoose = require("mongoose"),
 
 const user = new Schema(
     {
-        email: {
-            type: String,
-            unique: true,
-            require: true
-        },
-        name: {
-            type: String,
-            unique: true,
-            require: true
-        },
-        img: {
-            type: String,
-        },
-        hashPassword: {
-            type: String,
-        },
+        email: String,
+        name: String,
+        img: String,
+        hashPassword: String,
         boards: {
-            type: [
-                {
+            _id: String,
+            name: String,
+            background: String
+        },
+        alerts: [
+            {
+                alertForUser: String,
+                isReade: String,
+                task: {
+                    id: String,
+                    name: String
+                },
+                taskList: {
+                    id: String,
+                    name: String
+                },
+                board: {
                     _id: String,
                     name: String,
                     background: String
+                },
+                user: {
+                    _id: String,
+                    name: String,
+                    img: String
                 }
-            ],
-            default: []
-        },
-        alerts: {
-            type: [
-                {
-                    alertForUser: String,
-                    isReade: String,
-                    task: {
-                        type: {
-                            _id: String,
-                            name: String
-                        }
-                    },
-                    taskList: {
-                        type: {
-                            _id: String,
-                            name: String
-                        }
-                    },
-                    board: {
-                        type: {
-                            _id: String,
-                            name: String,
-                            background: String
-                        }
-                    },
-                    user: {
-                        type: {
-                            _id: String,
-                            name: String,
-                            img: String
-                        }
-                    }
-                }
-            ],
-            default: []
-        },
-        comments: {
-            type: [
+            }
+        ],
+        comments:
+            [
                 {
                     txt: String,
                     isReade: String,
-                    task: {
-                        type: {
-                            _id: String,
-                            name: String
-                        }
-                    },
+                    id: String,
+                    name: String
+
+                    ,
                     taskList: {
-                        type: {
-                            _id: String,
-                            name: String
-                        }
+                        id: String,
+                        name: String
                     },
                     board: {
-                        type: {
-                            _id: String,
-                            name: String,
-                            background: String
-                        }
+                        _id: String,
+                        name: String,
+                        background: String
                     },
                     user: {
-                        type: {
-                            _id: String,
-                            name: String,
-                            img: String
-                        }
+                        _id: String,
+                        name: String,
+                        img: String
                     }
                 }
-            ],
-            default: []
-        }
+            ]
+
     },
     { collection: "user" }
 );

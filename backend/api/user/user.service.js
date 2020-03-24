@@ -29,8 +29,9 @@ async function query(filterBy = {}) {
 //!DONE
 async function getById(userId) {
     const user = await User.findById(userId);
-    delete user.password
-    return user
+    
+    // delete user.password
+    // return user
 }
 
 

@@ -12,12 +12,12 @@ const app = express()
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
+const mongoose = require("./services/db.service");
 const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
 const boardRoutes = require('./api/board/board.routes')
 
 const connectSockets = require('./api/socket/socket.routes')
-const mongoose = require("./services/db.service");
 
 process.on('unhandledRejection', async function (error) {
     console.error(error);
