@@ -114,6 +114,7 @@
 
 <script>
 import { utilsServie } from "../../services/utils.service.js";
+import {  socketService } from '../../services/SocketService.js';
 import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";

@@ -43,6 +43,9 @@ export default {
                 socketService.on('change-task', (task) => {
                     this.$store.dispatch({ type: 'changeTask', task })
                 })
+                socketService.on('change-data', (data) => {
+                    this.$store.dispatch({ type: 'dataFromSocket', data })
+                })
             })
 
     },
@@ -65,7 +68,6 @@ export default {
         },
         changeTitle(title) {
             this.$store.dispatch({ type: 'changeTitleBoard', title })
-                .then(() => { socketService.emit('change board') })
         }
     },
     computed: {

@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Sun, 15 Mar 2020 10:26:43 GMT - Info - Server is running on port: 3030
 Sun, 15 Mar 2020 10:43:24 GMT - Info - Server is running on port: 3030
 Sun, 15 Mar 2020 10:57:43 GMT - Debug - kiki@kiki.kiki, Kiki, kiki
@@ -698,63 +699,44 @@ Sun, 22 Mar 2020 18:34:33 GMT - Debug - 777, 777, 777, undefined
 Sun, 22 Mar 2020 18:34:33 GMT - Debug - auth.service - signup with email: 777, username: 777
 Sun, 22 Mar 2020 18:34:34 GMT - Debug - auth.route - new account created: {"email":"777","password":"$2b$10$UwaWRaXzqWIQ1V0RyPDTjekovy5fXC6jW5XR1m6GCwD3NkmfIZ51K","username":"777"}
 Sun, 22 Mar 2020 18:34:34 GMT - Debug - auth.service - login with email: 777
+<<<<<<< HEAD
+Sun, 22 Mar 2020 18:39:08 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 18:39:20 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 18:39:40 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 18:39:46 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 18:40:15 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 18:40:17 GMT - Error - Cannot get boards
+Sun, 22 Mar 2020 18:41:27 GMT - Info - Server is running on port: 3030
+=======
 Sun, 22 Mar 2020 20:52:14 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 20:52:23 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 20:52:29 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 20:52:32 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 20:52:32 GMT - Error - Cannot get boards
 Sun, 22 Mar 2020 21:32:49 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 10:36:45 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 10:39:13 GMT - Debug - avraham2@jello, Avraham B, 123, undefined
-Mon, 23 Mar 2020 10:39:13 GMT - Debug - auth.service - signup with email: avraham2@jello, username: Avraham B
-Mon, 23 Mar 2020 10:39:14 GMT - Debug - auth.route - new account created: {"email":"avraham2@jello","password":"$2b$10$7Ytg6g8nRlxlOojaVgSFledHOyeLE8xCZQsdGSEwqGfedk9DTqayK","username":"Avraham B"}
-Mon, 23 Mar 2020 10:39:14 GMT - Debug - auth.service - login with email: avraham2@jello
-Mon, 23 Mar 2020 10:41:07 GMT - Error - Cannot get boards
-Mon, 23 Mar 2020 10:42:48 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 10:42:50 GMT - Debug - auth.service - login with email: avraham3@jello
-Mon, 23 Mar 2020 10:45:14 GMT - Debug - avraham4@jello, Avraham D, 123, undefined
-Mon, 23 Mar 2020 10:45:14 GMT - Debug - auth.service - signup with email: avraham4@jello, username: Avraham D
-Mon, 23 Mar 2020 10:45:14 GMT - Debug - auth.route - new account created: {"email":"avraham4@jello","password":"$2b$10$dIDNa9SUFbQ/x8VHyNHSNum2/ps8KTV44YVWH8q/S.wMxLUGbluse","username":"Avraham D"}
-Mon, 23 Mar 2020 10:45:14 GMT - Debug - auth.service - login with email: avraham4@jello
-Mon, 23 Mar 2020 10:47:24 GMT - Debug - avraham5@jello, Avraham E, 123, undefined
-Mon, 23 Mar 2020 10:47:24 GMT - Debug - auth.service - signup with email: avraham5@jello, username: Avraham E
-Mon, 23 Mar 2020 10:47:30 GMT - Debug - auth.route - new account created: {"email":"avraham5@jello","password":"$2b$10$xmkw53iA8057lTbAPI/zSOVT9yTqsilBCE5I9pHvn8DjDknSkUgIe","username":"Avraham E"}
-Mon, 23 Mar 2020 10:47:30 GMT - Debug - auth.service - login with email: avraham5@jello
-Mon, 23 Mar 2020 11:34:20 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 11:36:18 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 11:36:59 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 11:55:38 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 11:57:54 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:02:25 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:05:58 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:06:14 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:09:35 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:10:20 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:11:35 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:12:38 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:13:15 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:19:11 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:21:08 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:21:46 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:23:12 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:23:36 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:23:41 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:23:57 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:24:27 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:25:36 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:25:58 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:28:09 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:28:43 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:31:38 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:46:18 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:46:50 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:47:06 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:51:21 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:52:49 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:56:22 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 12:57:10 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 13:05:00 GMT - Info - Server is running on port: 3030
-Mon, 23 Mar 2020 16:27:35 GMT - Debug - gg, hh, hh, undefined
-Mon, 23 Mar 2020 16:27:35 GMT - Debug - auth.service - signup with email: gg, username: hh
-Mon, 23 Mar 2020 16:27:35 GMT - Debug - auth.route - new account created: {"email":"gg","password":"$2b$10$b/zla8j89QHyTX3Q7i6rd.RYesCYTDGZ6eNH29nrzcsmugZIzzaR2","username":"hh"}
-Mon, 23 Mar 2020 16:27:35 GMT - Debug - auth.service - login with email: gg
+>>>>>>> df8d1e74dbcfebd3678b894c40b95033d4a29352
+Mon, 23 Mar 2020 15:35:29 GMT - Debug - eee, eee, eee, undefined
+Mon, 23 Mar 2020 15:35:30 GMT - Debug - auth.service - signup with email: eee, username: eee
+Mon, 23 Mar 2020 15:35:35 GMT - Debug - eee, eee, eee, undefined
+Mon, 23 Mar 2020 15:35:35 GMT - Debug - auth.service - signup with email: eee, username: eee
+Mon, 23 Mar 2020 15:35:35 GMT - Debug - auth.route - new account created: {"email":"eee","password":"$2b$10$ayIrlaEu.9KUnHaof/VZTOQxIViF0jtul0I5IOlqY3D7QUFo77Ukm","username":"eee"}
+Mon, 23 Mar 2020 15:35:36 GMT - Debug - auth.service - login with email: eee
+Mon, 23 Mar 2020 15:35:36 GMT - Debug - auth.route - new account created: {"email":"eee","password":"$2b$10$pPC8xTVkW.2GtP3umeKcSeEXYW0KtIEzkX43/mjfICfv8azvoEtI2","username":"eee"}
+Mon, 23 Mar 2020 15:35:36 GMT - Debug - auth.service - login with email: eee
+Mon, 23 Mar 2020 17:27:44 GMT - Debug - qwe, qwe, qwe, undefined
+Mon, 23 Mar 2020 17:27:45 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Mon, 23 Mar 2020 17:27:45 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$Ywre1noTi99x8UYWqEyUhejduduWICtvTQqCowIeasSLEgfpVVP3S","username":"qwe"}
+Mon, 23 Mar 2020 17:27:45 GMT - Debug - auth.service - login with email: qwe
+Mon, 23 Mar 2020 17:28:41 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 17:49:13 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 17:51:12 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 17:54:28 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 18:38:47 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 18:41:19 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 18:49:04 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 19:08:40 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 19:10:46 GMT - Info - Server is running on port: 3030
+Mon, 23 Mar 2020 20:48:49 GMT - Error - Cannot get boards
+Mon, 23 Mar 2020 20:50:19 GMT - Error - Cannot get boards
+=======
+>>>>>>> efe6b725186acdbe8522d8b22fdf9b3e3daf6e9e

@@ -13,11 +13,12 @@ module.exports = {
 
 async function query(filterBy = {}) {
     const criteria = _buildCriteria(filterBy)
+    console.log('im query, criteria:' , criteria)
     const collection = await dbService.getCollection('user')
     try {
         const users = await collection.find(criteria).toArray();
+        console.log('users:',users)
         users.forEach(user => delete user.password);
-
         return users
     } catch (err) {
         console.log('ERROR: cannot find users')
@@ -146,11 +147,8 @@ async function add(user) {
 
 function _buildCriteria(filterBy) {
     const criteria = {};
-    if (filterBy.txt) {
-        criteria.username = filterBy.txt
-    }
-    if (filterBy.minBalance) {
-        criteria.balance = { $gte: +filterBy.minBalance }
+    if (filterBy.name) {
+        criteria.name =  new RegExp(filterBy.name, 'i')
     }
     return criteria;
 }
