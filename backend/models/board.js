@@ -75,7 +75,7 @@ const board = new Schema(
             }]
         }],
         style: { background: String },
-        public: Boolean
+        public: Boolean},
    /*     name: {
             type: String,
             unique: true,
@@ -114,7 +114,7 @@ const board = new Schema(
             type: Boolean,
             default: false
         }
-    }*/,
+    }*/
     { collection: "board" }
 );
 
