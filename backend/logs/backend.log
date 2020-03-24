@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 Sun, 15 Mar 2020 10:26:43 GMT - Info - Server is running on port: 3030
 Sun, 15 Mar 2020 10:43:24 GMT - Info - Server is running on port: 3030
 Sun, 15 Mar 2020 10:57:43 GMT - Debug - kiki@kiki.kiki, Kiki, kiki
@@ -744,3 +745,19 @@ Tue, 24 Mar 2020 10:04:47 GMT - Debug - rrrr, ffff, ffff, undefined
 Tue, 24 Mar 2020 10:04:47 GMT - Debug - auth.service - signup with email: rrrr, username: ffff
 Tue, 24 Mar 2020 10:04:48 GMT - Debug - auth.route - new account created: {"email":"rrrr","password":"$2b$10$M.2VHTVrblDATR1rNieGD.zlw13m/1oDhSlDypcsyBp/P49.R1czy","username":"ffff"}
 Tue, 24 Mar 2020 10:04:48 GMT - Debug - auth.service - login with email: rrrr
+=======
+Tue, 24 Mar 2020 09:58:20 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 10:02:23 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 10:23:53 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 10:51:05 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:18:15 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:20:07 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:20:39 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:21:35 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 13:17:24 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 13:20:49 GMT - Debug - auth.service - login with email: avraham2@jello
+Tue, 24 Mar 2020 13:25:18 GMT - Info - Server is running on port: 3030
+>>>>>>> 3d0797fc9a3690ef56a0624849fc1e4bfa835a7c
+Tue, 24 Mar 2020 16:04:38 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 16:04:57 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 16:10:30 GMT - Error - Cannot get boards

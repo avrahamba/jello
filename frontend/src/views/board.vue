@@ -2,7 +2,7 @@
 <section class="board" v-if="boardData" :style="style">
     <nav-board @changeTitle="changeTitle" :boardData="boardData"></nav-board>
     <section ref="taskListsLection">
-        <draggable handle="h2" class="lists-container" draggable=".task-list" v-model="boardData.taskLists" v-bind="dragOptions" @end="move">
+        <draggable handle=".title" class="lists-container" draggable=".task-list" v-model="boardData.taskLists" v-bind="dragOptions" @end="move">
             <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList"></task-list>
             <button class="add-list-btn btn" @click="createList">Add a list</button>
         </draggable>
@@ -32,18 +32,18 @@ export default {
                 socketService.setup();
                 socketService.emit('connect-to-board', board._id)
 
-                socketService.on('change board', () => {
-                    this.$store.dispatch({ type: "getBoard", boardId })
-                        .then(board => {
-                            if (board.failed) {
-                                return;
-                            }
-                        });
-                })
+                // socketService.on('change board', () => {
+                //     this.$store.dispatch({ type: "getBoard", boardId })
+                //         .then(board => {
+                //             if (board.failed) {
+                //                 return;
+                //             }
+                //         });
+                // })
 
-                socketService.on('change-task', (task) => {
-                    this.$store.dispatch({ type: 'changeTask', task })
-                })
+                // socketService.on('change-task', (task) => {
+                //     this.$store.dispatch({ type: 'changeTask', task })
+                // })
                 socketService.on('change-data', (data) => {
                     this.$store.dispatch({ type: 'dataFromSocket', data })
                 })
@@ -65,7 +65,6 @@ export default {
         },
         move({ oldIndex, newIndex }) {
             this.$store.dispatch({ type: 'moveList', oldIndex, newIndex })
-                .then(() => { socketService.emit('change board') })
         },
         changeTitle(title) {
             this.$store.dispatch({ type: 'changeTitleBoard', title })

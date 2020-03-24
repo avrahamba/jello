@@ -11,7 +11,7 @@
               <input
                 class="task-title"
                 type="text"
-                @blur="saveTitle"
+                @blur="setTitle"
                 @keydown="keydownTitle"
                 placeholder="Title"
                 v-model="taskToSave.title"
@@ -24,14 +24,14 @@
                 <date-picker
                   v-if="currTask.dueDate.length||addDateMode"
                   v-model="taskToSave.dueDate"
-                  @input="save"
+                  @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
                 ></date-picker>
               </div>
               <div class="members-labels-contaner">
                 <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
                 <label-preview
                   v-if="taskToSave.labels.length"
-                  @input="save"
+                  @input="save('setLabel',{labels: taskToSave.labels})"
                   v-model="taskToSave.labels"
                 ></label-preview>
               </div>
@@ -55,7 +55,10 @@
                 @save="saveCheckList"
               ></checklist-list>
 
-              <file-picker v-model="taskToSave.attachments" @input="save"></file-picker>
+              <file-picker
+                v-model="taskToSave.attachments"
+                @input="save('attachments',{attachments: taskToSave.attachments})"
+              ></file-picker>
 
               <activity-chat :user="loggedinUser" :massages="taskToSave.msgs" @save="saveMsgs"></activity-chat>
               <!-- <pre>{{taskToSave}}</pre> -->
@@ -73,14 +76,15 @@
                 </button>
               </div>
               <div class="edit-labels-container">
-                <button @click="addLabelMode =! addLabelMode" >
-                  <i class="fas fa-tags"></i>
-                  Labels
+                <button @click="addLabelMode =! addLabelMode">
+                  <i class="fas fa-tags"></i> Labels
                 </button>
-
                 <template v-if="addLabelMode">
                   <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
-                  <label-picker @input="save" v-model="taskToSave.labels"></label-picker>
+                  <label-picker
+                    @input="save('setLabel',{labels: taskToSave.labels})"
+                    v-model="taskToSave.labels"
+                  ></label-picker>
                 </template>
               </div>
               <div class="add-chacklist-container">
@@ -110,7 +114,7 @@
                   <template v-if="isCoverMode">
                     <window-overlay :dark="false" @close="isCoverMode=false"></window-overlay>
                     <cover-picker
-                      @input="save"
+                      @input="save('setLabel',{labels: taskToSave.labels})"
                       v-model="taskToSave.cover"
                       :covers="taskToSave.attachments"
                     ></cover-picker>
@@ -171,11 +175,12 @@ export default {
       this.isOpen = false;
       this.$router.push("/" + this.boardId);
     },
-    save() {
-      this.$emit("save", JSON.parse(JSON.stringify(this.taskToSave)));
+    save(type, obj) {
+      this.$emit("save", { type, taskId: this.taskToSave.id, ...obj });
     },
-    saveTitle() {
-      if (this.currTask.title) this.save();
+    setTitle() {
+      if (this.currTask.title)
+        this.save("setTitle", { title: this.taskToSave.title });
     },
     startEditDesc() {
       this.editDesc = true;
@@ -185,12 +190,13 @@ export default {
       }, 0);
     },
     saveDesc() {
-      this.save();
+      this.save("editDesc", { desc: this.taskToSave.desc });
       this.editDesc = false;
     },
     keydownTitle(ev) {
       if (ev.key === "Enter") {
-        if (this.currTask.title) this.save();
+        if (this.currTask.title)
+          this.save("setTitle", { title: this.taskToSave.title });
         ev.target.blur();
       }
     },
@@ -201,22 +207,11 @@ export default {
         name: user.name,
         avatar: user.avatar
       });
-      this.save();
-    },
-    setLabel(label) {
-      const idx = this.taskToSave.labels.findIndex(
-        currLabel => currLabel.id === label.id
-      );
-      if (idx === -1) {
-        this.taskToSave.labels.push(label);
-      } else {
-        this.taskToSave.labels.splice(idx, 1);
-      }
-      this.save();
+      this.save("addMember", { user });
     },
     saveMsgs(msgs) {
       this.taskToSave.msgs = msgs;
-      this.save();
+      this.save("setMsgs", { msgs });
     },
     addChecklist(title) {
       const checklist = {
@@ -226,11 +221,11 @@ export default {
       };
       this.taskToSave.checklists.push(checklist);
       this.addCheckListMode = false;
-      this.save();
+      this.save("setChecklists", { checklists: this.taskToSave.checklists });
     },
     saveCheckList(checklists) {
       this.taskToSave.checklists = checklists;
-      this.save();
+      this.save("setChecklists", { checklists: this.taskToSave.checklists });
     },
     startRemoveTask() {
       Swal.fire({
@@ -246,7 +241,7 @@ export default {
             .dispatch({ type: "removeTask", taskId: this.taskToSave.id })
             .then(() => {
               this.$router.push("/" + this.boardId);
-              Swal.fire("Deleted!", "Your file has been deleted.", "success");
+              Swal.fire("Deleted!", "Your task has been deleted.", "success");
               socketService.emit("change board");
             });
         }
@@ -271,6 +266,14 @@ export default {
     },
     isCover() {
       // return this.taskToSave.attachments.length < 1 ? this.taskToSave.cover = {} :
+    }
+  },
+  watch: {
+    currTask: {
+      deep: true,
+      handler() {
+        this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
+      }
     }
   },
   components: {

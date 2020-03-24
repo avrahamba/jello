@@ -1,11 +1,16 @@
 <template>
 <section class="task-list" :ref="taskListData.id">
     <div class="title">
-
-        <input placeholder="Title" v-if="editTitleMode" class="edit-title-list" type="text" v-model="taskListData.title" ref="editTitle" @keydown="onKeyEditTitle" @blur="blurEditTitle">
+        <input placeholder="Title" v-if="editTitleMode" class="edit-title-list" type="text" v-model="copyTitle" ref="editTitle" @keydown="onKeyEditTitle" @blur="blurEditTitle">
         <template v-else>
             <h2 @click="startEditTitle">{{taskListData.title}}</h2>
-            <button>&times;</button>
+            <button @click="barIsOpen = true"><i class="fa fa-ellipsis-h"></i></button>
+            <template v-if="barIsOpen">
+                <window-overlay :dark="false" @close="barIsOpen = false"></window-overlay>
+                <div class="bar-action-list">
+                    <button @click="removeList">Delete List</button>
+                </div>
+            </template>
         </template>
     </div>
     <div class="list-items">
@@ -32,7 +37,9 @@
 
 <script>
 import draggable from "vuedraggable";
+import Swal from "sweetalert2";
 import taskPreview from "./task-preview.vue";
+import windowOverlay from './window-overlay.vue';
 import { socketService } from '../services/SocketService.js';
 export default {
     props: {
@@ -45,7 +52,8 @@ export default {
                 title: ""
             },
             editTitleMode: false,
-            copyTitle: ''
+            copyTitle: '',
+            barIsOpen: false
         };
     },
     created() {
@@ -123,18 +131,39 @@ export default {
         },
         onKeyEditTitle(ev) {
             if (ev.key === 'Enter') {
-                this.editTitleMode = false
-                this.$store.dispatch({ type: 'changeTitle', listId: this.taskListData.id, oldTitle: this.copyTitle })
+                this.blurEditTitle()
             }
         },
         blurEditTitle() {
             this.editTitleMode = false
-            this.$store.dispatch({ type: 'changeTitle', listId: this.taskListData.id, oldTitle: this.copyTitle })
+            this.$store.dispatch({ type: 'setListTitle', taskListId: this.taskListData.id, title: this.copyTitle })
+        },
+        removeList() {
+            Swal.fire({
+                title: `Are you sure of You won't remove the List?`,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#d33",
+                cancelButtonColor: "#3085d6",
+                confirmButtonText: "Yes, delete it!"
+            }).then(result => {
+                if (result.value) {
+                    this.$store
+                        .dispatch({ type: "removeList", taskListId: this.taskListData.id })
+                        .then(() => {
+                            Swal.fire("Deleted!", "Your list has been deleted.", "success");
+                            socketService.emit("change board");
+                        });
+                }
+            })
+
         }
+
     },
     components: {
         taskPreview,
-        draggable
+        draggable,
+        windowOverlay
     }
 };
 </script>

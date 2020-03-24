@@ -4,9 +4,15 @@
     .title{
         display: flex;
         justify-content: space-between;
+        position: relative;
         h2{
             margin: 0;
             padding: 12.45px;
+        }
+        .bar-action-list{
+            position: absolute;
+            right: 0;
+            top: 100%;
         }
     }
 }
