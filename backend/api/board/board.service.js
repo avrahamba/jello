@@ -45,17 +45,12 @@ async function query(userId) {
             isAddMembers: false
         }
     })
-
 }
 
 async function remove(boardId) {
-    // const collection = await dbService.getCollection('board')
-    // try {
-    //     await collection.deleteOne({ "_id": ObjectId(boardId) })
-    // } catch (err) {
-    //     console.log(`ERROR: cannot remove board ${boardId}`)
-    //     throw err;
-    // }
+    // const boardId = id.split('-')[0];
+    // await collection.deleteOne({ "_id": ObjectId(boardId) })
+
 }
 
 
