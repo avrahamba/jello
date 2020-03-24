@@ -32,18 +32,6 @@ export default {
                 socketService.setup();
                 socketService.emit('connect-to-board', board._id)
 
-                // socketService.on('change board', () => {
-                //     this.$store.dispatch({ type: "getBoard", boardId })
-                //         .then(board => {
-                //             if (board.failed) {
-                //                 return;
-                //             }
-                //         });
-                // })
-
-                // socketService.on('change-task', (task) => {
-                //     this.$store.dispatch({ type: 'changeTask', task })
-                // })
                 socketService.on('change-data', (data) => {
                     this.$store.dispatch({ type: 'dataFromSocket', data })
                 })

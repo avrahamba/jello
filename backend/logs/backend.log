@@ -778,4 +778,8 @@ Tue, 24 Mar 2020 13:25:18 GMT - Info - Server is running on port: 3030
 Tue, 24 Mar 2020 16:04:38 GMT - Info - Server is running on port: 3030
 Tue, 24 Mar 2020 16:04:57 GMT - Error - Cannot get boards
 Tue, 24 Mar 2020 16:10:30 GMT - Error - Cannot get boards
+<<<<<<< HEAD
 >>>>>>> 9f3ab9fb0bdd3224807b4dd69179bd79ed4fa9be
+=======
+Tue, 24 Mar 2020 17:10:16 GMT - Info - Server is running on port: 3030
+>>>>>>> 726e6cd87b6c9b5e27253f3347ef49b7570aaabc
