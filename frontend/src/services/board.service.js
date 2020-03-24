@@ -1,5 +1,6 @@
 import httpService from './HttpService';
 import { utilsServie } from './utils.service';
+import { socketService } from './SocketService';
 
 
 export const boardService = {
@@ -67,5 +68,6 @@ function addBoard(user, prefs) {
 }
 
 async function putData(boardId, objData) {
+    objData.socketId = socketService.getSocketId()
     return httpService.put(`board/data/${boardId}`, objData);
 }

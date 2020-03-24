@@ -93,22 +93,51 @@ async function save(board) {
 }
 
 
-async function changeData(boardId, data){
+async function changeData(boardId, data) {
     const collection = await dbService.getCollection('board')
     try {
         const board = await collection.findOne({ "_id": ObjectId(boardId) })
-        
 
-        switch (data.type){
+        switch (data.type) {
             case 'changeTitleBoard':
                 board.title = data.title
                 break;
+            case 'removeTaskList':
+                {
+                    const ListIdx = board.taskLists.findIndex(list => list.id === data.taskListId);
+                    if (ListIdx !== -1) board.taskLists.splice(ListIdx, 1);
+                }
+                break;
+            case 'moveList':
+                {
+                    const { oldIndex, newIndex } = data
+                    const list = board.taskLists.splice(oldIndex,1)[0]
+                    board.taskLists.splice(newIndex, 0, list)
+                }
+                break;
+            case 'moveTask':
+                {
+                    const { idMoveFrom, idMoveTo, oldIndex, newIndex } = data;
+                    const oldListIdx = board.taskLists.findIndex(list => list.id === idMoveFrom);
+                    const newListIdx = board.taskLists.findIndex(list => list.id === idMoveTo);
+                    const task = board.taskLists[oldListIdx].tasks.splice(oldIndex,1)[0]
+                    board.taskLists[newListIdx].tasks.splice(newIndex, 0, task)
+                }
+                break;
+            case 'addTask':
+                {
+                    const { task, taskListId } = data;
+                    const listIdx = board.taskLists.findIndex(list => list.id === taskListId);
+                    board.taskLists[listIdx].tasks.push(task)
+                }
+                break;
         }
+        
         await collection.replaceOne({ _id: ObjectId(boardId) }, board);
-        emitter.emit('sendSocket',{data,boardId})
+        emitter.emit('sendSocket', { data, boardId })
         return board
-    } 
-    
+    }
+
     catch (err) {
         console.log('ERROR: cannot find boards')
         throw err;

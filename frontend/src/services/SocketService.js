@@ -3,14 +3,15 @@ const BASE_URL = process.env.NODE_ENV === 'production'
     ? '/'
     : '//localhost:3030'
     // : '//192.168.43.254:3030'
-var socket;
+let socket;
 
 export const socketService = {
     setup,
     terminate,
     on,
     off,
-    emit
+    emit,
+    getSocketId
 }
 
 function setup() {
@@ -31,4 +32,8 @@ function off(eventName, cb) {
 
 function emit(eventName, data) {
     socket.emit(eventName, data)
+}
+
+function getSocketId(){
+    return socket.id
 }
