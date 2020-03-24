@@ -17,7 +17,6 @@ async function getBoards(req, res) {
 
 async function getBoard(req, res) {
     try {
-
         const boards = await boardService.getById(req.params.id)
         res.json(boards)
     } catch (err) {

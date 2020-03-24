@@ -132,8 +132,9 @@ export const boardStore = {
             }
         },
         //!work
-        async getBoard(context, { boardId }) {
+        async getBoard(context, {boardId} ) {
             try {
+                debugger
                 const board = await boardService.getById(boardId);
                 context.commit('setBoard', board);
                 return board;
@@ -154,6 +155,7 @@ export const boardStore = {
         },
         //* Board Actions
         async saveBoard(context, updatedBoard) {
+            debugger
         const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {
         context.commit('setBoard', updatedBoard);

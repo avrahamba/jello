@@ -740,3 +740,16 @@ Mon, 23 Mar 2020 20:48:49 GMT - Error - Cannot get boards
 Mon, 23 Mar 2020 20:50:19 GMT - Error - Cannot get boards
 =======
 >>>>>>> efe6b725186acdbe8522d8b22fdf9b3e3daf6e9e
+Tue, 24 Mar 2020 11:54:12 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:01:13 GMT - Debug - qwe, qwe, qwe, undefined
+Tue, 24 Mar 2020 12:01:13 GMT - Debug - auth.service - signup with email: qwe, username: qwe
+Tue, 24 Mar 2020 12:01:18 GMT - Debug - auth.route - new account created: {"email":"qwe","password":"$2b$10$FzmhGK.fNNyI/hETZqHpj.asok5ZPZIh9A.rm4TCh1.tjeJKVEGfi","username":"qwe"}
+Tue, 24 Mar 2020 12:01:18 GMT - Debug - auth.service - login with email: qwe
+Tue, 24 Mar 2020 12:01:33 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 12:02:09 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 12:03:57 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 12:16:03 GMT - Error - Cannot get boards
+Tue, 24 Mar 2020 12:18:03 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:20:06 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:21:57 GMT - Info - Server is running on port: 3030
+Tue, 24 Mar 2020 12:27:49 GMT - Info - Server is running on port: 3030
