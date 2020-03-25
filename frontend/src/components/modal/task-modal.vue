@@ -116,7 +116,7 @@
                   <template v-if="isCoverMode">
                     <window-overlay :dark="false" @close="isCoverMode=false"></window-overlay>
                     <cover-picker
-                      @input="save('setLabel',{labels: taskToSave.labels})"
+                      @input="save('setCover',{cover: {url:taskToSave.cover.url}})"
                       v-model="taskToSave.cover"
                       :covers="taskToSave.attachments"
                     ></cover-picker>

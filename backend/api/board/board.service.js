@@ -161,6 +161,9 @@ const changeData = async (boardId, data) => {
                     case 'addMember':
                         await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $push: { ['taskLists.$.tasks.' + taskIdx + '.members']: objSave.user } })
                         break;
+                    case 'setCover':
+                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.cover']: objSave.cover } })
+                        break;
                 }
             }
             break
