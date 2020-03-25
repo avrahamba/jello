@@ -4,12 +4,11 @@
       action
       list-type="picture-card"
       :on-preview="handlePictureCardPreview"
+      :auto-upload="false"
       :file-list="fileList"
       :on-remove="handleRemove"
       :http-request="addAttachment"
-    >
-      <i class="el-icon-plus"></i>
-    </el-upload>
+    ></el-upload>
 
     <el-dialog :visible.sync="dialogVisible">
       <img width="100%" :src="dialogImageUrl" alt />

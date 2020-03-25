@@ -25,6 +25,9 @@
       .detail-area {
         grid-column: 1/ 2;
         grid-row: 3 /4;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
         .members-labels-contaner {
           display: flex;
         }
@@ -32,36 +35,39 @@
       .add-area {
         grid-column: 2 /3;
         grid-row: 3/ 4;
-      }
-      button {
-        text-align: left;
-        color: #172b4d;
-        background-color: #eaecf0;
-        box-shadow: none;
-        border: none;
-        border-radius: 3px;
-        box-sizing: border-box;
-        cursor: pointer;
-        display: block;
-        height: 32px;
-        margin-top: 8px;
-        width: 100%;
-        overflow: hidden;
-        padding: 6px 0 6px 6px;
-        text-decoration: none;
-        text-overflow: ellipsis;
-        -webkit-transition: all .3s ease;
-        transition: all .3s ease;
-        outline: none;
-        line-height: 15px;
-        position: relative;
-        &:hover{
-          background-color: #cdd2d4;
-          color: #4d4d4d;
-          text-decoration: underline;
+
+
+        button {
+          text-align: left;
+          color: #172b4d;
+          background-color: #eaecf0;
+          box-shadow: none;
+          border: none;
+          border-radius: 3px;
+          box-sizing: border-box;
+          cursor: pointer;
+          display: block;
+          height: 32px;
+          margin-top: 8px;
+          width: 100%;
+          overflow: hidden;
+          padding: 6px 0 6px 6px;
+          text-decoration: none;
+          text-overflow: ellipsis;
+          -webkit-transition: all .3s ease;
+          transition: all .3s ease;
+          outline: none;
+          line-height: 15px;
+          position: relative;
+          &:hover{
+            background-color: #cdd2d4;
+            color: #4d4d4d;
+            text-decoration: underline;
+          }
+   
         }
- 
       }
+      
     }
 
     position: fixed;
