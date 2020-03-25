@@ -158,6 +158,9 @@ const changeData = async (boardId, data) => {
                     case 'setMsgs':
                         await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.msgs']: objSave.msgs } })
                         break;
+                    case 'addMember':
+                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $push: { ['taskLists.$.tasks.' + taskIdx + '.members']: objSave.user } })
+                        break;
                 }
             }
             break
