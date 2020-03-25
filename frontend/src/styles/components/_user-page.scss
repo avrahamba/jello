@@ -1,6 +1,11 @@
 .board-card{
-    width: 100px;
-    height: 100px;
-    border: 2px red solid;
     display: inline-block;
+}
+.add-member-btn{
+    color: red;
+}
+.select-user{
+    color: red;
+    top: 5px;
+    position: absolute;
 }

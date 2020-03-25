@@ -60,6 +60,13 @@
                 @input="save('attachments',{attachments: taskToSave.attachments})"
               ></file-picker>
 
+              <add-member-to-task
+                v-if="addMemberMode"
+                v-model="taskToSave.members"
+                :board="board"
+                @input="save('users',{users: taskToSave.users})"
+              ></add-member-to-task>
+
               <activity-chat :user="loggedinUser" :massages="taskToSave.msgs" @save="saveMsgs"></activity-chat>
               <!-- <pre>{{taskToSave}}</pre> -->
             </div>
@@ -70,8 +77,8 @@
                 </button>
               </div>
               <h3>ADD TO CARD</h3>
-              <div>
-                <button>
+              <div class="add-members-container">
+                <button @click="addMemberMode =! addMemberMode">
                   <i class="fas fa-users"></i> Members
                 </button>
               </div>
@@ -142,6 +149,7 @@ import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
 import labelPreview from "./label-preview.vue";
 import filePicker from "./file-picker.vue";
+import addMemberToTask from "./add-members-to-task.vue";
 import coverPreview from "./cover-preview.vue";
 import coverPicker from "./cover-picker.vue";
 import windowOverlay from "../window-overlay.vue";
@@ -160,15 +168,18 @@ export default {
       taskToSave: null,
       editDesc: false,
       addLabelMode: false,
+      addMemberMode: false,
       addDateMode: false,
       addCheckListMode: false,
-      isCoverMode: false
+      isCoverMode: false,
+      board: {}
     };
   },
 
   created() {
     this.isOpen = true;
     this.taskToSave = JSON.parse(JSON.stringify(this.currTask));
+    this.board = this.$store.getters.board;
   },
   methods: {
     closeModal() {
@@ -287,7 +298,8 @@ export default {
     addChecklist,
     checklistList,
     coverPreview,
-    coverPicker
+    coverPicker,
+    addMemberToTask
   }
 };
 </script>
