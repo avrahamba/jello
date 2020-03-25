@@ -30,7 +30,9 @@ const board = new Schema(
                         id: Number
                     }
                 ],
-                cover: {},
+                cover: {
+                    url: String,
+                },
                 attachments: [
                     {
                         headers: {},
@@ -75,46 +77,47 @@ const board = new Schema(
             }]
         }],
         style: { background: String },
-        public: Boolean},
-   /*     name: {
-            type: String,
-            unique: true,
-            require: true
-        },
-        partnerAddresses: Array,
-        temporaryToken: String,
-        permanentToken: {
-            type: [
-                {
-                    token: String,
-                    lastUpdated: Date,
-                    name: String
-                }
-            ],
-            default: []
-        },
-        expirationTime: Date,
-        created: {
-            type: Date,
-            default: Date.now
-        },
-        updated: {
-            type: Date,
-            default: Date.now
-        },
-        deleted: {
-            type: Boolean,
-            default: false
-        },
-        cymulateWafHeader: {
-            type: Boolean,
-            default: false
-        },
-        edrHideOutput: {
-            type: Boolean,
-            default: false
-        }
-    }*/
+        public: Boolean
+    },
+    /*     name: {
+             type: String,
+             unique: true,
+             require: true
+         },
+         partnerAddresses: Array,
+         temporaryToken: String,
+         permanentToken: {
+             type: [
+                 {
+                     token: String,
+                     lastUpdated: Date,
+                     name: String
+                 }
+             ],
+             default: []
+         },
+         expirationTime: Date,
+         created: {
+             type: Date,
+             default: Date.now
+         },
+         updated: {
+             type: Date,
+             default: Date.now
+         },
+         deleted: {
+             type: Boolean,
+             default: false
+         },
+         cymulateWafHeader: {
+             type: Boolean,
+             default: false
+         },
+         edrHideOutput: {
+             type: Boolean,
+             default: false
+         }
+     }*/
     { collection: "board" }
 );
 

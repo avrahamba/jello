@@ -39,3 +39,6 @@ p {
   display: flex;
   flex-direction: column;
 }
+div::selection{
+  background: transparent;
+}
