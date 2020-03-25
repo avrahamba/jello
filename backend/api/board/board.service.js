@@ -34,7 +34,6 @@ async function query(userId) {
     const boards = await Board.find(criteria);
     // console.log('boards', boards);
 
-
     return boards.map(board => {
         const onUser = (userId && board.users.findIndex(user => user._id === userId) !== -1)
         return {
