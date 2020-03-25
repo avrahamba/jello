@@ -35,16 +35,12 @@ const board = new Schema(
                 },
                 attachments: [
                     {
-                        headers: {},
-                        withCredentials: Boolean,
-                        file: {
-                            uid: Number
-                        },
-                        filename: String,
-                        action: String,
+                        width: Number,
+                        height: Number,
+                        format: String,
+                        created: String,
                         url: String,
-                        uid: Number,
-                        status: String
+                        fileName: String,
                     }
                 ],
                 checklists: [

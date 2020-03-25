@@ -30,9 +30,12 @@ a {
 }
 
 p {
-  margin: 0 auto 1em;
+  margin: 0 1em;
   max-width: 48ch;
   white-space: pre;
+  font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
 }
 #app {
   min-height: 100vh;
