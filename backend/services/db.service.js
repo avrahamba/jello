@@ -14,24 +14,12 @@ const mongoose = require('../models')
 const config = require('../config') // Can be shortend to '../config';
 // When requiring just the folder, it will automatically look for index file
 
-module.exports = {
-    connect
-}
 
-async function connect() {
+const connect = async () => {
     // Make Mongoose use `findOneAndUpdate()`. Note that this option is `true`
     // by default, you need to set it to false.
     mongoose.set('useFindAndModify', false);
-    /*if (dbConn) return dbConn;
-    try {
-        const client = await MongoClient.connect(config.dbURL, { useUnifiedTopology: true });
-        const db = client.db(dbName);
-        dbConn = db;
-        return db;
-    } catch (err) {
-        console.log('Cannot Connect to DB', err)
-        throw err;
-    }*/
+
     //Connect to MongoDB with Mongoose
     mongoose.Promise = Promise;
     //Load the application models
@@ -52,6 +40,6 @@ async function connect() {
     return db;
 }
 
-
-
-
+module.exports = {
+    connect
+}

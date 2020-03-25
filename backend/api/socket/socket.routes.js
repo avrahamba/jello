@@ -1,9 +1,8 @@
 
-module.exports = connectSockets
 
 const emitter = require('../../services/emitter.service');
 
-function connectSockets(io) {
+const connectSockets = (io) => {
     io.on('connection', socket => {
 
         emitter.on('sendSocket' + socket.id, ({ data, boardId }) => {
@@ -20,3 +19,5 @@ function connectSockets(io) {
 
     })
 }
+
+module.exports = connectSockets

@@ -9,15 +9,12 @@
 </template>
 
 <script>
-function shortName(name){
-return name
-}
 export default {
     data() {
         return {};
     },
     created() {
-      this.members
+        this.members
     },
     props: {
         members: Array

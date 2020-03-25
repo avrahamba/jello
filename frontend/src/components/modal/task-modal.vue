@@ -154,7 +154,7 @@ export default {
     boardId: String,
     currTask: Object
   },
-  data: function() {
+  data() {
     return {
       isOpen: false,
       taskToSave: null,

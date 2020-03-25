@@ -3,7 +3,7 @@ const boardService = require('./board.service')
 
 // TODO: needs error handling! try, catch
 
-async function getBoards(req, res) {
+const getBoards = async (req, res) => {
     try {
 
         const boards = await boardService.query(req.params.userId)
@@ -15,7 +15,7 @@ async function getBoards(req, res) {
     }
 }
 
-async function getBoard(req, res) {
+const getBoard = async (req, res) => {
     try {
         const boards = await boardService.getById(req.params.id)
         res.json(boards)
@@ -28,24 +28,24 @@ async function getBoard(req, res) {
 
 
 
-async function deleteBoard(req, res) {
+const deleteBoard = async (req, res) => {
     await boardService.remove(req.params.id)
     res.end()
 }
 
-async function addBoard(req, res) {
+const addBoard = async (req, res) => {
     let wrapper = req.body;
     board = await boardService.add(wrapper)
     res.send(board)
 }
 
-async function saveBoard(req, res) {
+const saveBoard = async (req, res) => {
     let board = req.body;
     board = await boardService.save(board)
     res.send(board)
 }
 
-async function changeData(req, res) {
+const changeData = async (req, res) => {
     let board = await boardService.changeData(req.params.id, req.body)
     res.send(board)
 }
