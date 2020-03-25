@@ -3,9 +3,9 @@ const UPLOAD_PRESET = 'g1gyj9ce';
 const UPLOAD_URL = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
 
-const uploadImg = async (ev) => {
+const uploadImg = async (file) => {
     const formData = new FormData();
-    formData.append('file', ev.file)
+    formData.append('file', file)
     formData.append('upload_preset', UPLOAD_PRESET);
 
     try {
