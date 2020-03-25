@@ -86,14 +86,14 @@ async function changeData(boardId, data) {
 
     switch (data.type) {
         case 'changeTitleBoard':
-            await Board.findByIdAndUpdate(boardId,{$set:{title:data.title}})
+            await Board.findByIdAndUpdate(boardId, { $set: { title: data.title } })
             break;
         case 'removeTaskList':
             {
                 const ListIdx = board.taskLists.findIndex(list => list.id === data.taskListId);
                 if (ListIdx !== -1) board.taskLists.splice(ListIdx, 1);
-                await 
-                Board.findByIdAndUpdate()
+                await
+                    Board.findByIdAndUpdate()
             }
             break;
         case 'moveList':
