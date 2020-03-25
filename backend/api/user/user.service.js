@@ -2,17 +2,16 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("User");
 
-
-module.exports = {
-    query,
-    getById,
-    getByEmail,
-    remove,
-    update,
-    add
+const _buildCriteria = (filterBy) => {
+    const criteria = {};
+    if (filterBy.name) {
+        criteria.name = new RegExp(filterBy.name, 'i')
+    }
+    return criteria;
 }
 
-async function query(filterBy = {}) {
+
+const query = async (filterBy = {}) => {
     const criteria = _buildCriteria(filterBy)
     const users = await User.find(criteria);
     users.forEach(user => delete user.password);
@@ -20,7 +19,7 @@ async function query(filterBy = {}) {
     // return Board.findById(boardId);
 }
 //!DONE
-async function getById(userId) {
+const getById = async (userId) => {
     const user = await User.findById(userId);
     console.log("users: ", users)
     delete user.password
@@ -28,23 +27,23 @@ async function getById(userId) {
 }
 
 
-async function getByEmail(userEmail) {
+const getByEmail = async (userEmail) => {
     var x = await (await User.findOne({ email: userEmail })).populate()
     return x
 
 }
 
-async function remove(userId) {
+const remove = async (userId) => {
     await User.fineOneAndDelete(userId)
 }
 
-async function update(user) {
+const update = async (user) => {
     await User.findByIdAndUpdate(user._id, user)
     return user
 }
 
-async function add(user) {
-    var newUser = {
+const add = async (user) => {
+    const newUser = {
         "email": user.email,
         "name": user.username,
         "img": "/cloudinary/",
@@ -108,12 +107,13 @@ async function add(user) {
     return await User.insertMany([newUser]);
 }
 
-function _buildCriteria(filterBy) {
-    const criteria = {};
-    if (filterBy.name) {
-        criteria.name = new RegExp(filterBy.name, 'i')
-    }
-    return criteria;
+
+
+module.exports = {
+    query,
+    getById,
+    getByEmail,
+    remove,
+    update,
+    add
 }
-
-

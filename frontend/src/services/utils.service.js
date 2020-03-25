@@ -1,4 +1,4 @@
-function makeId(length = 7) {
+const makeId = (length = 7) => {
     var txt = '';
     var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     for (let i = 0; i < length; i++) {
@@ -7,7 +7,6 @@ function makeId(length = 7) {
     return txt;
 }
 
-
-export const utilsServie={
+export const utilsServie = {
     makeId
 }

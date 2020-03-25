@@ -3,24 +3,14 @@ import { utilsServie } from './utils.service';
 import { socketService } from './SocketService';
 
 
-export const boardService = {
-    query,
-    getById,
-    removeBoard,
-    save,
-    getEmptyList,
-    getEmptyTask,
-    addBoard,
-    putData
-}
 
-async function query(userId) {
+const query = async (userId) => {
     return httpService.get(`board/${userId}`);
 }
-function getById(id) {
+const getById = (id) => {
     return httpService.get(`board/id/${id}`);
 }
-async function save(board) {
+const save = async (board) => {
     let prm;
     if (board._id) prm = httpService.put(`board/id/${board._id}`, board);
     else {
@@ -30,11 +20,11 @@ async function save(board) {
     return await prm;
 }
 
-function removeBoard(id) {
+const removeBoard = (id) => {
     return httpService.delete(`board/${id}`);
 }
 
-function getEmptyTask(id) {
+const getEmptyTask = (id) => {
     if (id) id += '-' + utilsServie.makeId()
     return {
         id,
@@ -51,7 +41,7 @@ function getEmptyTask(id) {
     }
 }
 
-function getEmptyList(id) {
+const getEmptyList = (id) => {
     if (id) id += '-' + utilsServie.makeId()
     return {
         id,
@@ -60,13 +50,24 @@ function getEmptyList(id) {
     }
 }
 
-function addBoard(user, prefs) {
+const addBoard = (user, prefs) => {
     var wrapper = { user, prefs }
 
     return httpService.post(`board/`, wrapper);
 }
 
-async function putData(boardId, objData) {
+const putData = async (boardId, objData) => {
     objData.socketId = socketService.getSocketId()
     return httpService.put(`board/data/${boardId}`, objData);
+}
+
+export const boardService = {
+    query,
+    getById,
+    removeBoard,
+    save,
+    getEmptyList,
+    getEmptyTask,
+    addBoard,
+    putData
 }

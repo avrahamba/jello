@@ -1,7 +1,7 @@
 const authService = require('./auth.service')
 const logger = require('../../services/logger.service')
 
-async function login(req, res) {
+const login = async (req, res) => {
     const { email, password } = req.body
     try {
         const user = await authService.login(email, password)
@@ -12,9 +12,9 @@ async function login(req, res) {
     }
 }
 
-async function signup(req, res) {
+const signup = async (req, res) => {
     try {
-    // ????????
+        // ????????
         const { email, password, username, image } = req.body
         logger.debug(email + ", " + username + ', ' + password + ', ' + image)
         const account = await authService.signup(email, password, username, image)
@@ -28,7 +28,7 @@ async function signup(req, res) {
     }
 }
 
-async function logout(req, res){
+const logout = async (req, res) => {
     try {
         req.session.destroy()
         res.send({ message: 'logged out successfully' })

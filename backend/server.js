@@ -19,11 +19,11 @@ const boardRoutes = require('./api/board/board.routes')
 
 const connectSockets = require('./api/socket/socket.routes')
 
-process.on('unhandledRejection', async function (error) {
+process.on('unhandledRejection', async (error) => {
     console.error(error);
 });
 
-process.on('uncaughtException', async function (error) {
+process.on('uncaughtException', async (error) => {
     console.error(error);
     process.exit(1) //mandatory (as per the Node docs)
 });

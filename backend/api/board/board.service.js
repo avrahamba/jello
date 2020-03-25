@@ -4,26 +4,12 @@ const mongoose = require("mongoose");
 
 const Board = mongoose.model("Board");
 
-
-// async function getById(id) {
-//     const collection = await dbService.getCollection('board')
-//     try {
-//         const boardId = id.split('-');
-
-//         const board = await collection.findOne({ "_id": ObjectId(boardId[0]) })
-//         return board
-//     } catch (err) {
-//         console.log('ERROR: cannot find boards')
-//         throw err;
-//     }
-// }
-
-async function getById(id) {
+const getById = async (id) => {
     const boardId = id.split('-')[0];
     return Board.findById(boardId);
 }
 
-async function query(userId) {
+const query = async (userId) => {
     let criteria = {
         $or: [
             { public: true },
@@ -46,7 +32,7 @@ async function query(userId) {
     })
 }
 
-async function remove(boardId) {
+const remove = async (boardId) => {
 
     // const boardId = id.split('-')[0];
     // await collection.deleteOne({ "_id": ObjectId(boardId) })
@@ -54,7 +40,7 @@ async function remove(boardId) {
 }
 
 
-async function add(wrapper) {
+const add = async (wrapper) => {
     const user = wrapper.user;
     const prefs = wrapper.prefs
     const miniUser = {
@@ -75,14 +61,14 @@ async function add(wrapper) {
     return newBoard;
 }
 
-async function save(board) {
+const save = async (board) => {
 
     Board.replaceOne({ _id: board._id }, board)
     return board;
 }
 
 
-async function changeData(boardId, data) {
+const changeData = async (boardId, data) => {
     switch (data.type) {
         case 'changeTitleBoard':
             await Board.updateOne({ _id: boardId }, { $set: { title: data.title } })
@@ -111,7 +97,7 @@ async function changeData(boardId, data) {
 
 
 
-                
+
                 const board = await Board.findById(boardId)
                 const oldListIdx = board.taskLists.findIndex(list => list.id === idMoveFrom);
                 const newListIdx = board.taskLists.findIndex(list => list.id === idMoveTo);
