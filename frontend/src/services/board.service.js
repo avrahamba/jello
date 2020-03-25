@@ -32,7 +32,9 @@ const getEmptyTask = (id) => {
         dueDate: [],
         desc: "",
         labels: [],
-        cover: {},
+        cover: {
+            url:''
+        },
         attachments: [],
         checklists: [],
         members: [],
