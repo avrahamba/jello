@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <navbarCmp/>
+    <header-cmp/>
     <router-view/>
     
   </div>
 </template>
 <script>
-import navbarCmp from '@/components/navbar.cmp.vue'
+import headerCmp from '@/components/header-cmp.vue'
 export default {
   
   components:{
-    navbarCmp
+    headerCmp
   }
 }
 </script>

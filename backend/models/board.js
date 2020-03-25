@@ -30,19 +30,17 @@ const board = new Schema(
                         id: Number
                     }
                 ],
-                cover: {},
+                cover: {
+                    url: String,
+                },
                 attachments: [
                     {
-                        headers: {},
-                        withCredentials: Boolean,
-                        file: {
-                            uid: Number
-                        },
-                        filename: String,
-                        action: String,
+                        width: Number,
+                        height: Number,
+                        format: String,
+                        created: String,
                         url: String,
-                        uid: Number,
-                        status: String
+                        fileName: String,
                     }
                 ],
                 checklists: [
@@ -75,46 +73,47 @@ const board = new Schema(
             }]
         }],
         style: { background: String },
-        public: Boolean},
-   /*     name: {
-            type: String,
-            unique: true,
-            require: true
-        },
-        partnerAddresses: Array,
-        temporaryToken: String,
-        permanentToken: {
-            type: [
-                {
-                    token: String,
-                    lastUpdated: Date,
-                    name: String
-                }
-            ],
-            default: []
-        },
-        expirationTime: Date,
-        created: {
-            type: Date,
-            default: Date.now
-        },
-        updated: {
-            type: Date,
-            default: Date.now
-        },
-        deleted: {
-            type: Boolean,
-            default: false
-        },
-        cymulateWafHeader: {
-            type: Boolean,
-            default: false
-        },
-        edrHideOutput: {
-            type: Boolean,
-            default: false
-        }
-    }*/
+        public: Boolean
+    },
+    /*     name: {
+             type: String,
+             unique: true,
+             require: true
+         },
+         partnerAddresses: Array,
+         temporaryToken: String,
+         permanentToken: {
+             type: [
+                 {
+                     token: String,
+                     lastUpdated: Date,
+                     name: String
+                 }
+             ],
+             default: []
+         },
+         expirationTime: Date,
+         created: {
+             type: Date,
+             default: Date.now
+         },
+         updated: {
+             type: Date,
+             default: Date.now
+         },
+         deleted: {
+             type: Boolean,
+             default: false
+         },
+         cymulateWafHeader: {
+             type: Boolean,
+             default: false
+         },
+         edrHideOutput: {
+             type: Boolean,
+             default: false
+         }
+     }*/
     { collection: "board" }
 );
 

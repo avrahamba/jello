@@ -8,16 +8,22 @@
               <cover-preview :cover="taskToSave.cover"></cover-preview>
             </div>
             <div class="title-area">
-              <input
-                class="task-title"
-                type="text"
-                @blur="setTitle"
-                @keydown="keydownTitle"
-                placeholder="Title"
-                v-model="taskToSave.title"
-              />
-              <br />in list
-              <a href="#">{{listName}}</a>
+              <div class="icon-container">
+                <i class="far fa-caret-square-up"></i>
+
+                <input
+                  class="task-title"
+                  type="textarea"
+                  @blur="setTitle"
+                  @keydown="keydownTitle"
+                  placeholder="Title"
+                  v-model="taskToSave.title"
+                />
+              </div>
+              <div class="title-info-container">
+                <span>in list</span>
+                <a href="#" class="list-name-container">{{listName}}</a>
+              </div>
             </div>
             <div class="detail-area">
               <div class="date-area" v-if="currTask">
@@ -35,8 +41,11 @@
                   v-model="taskToSave.labels"
                 ></label-preview>
               </div>
+              <div class="icon-container">
+                <i class="fas fa-align-justify"></i>
+                <h3>Description</h3>
+              </div>
 
-              <h3>Description</h3>
               <textarea
                 v-if="editDesc"
                 ref="descriptionTextarea"
@@ -45,6 +54,7 @@
                 @blur="saveDesc"
                 cols="30"
                 rows="10"
+                class="description-container"
               ></textarea>
               <p @click="startEditDesc" v-else>{{descToView}}</p>
 
@@ -109,8 +119,17 @@
                 </button>
               </div>
               <div>
-                <button>
-                  <i class="far fa-file-image"></i> Attachment
+                <button @click="openFile">
+                  <i class="far fa-file-image"></i>
+                  <input
+                    type="file"
+                    @change="uploadImg"
+                    ref="fileInput"
+                    accept="image/*"
+                    multiple
+                    hidden
+                  />
+                  Attachment
                 </button>
               </div>
               <div>
@@ -121,7 +140,7 @@
                   <template v-if="isCoverMode">
                     <window-overlay :dark="false" @close="isCoverMode=false"></window-overlay>
                     <cover-picker
-                      @input="save('setLabel',{labels: taskToSave.labels})"
+                      @input="save('setCover',{cover: {url:taskToSave.cover.url}})"
                       v-model="taskToSave.cover"
                       :covers="taskToSave.attachments"
                     ></cover-picker>
@@ -144,6 +163,8 @@
 <script>
 import { utilsServie } from "../../services/utils.service.js";
 import { socketService } from "../../services/SocketService.js";
+import { imgService } from "../../services/img.service.js";
+
 import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
@@ -210,6 +231,29 @@ export default {
           this.save("setTitle", { title: this.taskToSave.title });
         ev.target.blur();
       }
+    },
+    openFile() {
+      this.$refs.fileInput.click();
+    },
+    uploadImg(event) {
+      const images = event.target.files;
+      images.forEach(image => {
+        imgService.uploadImg(image).then(res => {
+          let imageToSave = {
+            width: res.width,
+            height: res.height,
+            format: res.format,
+            created: res.created_at,
+            url: res.url,
+            fileName: res.original_filename
+          };
+          this.taskToSave.attachments.push(imageToSave);
+
+          this.save("attachments", {
+            attachments: this.taskToSave.attachments
+          });
+        });
+      });
     },
     join() {
       const user = this.$store.getters.loggedinUser;

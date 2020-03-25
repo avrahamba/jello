@@ -65,6 +65,9 @@ export default {
       this.$emit("changeTitle", this.titleToChange);
       this.editTitleMode = false;
     },
+    onKeydownTitle(ev) {
+            if (ev.key === 'Enter') this.saveTitle()
+        },
     filter(userFilter) {
       this.$store
         .dispatch({ type: "loadFilter", userFilter })

@@ -1,0 +1,92 @@
+header.header-cmp {
+  flex-basis: 4rem;
+  align-items: center;
+  padding: 0 1rem;
+  background-color: $clr5;
+  box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+
+  column-gap: 2rem;
+  color: #fff;
+
+  .btn {
+    background-color: lighten($color: $clr5, $amount: 15);
+    border-radius: 0.3rem;
+    transition: background-color 250ms;
+    &:hover {
+      background-color: lighten($color: $clr5, $amount: 25);
+    }
+  }
+
+  .boards-menu {
+    display: grid;
+    grid-template-columns: auto 15rem;
+    column-gap: rem(20px);
+    font-weight: 700;
+    .boards-btn {
+      padding: rem(6px) (8px);
+      .boards-btn-icon {
+        margin-right: rem(8px);
+      }
+    }
+    .board-search {
+      position: relative;
+      .board-search-input {
+        height: 3rem;
+        border: none;
+        border-radius: 0.3rem;
+        width: 100%;
+        padding: 0 3rem 0 1rem;
+      }
+      .search-icon {
+        font-size: 1.5rem;
+        position: absolute;
+        top: 50%;
+        right: 0.8rem;
+        transform: translateY(-50%) rotate(90deg);
+      }
+    }
+  }
+  .logo {
+    flex: 1;
+    font-family: "Courgette", cursive;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 0 2rem;
+    transition: color 150ms;
+    text-align: center;
+    white-space: nowrap;
+    cursor: pointer;
+
+    &:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    h1 {
+      font-family: GreatVibes, serif;
+      font-size: rem(70px);
+      margin: 0 0 rem(20px);
+      font-weight: normal;
+      line-height: 1;
+    }
+  }
+
+  .user-settings {
+    height: 3rem;
+    color: #fff;
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-column-gap: 0.8rem;
+
+    .user-settings-btn {
+      font-size: 1.5rem;
+      width: 3rem;
+      margin-right: 0.8rem;
+    }
+
+    .user-settings-btn:last-of-type {
+      margin-right: 0;
+    }
+  }
+}

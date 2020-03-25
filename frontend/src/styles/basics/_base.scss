@@ -1,4 +1,6 @@
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,27 +17,31 @@ html {
 
 body {
   margin: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  background-color: $clr1;
 }
 
-h1 {
-  font-family: GreatVibes, serif;
-  font-size: rem(70px);
-  margin: 0 0 rem(20px);
-  font-weight: normal;
-  line-height: 1;
-}
 
 a {
   text-decoration: none;
 }
 
 p {
-  margin: 0 auto 1em;
+  margin: 0 1em;
   max-width: 48ch;
   white-space: pre;
+  font-size: 14px;
+    line-height: 20px;
+    font-weight: 400;
 }
 #app {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
+div::selection{
+  background: transparent;
+}
+

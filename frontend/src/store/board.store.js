@@ -65,6 +65,9 @@ export const boardStore = {
                 case 'setMsgs':
                     task.msgs = objSave.msgs
                     break;
+                case 'addMember':
+                    task.members.push(objSave.user)
+                    break;
             }
             if (state.currTask.id === task.id) state.currTask = task
             state.board.taskLists[taskListIdx].tasks.splice(taskIdx, 1, task)
