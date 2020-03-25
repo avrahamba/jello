@@ -6,7 +6,7 @@
         <div class="board-controls">
 
             <button @click="changeTitle" class="board-title btn">
-                <input ref="inputTitle" @blur="saveTitle" v-if="editTitleMode" type="text" v-model="titleToChange">
+                <input ref="inputTitle" @blur="saveTitle" @keydown="onKeydownTitle" v-if="editTitleMode" type="text" v-model="titleToChange">
                 <h2 v-else>{{boardData.title}}</h2>
             </button>
 
@@ -41,14 +41,17 @@ export default {
     },
     methods: {
         changeTitle() {
-			this.editTitleMode = true;
-			this.titleToChange = this.boardData.title
+            this.editTitleMode = true;
+            this.titleToChange = this.boardData.title
             setTimeout(() => { this.$refs.inputTitle.focus() }, 0)
-		},
-		saveTitle(){
-			this.$emit('changeTitle',this.titleToChange)
-			this.editTitleMode = false;
-		}
+        },
+        saveTitle() {
+            this.$emit('changeTitle', this.titleToChange)
+            this.editTitleMode = false;
+        },
+        onKeydownTitle(ev) {
+            if (ev.key === 'Enter') this.saveTitle()
+        }
     },
 }
 </script>
