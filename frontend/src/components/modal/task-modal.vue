@@ -102,8 +102,10 @@
                 </button>
               </div>
               <div>
-                <button>
-                  <i class="far fa-file-image"></i> Attachment
+                <button @click="openFile">
+                  <i class="far fa-file-image"></i>
+                  <input type="file" @change="uploadImg" ref="fileInput" hidden />
+                  Attachment
                 </button>
               </div>
               <div>
@@ -200,6 +202,10 @@ export default {
         ev.target.blur();
       }
     },
+    openFile() {
+      this.$refs.fileInput.click();
+    },
+    uploadImg(event) {},
     join() {
       const user = this.$store.getters.loggedinUser;
       this.taskToSave.members.push({
