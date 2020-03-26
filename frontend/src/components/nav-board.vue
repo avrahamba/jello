@@ -68,17 +68,12 @@ export default {
       this.users = this.$store.getters.users;
     }
   },
-    computed: {
-        styleInputTitle() {
-            return {
-                width: this.titleToChange.length + 'ch'
-            }
-        }
-    },
-
-  
   computed: {
-    
+    styleInputTitle() {
+      return {
+        width: this.titleToChange.length + 'ch'
+      }
+    }
   },
   components: {
     addMembers
