@@ -7,7 +7,7 @@
     <form @submit.prevent="send">
         <div class="comment-frame">
             <div class="comment-box">
-                <textarea v-model="msg.txt" @focus="startWrite" @blur="blur" :style="!isActive?{cursor: 'pointer'}:''" placeholder="Write a comment..."></textarea>
+                <textarea class="activity-input" v-model="msg.txt" @focus="startWrite" @blur="blur" :style="!isActive?{cursor: 'pointer'}:''" placeholder="Write a comment..."></textarea>
                 <button v-if="isActive" class="btn" :style="!msg.txt?{cursor: 'not-allowed'}:''">Save</button>
             </div>
         </div>
