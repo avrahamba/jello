@@ -1,38 +1,31 @@
 <template>
 <section class="task-list" :ref="taskListData.id">
+    <!-- title -->
     <div class="title">
         <input placeholder="Title" v-if="editTitleMode" class="edit-title-list" type="text" v-model="copyTitle" ref="editTitle" @keydown="onKeyEditTitle" @blur="blurEditTitle">
-        <template v-else>
-            <h2 @click="startEditTitle">{{taskListData.title}}</h2>
-            <button @click="barIsOpen = true"><i class="fa fa-ellipsis-h"></i></button>
-            <template v-if="barIsOpen">
-                <window-overlay :dark="false" @close="barIsOpen = false"></window-overlay>
-                <div class="bar-action-list">
-                    <button @click="removeList">Delete List</button>
-                </div>
-            </template>
+        <h2 v-else @click="startEditTitle">{{taskListData.title}}</h2>
+        <button @click="barIsOpen = true"><i class="fa fa-ellipsis-h"></i></button>
+        <template v-if="barIsOpen">
+            <window-overlay :dark="false" @close="barIsOpen = false"></window-overlay>
+            <div class="bar-action-list">
+                <button @click="removeList">Delete List</button>
+            </div>
         </template>
     </div>
+    <!-- tasks -->
     <div class="list-items">
-        <draggable draggable=".task-preview" v-model="tasks" v-bind="dragOptions" @end="endMove">
+        <draggable draggable=".task-preview-container" v-model="tasks" v-bind="dragOptions" @end="endMove">
             <transition-group type="transition" tag="div" :data-id="taskListData.id" :name="taskListData.id">
                 <task-preview v-for="task in tasks" :task="task" :key="task.id"></task-preview>
             </transition-group>
         </draggable>
-
     </div>
-
+    <!-- add task -->
     <div v-if="addTaskMode" class="add-task-aria">
-        <div>
-            <input ref="inputTxtAddTask" @keydown="keydownNewTask" type="text" v-model="newTask.title" />
-        </div>
-        <div>
-            <button @click="createTask" class="create">Add Card</button>
-            <button @click="changeAddTaskMode" class="close">&times;</button>
-            <button>...</button>
-        </div>
+        <input ref="inputTxtAddTask" @blur="closeAddTaskMode" @keydown.enter="createTask" type="text" v-model="newTask.title" />
+        <button @click="createTask" class="create">Add</button>
     </div>
-    <button v-else @click="changeAddTaskMode" class="add-card-btn btn">Add a card</button>
+    <button v-else @click="startAddTaskMode" class="add-card-btn btn">Add a card</button>
 </section>
 </template>
 
@@ -82,11 +75,15 @@ export default {
         }
     },
     methods: {
-        changeAddTaskMode() {
-            this.addTaskMode = !this.addTaskMode;
-            if (this.addTaskMode) {
-                setTimeout(() => { this.$refs.inputTxtAddTask.focus() }, 0)
-            }
+        startAddTaskMode() {
+            this.addTaskMode = true;
+            setTimeout(() => { this.$refs.inputTxtAddTask.focus() }, 0)
+        },
+        closeAddTaskMode() {
+            setTimeout(() => {
+                this.newTask.title=''
+                this.addTaskMode = false;
+            }, 150)
         },
         endMove({ oldIndex, newIndex, from, to }) {
             const idMoveFrom = from.dataset.id;

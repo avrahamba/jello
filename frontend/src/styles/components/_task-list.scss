@@ -19,35 +19,45 @@
       width: 100%;
       margin: 0;
       padding-left: 5px;
-      padding-top: 3px;
+      padding-top: 0;
       text-align: left;
       font-size: rem(20px);
-      line-height: rem(22px);
+      line-height: rem(32px);
       color: $clr2;
       transition: background-color 150ms;
       border-radius: 5px;
       font-weight: 600;
       font-family: Lato;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       &:hover {
         background-color: lighten($color: $clr3, $amount: 10);
       }
     }
 
     .edit-title-list {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
       background-color: lighten($color: $clr3, $amount: 10);
       border: 0;
+      padding-bottom: 0;
       color: $clr2;
       padding-left: 5px;
-      padding-top: 3px;
-      padding-bottom:6px;
+      padding-top: 0;
       font-size: rem(20px);
-      line-height: rem(22px);
+      line-height: rem(32px);
+      width: rem(220px);
       max-width: 100%;
       border-radius: 5px;
       font-weight: 600;
       font-family: Lato;
+      &:focus {
+        outline: none;
+      }
     }
-
     button {
       all: unset;
       padding: 0 10px;
@@ -61,18 +71,26 @@
       position: absolute;
       right: 0;
       top: 100%;
+      background-color: $clr4;
+      font-size: rem(20px);
+      font-family: Lato;
+      button:hover {
+        border-radius: unset;
+        background-color: lighten($color: $clr4, $amount: 10);
+      }
     }
   }
 
   .list-items {
     flex: 1 1 auto;
     align-content: start;
-    padding: 0 0.6rem 0.5rem;
+    padding: 0 0.6rem;
     overflow-y: auto;
     overflow-x: hidden;
     display: grid;
     row-gap: 0.6rem;
-
+    margin-bottom: 0;
+ scrollbar-width: 10px;
     &::-webkit-scrollbar {
       width: 10px;
     }
@@ -80,12 +98,12 @@
     &::-webkit-scrollbar-thumb {
       background-color: darken($color: $clr3, $amount: 20);
       border-radius: 2000px;
-      // border-right: 0.6rem solid #e2e4e6;
     }
   }
   .add-card-btn {
+    height: rem(41px);
     font-size: rem(18px);
-    // height: rem(40px);
+    margin-top: 15px;
     transition: background-color 150ms;
     font-weight: 600;
     padding: 3px 1rem;
@@ -99,6 +117,37 @@
 
     &::after {
       content: "...";
+    }
+  }
+  .add-task-aria {
+    padding: 3px rem(10px);
+    margin-top: 15px;
+    display: flex;
+    border-radius: 5px;
+    input{    height: rem(35px);
+
+      font-size: rem(18px);
+      font-weight: 500;
+      width: rem(200px);
+      border-radius: 5px;
+      border: none;
+      color: $clr2;
+      background-color: lighten($color: $clr3, $amount: 10);
+      padding-inline-start:rem(10px) ;
+      margin-inline-end: rem(10px);
+    }
+    button{
+      font-size: rem(18px);
+      color: $clr2;
+      font-weight: 500;
+
+      border-radius: 5px;
+background-color: unset;
+border: unset;
+&:hover{
+  background-color: lighten($color: $clr3, $amount: 10);
+
+}
     }
   }
 }
