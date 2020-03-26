@@ -1,2 +1,8 @@
 Thu, 26 Mar 2020 07:52:06 GMT - Info - Server is running on port: 3030
 Thu, 26 Mar 2020 10:15:43 GMT - Error - Cannot get boards
+Thu, 26 Mar 2020 15:54:24 GMT - Debug - כככ, כככ, כככ, undefined
+Thu, 26 Mar 2020 15:54:24 GMT - Debug - auth.service - signup with email: כככ, username: כככ
+Thu, 26 Mar 2020 15:54:25 GMT - Debug - auth.route - new account created: [{"_id":"5e7cd0303b47246d7c2c12a0","email":"כככ","name":"כככ","img":"/cloudinary/","hashPassword":"$2b$10$szwSPwv.NS0J1KF4lwlWkuUC/spfm3MCOpr5lUg0ES1NY7bPuVvou","boards":[{"_id":"5e7377611c9d4400009f5d97","name":"proj1","background":"#545454"}],"alerts":[{"_id":"5e7cd0303b47246d7c2c12a1","alertForUser":"the color change","isReade":"false","task":{"id":"","name":""},"taskList":{"id":"","name":""},"board":{"_id":"false","name":"","background":""},"user":{"_id":"","name":"","img":"/cloudinary/"}}],"comments":[{"_id":"5e7cd0303b47246d7c2c12a2","txt":"txt","isReade":"false","taskList":{"id":"","name":""},"board":{"_id":"false","name":"","background":""},"user":{"_id":"","name":"","img":"/cloudinary/"}}],"__v":0}]
+Thu, 26 Mar 2020 15:54:25 GMT - Debug - auth.service - login with email: כככ
+Thu, 26 Mar 2020 16:30:07 GMT - Debug - auth.service - login with email: כככ
+Thu, 26 Mar 2020 16:35:17 GMT - Info - Server is running on port: 3030

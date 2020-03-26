@@ -1,3 +1,49 @@
 .massage-preview{
+    width: min-content;
+    min-width: 180px;
     display: flex;
+    flex-direction: column;
+    .avatar{
+        align-self: end;
+        margin: 0 0 15px;
+    
+    }
+    .time{
+        font: 12px "Lato", Arial, sans-serif;
+        color: black;
+        align-self: center;
+    
+    }
 }
+
+  .contain {  
+    box-shadow: 0 2px 8px 3px;    
+    color: white;
+    padding: 18px 20px;
+    line-height: 26px;
+    font-size: 16px;
+    border-radius: 7px;
+    margin-bottom: 14px;
+    background: chartreuse;
+    // width: 100%;
+    position: relative;
+
+    
+    :after {
+      bottom: 98%;
+      left: 10%;
+      border: solid transparent;
+      content: " ";
+      border-bottom-color: chartreuse;
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      border-width: 10px;
+      margin-left: -10px;
+    }
+
+    .action{
+        *{margin-left: 5px;}
+    }
+  }
