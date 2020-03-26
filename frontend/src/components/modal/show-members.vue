@@ -1,6 +1,5 @@
 <template>
 <div class="show-members">
-    <h3>Members</h3>
     <div class="avatar" v-for="member in members" :key="member._id">
         <img v-if="member.avatar&&member.avatar.includes('.com')" :src="member.avatar" />
         <span v-else>{{member.name|short-name}}</span>
