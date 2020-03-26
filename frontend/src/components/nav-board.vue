@@ -11,9 +11,9 @@
         </button>
         <add-members
           @filter="filter"
-          @updateBoard="updateBoard"
+          @updateBoardUsers="updateBoardUsers"
           :users="users"
-          :currBoard="boardData"
+          :currBoardUsers="boardData.users"
         ></add-members>
     </div>
     <button class="menu-btn btn"><i class="fas fa-ellipsis-h menu-btn-icon" aria-hidden="true"></i>Show Menu</button>
@@ -59,8 +59,8 @@ export default {
             this.getUsersFromStore()
         });
     },
-    updateBoard(updatedBoard) {
-      this.$store.dispatch({ type: "saveBoard", updatedBoard }).then(res => {
+    updateBoardUsers(users) {
+      this.$store.dispatch({ type: "saveUsersBoard", users }).then(res => {
         console.log(res);
       });
     },

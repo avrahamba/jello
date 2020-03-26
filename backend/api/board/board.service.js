@@ -130,6 +130,12 @@ const changeData = async (boardId, data) => {
                 await Board.updateOne({ _id: boardId }, { $pull: { taskLists: { tasks: { $elemMatch: { id: taskId } } } } })
             }
             break;
+        case 'saveUsersBoard':
+            {
+                const { users } = data;
+                await Board.updateOne({ _id: boardId }, { $set: { 'users':users } })
+            }
+            break;
         case 'saveTask':
             {
                 const { objSave } = data
@@ -159,7 +165,7 @@ const changeData = async (boardId, data) => {
                         await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.msgs']: objSave.msgs } })
                         break;
                     case 'addMember':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $push: { ['taskLists.$.tasks.' + taskIdx + '.members']: objSave.user } })
+                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.members']: objSave.users } })
                         break;
                     case 'setCover':
                         await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.cover']: objSave.cover } })

@@ -26,7 +26,7 @@
                             {{msgsCount}}
                         </span>
                     </div>
-                    <span class="users" v-if="users">
+                    <span class="users" v-if="users.length">
                         <avatar-user v-for="(user) in users" :key="user.id" :user="user"></avatar-user>
                     </span>
                 </div>

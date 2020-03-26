@@ -28,7 +28,6 @@ export default {
         return member._id === user._id;
       });
       if (!isDuplicated) {
-        debugger
         this.members.push(user);
         this.$emit("input", this.members);
       }

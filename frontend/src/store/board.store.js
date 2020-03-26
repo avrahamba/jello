@@ -66,7 +66,7 @@ export const boardStore = {
                     task.msgs = objSave.msgs
                     break;
                 case 'addMember':
-                    task.members.push(objSave.user)
+                    task.members = objSave.users
                     break;
             }
             if (state.currTask.id === task.id) state.currTask = task
@@ -137,6 +137,9 @@ export const boardStore = {
         changeTitleBoard(state, title) {
             state.board.title = title
         },
+        saveUsersBoard(state, {users}){
+            state.board.users = users
+        }
     },
     getters: {
         currBoard(state) {
@@ -167,7 +170,7 @@ export const boardStore = {
             }
         },
         //!work
-        async getBoard(context, {boardId} ) {
+        async getBoard(context, { boardId }) {
             try {
                 const board = await boardService.getById(boardId);
                 context.commit('setBoard', board);
@@ -188,15 +191,15 @@ export const boardStore = {
             }
         },
         //* Board Actions
-        async saveBoard(context, {updatedBoard}) {
-        const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+        async saveBoard(context, { updatedBoard }) {
+            const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {
-        context.commit('setBoard', updatedBoard);
-        const res = await boardService.save(context.state.board);
-        return res
-         }
-        catch{
-            context.commit('setBoard', boardCopy);
+                context.commit('setBoard', updatedBoard);
+                const res = await boardService.save(context.state.board);
+                return res
+            }
+            catch{
+                context.commit('setBoard', boardCopy);
             }
         },
         //* List Actions
@@ -342,11 +345,23 @@ export const boardStore = {
         async changeTask(context, { task }) {
             context.commit('changeTask', task)
         },
-
+        async saveUsersBoard(context, { users }){
+            const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            try {
+                context.commit('saveUsersBoard', users);
+                const res = await boardService.putData(context.state.board._id, { type: 'saveUsersBoard', users })
+                return res
+            } catch{
+                context.commit('setBoard', boardCopy);
+            }
+        },
 
 
         async dataFromSocket(context, { data }) {
             switch (data.type) {
+                case 'saveUsersBoard':
+                    context.commit('saveUsersBoard', data.users);
+                    break;
                 case 'changeTitleBoard':
                     context.commit('changeTitleBoard', data.title);
                     break;

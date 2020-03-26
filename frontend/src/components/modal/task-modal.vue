@@ -83,6 +83,8 @@
                 @input="save('attachments',{attachments: taskToSave.attachments})"
               ></file-picker>
 
+              <window-overlay v-if="addMemberMode" :dark="false" @close="addMemberMode=false"></window-overlay>
+
               <add-member-to-task
                 v-if="addMemberMode"
                 v-model="taskToSave.members"
@@ -187,7 +189,7 @@ import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
 import labelPreview from "./label-preview.vue";
 import filePicker from "./file-picker.vue";
-import addMemberToTask from "./add-members-to-task.vue";
+import addMemberToTask from "./add-member-to-task.vue";
 import coverPreview from "./cover-preview.vue";
 import coverPicker from "./cover-picker.vue";
 import windowOverlay from "../window-overlay.vue";
@@ -225,7 +227,6 @@ export default {
       this.$router.push("/" + this.boardId);
     },
     save(type, obj) {
-      debugger
       this.$emit("save", { type, taskId: this.taskToSave.id, ...obj });
     },
     setTitle() {
@@ -274,7 +275,6 @@ export default {
       });
     },
     join() {
-      debugger
       const user = this.$store.getters.loggedinUser;
       this.taskToSave.members.push({
         id: user._id,
@@ -311,7 +311,6 @@ export default {
         confirmButtonText: "Yes, delete it!"
       }).then(result => {
         if (result.value) {
-          debugger
           this.$store
             .dispatch({ type: "removeTask", taskId: this.taskToSave.id })
             .then(() => {
