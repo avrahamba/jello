@@ -1,0 +1,30 @@
+.checklist-list {
+  .checklist-preview {
+    .icon-container {
+    }
+    .progress {
+      display: grid;
+      grid-template-columns: rem(45px) 1fr;
+      .percentage {
+        text-align: left;
+      }
+      .el-progress {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .check-preview {
+        display: flex;
+        .check{
+            display: flex;
+            
+            width: rem(45px);
+        }   
+             // flex-direction: column;
+
+    }
+    button {
+    }
+  }
+}
