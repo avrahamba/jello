@@ -20,18 +20,19 @@
             </transition-group>
         </draggable>
 
-        <div v-if="addTaskMode" class="add-task-aria">
-            <div>
-                <input ref="inputTxtAddTask" @keydown="keydownNewTask" type="text" v-model="newTask.title" />
-            </div>
-            <div>
-                <button @click="createTask" class="create">Add Card</button>
-                <button @click="changeAddTaskMode" class="close">&times;</button>
-                <button>...</button>
-            </div>
-        </div>
-        <button v-else @click="changeAddTaskMode" class="add-card-btn btn">Add a card</button>
     </div>
+
+    <div v-if="addTaskMode" class="add-task-aria">
+        <div>
+            <input ref="inputTxtAddTask" @keydown="keydownNewTask" type="text" v-model="newTask.title" />
+        </div>
+        <div>
+            <button @click="createTask" class="create">Add Card</button>
+            <button @click="changeAddTaskMode" class="close">&times;</button>
+            <button>...</button>
+        </div>
+    </div>
+    <button v-else @click="changeAddTaskMode" class="add-card-btn btn">Add a card</button>
 </section>
 </template>
 

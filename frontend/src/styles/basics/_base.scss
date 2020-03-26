@@ -9,7 +9,7 @@ img {
 }
 
 html {
-  font-family: Montserrat, sans-serif;
+  font-family: Lato;
   color: $clr2;
   text-align: center;
   line-height: 1.9;
@@ -17,6 +17,7 @@ html {
 
 body {
   margin: 0;
+  color: $clr2;
   font-family: Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -36,12 +37,3 @@ p {
     line-height: 20px;
     font-weight: 400;
 }
-#app {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-div::selection{
-  background: transparent;
-}
-
