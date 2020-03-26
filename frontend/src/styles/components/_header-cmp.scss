@@ -40,7 +40,7 @@ header.header-cmp {
         padding: 0 3rem 0 1rem;
       }
       .search-icon {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         position: absolute;
         top: 50%;
         right: 0.8rem;
@@ -49,15 +49,12 @@ header.header-cmp {
     }
   }
   .logo {
-    flex: 1;
-    font-family: "Courgette", cursive;
-    font-size: 2.2rem;
-    font-weight: 700;
+    padding-top: 10px;
+    font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.5);
     margin: 0 2rem;
-    transition: color 150ms;
+    transition: color 250ms;
     text-align: center;
-    white-space: nowrap;
     cursor: pointer;
 
     &:hover {
@@ -65,10 +62,10 @@ header.header-cmp {
     }
     h1 {
       font-family: GreatVibes, serif;
-      font-size: rem(70px);
       margin: 0 0 rem(20px);
-      font-weight: normal;
+      font-weight: 700;
       line-height: 1;
+      margin-bottom: 6px;
     }
   }
 
@@ -76,13 +73,12 @@ header.header-cmp {
     height: 3rem;
     color: #fff;
     display: grid;
-    grid-template-columns: repeat(4, auto);
-    grid-column-gap: 0.8rem;
+    grid-template-columns: repeat(3, auto);
+    column-gap: rem(20px);
 
     .user-settings-btn {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       width: 3rem;
-      margin-right: 0.8rem;
     }
 
     .user-settings-btn:last-of-type {

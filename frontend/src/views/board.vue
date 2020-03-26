@@ -1,14 +1,27 @@
 <template>
-<section class="board" v-if="boardData" :style="style">
-    <nav-board @changeTitle="changeTitle" :boardData="boardData"></nav-board>
-    <section ref="taskListsLection">
-        <draggable handle=".title" class="lists-container" draggable=".task-list" v-model="boardData.taskLists" v-bind="dragOptions" @end="move">
-            <task-list v-for="taskList in boardData.taskLists" :key="taskList.id" :task-list-data="taskList"></task-list>
-            <button class="add-list-btn btn" @click="createList">Add a list</button>
+<main class="board" v-if="boardData" :style="style">
+    <nav-board 
+    @changeTitle="changeTitle" 
+    :boardData="boardData"></nav-board>
+    <div class="lists-canvas">
+        <draggable 
+        handle=".title" 
+        tag="section" 
+        ref="taskListsLection" 
+        class="lists-container" 
+        draggable=".task-list" 
+        v-model="boardData.taskLists" 
+        v-bind="dragOptions" 
+        @end="move">
+            <div class="unit-task-list-container" v-for="taskList in boardData.taskLists" :key="taskList.id">
+                <task-list :task-list-data="taskList"></task-list>
+            </div>
+            <button class="add-list-btn btn" 
+            @click="createList">Add a list</button>
         </draggable>
-    </section>
+      </div>
     <router-view></router-view>
-</section>
+</main>
 </template>
 
 <script>
