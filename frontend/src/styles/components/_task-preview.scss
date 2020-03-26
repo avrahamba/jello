@@ -26,6 +26,36 @@
     &:hover {
       background-color: lighten($color: $clr1, $amount: 22);
     }
+        .label-container {
+          .label {
+            border-radius: 4px;
+            color: #fff;
+            display: block;
+            margin-right: 4px;
+            max-width: 100%;
+
+            overflow: hidden;
+            padding: 4px 6px;
+            position: relative;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            float: left;
+            font-size: 12px;
+            font-weight: 700;
+            height: 8px;
+            line-height: 100px;
+            margin: 0 4px 4px 0;
+            max-width: 40px;
+            min-width: 40px;
+            padding: 0;
+            text-shadow: none;
+            width: auto;
+          }
+
+          overflow: auto;
+          position: relative;
+        }
 
     .mini-details {
       font-size: 1rem;
@@ -75,6 +105,14 @@
       .users {
         justify-self: end;
         .avatar-user {
+          height: 23px;
+          width: 23px;
+          .txt{
+            height: 23px;
+            width: 23px;
+
+            font-size: 11px;
+          }
         }
       }
     }

@@ -81,7 +81,7 @@ export default {
         },
         closeAddTaskMode() {
             setTimeout(() => {
-                this.newTask.title=''
+                this.newTask.title = ''
                 this.addTaskMode = false;
             }, 150)
         },
@@ -96,6 +96,7 @@ export default {
             if (ev.key === 'Enter') this.createTask()
         },
         createTask() {
+            if (this.newTask.title === '') return
             this.addTaskMode = false;
             this.$store
                 .dispatch({
