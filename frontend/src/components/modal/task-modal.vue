@@ -33,7 +33,7 @@
                   @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
                 ></date-picker>
               </div>
-              <div class="members-labels-contaner">
+              <div class="members-labels-container">
                 <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
                 <label-preview
                   v-if="taskToSave.labels.length"
@@ -74,7 +74,7 @@
                 v-if="addMemberMode"
                 v-model="taskToSave.members"
                 :board="board"
-                @input="save('users',{users: taskToSave.users})"
+                @input="save('addMember',{users: taskToSave.members})"
               ></add-member-to-task>
 
               <activity-chat :user="loggedinUser" :massages="taskToSave.msgs" @save="saveMsgs"></activity-chat>
