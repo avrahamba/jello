@@ -1,6 +1,5 @@
 <template>
   <div class="date-container">
-    <h3>Due Date</h3>
     <el-date-picker
       class="date-picker-container"
       v-model="dueDate"

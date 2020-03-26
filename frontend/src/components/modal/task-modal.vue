@@ -27,20 +27,33 @@
             </div>
             <div class="detail-area">
               <div class="date-area" v-if="currTask">
+                <div class="icon-container" v-if="taskToSave.dueDate.length">
+                  <i class="fas fa-calendar-day"></i>
+                  <h3>Due Date</h3>
+                </div>
                 <date-picker
                   v-if="currTask.dueDate.length||addDateMode"
                   v-model="taskToSave.dueDate"
                   @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
                 ></date-picker>
               </div>
-              <div class="members-labels-contaner">
-                <show-members v-if="taskToSave.members.length" :members="taskToSave.members"></show-members>
-                <label-preview
-                  v-if="taskToSave.labels.length"
-                  @input="save('setLabel',{labels: taskToSave.labels})"
-                  v-model="taskToSave.labels"
-                ></label-preview>
+
+              <div class="icon-container" v-if="taskToSave.members.length">
+                <i class="fas fa-users"></i>
+                <h3>Members</h3>
               </div>
+              <show-members :members="taskToSave.members" v-if="taskToSave.members.length"></show-members>
+
+              <div class="icon-container" v-if="taskToSave.labels.length">
+                <i class="fas fa-tags"></i>
+                <h3>Labels</h3>
+              </div>
+              <label-preview
+                v-if="taskToSave.labels.length"
+                @input="save('setLabel',{labels: taskToSave.labels})"
+                v-model="taskToSave.labels"
+              ></label-preview>
+
               <div class="icon-container">
                 <i class="fas fa-align-justify"></i>
                 <h3>Description</h3>
@@ -52,7 +65,7 @@
                 placeholder="Add a more detailed description…"
                 v-model="taskToSave.desc"
                 @blur="saveDesc"
-                cols="30"
+                cols="65"
                 rows="10"
                 class="description-container"
               ></textarea>
@@ -77,6 +90,10 @@
                 @input="save('users',{users: taskToSave.users})"
               ></add-member-to-task>
 
+              <div class="icon-container">
+                <i class="far fa-comment-dots"></i>
+                <h3>Activity</h3>
+              </div>
               <activity-chat :user="loggedinUser" :massages="taskToSave.msgs" @save="saveMsgs"></activity-chat>
               <!-- <pre>{{taskToSave}}</pre> -->
             </div>
@@ -115,12 +132,12 @@
               </div>
               <div>
                 <button @click="addDateMode=!addDateMode">
-                  <i class="far fa-calendar-alt"></i> Due Date
+                  <i class="fas fa-calendar-day"></i> Due Date
                 </button>
               </div>
               <div>
                 <button @click="openFile">
-                  <i class="far fa-file-image"></i>
+                  <i class="fas fa-file-image"></i>
                   <input
                     type="file"
                     @change="uploadImg"
@@ -149,7 +166,7 @@
               </div>
               <div class="remove">
                 <button @click="startRemoveTask">
-                  <i class="far fa-trash-alt"></i> Remove
+                  <i class="fas fa-trash-alt"></i> Remove
                 </button>
               </div>
             </div>

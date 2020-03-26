@@ -1,118 +1,134 @@
 <template>
-<section class="checklist-preview">
-    <h3>{{checklist.title}}</h3>
+  <section class="checklist-preview">
+    <div class="icon-container">
+      <i class="fas fa-tasks"></i>
+      <h3>{{checklist.title}}</h3>
+    </div>
+
     <div class="progress">
-        <span>{{percentage}}%</span>
-        <el-progress :percentage="percentage" :show-text="false" :color="customColor"></el-progress>
+      <span>{{percentage}}%</span>
+      <el-progress :percentage="percentage" :show-text="false" :color="customColor"></el-progress>
     </div>
     <div class="check-container">
-        <draggable v-model="checklist.checkItems" v-bind="dragOptions" @end="endMove">
-            <transition-group type="transition" >
-                <div class="check-item" v-for="(checkItem, idx) in checklist.checkItems" :key="checkItem.id">
-                    <check-edit v-if="editItemMode[idx]" :checkItemTxt="checkItem.txt" @close="closeEditItemMode" @add="editCheckItem($event,checkItem,idx)"></check-edit>
-                    <check-preview v-else @click="setEditItemMode(idx)" :checkItem="checkItem" @check="check($event,idx)"></check-preview>
-                </div>
-            </transition-group>
-        </draggable>
+      <draggable v-model="checklist.checkItems" v-bind="dragOptions" @end="endMove">
+        <transition-group type="transition">
+          <div
+            class="check-item"
+            v-for="(checkItem, idx) in checklist.checkItems"
+            :key="checkItem.id"
+          >
+            <check-edit
+              v-if="editItemMode[idx]"
+              :checkItemTxt="checkItem.txt"
+              @close="closeEditItemMode"
+              @add="editCheckItem($event,checkItem,idx)"
+            ></check-edit>
+            <check-preview
+              v-else
+              @click="setEditItemMode(idx)"
+              :checkItem="checkItem"
+              @check="check($event,idx)"
+            ></check-preview>
+          </div>
+        </transition-group>
+      </draggable>
     </div>
     <check-edit v-if="addItemMode" @close="addItemMode = false" @add="editCheckItem"></check-edit>
     <button v-else @click="addItemMode = true">Add an item</button>
-    <!-- <pre>{{checklist}}</pre> -->
-</section>
+  </section>
 </template>
 
 <script>
 import draggable from "vuedraggable";
 
-import checkEdit from './check-edit.vue';
-import checkPreview from './check-preview.vue';
-import { utilsServie } from '../../../services/utils.service.js';
+import checkEdit from "./check-edit.vue";
+import checkPreview from "./check-preview.vue";
+import { utilsServie } from "../../../services/utils.service.js";
 export default {
-    props: {
-        checklist: Object,
-        boardId: String,
+  props: {
+    checklist: Object,
+    boardId: String
+  },
+  created() {
+    this.closeEditItemMode();
+  },
+  data() {
+    return {
+      addItemMode: false,
+      editItemMode: []
+    };
+  },
+  computed: {
+    percentage() {
+      if (!this.checklist.checkItems.length) return 0;
+      const isDones = this.checklist.checkItems.map(
+        checkItem => checkItem.isDone
+      );
+      const allCount = isDones.length;
+      const donesCount = isDones.filter(isDone => isDone).length;
+      const res = Math.round((donesCount / allCount) * 100);
+      return res;
     },
-    created() {
-        this.closeEditItemMode()
+    customColor() {
+      if (this.percentage === 0) return "#000";
+      if (this.percentage < 40) return "#f00";
+      if (this.percentage < 60) return "#00f";
+      if (this.percentage === 100) return "#0f0";
     },
-    data() {
-        return {
-            addItemMode: false,
-            editItemMode: []
-        }
-    },
-    computed: {
-        percentage() {
-            if (!this.checklist.checkItems.length) return 0
-            const isDones = this.checklist.checkItems.map(checkItem => checkItem.isDone);
-            const allCount = isDones.length;
-            const donesCount = isDones.filter(isDone => isDone).length;
-            const res = Math.round((donesCount / allCount) * 100)
-            return res;
-        },
-        customColor() {
-
-            if (this.percentage === 0) return '#000'
-            if (this.percentage < 40) return '#f00'
-            if (this.percentage < 60) return '#00f'
-            if (this.percentage === 100) return '#0f0'
-        },
-        dragOptions() {
-            return {
-                animation: "200",
-                ghostClass: "ghost",
-                group: "checklist-items"
-            };
-        }
-
-    },
-    methods: {
-        editCheckItem(txt, getCheckItem, idx) {
-            this.addItemMode = false
-            this.closeEditItemMode()
-            const checklistCopy = JSON.parse(JSON.stringify(this.checklist))
-            if (!txt && getCheckItem) {
-                checklistCopy.checkItems.splice(idx, 1)
-                this.$emit('chengeChecklist', checklistCopy)
-                return
-            }
-            const checkItem = {
-                id: (getCheckItem) ? getCheckItem.id : this.boardId + '-' + utilsServie.makeId(),
-                txt,
-                isDone: (getCheckItem) ? getCheckItem.isDone : false
-            }
-            if (getCheckItem)
-                checklistCopy.checkItems.splice(idx, 1, checkItem)
-            else
-                checklistCopy.checkItems.push(checkItem)
-            this.$emit('chengeChecklist', checklistCopy)
-        },
-        setEditItemMode(idx) {
-            this.closeEditItemMode()
-            this.editItemMode.splice(idx, 1, true)
-        },
-        closeEditItemMode() {
-            this.editItemMode = this.checklist.checkItems.map(() => false)
-        },
-        check(check, idx) {
-            const checklistCopy = JSON.parse(JSON.stringify(this.checklist))
-            const checkItem = checklistCopy.checkItems[idx]
-            checkItem.isDone = check
-            checklistCopy.checkItems.splice(idx, 1, checkItem)
-            this.$emit('chengeChecklist', checklistCopy)
-        },
-        endMove(){
-            this.$emit('move')
-        }
-    },
-    components: {
-        checkEdit,
-        checkPreview,
-        draggable
+    dragOptions() {
+      return {
+        animation: "200",
+        ghostClass: "ghost",
+        group: "checklist-items"
+      };
     }
-}
+  },
+  methods: {
+    editCheckItem(txt, getCheckItem, idx) {
+      this.addItemMode = false;
+      this.closeEditItemMode();
+      const checklistCopy = JSON.parse(JSON.stringify(this.checklist));
+      if (!txt && getCheckItem) {
+        checklistCopy.checkItems.splice(idx, 1);
+        this.$emit("chengeChecklist", checklistCopy);
+        return;
+      }
+      const checkItem = {
+        id: getCheckItem
+          ? getCheckItem.id
+          : this.boardId + "-" + utilsServie.makeId(),
+        txt,
+        isDone: getCheckItem ? getCheckItem.isDone : false
+      };
+      if (getCheckItem) checklistCopy.checkItems.splice(idx, 1, checkItem);
+      else checklistCopy.checkItems.push(checkItem);
+      this.$emit("chengeChecklist", checklistCopy);
+    },
+    setEditItemMode(idx) {
+      this.closeEditItemMode();
+      this.editItemMode.splice(idx, 1, true);
+    },
+    closeEditItemMode() {
+      this.editItemMode = this.checklist.checkItems.map(() => false);
+    },
+    check(check, idx) {
+      const checklistCopy = JSON.parse(JSON.stringify(this.checklist));
+      const checkItem = checklistCopy.checkItems[idx];
+      checkItem.isDone = check;
+      checklistCopy.checkItems.splice(idx, 1, checkItem);
+      this.$emit("chengeChecklist", checklistCopy);
+    },
+    endMove() {
+      this.$emit("move");
+    }
+  },
+  components: {
+    checkEdit,
+    checkPreview,
+    draggable
+  }
+};
 </script>
 
 <style>
-
 </style>

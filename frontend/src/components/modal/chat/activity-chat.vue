@@ -1,6 +1,5 @@
 <template>
 <section class="activity-chat">
-    <h3>Activity</h3>
     <massage-write :user="user" @new-msg="newMsg"></massage-write>
     <massage-preview v-for="(msg, idx) in massages" :key="msg.createAt" :msg="msg" :user="user" @remove="removeMsg(idx)" @save-msg="saveMsg(idx,$event)"></massage-preview>
 </section>
