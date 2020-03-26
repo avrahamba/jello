@@ -56,7 +56,6 @@ export default {
     console.log(this.boards);
     this.user = this.$store.getters.loggedinUser;
     console.log(this.loggedinUser);
-    this.filter({ txt: "" });
     this.getBoardsFromStore();
   },
   methods: {
