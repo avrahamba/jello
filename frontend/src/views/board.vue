@@ -9,7 +9,8 @@
         tag="section" 
         ref="taskListsLection" 
         class="lists-container" 
-        draggable=".task-list" 
+        draggable=".unit-task-list-container" 
+        ghost-class="ghost"
         v-model="boardData.taskLists" 
         v-bind="dragOptions" 
         @end="move">
@@ -87,7 +88,6 @@ export default {
         dragOptions() {
             return {
                 animation: "200",
-                ghostClass: "ghost",
                 group: "task-list"
             };
         }
