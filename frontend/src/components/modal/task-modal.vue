@@ -87,7 +87,7 @@
                 v-if="addMemberMode"
                 v-model="taskToSave.members"
                 :board="board"
-                @input="save('users',{users: taskToSave.users})"
+                @input="save('addMember',{users: taskToSave.members})"
               ></add-member-to-task>
 
               <div class="icon-container">
@@ -225,6 +225,7 @@ export default {
       this.$router.push("/" + this.boardId);
     },
     save(type, obj) {
+      debugger
       this.$emit("save", { type, taskId: this.taskToSave.id, ...obj });
     },
     setTitle() {
@@ -273,6 +274,7 @@ export default {
       });
     },
     join() {
+      debugger
       const user = this.$store.getters.loggedinUser;
       this.taskToSave.members.push({
         id: user._id,
@@ -309,6 +311,7 @@ export default {
         confirmButtonText: "Yes, delete it!"
       }).then(result => {
         if (result.value) {
+          debugger
           this.$store
             .dispatch({ type: "removeTask", taskId: this.taskToSave.id })
             .then(() => {
