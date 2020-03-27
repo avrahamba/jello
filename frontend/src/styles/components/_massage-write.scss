@@ -1,10 +1,14 @@
 .massage-write {
   display: flex;
+  form{
+    width: 100%;
+    align-self: flex-end;
+  }
   .comment-frame {
-    box-shadow: 0 4px 8px -2px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
     position: relative;
 
     .comment-box {
+      display: flex;
 
       button.btn {
         all: unset;
@@ -16,22 +20,38 @@
         user-select: none;
         cursor: pointer;
       }
-      textarea {
-        border: none;
-        resize: none;
-        overflow: hidden;
-        overflow-wrap: break-word;
-        height: 20px;
-        width: 100%;
-        background: transparent;
-        box-shadow: none;
+      input {
 
+        
+        // margin-left: 5px;
+        // border: none;
+        outline: none;
+        // resize: none;
+        // overflow: hidden;
+        // overflow-wrap: break-word;
+        // height: 20px;
+        // width: 100%;
+        // background: transparent;
+        display: block;
+        width: 100%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+        -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+        -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        
 
       }
     }
   }
 }
 
-.in-focuse .comment-box {
-  padding-bottom: 56px;
-}

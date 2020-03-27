@@ -6,3 +6,7 @@ Thu, 26 Mar 2020 15:54:25 GMT - Debug - auth.route - new account created: [{"_id
 Thu, 26 Mar 2020 15:54:25 GMT - Debug - auth.service - login with email: כככ
 Thu, 26 Mar 2020 16:30:07 GMT - Debug - auth.service - login with email: כככ
 Thu, 26 Mar 2020 16:35:17 GMT - Info - Server is running on port: 3030
+Fri, 27 Mar 2020 09:28:29 GMT - Debug - ccc, cbtgr, ccc, undefined
+Fri, 27 Mar 2020 09:28:29 GMT - Debug - auth.service - signup with email: ccc, username: cbtgr
+Fri, 27 Mar 2020 09:28:29 GMT - Debug - auth.route - new account created: [{"_id":"5e7dc73de550463f14cf0d91","email":"ccc","name":"cbtgr","img":"/cloudinary/","hashPassword":"$2b$10$axaRgHVKibVEUPZ1Aw.Cm.faFNUHuRrCVSocgw6OrlvFDrWvH5hZW","boards":[{"_id":"5e7377611c9d4400009f5d97","name":"proj1","background":"#545454"}],"alerts":[{"_id":"5e7dc73de550463f14cf0d92","alertForUser":"the color change","isReade":"false","task":{"id":"","name":""},"taskList":{"id":"","name":""},"board":{"_id":"false","name":"","background":""},"user":{"_id":"","name":"","img":"/cloudinary/"}}],"comments":[{"_id":"5e7dc73de550463f14cf0d93","txt":"txt","isReade":"false","taskList":{"id":"","name":""},"board":{"_id":"false","name":"","background":""},"user":{"_id":"","name":"","img":"/cloudinary/"}}],"__v":0}]
+Fri, 27 Mar 2020 09:28:29 GMT - Debug - auth.service - login with email: ccc

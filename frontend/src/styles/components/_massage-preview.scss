@@ -24,7 +24,7 @@
     font-size: 16px;
     border-radius: 7px;
     margin-bottom: 14px;
-    background: chartreuse;
+    background: $clr3;
     // width: 100%;
     position: relative;
 
@@ -34,7 +34,7 @@
       left: 10%;
       border: solid transparent;
       content: " ";
-      border-bottom-color: chartreuse;
+      border-bottom-color:$clr3;
       height: 0;
       width: 0;
       position: absolute;
@@ -45,5 +45,9 @@
 
     .action{
         *{margin-right: 5px;}
+    }
+    .edit-msg{
+      width: min-content;
+      min-width: 180px;
     }
   }

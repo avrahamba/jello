@@ -22,7 +22,7 @@
           </a>
         </div>
       </template>
-      <massage-write v-else :editMsg="msg" :user="user" @new-msg="saveMsg"></massage-write>
+      <massage-write class="edit-msg" v-else :editMsg="msg" :user="user" @new-msg="saveMsg"></massage-write>
     </div>
   </section>
 </template>
