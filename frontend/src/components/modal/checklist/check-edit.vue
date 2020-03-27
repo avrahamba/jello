@@ -2,11 +2,6 @@
 <section class="ceck-edit">
     <input ref="txtInput" @blur="add" @keydown.enter="add" @keydown.esc="close" type="text" placeholder="Add an item" v-model="txt">
     <div class="btns">
-
-    <!-- <button @click="add">
-        <i class="far fa-save"></i>
-    </button>
-    <button class="x" @click="close">&times;</button> -->
     </div>
 
 </section>
@@ -14,11 +9,11 @@
 
 <script>
 export default {
-    props:{
-        checkItemTxt:{type:String, default:''}
+    props: {
+        checkItemTxt: { type: String, default: '' }
     },
     created() {
-        if(this.checkItemTxt)this.txt = this.checkItemTxt
+        if (this.checkItemTxt) this.txt = this.checkItemTxt
     },
     mounted() {
         this.$refs.txtInput.focus()
@@ -30,7 +25,7 @@ export default {
     },
     methods: {
         add() {
-            if(this.txt)            this.$emit('add', this.txt)
+            if (this.txt) this.$emit('add', this.txt)
             else this.close()
         },
         close() {

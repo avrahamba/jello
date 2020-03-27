@@ -6,7 +6,7 @@
       position: absolute;
       top: 60px;
       padding: 20px;
-      background-color: #fff;
+      background-color: lighten($color: $clr1, $amount: 25);
       border-radius: 2px;
       box-shadow: 0 2px 8px 3px;
       transition: all 0.2s ease-in;
@@ -25,6 +25,7 @@
         flex-direction: column;;
         .task-title{
           overflow: hidden;
+          color: $clr2;
           word-wrap:break-word;
           width: 100%;
           background: transparent;
