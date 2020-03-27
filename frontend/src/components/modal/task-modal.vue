@@ -10,7 +10,6 @@
             <div class="title-area">
               <div class="icon-container">
                 <i class="far fa-caret-square-up"></i>
-
                 <input
                   class="task-title"
                   type="textarea"
@@ -280,13 +279,15 @@ export default {
       });
     },
     join() {
-      const user = this.$store.getters.loggedinUser;
-      this.taskToSave.members.push({
-        id: user._id,
-        name: user.name,
-        avatar: user.avatar
+      const loggedinUser = this.$store.getters.loggedinUser;
+      const users =JSON.parse(JSON.stringify(this.taskToSave.members))
+       users.push({
+        _id: loggedinUser._id,
+        name: loggedinUser.name,
+        avatar: loggedinUser.avatar
       });
-      this.save("addMember", { user });
+      
+      this.save("addMember", { users });
     },
     saveMsgs(msgs) {
       this.taskToSave.msgs = msgs;
@@ -337,7 +338,7 @@ export default {
     },
     isJoin() {
       return !!this.taskToSave.members.find(
-        user => user.id === this.$store.getters.loggedinUser._id
+        user => user._id === this.$store.getters.loggedinUser._id
       );
     },
     loggedinUser() {
