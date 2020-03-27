@@ -42,6 +42,7 @@
 import addMembers from "../components/add-members.vue";
 import boardCard from "../components/board-card.vue";
 import addBoard from "../components/add-board";
+import windowOverlay from "../components/window-overlay.vue";
 export default {
   name: "user-page",
   data() {
@@ -83,7 +84,8 @@ export default {
   components: {
     addMembers,
     boardCard,
-    addBoard
+    addBoard,
+    windowOverlay
   }
 };
 </script>

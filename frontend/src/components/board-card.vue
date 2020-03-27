@@ -17,6 +17,7 @@ export default {
   created() {
     if (this.dataImage.includes("http")) {
       this.isImage = true;
+      this.dataImage
     }
   },
   mounted() {
