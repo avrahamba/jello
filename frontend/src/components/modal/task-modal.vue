@@ -10,7 +10,6 @@
             <div class="title-area">
               <div class="icon-container">
                 <i class="far fa-caret-square-up"></i>
-
                 <input
                   class="task-title"
                   type="textarea"
@@ -66,7 +65,7 @@
                 v-model="taskToSave.desc"
                 @blur="saveDesc"
                 cols="65"
-                rows="10"
+                rows="5"
                 class="description-container"
               ></textarea>
               <p @click="startEditDesc" v-else>{{descToView}}</p>
@@ -78,13 +77,18 @@
                 @save="saveCheckList"
               ></checklist-list>
 
-              <file-picker
+              <div class="icon-container" v-if="taskToSave.attachments.length">
+                <i class="fas fa-file-image"></i>
+                <h3>Attachments</h3>
+              </div>
+              <file-preview
+                v-if="taskToSave.attachments.length"
                 v-model="taskToSave.attachments"
+                @add-attachment="openFile"
                 @input="save('attachments',{attachments: taskToSave.attachments})"
-              ></file-picker>
+              ></file-preview>
 
               <window-overlay v-if="addMemberMode" :dark="false" @close="addMemberMode=false"></window-overlay>
-
               <add-member-to-task
                 v-if="addMemberMode"
                 v-model="taskToSave.members"
@@ -188,7 +192,7 @@ import datePicker from "./date-picker.vue";
 import showMembers from "./show-members.vue";
 import labelPicker from "./label-picker.vue";
 import labelPreview from "./label-preview.vue";
-import filePicker from "./file-picker.vue";
+import filePreview from "./file-preview.vue";
 import addMemberToTask from "./add-member-to-task.vue";
 import coverPreview from "./cover-preview.vue";
 import coverPicker from "./cover-picker.vue";
@@ -275,13 +279,15 @@ export default {
       });
     },
     join() {
-      const user = this.$store.getters.loggedinUser;
-      this.taskToSave.members.push({
-        id: user._id,
-        name: user.name,
-        avatar: user.avatar
+      const loggedinUser = this.$store.getters.loggedinUser;
+      const users =JSON.parse(JSON.stringify(this.taskToSave.members))
+       users.push({
+        _id: loggedinUser._id,
+        name: loggedinUser.name,
+        avatar: loggedinUser.avatar
       });
-      this.save("addMember", { user });
+      
+      this.save("addMember", { users });
     },
     saveMsgs(msgs) {
       this.taskToSave.msgs = msgs;
@@ -332,7 +338,7 @@ export default {
     },
     isJoin() {
       return !!this.taskToSave.members.find(
-        user => user.id === this.$store.getters.loggedinUser._id
+        user => user._id === this.$store.getters.loggedinUser._id
       );
     },
     loggedinUser() {
@@ -356,7 +362,7 @@ export default {
     datePicker,
     labelPreview,
     windowOverlay,
-    filePicker,
+    filePreview,
     activityChat,
     addChecklist,
     checklistList,
@@ -369,3 +375,4 @@ export default {
 
 <style scoped>
 </style>
+

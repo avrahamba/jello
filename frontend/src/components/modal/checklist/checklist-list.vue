@@ -1,6 +1,11 @@
 <template>
-  <section class="checklist-list">
-    <draggable v-model="checklistsToSave" v-bind="dragOptions" @end="save" handle="h3">
+    <draggable 
+    tag="section"
+    class="checklist-list"
+    v-model="checklistsToSave" 
+    v-bind="dragOptions" 
+    @end="save" 
+    handle="h3">
       <checklist-preview
         v-for="(checklist, idx) in checklistsToSave"
         :key="checklist.id"
@@ -10,7 +15,6 @@
         @chengeChecklist="chengeChecklist(idx,$event )"
       ></checklist-preview>
     </draggable>
-  </section>
 </template>
 
 <script>

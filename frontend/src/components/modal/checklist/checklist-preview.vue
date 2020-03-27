@@ -2,39 +2,35 @@
   <section class="checklist-preview">
     <div class="icon-container">
       <i class="fas fa-tasks"></i>
-      <h3>{{checklist.title}}</h3>
+      <div class="checklist-title">
+        <input ref="inputTitle" @keydown.enter="saveTitle" @blur="saveTitle" v-if="changeTitleMode" type="text" v-model="titleCopy">
+        <h3 v-else @click="startChangeTitle">{{checklist.title}}</h3>
+      </div>
     </div>
 
     <div class="progress">
-      <span>{{percentage}}%</span>
+      <span class="percentage">{{percentage}}%</span>
       <el-progress :percentage="percentage" :show-text="false" :color="customColor"></el-progress>
     </div>
-    <div class="check-container">
-      <draggable v-model="checklist.checkItems" v-bind="dragOptions" @end="endMove">
-        <transition-group type="transition">
-          <div
-            class="check-item"
-            v-for="(checkItem, idx) in checklist.checkItems"
-            :key="checkItem.id"
-          >
-            <check-edit
-              v-if="editItemMode[idx]"
-              :checkItemTxt="checkItem.txt"
-              @close="closeEditItemMode"
-              @add="editCheckItem($event,checkItem,idx)"
-            ></check-edit>
-            <check-preview
-              v-else
-              @click="setEditItemMode(idx)"
-              :checkItem="checkItem"
-              @check="check($event,idx)"
-            ></check-preview>
-          </div>
-        </transition-group>
-      </draggable>
-    </div>
+    <draggable class="check-container" v-model="checklist.checkItems" v-bind="dragOptions" @end="endMove">
+      <transition-group type="transition">
+        <div
+          class="check-item"
+          v-for="(checkItem, idx) in checklist.checkItems"
+          :key="checkItem.id"
+        >
+          <check-preview
+            @saveTxt="saveTxt($event,idx)"
+            :checkItem="checkItem"
+            @check="check($event,idx)"
+            @remove="remove(idx)"
+          ></check-preview>
+        </div>
+      </transition-group>
+    </draggable>
     <check-edit v-if="addItemMode" @close="addItemMode = false" @add="editCheckItem"></check-edit>
-    <button v-else @click="addItemMode = true">Add an item</button>
+    <button class="add-item-btn" v-else @click="addItemMode = true">Add an item</button>
+    <hr>
   </section>
 </template>
 
@@ -55,7 +51,9 @@ export default {
   data() {
     return {
       addItemMode: false,
-      editItemMode: []
+      editItemMode: [],
+      titleCopy: '',
+      changeTitleMode: false
     };
   },
   computed: {
@@ -104,9 +102,12 @@ export default {
       else checklistCopy.checkItems.push(checkItem);
       this.$emit("chengeChecklist", checklistCopy);
     },
-    setEditItemMode(idx) {
-      this.closeEditItemMode();
-      this.editItemMode.splice(idx, 1, true);
+    saveTxt(txt,idx) {
+      const checklistCopy = JSON.parse(JSON.stringify(this.checklist));
+      const checkItem = checklistCopy.checkItems[idx];
+      checkItem.txt = txt;
+      checklistCopy.checkItems.splice(idx, 1, checkItem);
+      this.$emit("chengeChecklist", checklistCopy);
     },
     closeEditItemMode() {
       this.editItemMode = this.checklist.checkItems.map(() => false);
@@ -118,8 +119,26 @@ export default {
       checklistCopy.checkItems.splice(idx, 1, checkItem);
       this.$emit("chengeChecklist", checklistCopy);
     },
+    remove(idx){
+      const checklistCopy = JSON.parse(JSON.stringify(this.checklist));
+      checklistCopy.checkItems.splice(idx, 1);
+      this.$emit("chengeChecklist", checklistCopy);
+    },
     endMove() {
       this.$emit("move");
+    },
+    startChangeTitle(){
+      this.titleCopy = this.checklist.title
+      this.changeTitleMode = true
+      setTimeout(()=>this.$refs.inputTitle.focus(),0)
+    },
+    saveTitle(){
+      if(!this.titleCopy)return
+      this.changeTitleMode = false
+      const checklistCopy = JSON.parse(JSON.stringify(this.checklist));
+      checklistCopy.title = this.titleCopy;
+      this.$emit("chengeChecklist", checklistCopy);
+
     }
   },
   components: {

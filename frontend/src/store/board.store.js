@@ -355,8 +355,6 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
-
-
         async dataFromSocket(context, { data }) {
             switch (data.type) {
                 case 'saveUsersBoard':

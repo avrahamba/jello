@@ -1,0 +1,142 @@
+.checklist-list {
+  button,
+  input[type="text"]{
+  background-color: unset;
+  &:focus {
+    outline:none;
+  }
+  &::placeholder {
+    color: lighten($color: $clr2, $amount: 20);
+  }
+  border: unset;
+  
+
+}
+  .checklist-preview {
+    .checklist-title {
+      h3{
+        color: $clr2;
+        font-size: rem(20px);
+        font-weight: 700;
+        font-family: Lato;
+        line-height: rem(38px);
+
+      }
+      input{
+        color: $clr2;
+        font-size: rem(20px);
+        font-weight: 700;
+        font-family: Lato;
+        line-height: rem(38px);
+        margin-left: 3px;
+        height: 38px;
+        margin-left: 12px;
+      }
+    }
+    .progress {
+      display: grid;
+      grid-template-columns: rem(45px) 1fr;
+      .percentage {
+        text-align: left;
+      }
+      .el-progress {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+    .check-preview {
+      display: flex;
+
+      .check {
+        display: flex;
+        width: rem(45px);
+      }
+      .text {
+        font-family: Lato;
+        line-height: 30px;
+        padding-left: 3px;
+        cursor: pointer;
+      }
+      .input-text {
+        padding-left: 4.5px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        border-radius: 5px;
+        border: 2px $clr5 solid;
+        height: 30px;
+        input {
+          font-family: Lato;
+          color: $clr2;
+          line-height: 30px;
+          width: 100%;
+          font-size: 1rem;
+          border: unset;
+          padding: 0;
+        }
+      }
+    }
+    .btns {
+      display: flex;
+      > * {
+        &:hover {
+          cursor: pointer;
+        }
+        margin-right: 10px;
+        text-align: center;
+        width: rem(20px);
+        border: unset;
+        font-size: 20px;
+      }
+      .x {
+        font-size: 28px;
+        font-family: Lato;
+        line-height: 30px;
+        padding-left: 3px;
+        margin-top: -3px;
+        cursor: pointer;
+        background-color: unset;
+      }
+    }
+    .add-item-btn {
+      width: 100%;
+      margin-left: 40px;
+      text-align: left;
+      text-align: left;
+      line-height: 30px;
+      border: unset;
+      cursor: pointer;
+      font-size: 1rem;
+      color: lighten($color: $clr2, $amount: 20);
+      font-family: Lato;
+      display: flex;
+      justify-content: space-between;
+      padding-top: -1px;
+      &:active{
+        padding:0 8px;
+      }
+    }
+    .ceck-edit {
+      margin-bottom: 5px;
+      border: 2px $clr5 solid;
+      margin-left: 40px;
+      border-radius: 5px;
+      width: calc(100%-40px);
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+
+      cursor: pointer;
+      input {
+        padding-left: 6px;
+        flex-grow: 1;
+        font-family: Lato;
+        font-size: 1rem;
+        display: flex;
+        color: $clr2;
+        border: unset;
+      }
+    }
+  }
+}
