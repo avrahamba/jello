@@ -5,13 +5,11 @@ const boardService = require('./board.service')
 
 const getBoards = async (req, res) => {
     try {
-
         const boards = await boardService.query(req.params.userId)
         res.json(boards)
     } catch (err) {
         logger.error('Cannot get boards', err);
         res.status(500).send({ error: 'cannot get boards' })
-
     }
 }
 
@@ -22,11 +20,8 @@ const getBoard = async (req, res) => {
     } catch (err) {
         logger.error('Cannot get boards', err);
         res.status(500).send({ error: 'cannot get boards' })
-
     }
 }
-
-
 
 const deleteBoard = async (req, res) => {
     await boardService.remove(req.params.id)

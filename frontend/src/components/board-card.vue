@@ -1,29 +1,36 @@
 <template>
   <div class="card-wrap" @mouseenter="handleMouseEnter" @mouseleave="handleMouseLeave" ref="card">
-   <router-link :to="'/'+board._id">
-    <div class="card" :style="cardStyle">
-      <div class="card-bg" :style="[cardBgTransform, cardBgImage]"></div>
-      <div class="card-info">
-        <slot name="header"></slot>
-        <slot name="content"></slot>
+    <router-link :to="'/'+board._id">
+      <div class="card" :style="cardStyle">
+        <div class="card-bg" v-if="isImage" :style="[cardBgTransform, cardBgImage]"></div>
+        <div class="card-bg" v-else :style="'background-color: '+this.dataImage+' ;'"></div>
+        <div class="card-info">
+          <slot name="header"></slot>
+          <slot name="content"></slot>
+        </div>
       </div>
-    </div>
     </router-link>
   </div>
 </template>
 <script>
 export default {
+  created() {
+    if (this.dataImage.includes("http")) {
+      this.isImage = true;
+    }
+  },
   mounted() {
     this.width = this.$refs.card.offsetWidth;
     this.height = this.$refs.card.offsetHeight;
   },
-  props: ["dataImage","board"],
+  props: ["dataImage", "board"],
   data: () => ({
     width: 0,
     height: 0,
     mouseX: 0,
     mouseY: 0,
-    mouseLeaveDelay: null
+    mouseLeaveDelay: null,
+    isImage: false
   }),
   computed: {
     mousePX() {

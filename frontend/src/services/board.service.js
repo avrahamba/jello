@@ -2,8 +2,6 @@ import httpService from './HttpService';
 import { utilsServie } from './utils.service';
 import { socketService } from './SocketService';
 
-
-
 const query = async (userId) => {
     return httpService.get(`board/${userId}`);
 }
@@ -29,7 +27,7 @@ const getEmptyTask = (id) => {
     return {
         id,
         title: "",
-        dueDate: [],
+        dueDate: "",
         desc: "",
         labels: [],
         cover: {
@@ -39,7 +37,6 @@ const getEmptyTask = (id) => {
         checklists: [],
         members: [],
         msgs: [],
-        dueDate: []
     }
 }
 

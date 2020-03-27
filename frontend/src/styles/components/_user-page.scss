@@ -9,3 +9,45 @@
     top: 5px;
     position: absolute;
 }
+.add-new-board-container{
+    display: flex;
+    justify-content: center;
+    .btn {
+        font-size: 18px;
+        border: none;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        border-radius: 12px;
+        color: #fff;
+        position: relative;
+        cursor: pointer;
+        box-shadow: 0 5px 8px rgba(0, 0, 0, .4);
+        
+        &:focus, &:focus::after {
+           outline: none;
+           }
+        
+        &:active {
+           transform: translateY(2px);
+           }
+      }
+      
+}
+
+
+
+
+
+/*  BUTTON LIGHT SHAD0W  */
+.btn-shadow {
+  padding: 15px 75px;
+  background-image: linear-gradient(to right, $clr3, $clr5);
+  transition: .2s ease;
+  
+  &:hover {
+    transform: translateY(-2px) scaleX(1.05) scaleY(1.05);
+    box-shadow: 0 0 10px rgba($clr5, .4);
+  }
+}
+
+
