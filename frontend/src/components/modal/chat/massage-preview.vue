@@ -1,10 +1,7 @@
 <template>
   <section class="massage-preview">
     <div class="avatar">
-      <span class="name">{{msg.user.name}}</span>
-      <img v-if="msg.user.avatar && msg.user.avatar.includes('.com')" :src="msg.user.avatar" />
-
-      <span v-else>{{msg.user.name|short-name}}</span>
+      <span class="name">{{msg.user.name}} :</span>
       <span class="time">{{msg.createdAt| date}}</span>
     </div>
     <div class="contain">

@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="label-picker">
+  <section ref="container" class="mini-modal">
     <h3>Members to Add</h3>
     <ul>
       <li v-for="user in board.users" :key="user._id" @click="addMemberToTask(user)">{{user.name}}</li>

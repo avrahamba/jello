@@ -1,8 +1,7 @@
 <template>
   <section class="massage-write">
-    <div class="avatar">
-      <img v-if="user.avatar&&user.avatar.includes('.com')" :src="user.avatar" />
-      <span v-else>{{user.name|short-name}}</span>
+    <div class="avatar" v-if="user">
+      <avatar-user :key="user.id" :user="user"></avatar-user>
     </div>
     <form @submit.prevent="send">
       <div class="comment-frame">
@@ -17,6 +16,8 @@
 </template>
 
 <script>
+import avatarUser from "../../avatar-user.vue";
+
 export default {
   props: {
     user: Object,
@@ -45,6 +46,9 @@ export default {
       avatar: this.user.avatar
     };
     if (this.editMsg) this.msg.txt = this.editMsg.txt;
+  },
+  components: {
+    avatarUser
   }
 };
 </script>

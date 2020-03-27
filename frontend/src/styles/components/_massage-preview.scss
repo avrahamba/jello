@@ -5,10 +5,11 @@
     flex-direction: column;
     .avatar{
         align-self: end;
-        margin: 0 0 15px;
+        margin: 0 0 7px;
     
     }
     .time{
+      margin-left: 5px;
         font: 12px "Lato", Arial, sans-serif;
         color: black;
         align-self: center;
@@ -49,5 +50,8 @@
     .edit-msg{
       width: min-content;
       min-width: 180px;
+    }
+    .edit-msg{
+      background-color: chocolate;
     }
   }
