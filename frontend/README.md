@@ -1,4 +1,4 @@
-# frontend
+# Jello
 
 ## Project setup
 ```

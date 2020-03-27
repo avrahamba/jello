@@ -1,8 +1,13 @@
 <template>
 <section class="ceck-edit">
-    <textarea placeholder="Add ad item" v-model="txt"></textarea>
-    <button @click="add">{{txtBtn}}</button>
-    <button @click="close">&times;</button>
+    <input ref="txtInput" @keydown.enter="add" @keydown.esc="close" type="text" placeholder="Add an item" v-model="txt">
+    <div class="btns">
+
+    <button @click="add">
+        <i class="far fa-save"></i>
+    </button>
+    <button class="x" @click="close">&times;</button>
+    </div>
 
 </section>
 </template>
@@ -14,6 +19,9 @@ export default {
     },
     created() {
         if(this.checkItemTxt)this.txt = this.checkItemTxt
+    },
+    mounted() {
+        this.$refs.txtInput.focus()
     },
     data() {
         return {
@@ -30,12 +38,6 @@ export default {
             this.$emit('close')
         }
     },
-computed: {
-    txtBtn(){
-        if(this.checkItemTxt) return 'Save'
-        return 'Add'
-    }
-},
 }
 </script>
 

@@ -25,7 +25,8 @@
       </transition-group>
     </draggable>
     <check-edit v-if="addItemMode" @close="addItemMode = false" @add="editCheckItem"></check-edit>
-    <button v-else @click="addItemMode = true">Add an item</button>
+    <button class="add-item-btn" v-else @click="addItemMode = true">Add an item</button>
+    <hr>
   </section>
 </template>
 
