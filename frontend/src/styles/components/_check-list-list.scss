@@ -1,6 +1,23 @@
 .checklist-list {
   .checklist-preview {
-    .icon-container {
+    .checklist-title {
+      h3{
+        color: $clr2;
+        font-size: rem(20px);
+        font-weight: 700;
+        font-family: Lato;
+        line-height: rem(38px);
+
+      }
+      input{
+        color: $clr2;
+        font-size: rem(20px);
+        font-weight: 700;
+        font-family: Lato;
+        line-height: rem(38px);
+        margin-left: 3px;
+        height: 38px;
+      }
     }
     .progress {
       display: grid;
@@ -28,7 +45,7 @@
         cursor: pointer;
       }
       .input-text {
-        padding-left: 4px;
+        padding-left: 5px;
         display: flex;
         justify-content: space-between;
         width: 100%;

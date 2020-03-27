@@ -2,7 +2,10 @@
   <section class="checklist-preview">
     <div class="icon-container">
       <i class="fas fa-tasks"></i>
-      <h3>{{checklist.title}}</h3>
+      <div class="checklist-title">
+        <input ref="inputTitle" @keydown.enter="saveTitle" @blur="saveTitle" v-if="changeTitleMode" type="text" v-model="titleCopy">
+        <h3 v-else @click="startChangeTitle">{{checklist.title}}</h3>
+      </div>
     </div>
 
     <div class="progress">
@@ -20,6 +23,7 @@
             @saveTxt="saveTxt($event,idx)"
             :checkItem="checkItem"
             @check="check($event,idx)"
+            @remove="remove(idx)"
           ></check-preview>
         </div>
       </transition-group>
@@ -47,7 +51,9 @@ export default {
   data() {
     return {
       addItemMode: false,
-      editItemMode: []
+      editItemMode: [],
+      titleCopy: '',
+      changeTitleMode: false
     };
   },
   computed: {
@@ -113,8 +119,26 @@ export default {
       checklistCopy.checkItems.splice(idx, 1, checkItem);
       this.$emit("chengeChecklist", checklistCopy);
     },
+    remove(idx){
+      const checklistCopy = JSON.parse(JSON.stringify(this.checklist));
+      checklistCopy.checkItems.splice(idx, 1);
+      this.$emit("chengeChecklist", checklistCopy);
+    },
     endMove() {
       this.$emit("move");
+    },
+    startChangeTitle(){
+      this.titleCopy = this.checklist.title
+      this.changeTitleMode = true
+      setTimeout(()=>this.$refs.inputTitle.focus(),0)
+    },
+    saveTitle(){
+      if(!this.titleCopy)return
+      this.changeTitleMode = false
+      const checklistCopy = JSON.parse(JSON.stringify(this.checklist));
+      checklistCopy.title = this.titleCopy;
+      this.$emit("chengeChecklist", checklistCopy);
+
     }
   },
   components: {

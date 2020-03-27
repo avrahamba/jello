@@ -4,13 +4,13 @@
         <input v-model="isDone" @change="check" type="checkbox" />
     </label>
     <div class="input-text" v-if="editTxt">
-        <input ref="inputText" @keydown.enter="saveTxt" @keydown.esc="cancelChangeTxt" placeholder="Enter text..." v-model="txtToSave" type="text" />
-        <div class="btns">
+        <input ref="inputText" @blur="saveTxt" @keydown.enter="saveTxt" @keydown.esc="cancelChangeTxt" placeholder="Enter text..." v-model="txtToSave" type="text" />
+        <!-- <div class="btns">
             <button @click="saveTxt">
                 <i class="far fa-save"></i>
             </button>
             <button class="x" @click="cancelChangeTxt">&times;</button>
-        </div>
+        </div> -->
     </div>
     <div v-else class="text" @click="startChangeTxt">{{checkItem.txt}}</div>
 </section>
@@ -31,6 +31,9 @@ export default {
     created() {
         this.isDone = this.checkItem.isDone;
     },
+    mounted() {
+        this.$refs.inputText.focus()
+    },
     methods: {
         startChangeTxt() {
             // this.$emit("click");
@@ -47,6 +50,8 @@ export default {
             if (this.txtToSave) {
                 this.$emit('saveTxt', this.txtToSave)
                 this.editTxt = false
+            }else{
+                this.$emit('remove')
             }
         },
         cancelChangeTxt() {
