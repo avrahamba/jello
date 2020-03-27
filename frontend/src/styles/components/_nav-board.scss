@@ -3,8 +3,8 @@ nav.nav-board {
   justify-content: space-between;
   margin: 0.8rem 0;
   padding: 0 1rem;
-  color: #fff;
-
+  color: $clr2;
+  z-index: 1;
   .btn {
     font-size: 1.4rem;
     font-weight: 400;
@@ -47,9 +47,24 @@ nav.nav-board {
       font-weight: 700;
       white-space: nowrap;
       width: 100%;
-      color: #fff;
+      color: $clr2;
       background-color: unset;
       border: unset;
+    }
+  }
+  .avatar-user{
+    color: $clr2;
+    background-color: darken($color: $clr1, $amount: 20);
+// padding: 10px;
+height: 40px;
+width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .txt{
+      position:relative;
+      font-family: Lato;
+      font-size: rem(20px);
     }
   }
 }

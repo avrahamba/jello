@@ -4,10 +4,10 @@
         <button class="boards-btn btn">
             <i class="fab fa-trello boards-btn-icon"></i>Boards
         </button>
-        <div class="board-search">
+        <!-- <div class="board-search">
             <input type="search" class="board-search-input btn" aria-label="Board Search" />
             <i class="fas fa-search search-icon" aria-hidden="true"></i>
-        </div>
+        </div> -->
     </div>
 
     <router-link to="/">
