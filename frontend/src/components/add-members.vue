@@ -17,7 +17,6 @@
             <option v-for="user in users" :key="user._id" :value="user">{{user.name}}</option>
         </select>
         <button type="submit" class="search-button">
-            bcvbcbc
             <svg class="submit-button">
                 <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#search" />
             </svg>
