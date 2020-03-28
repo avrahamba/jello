@@ -7,7 +7,7 @@
     </div>
     <div class="contain">
       <template v-if="!inEdit">
-        <p class="text">{{msg.txt}}</p>
+        <p class="text">{{msg.txt}}</p> 
 
         <!-- @click="inEdit = true" -->
         <!-- <div v-if="isUser" class="action">
