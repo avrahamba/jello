@@ -58,15 +58,10 @@ export default {
     },
     async doSignup() {
       const cred = this.signupCred;
-
-      if (this.validateEmail(cred.email) || !cred.password || !cred.username)
+      if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");
       await this.$store.dispatch({ type: "signup", userCred: cred });
       this.$router.push({ path: "/userPage" });
-    },
-    validateEmail(email) {
-      let res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      return res.test(String(email).toLowerCase());
     }
   },
   watch: {
