@@ -1,11 +1,13 @@
 <template>
   <div class="user-page">
     <h1>User Page</h1>
-    <div v-for="board in user.boards" :key="board._id">
+    <div  class="add-new-board-container" v-for="board in user.boards" :key="board._id">
     <!--  <h3>board id:{{board._id}}</h3>
       <h3>name:{{board.name}}</h3>
       <h3>color:{{board.background}}</h3>-->
-      <button @click="addNewBoard">Add new board</button>
+      <window-overlay v-if="isAddNewBoard" :dark="false" @close="isAddNewBoard=false"></window-overlay>
+      <add-board v-if="isAddNewBoard" @addNewBoard="addNewBoard"></add-board>
+      <button class="btn btn-shadow" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
     </div>
     <!-- add modal for new board - create button will fire an action to board store (addBoard(user)) -->
     <div class="cards-container">
@@ -14,7 +16,7 @@
         :board="board"
         :key="board._id"
         :class="'board-card '+board.title"
-        data-image="https://images.unsplash.com/photo-1479660656269-197ebb83b540?dpr=2&auto=compress,format&fit=crop&w=1199&h=798&q=80&cs=tinysrgb&crop="
+        :data-image="board.background"
       >
           <h1 slot="header">{{board.title}}</h1>
           <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
@@ -39,17 +41,15 @@
 <script>
 import addMembers from "../components/add-members.vue";
 import boardCard from "../components/board-card.vue";
+import addBoard from "../components/add-board";
+import windowOverlay from "../components/window-overlay.vue";
 export default {
   name: "user-page",
   data() {
     return {
       user: this.loggedinUser,
       boards: [],
-      prefs: {
-        title: "test ron",
-        style: { background: "#FFFFF" },
-        public: true
-      }
+      isAddNewBoard:false
     };
   },
   created() {
@@ -71,18 +71,21 @@ export default {
         })
         .then(boards => (this.boards = boards));
     },
-    addNewBoard() {
+    addNewBoard(prefs) {
+      debugger
       this.$store.dispatch({
         type: "addBoard",
         user: this.$store.getters.loggedinUser,
-        prefs: this.prefs
+        prefs: prefs
       });
       this.getBoardsFromStore();
     }
   },
   components: {
     addMembers,
-    boardCard
+    boardCard,
+    addBoard,
+    windowOverlay
   }
 };
 </script>
