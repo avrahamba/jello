@@ -18,15 +18,19 @@ const query = async (userId) => {
     }
 
     const boards = await Board.find(criteria);
-
     return boards.map(board => {
         const onUser = (userId && board.users.findIndex(user => user._id === userId) !== -1)
+        const taskLists = board.taskLists.length
+        const tasks = board.taskLists.reduce((acc, taskList) => acc + taskList.tasks.length, 0)
+
         return {
             _id: board._id,
             title: board.title,
             background: board.style.background,
             onUser,
-            isAddMembers: false
+            isAddMembers: false,
+            taskLists,
+            tasks
         }
     })
 }
@@ -56,8 +60,8 @@ const add = async (wrapper) => {
         public: prefs.public
 
     }
-    Board.insertMany([newBoard])
-    return newBoard;
+    const board = await Board.insertMany([newBoard])
+    return board[0];
 }
 
 const save = async (board) => {

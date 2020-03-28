@@ -1,6 +1,6 @@
 <template>
   <div class="user-page">
-    <h1>Hello {{user.name}}</h1>
+    <h2>Hello {{user.name}}</h2>
     <div class="add-new-board-container">
       <button class="btn-board btn-shadow" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
       <window-overlay v-if="isAddNewBoard" :dark="false" @close="isAddNewBoard=false"></window-overlay>
@@ -22,7 +22,18 @@
         <h1 slot="header">{{board.title}}</h1>
         <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </board-card>
+      <button class="btn-board btn-shadow" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
     </div>
+    <div class="cards-container">
+      <board-card
+        v-for="board in boards"
+        :board="board"
+        :key="board._id"
+        :class="'board-card ' + board.title"
+      ></board-card>
+    </div>
+    <window-overlay v-if="isAddNewBoard" @close="isAddNewBoard=false"></window-overlay>
+    <add-board v-if="isAddNewBoard" @addNewBoard="addNewBoard"></add-board>
   </div>
 </template>
 
@@ -57,12 +68,13 @@ export default {
         .then(boards => (this.boards = boards));
     },
     addNewBoard(prefs) {
-      this.$store.dispatch({
-        type: "addBoard",
-        user: this.$store.getters.loggedinUser,
-        prefs: prefs
-      });
-      this.getBoardsFromStore();
+      this.$store
+        .dispatch({
+          type: "addBoard",
+          user: this.$store.getters.loggedinUser,
+          prefs: prefs
+        })
+        .then(board => this.$router.push("/" + board._id));
     }
   },
   components: {
@@ -73,11 +85,6 @@ export default {
   }
 };
 </script>
-<style lang="scss">
-.cards-container {
-  padding: 40px 80px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+
+<style>
 </style>
