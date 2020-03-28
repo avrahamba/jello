@@ -84,6 +84,7 @@ export default {
   },
   methods: {
     async doLogin() {
+      debugger
       const cred = this.loginCred;
       if (!cred.email || !cred.password)
         return (this.msg = "Please enter user/password");
