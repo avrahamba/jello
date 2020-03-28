@@ -18,7 +18,7 @@
 		</form>
 
 		<footer>
-			<button @click="doLogin">Login</button>
+			<button class="login-btn" @click="doLogin">Login</button>
 			<p>Don't have an account?  <router-link to="/signup"><a href="#">Sign Up</a></router-link></p>
 		</footer>
 	</div>

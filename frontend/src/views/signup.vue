@@ -19,7 +19,7 @@
 		</form>
 
 		<footer>
-			<button @click="doSignup">Signup</button>
+			<button class="signup-btn" @click="doSignup">Signup</button>
       <p>Do you have an account already?  <router-link to="/login"><a href="#">Login</a></router-link></p>
 		</footer>
 	</div>
@@ -84,22 +84,12 @@ export default {
       this.$store.dispatch({ type: "logout" });
     },
     async doSignup() {
-      debugger
       const cred = this.signupCred;
       if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");
       await this.$store.dispatch({ type: "signup", userCred: cred });
       this.$router.push({ path: "/userPage" });
     },
-    getAllUsers() {
-      this.$store.dispatch({ type: "loadUsers" });
-    },
-    removeUser(userId) {
-      this.$store.dispatch({ type: "removeUser", userId });
-    },
-    updateUser() {
-      this.$store.dispatch({ type: "updateUser", user: this.userToEdit });
-    }
   },
   watch: {
     loggedinUser() {
