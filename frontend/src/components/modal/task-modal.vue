@@ -26,7 +26,7 @@
             </div>
             <div class="detail-area">
               <div class="date-area" v-if="currTask">
-                <div class="icon-container" v-if="taskToSave.dueDate.length">
+                <div class="icon-container" v-if="taskToSave.dueDate">
                   <i class="fas fa-calendar-day"></i>
                   <h3>Due Date</h3>
                 </div>

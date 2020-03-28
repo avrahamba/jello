@@ -1,0 +1,141 @@
+
+
+.login-container{
+
+    img {
+		max-width: 100%;
+	}
+
+	.app {
+	  background-color: #fff;
+	  width: 330px;
+	  height: 570px;
+	  margin: 2em auto;
+	  border-radius: 5px;
+	  padding: 1em;
+	  position: relative;
+	  overflow: hidden;
+	  box-shadow: 0 6px 31px -2px rgba(0, 0, 0, .3);
+	}
+
+	a {
+		text-decoration: none;
+		color: $clr3;
+	}
+
+	p {
+		font-size: 13px;
+		color: #333;
+		line-height: 2;
+	}
+		.light {
+			text-align: right;
+			color: #fff;
+		}
+			.light a {
+				color: #fff;
+			}
+
+	.bg {
+		width: 400px;
+		height: 550px;
+		background: $clr3;
+		position: absolute;
+		top: -5em;
+		left: 0;
+		right: 0;
+		margin: auto;
+		background-image: url("data:image/jpeg;base64,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");
+		background-position: center;
+		background-size: cover;
+		background-repeat: no-repeat;
+		-webkit-clip-path: ellipse(69% 46% at 48% 46%);
+		clip-path: ellipse(69% 46% at 48% 46%);
+	}
+
+	form {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		width: 100%;
+		text-align: center;
+		padding: 2em;
+	}
+
+	header {
+	    width: 220px;
+	    height: 220px;
+	    margin: 1em auto;
+	  }
+
+	form input {
+	    width: 100%;
+	    padding: 13px 15px;
+	    margin: 0.7em auto;
+	    border-radius: 100px;
+	    border: none;
+	    background: rgba(255,255,255,0.3);
+	    font-family: 'Poppins', sans-serif;
+	    outline: none;
+	    color: #fff;
+	}
+	input::placeholder {
+	    color: #fff;
+	    font-size: 13px;
+	}
+
+	.inputs {
+		margin-top: -4em;
+	}
+
+	footer {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		padding: 2em;
+		text-align: center;
+	}
+
+	button {
+		width: 100%;
+	    padding: 13px 15px;
+	    border-radius: 100px;
+	    border: none;
+	    background: $clr3;
+	    font-family: 'Poppins', sans-serif;
+	    outline: none;
+	    color: #fff;
+	}
+	
+	@media screen and (max-width: 640px) {
+			.app {
+				width: 100%;
+				height: 100vh;
+				border-radius: 0;
+			}
+
+			.bg {
+				top: -7em;
+				width: 450px;
+				height: 95vh;
+			}
+			header {
+				width: 90%;
+				height: 250px;
+			}
+			.inputs {
+				margin: 0;
+			}
+			input, button {
+				padding: 18px 15px;
+			}
+		}
+
+
+}
+
+
+
+	

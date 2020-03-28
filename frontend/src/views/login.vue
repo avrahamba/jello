@@ -1,5 +1,29 @@
 <template>
-  <div class="signup">
+  <div class="login-container">
+
+  <div class="app">
+
+		<div class="bg"></div>
+
+		<form>
+			<header>
+				<img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_0re1.svg">
+			</header>
+
+			<div class="inputs">
+				<input type="text" name="" placeholder="Email" v-model="signupCred.email">
+				<input type="password" name="" placeholder="Password" v-model="signupCred.password">
+			</div>
+
+		</form>
+
+		<footer>
+			<button @click="doLogin">Login</button>
+			<p>Don't have an account?  <router-link to="/signup"><a href="#">Sign Up</a></router-link></p>
+		</footer>
+	</div>
+
+<!--
     <h2>{{msg}}</h2>
     <div v-if="loggedinUser">
       <h3>
@@ -28,7 +52,7 @@
         <pre>{{user}}</pre>
         <button @click="removeUser(user._id)">x</button>
       </li>
-    </ul>
+    </ul> -->
   </div>
 </template>
 
