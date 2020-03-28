@@ -153,7 +153,6 @@ export default {
           listId: this.taskListData.id
         })
         .then(res => {
-          console.log("list deleted", res);
         });
     },
     startEditTitle() {

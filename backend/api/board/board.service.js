@@ -18,7 +18,6 @@ const query = async (userId) => {
     }
 
     const boards = await Board.find(criteria);
-    // console.log('boards', boards);
 
     return boards.map(board => {
         const onUser = (userId && board.users.findIndex(user => user._id === userId) !== -1)
@@ -88,16 +87,6 @@ const changeData = async (boardId, data) => {
         case 'moveTask':
             {
                 const { idMoveFrom, idMoveTo, oldIndex, newIndex } = data;
-                // let obj = await Board.find({ _id: boardId, 'taskLists.id': idMoveFrom }, { ['taskLists.$.tasks']: true })
-                // // const taskIdx = obj.taskLists[0].tasks.findIndex(task => task.id === taskId)
-                // const task = obj[0].taskLists[0].tasks[oldIndex]
-                // console.log('task:', task);
-                // await Board.updateOne({ _id: boardId }, { $pull: { 'taskLists.tasks': { id: task.id } } })
-                // // await Board.updateOne({ _id: boardId },{ $set: { taskLists: board.taskLists }})
-
-
-
-
                 const board = await Board.findById(boardId)
                 const oldListIdx = board.taskLists.findIndex(list => list.id === idMoveFrom);
                 const newListIdx = board.taskLists.findIndex(list => list.id === idMoveTo);
@@ -133,7 +122,7 @@ const changeData = async (boardId, data) => {
         case 'saveUsersBoard':
             {
                 const { users } = data;
-                await Board.updateOne({ _id: boardId }, { $set: { 'users':users } })
+                await Board.updateOne({ _id: boardId }, { $set: { 'users': users } })
             }
             break;
         case 'saveTask':

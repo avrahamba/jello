@@ -3,14 +3,13 @@
     <h1>Hello {{user.name}}</h1>
     <div class="add-new-board-container">
       <button class="btn-board btn-shadow" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
-         <window-overlay v-if="isAddNewBoard" :dark="false" @close="isAddNewBoard=false"></window-overlay>
+      <window-overlay v-if="isAddNewBoard" :dark="false" @close="isAddNewBoard=false"></window-overlay>
       <add-board v-if="isAddNewBoard" @addNewBoard="addNewBoard"></add-board>
     </div>
-    <div   v-for="board in user.boards" :key="board._id">
-    <!--  <h3>board id:{{board._id}}</h3>
+    <div v-for="board in user.boards" :key="board._id">
+      <!--  <h3>board id:{{board._id}}</h3>
       <h3>name:{{board.name}}</h3>
       <h3>color:{{board.background}}</h3>-->
-  
     </div>
     <div class="cards-container">
       <board-card
@@ -20,8 +19,8 @@
         :class="'board-card '+board.title"
         :data-image="board.background"
       >
-          <h1 slot="header">{{board.title}}</h1>
-          <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        <h1 slot="header">{{board.title}}</h1>
+        <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </board-card>
     </div>
   </div>
@@ -38,17 +37,14 @@ export default {
     return {
       user: {},
       boards: [],
-      isAddNewBoard:false
+      isAddNewBoard: false
     };
   },
   created() {
-    console.log(this.boards);
     this.user = this.$store.getters.loggedinUser;
-    console.log(this.user);
     this.getBoardsFromStore();
   },
   methods: {
-
     addMembers(board) {
       board.isAddMembers = !board.isAddMembers;
     },

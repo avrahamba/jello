@@ -69,16 +69,7 @@
                 />
                 <button @click="saveDesc">Save</button>
               </div>
-              <!-- <textarea
-                v-if="editDesc"
-                ref="descriptionTextarea"
-                placeholder="Add a more detailed description…"
-                v-model="taskToSave.desc"
-                @blur="saveDesc"
-                cols="65"
-                rows="5"
-                class="description-container"
-              ></textarea>-->
+
               <p class="description-text" @click="startEditDesc" v-else>{{descToView}}</p>
 
               <checklist-list
@@ -160,7 +151,7 @@
               <template v-if="addDateMode">
                 <window-overlay :dark="false" @close="addDateMode = false"></window-overlay>
                 <date-picker
-                  class="mini-modal"
+                  :style="miniModalPosition"
                   v-if="currTask.dueDate.length||addDateMode"
                   v-model="taskToSave.dueDate"
                   @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
