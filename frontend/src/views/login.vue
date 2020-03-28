@@ -1,29 +1,33 @@
 <template>
   <div class="login-container">
+    <div class="login">
+      <div class="bg"></div>
 
-  <div class="login">
+      <form @submit.prevent="doLogin">
+        <header>
+          <img
+            src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_0re1.svg"
+          />
+        </header>
 
-		<div class="bg"></div>
+        <div class="inputs">
+          <input type="text" name placeholder="Email" v-model="signupCred.email" required />
+          <input type="password" name placeholder="Password" v-model="signupCred.password" required />
+        </div>
+        <button class="login-btn">Login</button>
+      </form>
 
-		<form>
-			<header>
-				<img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_0re1.svg">
-			</header>
+      <footer>
+        <p>
+          Don't have an account?
+          <router-link to="/signup">
+            <a href="#">Sign Up</a>
+          </router-link>
+        </p>
+      </footer>
+    </div>
 
-			<div class="inputs">
-				<input type="text" name="" placeholder="Email" v-model="signupCred.email">
-				<input type="password" name="" placeholder="Password" v-model="signupCred.password">
-			</div>
-
-		</form>
-
-		<footer>
-			<button class="login-btn" @click="doLogin">Login</button>
-			<p>Don't have an account?  <router-link to="/signup"><a href="#">Sign Up</a></router-link></p>
-		</footer>
-	</div>
-
-<!--
+    <!--
     <h2>{{msg}}</h2>
     <div v-if="loggedinUser">
       <h3>
@@ -52,59 +56,59 @@
         <pre>{{user}}</pre>
         <button @click="removeUser(user._id)">x</button>
       </li>
-    </ul> -->
+    </ul>-->
   </div>
 </template>
 
 <script>
 export default {
-  name: 'test',
+  name: "test",
   data() {
     return {
       loginCred: {},
       signupCred: {},
-      msg: '',
+      msg: "",
       userToEdit: {}
-    }
+    };
   },
   computed: {
     users() {
-      return this.$store.getters.users
+      return this.$store.getters.users;
     },
     loggedinUser() {
-      return this.$store.getters.loggedinUser
-
+      return this.$store.getters.loggedinUser;
     }
   },
   created() {
-    console.log('this.loggedinUser', this.loggedinUser)
+    console.log("this.loggedinUser", this.loggedinUser);
   },
   methods: {
     async doLogin() {
-      const cred = this.loginCred
-      if(!cred.email || !cred.password) return this.msg = 'Please enter user/password'
-      await this.$store.dispatch({type :'login', userCred:cred})
+      debugger
+      const cred = this.loginCred;
+      if (!cred.email || !cred.password)
+        return (this.msg = "Please enter user/password");
+      await this.$store.dispatch({ type: "login", userCred: cred });
       this.loginCred = {};
-      this.$router.push({path:"/userPage"})
-      
-    },   
+      this.$router.push({ path: "/userPage" });
+    },
     doLogout() {
-      this.$store.dispatch({type: 'logout'})
+      this.$store.dispatch({ type: "logout" });
     },
     getAllUsers() {
-      this.$store.dispatch({type: 'loadUsers'})
+      this.$store.dispatch({ type: "loadUsers" });
     },
     removeUser(userId) {
-      this.$store.dispatch({type: 'removeUser', userId})
+      this.$store.dispatch({ type: "removeUser", userId });
     },
     updateUser() {
-      this.$store.dispatch({type: 'updateUser', user: this.userToEdit})
-    },
-  },
-  watch : {
-    loggedinUser() {
-      this.userToEdit = {...this.loggedinUser}
+      this.$store.dispatch({ type: "updateUser", user: this.userToEdit });
     }
-  }  
-}
+  },
+  watch: {
+    loggedinUser() {
+      this.userToEdit = { ...this.loggedinUser };
+    }
+  }
+};
 </script>

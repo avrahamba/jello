@@ -41,12 +41,13 @@
           resize: none;
           margin-bottom: 3px;
           margin-left: 7px;
+
           
 
           &:focus{
+            box-shadow: inset 0 0 0 2px $clr5;
             
             outline: none;
-            box-shadow: 0 0 3px ;
           }
         }
         .title-info-container{
@@ -112,7 +113,8 @@
           margin:0 0 5px 36px;
           border-radius: 3px;
           &:focus{
-            box-shadow: inset 0 0 0 2px #dfe1e6;
+            box-shadow: inset 0 0 0 2px $clr5;
+
             outline: none;
           }
           
