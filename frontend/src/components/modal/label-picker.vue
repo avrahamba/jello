@@ -1,12 +1,18 @@
 <template>
   <section ref="container" class="mini-modal">
     <h3>Labels</h3>
-    <div v-for="(label,idx) in labels" :key="label.id">
-      <div class="lable" @click="set(label)" :style="{'background-color':label.color}">
+    <ul class="lables-list">
+      <li
+        class="lable"
+        @click="set(label)"
+        :style="{'background-color':label.color}"
+        v-for="(label,idx) in labels"
+        :key="label.id"
+      >
         <div>{{label.name}}</div>
         <div>{{isActiveMap[idx]}}</div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </section>
 </template>
 
@@ -83,7 +89,7 @@ export default {
             labelActive => labelActive.id === label.id
           ) !== -1
       );
-      return res.map(r => (r ? "V" : ""));
+      return res.map(r => (r ? "v" : ""));
     }
   }
 };

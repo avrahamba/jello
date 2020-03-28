@@ -5,11 +5,11 @@
       <div class="calendar-header">
         <div class="row">
           <span @click="setPreviousMonth()">
-          <i class="material-icons fas fa-chevron-left" ></i>
+            <i class="material-icons fas fa-chevron-left"></i>
           </span>
           <div class="calendar-title">{{ monthYearFormatted }}</div>
           <span @click="setNextMonth()">
-          <i class="material-icons fas fa-chevron-right" ></i>
+            <i class="material-icons fas fa-chevron-right"></i>
           </span>
         </div>
         <div class="calendar-days">
@@ -41,27 +41,35 @@
 <script>
 export default {
   data: () => ({
-    date: '',
-    activeDate: '201901',
-    activeDay: '',
+    date: "",
+    activeDate: "201901",
+    activeDay: "",
     active: false,
-    days: ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'],
+    days: [
+      "Lundi",
+      "Mardi",
+      "Mercredi",
+      "Jeudi",
+      "Vendredi",
+      "Samedi",
+      "Dimanche"
+    ],
     monthes: {
-      '01': 'Janvier',
-      '02': 'Février',
-      '03': 'Mars',
-      '04': 'Avril',
-      '05': 'Mai',
-      '06': 'Juin',
-      '07': 'Juillet',
-      '08': 'Août',
-      '09': 'Septembre',
-      '10': 'Octobre',
-      '11': 'Novembre',
-      '12': 'Décembre',
+      "01": "Janvier",
+      "02": "Février",
+      "03": "Mars",
+      "04": "Avril",
+      "05": "Mai",
+      "06": "Juin",
+      "07": "Juillet",
+      "08": "Août",
+      "09": "Septembre",
+      "10": "Octobre",
+      "11": "Novembre",
+      "12": "Décembre"
     },
     calendarDays: [],
-    cellHeight: '',
+    cellHeight: "",
     swipeLeft: false,
     swipeRight: false
   }),
@@ -282,7 +290,7 @@ export default {
     value: String
   },
   created() {
-    debugger
+    debugger;
     this.date = this.value;
   }
 };

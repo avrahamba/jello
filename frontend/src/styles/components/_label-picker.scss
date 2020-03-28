@@ -1,8 +1,24 @@
-.label-picker {
-  .lable {
+
+  .lables-list{
+    list-style: none;
+    margin: 24px 10px;
+    padding: 0;
+    .lable {
       display: flex;
       justify-content: space-between;
-      padding: 10px;
-      margin-bottom: 5px;
+    line-height: 1.27;
+    border-radius: 3px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    min-height: 20px;
+    padding: 6px 12px;
+    position: relative;
+    transition: .2s ease;
+    :hover{
+    cursor: pointer;
+
+    }
   }
-}
+
+  }
+  
