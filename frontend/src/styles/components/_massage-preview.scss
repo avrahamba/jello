@@ -61,10 +61,8 @@
     }
     .edit-msg{
       min-width: 180px;
-      width: max-content;
 
       .activity-input {
-        width: max-content;
        background-color: cornflowerblue;
       }
     }
@@ -72,4 +70,8 @@
 
   }
 
+
+  .comment-box{
+    display: flex;
+  }
 

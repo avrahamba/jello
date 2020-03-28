@@ -5,7 +5,6 @@
     </label>
 
     <div class="input-text" v-if="editTxt">
-        
       <input
         ref="inputText"
         @blur="saveTxt"
@@ -42,7 +41,7 @@ export default {
     this.isDone = this.checkItem.isDone;
   },
   mounted() {
-    this.$refs.inputText.focus();
+    if (this.editTxt) this.$refs.inputText.focus();
   },
   methods: {
     startChangeTxt() {

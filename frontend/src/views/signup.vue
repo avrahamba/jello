@@ -1,28 +1,32 @@
 <template>
   <div class="signup-container">
+    <div class="app">
+      <div class="bg"></div>
 
-	<div class="app">
+      <form>
+        <header>
+          <img
+            src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_0re1.svg"
+          />
+        </header>
 
-		<div class="bg"></div>
+        <div class="inputs">
+          <input type="text" name placeholder="Email" v-model="signupCred.email" />
+          <input type="text" name placeholder="User Name" v-model="signupCred.username" />
+          <input type="password" name placeholder="Password" v-model="signupCred.password" />
+        </div>
+      </form>
 
-		<form>
-			<header>
-				<img src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_0re1.svg">
-			</header>
-
-			<div class="inputs">
-				<input type="text" name="" placeholder="Email" v-model="signupCred.email">
-				<input type="text" name="" placeholder="User Name" v-model="signupCred.username">
-				<input type="password" name="" placeholder="Password" v-model="signupCred.password">
-			</div>
-
-		</form>
-
-		<footer>
-			<button @click="doSignup">Signup</button>
-      <p>Do you have an account already?  <router-link to="/login"><a href="#">Login</a></router-link></p>
-		</footer>
-	</div>
+      <footer>
+        <button @click="doSignup">Signup</button>
+        <p>
+          Do you have an account already?
+          <router-link to="/login">
+            <a href="#">Login</a>
+          </router-link>
+        </p>
+      </footer>
+    </div>
 
     <!-- <h2>{{msg}}</h2>
     <div v-if="loggedinUser">
@@ -53,7 +57,7 @@
         <pre>{{user}}</pre>
         <button @click="removeUser(user._id)">x</button>
       </li>
-    </ul> -->
+    </ul>-->
   </div>
 </template>
 
@@ -84,7 +88,6 @@ export default {
       this.$store.dispatch({ type: "logout" });
     },
     async doSignup() {
-      debugger
       const cred = this.signupCred;
       if (!cred.email || !cred.password || !cred.username)
         return (this.msg = "Please fill up the form");
