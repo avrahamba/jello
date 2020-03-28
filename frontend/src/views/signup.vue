@@ -3,7 +3,7 @@
     <div class="signup">
       <div class="bg"></div>
 
-      <form>
+      <form @submit.prevent="doSignup">
         <header>
           <img
             src="https://42f2671d685f51e10fc6-b9fcecea3e50b3b59bdc28dead054ebc.ssl.cf5.rackcdn.com/illustrations/reading_0re1.svg"
@@ -11,14 +11,14 @@
         </header>
 
         <div class="inputs">
-          <input type="text" name placeholder="Email" v-model="signupCred.email" />
-          <input type="text" name placeholder="User Name" v-model="signupCred.username" />
-          <input type="password" name placeholder="Password" v-model="signupCred.password" />
+          <input type="text" placeholder="Email" v-model="signupCred.email" required />
+          <input type="text" placeholder="User Name" v-model="signupCred.username" required />
+          <input type="password" placeholder="Password" v-model="signupCred.password" required />
         </div>
+        <button class="signup-btn">Signup</button>
       </form>
 
       <footer>
-        <button class="signup-btn" @click="doSignup">Signup</button>
         <p>
           Do you have an account already?
           <router-link to="/login">
@@ -58,11 +58,12 @@ export default {
     },
     async doSignup() {
       const cred = this.signupCred;
-
-      if (this.validateEmail(cred.email) || !cred.password || !cred.username)
+      if (!this.validateEmail(cred.email) || !cred.password || !cred.username) {
         return (this.msg = "Please fill up the form");
-      await this.$store.dispatch({ type: "signup", userCred: cred });
-      this.$router.push({ path: "/userPage" });
+      } else {
+        await this.$store.dispatch({ type: "signup", userCred: cred });
+        this.$router.push({ path: "/userPage" });
+      }
     },
     validateEmail(email) {
       let res = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
