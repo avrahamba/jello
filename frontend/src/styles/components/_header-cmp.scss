@@ -21,7 +21,7 @@ header.header-cmp {
 
   .boards-menu {
     display: grid;
-    grid-template-columns: auto ;
+    grid-template-columns: auto 1rem ;
     column-gap: rem(20px);
     font-weight: 700;
     .boards-btn {
