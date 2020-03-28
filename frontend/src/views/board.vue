@@ -105,8 +105,9 @@ export default {
 
 <style>
 .board{
-   background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
+    
 }
 </style>

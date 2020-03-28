@@ -1,10 +1,13 @@
 nav.nav-board {
   display: flex;
   justify-content: space-between;
-  margin: 0.8rem 0;
-  padding: 0 1rem;
+  margin: 0 0 0.8rem;
+  padding: 1rem;
   color: $clr2;
   z-index: 1;
+  // background-color:  $clr1 ;
+  background-color: rgba($clr1, 0.3);
+
   .btn {
     font-size: 1.4rem;
     font-weight: 400;
