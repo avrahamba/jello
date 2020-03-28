@@ -1,26 +1,40 @@
-.add-board{
-    position: fixed;
-    top: 80px;
-    left: 50%;
-    margin-left: -150px;
-    height: 320px;
-    width: 300px;
-    background-color: #fff;
-    border-radius: 3px;
-    box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
-    z-index:5;
-    h2{
-      text-align: center;
-      padding-bottom: .3rem;
-      width: 93%;
-      border-bottom: 1px solid rgba(9,30,66,.13);
-      margin: 10px auto 10px auto;
-      margin-bottom: 6px;
-    }
-input.color, button.add-img{
+.add-board {
+  position: fixed;
+  top: 80px;
+  left: 50%;
+  margin-left: -150px;
+  height: 370px;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
+  z-index: 5;
+  padding: 10px 25px;
+  display: flex;
+  flex-direction: column;
+  h2 {
+    text-align: center;
+    padding-bottom: 0.3rem;
+    width: 93%;
+    border-bottom: 1px solid rgba(9, 30, 66, 0.13);
+    margin: 10px auto 10px auto;
+    margin-bottom: 6px;
+  }
+  input.color,
+  button.add-img {
     border: none;
-}
-.send{
-
-}
+  }
+  .public-checkbox {
+    display: block;
+  }
+  .color,
+  .img,
+  .public-checkbox {
+    align-self: start;
+    button{
+      all:unset;
+    }
+  }
+  .send {
+  }
 }

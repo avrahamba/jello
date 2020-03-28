@@ -3,15 +3,24 @@
     <h2>New Board</h2>
     <h3>Title</h3>
     <input type="text" placeholder="Title" v-model="prefsObj.title" />
-    <h3>Choose color or Background</h3>
-    <div class="inp">
-
-    <input class="color" type="color" v-model="prefsObj.style.background" />
-    <button class="add-img" @click="openFile">
-        <i class="fas fa-file-image"></i>
-        <input type="file" @change="uploadImg" ref="fileInput" accept="image/*" hidden />
-    </button>
+    <h3>Choose propertis</h3>
+    <div class="color">
+      <input type="checkbox" v-model="isColor">
+      Color:
+      <input class="color" type="color" v-model="prefsObj.style.background" />
     </div>
+    <div class="img">
+      <input type="checkbox" v-model="isImg">
+      Image:
+      <button class="add-img" @click="openFile">
+          <i class="far fa-file-image"></i>
+          <input type="file" @change="uploadImg" ref="fileInput" accept="image/*" hidden />
+      </button>
+    </div>
+    <label class="public-checkbox">
+      <input type="checkbox" v-model="prefsObj.public">
+      <span>Public</span>
+    </label>
     <button class="send" @click="addNewBoard">Add!</button>
 </section>
 </template>
@@ -23,9 +32,10 @@ export default {
         return {
             prefsObj: {
                 title: "Title",
-                style: { background: "#FFFFF" },
+                style: { background: "#ffffff" },
                 public: true
-            }
+            },
+            isColor:true
         };
     },
     methods: {
@@ -54,6 +64,16 @@ export default {
                 });
             });
         }
+    },
+    computed: {
+      isImg: {
+        get(){
+          return !this.isColor
+        },
+        set(value){
+          this.isColor = !value
+        }
+      }
     },
     components: {
         imgService
