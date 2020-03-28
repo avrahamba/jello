@@ -1,14 +1,27 @@
 <template>
   <section class="massage-write">
-    <div class="avatar" v-if="user">
+    <div class="avatar" v-if="!editMsg">
       <avatar-user :key="user.id" :user="user"></avatar-user>
     </div>
     <form @submit.prevent="send">
       <div class="comment-frame">
         <div class="comment-box">
-          <input class="activity-input" v-model="msg.txt" placeholder="Write a comment..." />
-
-          <button>Save</button>
+          <textarea-autosize
+            class="activity-input"
+            placeholder="Write a comment..."
+            ref="myTextarea"
+            :min-height="5"
+            v-model="msg.txt"
+            :max-height="350"
+            @blur.native="send"
+          />
+          <!-- <input
+            class="activity-input"
+            v-model="msg.txt"
+            placeholder="Write a comment..."
+            @blur="send"
+          />-->
+          <!-- <button>Save</button> -->
         </div>
       </div>
     </form>
@@ -45,7 +58,12 @@ export default {
       name: this.user.name,
       avatar: this.user.avatar
     };
-    if (this.editMsg) this.msg.txt = this.editMsg.txt;
+    if (this.editMsg) {
+      this.msg.txt = this.editMsg.txt;
+    }
+  },
+  mounted() {
+    if (this.editMsg) this.$refs.myTextarea.$el.focus();
   },
   components: {
     avatarUser

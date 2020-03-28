@@ -1,11 +1,13 @@
 .massage-preview{
     width: min-content;
     min-width: 180px;
+    max-width: 485px;
     display: flex;
     flex-direction: column;
     .avatar{
         align-self: end;
         margin: 0 0 7px;
+        display: flex;
     
     }
     .time{
@@ -18,7 +20,13 @@
 }
 
   .contain {  
-    box-shadow: 0 2px 8px 3px;    
+    .text{
+      text-align: start;
+      }
+  
+    max-width: 525px;
+    min-width: 200px;
+    width: fit-content;
     color: white;
     padding: 18px 20px;
     line-height: 26px;
@@ -42,6 +50,8 @@
       pointer-events: none;
       border-width: 10px;
       margin-left: -10px;
+
+   
     }
 
     .action{
@@ -51,7 +61,8 @@
       width: min-content;
       min-width: 180px;
     }
-    .edit-msg{
-      background-color: chocolate;
-    }
+
+
   }
+
+

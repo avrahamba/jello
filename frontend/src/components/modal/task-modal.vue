@@ -30,11 +30,11 @@
                   <i class="fas fa-calendar-day"></i>
                   <h3>Due Date</h3>
                 </div>
-                <date-picker
+                <!-- <date-picker
                   v-if="currTask.dueDate.length||addDateMode"
                   v-model="taskToSave.dueDate"
                   @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
-                ></date-picker>
+                ></date-picker>-->
               </div>
 
               <div class="icon-container" v-if="taskToSave.members.length">
@@ -57,8 +57,17 @@
                 <i class="fas fa-align-justify"></i>
                 <h3>Description</h3>
               </div>
-
-              <textarea
+              <textarea-autosize
+                v-if="editDesc"
+                ref="descriptionTextarea"
+                placeholder="Add a more detailed description…"
+                v-model="taskToSave.desc"
+                @blur.native="saveDesc"
+                cols="65"
+                rows="5"
+                class="description-container"
+              />
+              <!-- <textarea
                 v-if="editDesc"
                 ref="descriptionTextarea"
                 placeholder="Add a more detailed description…"
@@ -67,7 +76,7 @@
                 cols="65"
                 rows="5"
                 class="description-container"
-              ></textarea>
+              ></textarea>-->
               <p @click="startEditDesc" v-else>{{descToView}}</p>
 
               <checklist-list
@@ -142,10 +151,19 @@
                 </template>
               </div>
               <div>
-                <button @click="addDateMode=!addDateMode">
+                <button @click="openDueDate" ref="date">
                   <i class="fas fa-calendar-day"></i> Due Date
                 </button>
               </div>
+              <template v-if="addDateMode">
+                <window-overlay :dark="false" @close="addDateMode = false"></window-overlay>
+                <date-picker
+                  class="mini-modal"
+                  v-if="currTask.dueDate.length||addDateMode"
+                  v-model="taskToSave.dueDate"
+                  @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
+                ></date-picker>
+              </template>
               <div>
                 <button @click="openFile">
                   <i class="fas fa-file-image"></i>
@@ -168,6 +186,7 @@
                   <template v-if="isCoverMode">
                     <window-overlay :dark="false" @close="isCoverMode=false"></window-overlay>
                     <cover-picker
+                      class="cover-picker"
                       :style="miniModalPosition"
                       @input="save('setCover',{cover: {url:taskToSave.cover.url}})"
                       v-model="taskToSave.cover"
@@ -206,6 +225,7 @@ import windowOverlay from "../window-overlay.vue";
 import activityChat from "./chat/activity-chat.vue";
 import addChecklist from "./checklist/add-checklist.vue";
 import checklistList from "./checklist/checklist-list.vue";
+import TextareaAutosize from "vue-textarea-autosize";
 import Swal from "sweetalert2";
 export default {
   props: {
@@ -270,6 +290,15 @@ export default {
       ) - 30}px`;
       this.isCoverMode = !this.isCoverMode;
     },
+    openDueDate() {
+      this.miniModalPosition.top = `${Math.floor(
+        this.$refs.date.getClientRects()[0].top
+      ) + 39}px`;
+      this.miniModalPosition.left = `${Math.floor(
+        this.$refs.date.getClientRects()[0].left
+      ) - 30}px`;
+      this.addDateMode = !this.addDateMode;
+    },
     closeModal() {
       this.isOpen = false;
       this.$router.push("/" + this.boardId);
@@ -284,8 +313,7 @@ export default {
     startEditDesc() {
       this.editDesc = true;
       setTimeout(() => {
-        const el = this.$refs.descriptionTextarea;
-        el.focus();
+        this.$refs.descriptionTextarea.$el.focus();
       }, 0);
     },
     saveDesc() {

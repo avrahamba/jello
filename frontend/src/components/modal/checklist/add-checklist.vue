@@ -1,8 +1,8 @@
 <template>
-  <section class="mini-modal">
+  <section class="mini-modal add-checklist">
     <div class="title">
-      <h3>Add Checklist</h3>
-      <button @click="close">&times;</button>
+      <h3>Checklist</h3>
+      <!-- <button @click="close">&times;</button> -->
     </div>
     <form @submit.prevent="add">
       <label>

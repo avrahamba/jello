@@ -6,9 +6,8 @@
     </div>
     <div class="contain">
       <template v-if="!inEdit">
-        <div class="text">
-          <span>{{msg.txt}}</span>
-        </div>
+        <p class="text">{{msg.txt}}</p>
+
         <div v-if="isUser" class="action">
           <a @click="inEdit = true" href="#">
             <i class="fas fa-edit"></i>
