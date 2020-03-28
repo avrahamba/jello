@@ -9,7 +9,7 @@ img {
 }
 
 html {
-  font-family: Lato;
+  font-family: $font;
   color: $clr2;
   text-align: center;
   line-height: 1.9;
@@ -18,7 +18,7 @@ html {
 body {
   margin: 0;
   color: $clr2;
-  font-family: Arial, sans-serif;
+  font-family: $font , sans-serif;
   display: flex;
   flex-direction: column;
   background-color: $clr1;
