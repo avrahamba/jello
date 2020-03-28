@@ -15,13 +15,13 @@
             :max-height="350"
             @blur.native="send"
           />
+          <button v-if="!editMsg">Save</button>
           <!-- <input
             class="activity-input"
             v-model="msg.txt"
             placeholder="Write a comment..."
             @blur="send"
           />-->
-          <!-- <button>Save</button> -->
         </div>
       </div>
     </form>

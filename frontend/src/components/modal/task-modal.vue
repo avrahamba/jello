@@ -57,16 +57,18 @@
                 <i class="fas fa-align-justify"></i>
                 <h3>Description</h3>
               </div>
-              <textarea-autosize
-                v-if="editDesc"
-                ref="descriptionTextarea"
-                placeholder="Add a more detailed description…"
-                v-model="taskToSave.desc"
-                @blur.native="saveDesc"
-                cols="65"
-                rows="5"
-                class="description-container"
-              />
+              <div class="desc-container" v-if="editDesc">
+                <textarea-autosize
+                  ref="descriptionTextarea"
+                  placeholder="Add a more detailed description…"
+                  v-model="taskToSave.desc"
+                  @blur.native="saveDesc"
+                  cols="65"
+                  rows="5"
+                  class="description-container"
+                />
+                <button @click="saveDesc">Save</button>
+              </div>
               <!-- <textarea
                 v-if="editDesc"
                 ref="descriptionTextarea"
