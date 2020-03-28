@@ -1,41 +1,51 @@
 <template>
-  <div class="calendar">
-    <input type="text" v-model="date" @focus="focus()" @blur="blur()" placeholder="Pick a date" />
-    <div class="calendar-layout" v-if="active" @mousedown.prevent>
-      <div class="calendar-header">
-        <div class="row">
-          <span @click="setPreviousMonth()">
-            <i class="material-icons fas fa-chevron-left"></i>
-          </span>
-          <div class="calendar-title">{{ monthYearFormatted }}</div>
-          <span @click="setNextMonth()">
-            <i class="material-icons fas fa-chevron-right"></i>
-          </span>
+  <section class="mini-modal">
+    <h3>Due Date</h3>
+    <div class="calendar">
+      <input
+        class="input-date"
+        type="text"
+        v-model="date"
+        @focus="focus()"
+        @blur="blur()"
+        placeholder="Pick a date"
+      />
+      <div class="calendar-layout" v-if="active" @mousedown.prevent>
+        <div class="calendar-header">
+          <div class="row">
+            <span @click="setPreviousMonth()">
+              <i class="material-icons fas fa-chevron-left"></i>
+            </span>
+            <div class="calendar-title">{{ monthYearFormatted }}</div>
+            <span @click="setNextMonth()">
+              <i class="material-icons fas fa-chevron-right"></i>
+            </span>
+          </div>
+          <div class="calendar-days">
+            <div class="day" v-for="day in days" :key="day">{{ day | trimThreeChar }}</div>
+          </div>
         </div>
-        <div class="calendar-days">
-          <div class="day" v-for="day in days" :key="day">{{ day | trimThreeChar }}</div>
-        </div>
-      </div>
-      <div class="calendar-body">
-        <div
-          class="calendar-row"
-          v-bind:class="{ 'swipe-left': swipeLeft, 'swipe-right': swipeRight }"
-          v-for="(row, index) in calendarDays"
-          :key="index"
-        >
+        <div class="calendar-body">
           <div
-            class="calendar-day"
-            :class="{disabled: isDisabled(cell), selected: isSelected(cell)}"
-            v-bind:style="{height: cellHeightUnit}"
-            v-for="(cell, index) in row"
+            class="calendar-row"
+            v-bind:class="{ 'swipe-left': swipeLeft, 'swipe-right': swipeRight }"
+            v-for="(row, index) in calendarDays"
             :key="index"
-            @click="selectDay(cell)"
-          >{{ cell.day }}</div>
+          >
+            <div
+              class="calendar-day"
+              :class="{disabled: isDisabled(cell), selected: isSelected(cell)}"
+              v-bind:style="{height: cellHeightUnit}"
+              v-for="(cell, index) in row"
+              :key="index"
+              @click="selectDay(cell)"
+            >{{ cell.day }}</div>
+          </div>
         </div>
+        <div class="calendar-footer"></div>
       </div>
-      <div class="calendar-footer"></div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -45,20 +55,28 @@ export default {
     activeDate: "201901",
     activeDay: "",
     active: false,
-    days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    days: [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday"
+    ],
     monthes: {
-      '01': 'January',
-      '02': 'February',
-      '03': 'March',
-      '04': 'April',
-      '05': 'May',
-      '06': 'June',
-      '07': 'July',
-      '08': 'August',
-      '09': 'September',
-      '10': 'October',
-      '11': 'November',
-      '12': 'December',
+      "01": "January",
+      "02": "February",
+      "03": "March",
+      "04": "April",
+      "05": "May",
+      "06": "June",
+      "07": "July",
+      "08": "August",
+      "09": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December"
     },
     calendarDays: [],
     cellHeight: "",

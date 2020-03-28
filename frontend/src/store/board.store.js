@@ -164,9 +164,7 @@ export const boardStore = {
                 return boards;
             }
             catch{
-                console.log('im in catch of getboards');
 
-                // context.commit('setBoard', boardCopy);
             }
         },
         //!work

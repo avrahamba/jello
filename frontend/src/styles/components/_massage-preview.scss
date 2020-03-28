@@ -8,6 +8,9 @@
         align-self: end;
         margin: 0 0 7px;
         display: flex;
+        .avatar-user{
+          margin: 0 12px 4px 0px;;
+        }
     
     }
     .time{
@@ -15,7 +18,9 @@
         font: 12px $font;
         color: black;
         align-self: center;
-    
+    }
+    .name{
+      font-weight: 600;
     }
 }
 
@@ -29,7 +34,7 @@
     max-width: 525px;
     min-width: 200px;
     width: fit-content;
-    color: white;
+    color: $clr2;
     padding: 18px 20px;
     line-height: 26px;
     font-size: 16px;
@@ -40,21 +45,7 @@
     position: relative;
 
     
-    &:after {
-      bottom: 98%;
-      left: 10%;
-      border: solid transparent;
-      content: " ";
-      border-bottom-color:$clr3;
-      height: 0;
-      width: 0;
-      position: absolute;
-      pointer-events: none;
-      border-width: 10px;
-      margin-left: -10px;
 
-   
-    }
 
     .action{
         *{margin-right: 5px;}

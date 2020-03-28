@@ -49,7 +49,6 @@ export default {
         },
         async loadUsers(context) {
             const users = await UserService.getUsers();
-            console.log("users", users)
             context.commit({ type: 'setUsers', users })
             return users;
         },

@@ -48,7 +48,6 @@ export default {
       this.editTitleMode = true;
       this.titleToChange = this.boardData.title;
       setTimeout(() => {
-        console.log('object');
         this.$refs.inputTitle.focus();
       }, 0);
     },
@@ -65,7 +64,6 @@ export default {
     },
     updateBoardUsers(users) {
       this.$store.dispatch({ type: 'saveUsersBoard', users }).then(res => {
-        console.log(res);
       });
     },
     getUsersFromStore() {
