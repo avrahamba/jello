@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="label-picker">
+  <section ref="container" class="mini-modal">
     <h3>New Board</h3>
     <h4>Title</h4>
     <input type="text" placeholder="title" v-model="prefsObj.title" />
