@@ -18,7 +18,7 @@
         color: $clr2;
         font-size: rem(20px);
         font-weight: 700;
-        font-family: Lato;
+        font-family: $font;
         line-height: rem(38px);
 
       }
@@ -26,7 +26,7 @@
         color: $clr2;
         font-size: rem(20px);
         font-weight: 700;
-        font-family: Lato;
+        font-family: $font;
         line-height: rem(38px);
         margin-left: 3px;
         height: 38px;
@@ -53,7 +53,7 @@
         width: rem(45px);
       }
       .text {
-        font-family: Lato;
+        font-family: $font;
         line-height: 30px;
         padding-left: 3px;
         cursor: pointer;
@@ -67,7 +67,7 @@
         border: 2px $clr5 solid;
         height: 30px;
         input {
-          font-family: Lato;
+          font-family: $font;
           color: $clr2;
           line-height: 30px;
           width: 100%;
@@ -91,7 +91,7 @@
       }
       .x {
         font-size: 28px;
-        font-family: Lato;
+        font-family: $font;
         line-height: 30px;
         padding-left: 3px;
         margin-top: -3px;
@@ -109,7 +109,7 @@
       cursor: pointer;
       font-size: 1rem;
       color: lighten($color: $clr2, $amount: 20);
-      font-family: Lato;
+      font-family: $font;
       display: flex;
       justify-content: space-between;
       padding-top: -1px;
@@ -131,7 +131,7 @@
       input {
         padding-left: 6px;
         flex-grow: 1;
-        font-family: Lato;
+        font-family: $font;
         font-size: 1rem;
         display: flex;
         color: $clr2;

@@ -27,7 +27,7 @@
       transition: background-color 150ms;
       border-radius: 5px;
       font-weight: 600;
-      font-family: Lato;
+      font-family: $font;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -53,7 +53,7 @@
       max-width: 100%;
       border-radius: 5px;
       font-weight: 600;
-      font-family: Lato;
+      font-family: $font;
       &:focus {
         outline: none;
       }
@@ -73,7 +73,7 @@
       top: 100%;
       background-color: $clr4;
       font-size: rem(20px);
-      font-family: Lato;
+      font-family: $font;
       button:hover {
         border-radius: unset;
         background-color: lighten($color: $clr4, $amount: 10);
