@@ -49,3 +49,15 @@
       margin-bottom: 6px;
     }
   }
+
+  .flex{
+    display: flex;
+  }
+.dir-col{
+  flex-direction: column;
+}
+
+  .align-center{
+  align-self: center;
+  }
+  
