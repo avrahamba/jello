@@ -1,7 +1,7 @@
 <template>
   <div class="login-container">
 
-  <div class="app">
+  <div class="login">
 
 		<div class="bg"></div>
 

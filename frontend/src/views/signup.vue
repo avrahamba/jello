@@ -1,7 +1,7 @@
 <template>
   <div class="signup-container">
 
-	<div class="app">
+	<div class="signup">
 
 		<div class="bg"></div>
 

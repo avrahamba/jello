@@ -1,6 +1,6 @@
 <template>
   <div class="user-page">
-    <h1>User Page</h1>
+    <h1>Hello {{user.name}}</h1>
     <div class="add-new-board-container">
       <button class="btn-board btn-shadow" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
          <window-overlay v-if="isAddNewBoard" :dark="false" @close="isAddNewBoard=false"></window-overlay>
@@ -36,7 +36,7 @@ export default {
   name: "user-page",
   data() {
     return {
-      user: this.loggedinUser,
+      user: {},
       boards: [],
       isAddNewBoard:false
     };
@@ -44,7 +44,7 @@ export default {
   created() {
     console.log(this.boards);
     this.user = this.$store.getters.loggedinUser;
-    console.log(this.loggedinUser);
+    console.log(this.user);
     this.getBoardsFromStore();
   },
   methods: {
