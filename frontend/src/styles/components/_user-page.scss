@@ -1,53 +1,53 @@
-.board-card{
-    display: inline-block;
+.board-card {
+  display: inline-block;
 }
-.add-member-btn{
-    color: red;
+.add-member-btn {
+  color: red;
 }
-.select-user{
-    color: red;
-    top: 5px;
-    position: absolute;
+.select-user {
+  color: red;
+  top: 5px;
+  position: absolute;
 }
-.add-new-board-container{
-    display: flex;
-    justify-content: center;
-    .btn-board {
-        font-size: 18px;
-        border: none;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        border-radius: 12px;
-        color: #fff;
-        position: relative;
-        cursor: pointer;
-        box-shadow: 0 5px 8px rgba(0, 0, 0, .4);
-        
-        &:focus, &:focus::after {
-           outline: none;
-           }
-        
-        &:active {
-           transform: translateY(2px);
-           }
-      }
-      
+.add-new-board-container {
+  display: flex;
+  justify-content: center;
+  .btn-board {
+    font-size: 18px;
+    border: none;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    color: #fff;
+    position: relative;
+    cursor: pointer;
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.4);
+
+    &:focus,
+    &:focus::after {
+      outline: none;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
+  }
 }
-
-
-
-
 
 /*  BUTTON LIGHT SHAD0W  */
 .btn-shadow {
   padding: 15px 75px;
   background-image: linear-gradient(to right, $clr3, $clr5);
-  transition: .2s ease;
-  
+  transition: 0.2s ease;
+
   &:hover {
     transform: translateY(-2px) scaleX(1.05) scaleY(1.05);
-    box-shadow: 0 0 10px rgba($clr5, .4);
+    box-shadow: 0 0 10px rgba($clr5, 0.4);
+  }
+  .cards-container {
+    padding: 40px 80px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
-
-
