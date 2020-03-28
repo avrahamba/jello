@@ -29,12 +29,10 @@
                 <div class="icon-container" v-if="taskToSave.dueDate">
                   <i class="fas fa-calendar-day"></i>
                   <h3>Due Date</h3>
+                  <div class="due-date-picker">
+                    <!-- {{taskToSave.dueDate}} -->
+                  </div>
                 </div>
-                <!-- <date-picker
-                  v-if="currTask.dueDate.length||addDateMode"
-                  v-model="taskToSave.dueDate"
-                  @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
-                ></date-picker>-->
               </div>
 
               <div class="icon-container" v-if="taskToSave.members.length">
