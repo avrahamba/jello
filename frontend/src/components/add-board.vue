@@ -29,7 +29,6 @@ export default {
   created() {},
   methods: {
     addNewBoard() {
-      debugger;
       this.$emit("addNewBoard", this.prefsObj);
     },
     addImageToPrefObj(imageToSave){
@@ -39,7 +38,6 @@ this.prefsObj.style.background = imageToSave.url;
       this.$refs.fileInput.click();
     },
     uploadImg(event) {
-      debugger;
       const images = event.target.files;
       images.forEach(image => {
         imgService.uploadImg(image).then(res => {
@@ -51,7 +49,6 @@ this.prefsObj.style.background = imageToSave.url;
             url: res.url,
             fileName: res.original_filename
           };
-          debugger;
           this.addImageToPrefObj(imageToSave)
         });
       });

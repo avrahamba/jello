@@ -1,15 +1,17 @@
 <template>
   <div class="user-page">
     <h1>User Page</h1>
-    <div  class="add-new-board-container" v-for="board in user.boards" :key="board._id">
+    <div class="add-new-board-container">
+      <button class="btn-board btn-shadow" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
+         <window-overlay v-if="isAddNewBoard" :dark="false" @close="isAddNewBoard=false"></window-overlay>
+      <add-board v-if="isAddNewBoard" @addNewBoard="addNewBoard"></add-board>
+    </div>
+    <div   v-for="board in user.boards" :key="board._id">
     <!--  <h3>board id:{{board._id}}</h3>
       <h3>name:{{board.name}}</h3>
       <h3>color:{{board.background}}</h3>-->
-      <window-overlay v-if="isAddNewBoard" :dark="false" @close="isAddNewBoard=false"></window-overlay>
-      <add-board v-if="isAddNewBoard" @addNewBoard="addNewBoard"></add-board>
-      <button class="btn btn-shadow" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
+  
     </div>
-    <!-- add modal for new board - create button will fire an action to board store (addBoard(user)) -->
     <div class="cards-container">
       <board-card
         v-for="board in boards"
@@ -20,19 +22,6 @@
       >
           <h1 slot="header">{{board.title}}</h1>
           <p slot="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-         <!-- <add-members
-            slot="add-members"
-            v-if="board.isAddMembers"
-            @filter="filter"
-            @updateBoard="updateBoard"
-            :users="users"
-            :currBoard="board"
-          ></add-members>
-          <button
-            class="add-member-btn"
-            slot="add-member-btn"
-            @click="addMembers(board)"
-          >Add Memebers</button>-->
       </board-card>
     </div>
   </div>
@@ -72,7 +61,6 @@ export default {
         .then(boards => (this.boards = boards));
     },
     addNewBoard(prefs) {
-      debugger
       this.$store.dispatch({
         type: "addBoard",
         user: this.$store.getters.loggedinUser,

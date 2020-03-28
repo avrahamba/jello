@@ -282,7 +282,6 @@ export default {
     value: String
   },
   created() {
-    debugger
     this.date = this.value;
   }
 };
