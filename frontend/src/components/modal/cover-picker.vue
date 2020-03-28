@@ -1,5 +1,5 @@
 <template>
-  <section ref="container" class="cover-picker">
+  <section ref="container" class="mini-modal">
     <h3>covers</h3>
     <div class="covers" v-if="covers">
       <div class="cover" v-for="(cover,idx) in covers" :key="cover.url" @click="set(cover)">

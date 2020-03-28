@@ -1,38 +1,36 @@
 <template>
-<section class="add-checklist">
+  <section class="mini-modal add-checklist">
     <div class="title">
-        <h3>Add Checklist</h3>
-        <button @click="close">&times;</button>
+      <h3>Checklist</h3>
+      <!-- <button @click="close">&times;</button> -->
     </div>
     <form @submit.prevent="add">
-
-    <label>
+      <label>
         <div>Title</div>
-        <input type="text" v-model="title">
-    </label>
-    <button>Add</button>
+        <input type="text" v-model="title" />
+      </label>
+      <button>Add</button>
     </form>
-</section>
+  </section>
 </template>
 
 <script>
 export default {
-data() {
+  data() {
     return {
-        title:''
-    }
-},
-methods: {
-    close(){
-        this.$emit('close')
+      title: ""
+    };
+  },
+  methods: {
+    close() {
+      this.$emit("close");
     },
-    add(){
-        this.$emit('add',this.title)
+    add() {
+      this.$emit("add", this.title);
     }
-},
-}
+  }
+};
 </script>
 
 <style>
-
 </style>

@@ -30,11 +30,11 @@
                   <i class="fas fa-calendar-day"></i>
                   <h3>Due Date</h3>
                 </div>
-                <date-picker
+                <!-- <date-picker
                   v-if="currTask.dueDate.length||addDateMode"
                   v-model="taskToSave.dueDate"
                   @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
-                ></date-picker>
+                ></date-picker>-->
               </div>
 
               <div class="icon-container" v-if="taskToSave.members.length">
@@ -57,8 +57,17 @@
                 <i class="fas fa-align-justify"></i>
                 <h3>Description</h3>
               </div>
-
-              <textarea
+              <textarea-autosize
+                v-if="editDesc"
+                ref="descriptionTextarea"
+                placeholder="Add a more detailed description…"
+                v-model="taskToSave.desc"
+                @blur.native="saveDesc"
+                cols="65"
+                rows="5"
+                class="description-container"
+              />
+              <!-- <textarea
                 v-if="editDesc"
                 ref="descriptionTextarea"
                 placeholder="Add a more detailed description…"
@@ -67,8 +76,8 @@
                 cols="65"
                 rows="5"
                 class="description-container"
-              ></textarea>
-              <p @click="startEditDesc" v-else>{{descToView}}</p>
+              ></textarea>-->
+              <p class="description-text" @click="startEditDesc" v-else>{{descToView}}</p>
 
               <checklist-list
                 v-if="taskToSave.checklists"
@@ -88,14 +97,6 @@
                 @input="save('attachments',{attachments: taskToSave.attachments})"
               ></file-preview>
 
-              <window-overlay v-if="addMemberMode" :dark="false" @close="addMemberMode=false"></window-overlay>
-              <add-member-to-task
-                v-if="addMemberMode"
-                v-model="taskToSave.members"
-                :board="board"
-                @input="save('addMember',{users: taskToSave.members})"
-              ></add-member-to-task>
-
               <div class="icon-container">
                 <i class="far fa-comment-dots"></i>
                 <h3>Activity</h3>
@@ -111,36 +112,58 @@
               </div>
               <h3>ADD TO CARD</h3>
               <div class="add-members-container">
-                <button @click="addMemberMode =! addMemberMode">
+                <button @click="openMembers" ref="members">
                   <i class="fas fa-users"></i> Members
                 </button>
               </div>
+              <window-overlay v-if="addMemberMode" :dark="false" @close="addMemberMode=false"></window-overlay>
+              <add-member-to-task
+                :style="miniModalPosition"
+                v-if="addMemberMode"
+                v-model="taskToSave.members"
+                :board="board"
+                @input="save('addMember',{users: taskToSave.members})"
+              ></add-member-to-task>
               <div class="edit-labels-container">
-                <button @click="addLabelMode =! addLabelMode">
+                <button @click="openLabels" ref="labels">
                   <i class="fas fa-tags"></i> Labels
                 </button>
                 <template v-if="addLabelMode">
                   <window-overlay :dark="false" @close="addLabelMode=false"></window-overlay>
                   <label-picker
+                    :style="miniModalPosition"
                     @input="save('setLabel',{labels: taskToSave.labels})"
                     v-model="taskToSave.labels"
                   ></label-picker>
                 </template>
               </div>
               <div class="add-chacklist-container">
-                <button @click="addCheckListMode = !addCheckListMode">
+                <button @click="openCheckList" ref="checkList">
                   <i class="fas fa-tasks"></i> Checklist
                 </button>
                 <template v-if="addCheckListMode">
                   <window-overlay :dark="false" @close="addCheckListMode = false"></window-overlay>
-                  <add-checklist @close="addCheckListMode = false" @add="addChecklist"></add-checklist>
+                  <add-checklist
+                    :style="miniModalPosition"
+                    @close="addCheckListMode = false"
+                    @add="addChecklist"
+                  ></add-checklist>
                 </template>
               </div>
               <div>
-                <button @click="addDateMode=!addDateMode">
+                <button @click="openDueDate" ref="date">
                   <i class="fas fa-calendar-day"></i> Due Date
                 </button>
               </div>
+              <template v-if="addDateMode">
+                <window-overlay :dark="false" @close="addDateMode = false"></window-overlay>
+                <date-picker
+                  class="mini-modal"
+                  v-if="currTask.dueDate.length||addDateMode"
+                  v-model="taskToSave.dueDate"
+                  @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
+                ></date-picker>
+              </template>
               <div>
                 <button @click="openFile">
                   <i class="fas fa-file-image"></i>
@@ -157,12 +180,14 @@
               </div>
               <div>
                 <div class="edit-cover-container">
-                  <button @click="isCoverMode = !isCoverMode">
+                  <button @click="openCover" ref="cover">
                     <i class="fas fa-portrait"></i> Cover
                   </button>
                   <template v-if="isCoverMode">
                     <window-overlay :dark="false" @close="isCoverMode=false"></window-overlay>
                     <cover-picker
+                      class="cover-picker"
+                      :style="miniModalPosition"
                       @input="save('setCover',{cover: {url:taskToSave.cover.url}})"
                       v-model="taskToSave.cover"
                       :covers="taskToSave.attachments"
@@ -200,6 +225,7 @@ import windowOverlay from "../window-overlay.vue";
 import activityChat from "./chat/activity-chat.vue";
 import addChecklist from "./checklist/add-checklist.vue";
 import checklistList from "./checklist/checklist-list.vue";
+import TextareaAutosize from "vue-textarea-autosize";
 import Swal from "sweetalert2";
 export default {
   props: {
@@ -216,7 +242,8 @@ export default {
       addDateMode: false,
       addCheckListMode: false,
       isCoverMode: false,
-      board: {}
+      board: {},
+      miniModalPosition: {}
     };
   },
 
@@ -226,6 +253,52 @@ export default {
     this.board = this.$store.getters.board;
   },
   methods: {
+    openLabels() {
+      this.miniModalPosition.top = `${Math.floor(
+        this.$refs.labels.getClientRects()[0].top
+      ) + 39}px`;
+      this.miniModalPosition.left = `${Math.floor(
+        this.$refs.labels.getClientRects()[0].left
+      ) - 30}px`;
+
+      this.addLabelMode = !this.addLabelMode;
+    },
+    openMembers() {
+      this.miniModalPosition.top = `${Math.floor(
+        this.$refs.members.getClientRects()[0].top
+      ) + 39}px`;
+      this.miniModalPosition.left = `${Math.floor(
+        this.$refs.members.getClientRects()[0].left
+      ) - 30}px`;
+      this.addMemberMode = !this.addMemberMode;
+    },
+    openCheckList() {
+      this.miniModalPosition.top = `${Math.floor(
+        this.$refs.checkList.getClientRects()[0].top
+      ) + 39}px`;
+      this.miniModalPosition.left = `${Math.floor(
+        this.$refs.checkList.getClientRects()[0].left
+      ) - 30}px`;
+      this.addCheckListMode = !this.addCheckListMode;
+    },
+    openCover() {
+      this.miniModalPosition.top = `${Math.floor(
+        this.$refs.cover.getClientRects()[0].top
+      ) + 39}px`;
+      this.miniModalPosition.left = `${Math.floor(
+        this.$refs.cover.getClientRects()[0].left
+      ) - 30}px`;
+      this.isCoverMode = !this.isCoverMode;
+    },
+    openDueDate() {
+      this.miniModalPosition.top = `${Math.floor(
+        this.$refs.date.getClientRects()[0].top
+      ) + 39}px`;
+      this.miniModalPosition.left = `${Math.floor(
+        this.$refs.date.getClientRects()[0].left
+      ) - 30}px`;
+      this.addDateMode = !this.addDateMode;
+    },
     closeModal() {
       this.isOpen = false;
       this.$router.push("/" + this.boardId);
@@ -240,8 +313,7 @@ export default {
     startEditDesc() {
       this.editDesc = true;
       setTimeout(() => {
-        const el = this.$refs.descriptionTextarea;
-        el.focus();
+        this.$refs.descriptionTextarea.$el.focus();
       }, 0);
     },
     saveDesc() {
@@ -280,13 +352,13 @@ export default {
     },
     join() {
       const loggedinUser = this.$store.getters.loggedinUser;
-      const users =JSON.parse(JSON.stringify(this.taskToSave.members))
-       users.push({
+      const users = JSON.parse(JSON.stringify(this.taskToSave.members));
+      users.push({
         _id: loggedinUser._id,
         name: loggedinUser.name,
         avatar: loggedinUser.avatar
       });
-      
+
       this.save("addMember", { users });
     },
     saveMsgs(msgs) {

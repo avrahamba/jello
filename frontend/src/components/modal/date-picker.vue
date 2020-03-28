@@ -5,11 +5,11 @@
       <div class="calendar-header">
         <div class="row">
           <span @click="setPreviousMonth()">
-          <i class="material-icons fas fa-chevron-left" ></i>
+            <i class="material-icons fas fa-chevron-left"></i>
           </span>
           <div class="calendar-title">{{ monthYearFormatted }}</div>
           <span @click="setNextMonth()">
-          <i class="material-icons fas fa-chevron-right" ></i>
+            <i class="material-icons fas fa-chevron-right"></i>
           </span>
         </div>
         <div class="calendar-days">
@@ -41,9 +41,9 @@
 <script>
 export default {
   data: () => ({
-    date: '',
-    activeDate: '201901',
-    activeDay: '',
+    date: "",
+    activeDate: "201901",
+    activeDay: "",
     active: false,
     days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
     monthes: {
@@ -61,7 +61,7 @@ export default {
       '12': 'December',
     },
     calendarDays: [],
-    cellHeight: '',
+    cellHeight: "",
     swipeLeft: false,
     swipeRight: false
   }),

@@ -16,10 +16,7 @@ const board = new Schema(
             tasks: [{
                 id: String,
                 title: String,
-                dueDate: [
-                    String,
-                    String
-                ],
+                dueDate: String,
                 desc: String,
                 labels: [
                     {

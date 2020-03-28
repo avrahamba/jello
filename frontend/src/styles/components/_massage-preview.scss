@@ -1,14 +1,17 @@
 .massage-preview{
-    width: min-content;
+    width: max-content;
     min-width: 180px;
+    max-width: 485px;
     display: flex;
     flex-direction: column;
     .avatar{
         align-self: end;
-        margin: 0 0 15px;
+        margin: 0 0 7px;
+        display: flex;
     
     }
     .time{
+      margin-left: 5px;
         font: 12px "Lato", Arial, sans-serif;
         color: black;
         align-self: center;
@@ -17,33 +20,56 @@
 }
 
   .contain {  
-    box-shadow: 0 2px 8px 3px;    
+    .text{
+      margin: 0;
+    text-align: start;
+    overflow-wrap: break-word;
+      }
+  
+    max-width: 525px;
+    min-width: 200px;
+    width: fit-content;
     color: white;
     padding: 18px 20px;
     line-height: 26px;
     font-size: 16px;
     border-radius: 7px;
     margin-bottom: 14px;
-    background: chartreuse;
+    background: $clr3;
     // width: 100%;
     position: relative;
 
     
-    :after {
+    &:after {
       bottom: 98%;
       left: 10%;
       border: solid transparent;
       content: " ";
-      border-bottom-color: chartreuse;
+      border-bottom-color:$clr3;
       height: 0;
       width: 0;
       position: absolute;
       pointer-events: none;
       border-width: 10px;
       margin-left: -10px;
+
+   
     }
 
     .action{
-        *{margin-left: 5px;}
+        *{margin-right: 5px;}
     }
+    .edit-msg{
+      min-width: 180px;
+      width: max-content;
+
+      .activity-input {
+        width: max-content;
+       background-color: cornflowerblue;
+      }
+    }
+
+
   }
+
+

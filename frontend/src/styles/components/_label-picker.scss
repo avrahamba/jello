@@ -1,16 +1,24 @@
-.label-picker {
-  position: fixed;
-  top: 10px;
-  height: 275px;
-  width: 292px;
-  background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
-  z-index:5;
-  .lable {
+
+  .lables-list{
+    list-style: none;
+    margin: 24px 10px;
+    padding: 0;
+    .lable {
       display: flex;
       justify-content: space-between;
-      padding: 10px;
-      margin-bottom: 5px;
+    line-height: 1.27;
+    border-radius: 3px;
+    font-weight: 700;
+    margin: 0 0 4px;
+    min-height: 20px;
+    padding: 6px 12px;
+    position: relative;
+    transition: .2s ease;
+    :hover{
+    cursor: pointer;
+
+    }
   }
-}
+
+  }
+  

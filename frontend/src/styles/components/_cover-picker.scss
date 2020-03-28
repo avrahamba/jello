@@ -1,23 +1,24 @@
 .cover-picker {
-  position: fixed;
-  bottom: 10px;
-  height: 275px;
-  width: 292px;
-  background-color: #fff;
-  border-radius: 3px;
-  box-shadow: 0 8px 16px -4px rgba(9, 30, 66, 0.25), 0 0 0 1px rgba(9, 30, 66, 0.08);
-  z-index:5;
+
   .covers {
-      padding: 10px;
-      margin-bottom: 5px;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-between;
       
       .cover {
-        width: 50px;
-        height: 50px;
+        // flex-grow: 1;
+        // flex-basis: 125px;
+        // max-width: 50px;
+        // margin: 5px;
+
+        image{
+          height: 100%;
+          width: 100%;
+        }
       }
+
+      
       
   }
 }

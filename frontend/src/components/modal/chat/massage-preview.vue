@@ -1,18 +1,14 @@
 <template>
   <section class="massage-preview">
     <div class="avatar">
-      <span class="name">{{msg.user.name}}</span>
-      <img v-if="msg.user.avatar && msg.user.avatar.includes('.com')" :src="msg.user.avatar" />
-
-      <span v-else>{{msg.user.name|short-name}}</span>
+      <span class="name">{{msg.user.name}} :</span>
       <span class="time">{{msg.createdAt| date}}</span>
     </div>
     <div class="contain">
       <template v-if="!inEdit">
-        <div class="text">
-          <span>{{msg.txt}}</span>
-        </div>
-        <div v-if="isUser" class="action">
+        <p class="text" @click="inEdit = true">{{msg.txt}}</p>
+
+        <!-- <div v-if="isUser" class="action">
           <a @click="inEdit = true" href="#">
             <i class="fas fa-edit"></i>
           </a>
@@ -20,9 +16,9 @@
           <a @click="remove" href="#">
             <i class="fas fa-trash-alt"></i>
           </a>
-        </div>
+        </div>-->
       </template>
-      <massage-write v-else :editMsg="msg" :user="user" @new-msg="saveMsg"></massage-write>
+      <massage-write class="edit-msg" v-else :editMsg="msg" :user="user" @new-msg="saveMsg"></massage-write>
     </div>
   </section>
 </template>

@@ -1,64 +1,74 @@
 <template>
-<section class="massage-write" :class="active">
-    <div class="avatar">
-        <img v-if="user.avatar&&user.avatar.includes('.com')" :src="user.avatar" />
-        <span v-else>{{user.name|short-name}}</span>
+  <section class="massage-write">
+    <div class="avatar" v-if="!editMsg">
+      <avatar-user :key="user.id" :user="user"></avatar-user>
     </div>
     <form @submit.prevent="send">
-        <div class="comment-frame">
-            <div class="comment-box">
-                <textarea class="activity-input" v-model="msg.txt" @focus="startWrite" @blur="blur" :style="!isActive?{cursor: 'pointer'}:''" placeholder="Write a comment..."></textarea>
-                <button v-if="isActive" class="btn" :style="!msg.txt?{cursor: 'not-allowed'}:''">Save</button>
-            </div>
+      <div class="comment-frame">
+        <div class="comment-box">
+          <textarea-autosize
+            class="activity-input"
+            placeholder="Write a comment..."
+            ref="myTextarea"
+            :min-height="5"
+            v-model="msg.txt"
+            :max-height="350"
+            @blur.native="send"
+          />
+          <!-- <input
+            class="activity-input"
+            v-model="msg.txt"
+            placeholder="Write a comment..."
+            @blur="send"
+          />-->
+          <!-- <button>Save</button> -->
         </div>
+      </div>
     </form>
-</section>
+  </section>
 </template>
 
 <script>
+import avatarUser from "../../avatar-user.vue";
+
 export default {
-    props: {
-        user: Object,
-        editMsg: Object
-    },
-    data() {
-        return {
-            msg: {
-                user: null,
-                txt: '',
-            },
-            isActive: false
-        }
-    },
-    methods: {
-        startWrite() {
-            this.isActive = true
-        },
-        send() {
-            this.msg.createdAt = (this.editMsg) ? this.editMsg.createdAt : Date.now()
-            this.$emit('new-msg', this.msg)
-            this.isActive = false
-            this.msg.txt = ''
-        },
-        blur() {
-            if (!this.msg.txt) this.isActive = false
-        }
-    },
-    created() {
-        this.msg.user = {
-            _id: this.user._id,
-            name: this.user.name,
-            avatar: this.user.avatar
-        }
-        if (this.editMsg) this.msg.txt = this.editMsg.txt
-    },
-    computed: {
-        active() {
-            if (this.isActive) return { 'in-focuse': true }
-            return ''
-        }
-    },
-}
+  props: {
+    user: Object,
+    editMsg: Object
+  },
+  data() {
+    return {
+      msg: {
+        user: null,
+        txt: ""
+      }
+    };
+  },
+  methods: {
+    send() {
+      if (!this.msg.txt) return;
+      this.msg.createdAt = this.editMsg ? this.editMsg.createdAt : Date.now();
+      this.$emit("new-msg", this.msg);
+      this.msg.txt = "";
+    }
+  },
+  created() {
+    this.msg.user = {
+      _id: this.user._id,
+      name: this.user.name,
+      avatar: this.user.avatar
+    };
+    if (this.editMsg) {
+      this.msg.txt = this.editMsg.txt;
+    }
+  },
+  mounted() {
+    if (this.editMsg) this.$refs.myTextarea.$el.focus();
+  },
+  components: {
+    avatarUser
+  }
+};
 </script>
 
 <style>

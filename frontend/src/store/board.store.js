@@ -137,7 +137,7 @@ export const boardStore = {
         changeTitleBoard(state, title) {
             state.board.title = title
         },
-        saveUsersBoard(state, {users}){
+        saveUsersBoard(state, { users }) {
             state.board.users = users
         }
     },
@@ -219,6 +219,7 @@ export const boardStore = {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             const newList = boardService.getEmptyList(context.state.board._id);
             try {
+
                 context.commit('addList', newList);
                 const res = await boardService.putData(context.state.board._id, { type: 'addList', newList })
                 return res
@@ -345,7 +346,7 @@ export const boardStore = {
         async changeTask(context, { task }) {
             context.commit('changeTask', task)
         },
-        async saveUsersBoard(context, { users }){
+        async saveUsersBoard(context, { users }) {
             const boardCopy = JSON.parse(JSON.stringify(context.state.board));
             try {
                 context.commit('saveUsersBoard', users);

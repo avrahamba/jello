@@ -13,7 +13,10 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import locale from 'element-ui/lib/locale/lang/en';
 import './filters';
+import TextareaAutosize from 'vue-textarea-autosize'
+
 Vue.use(ElementUI, { locale })
+Vue.use(TextareaAutosize)
 
 
 
