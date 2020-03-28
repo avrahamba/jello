@@ -77,7 +77,7 @@
                 rows="5"
                 class="description-container"
               ></textarea>-->
-              <p @click="startEditDesc" v-else>{{descToView}}</p>
+              <p class="description-text" @click="startEditDesc" v-else>{{descToView}}</p>
 
               <checklist-list
                 v-if="taskToSave.checklists"

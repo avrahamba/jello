@@ -1,5 +1,5 @@
 .massage-preview{
-    width: min-content;
+    width: max-content;
     min-width: 180px;
     max-width: 485px;
     display: flex;
@@ -21,7 +21,9 @@
 
   .contain {  
     .text{
-      text-align: start;
+      margin: 0;
+    text-align: start;
+    overflow-wrap: break-word;
       }
   
     max-width: 525px;
@@ -38,7 +40,7 @@
     position: relative;
 
     
-    :after {
+    &:after {
       bottom: 98%;
       left: 10%;
       border: solid transparent;
@@ -58,8 +60,13 @@
         *{margin-right: 5px;}
     }
     .edit-msg{
-      width: min-content;
       min-width: 180px;
+      width: max-content;
+
+      .activity-input {
+        width: max-content;
+       background-color: cornflowerblue;
+      }
     }
 
 

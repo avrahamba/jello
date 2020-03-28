@@ -31,8 +31,10 @@ a {
 
 p {
   margin: 0 1em;
-  max-width: 48ch;
-  white-space: pre;
+  // max-width: 48ch;
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  text-align: start;
   font-size: 14px;
     line-height: 20px;
     font-weight: 400;

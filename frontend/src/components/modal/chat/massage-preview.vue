@@ -6,9 +6,9 @@
     </div>
     <div class="contain">
       <template v-if="!inEdit">
-        <p class="text">{{msg.txt}}</p>
+        <p class="text" @click="inEdit = true">{{msg.txt}}</p>
 
-        <div v-if="isUser" class="action">
+        <!-- <div v-if="isUser" class="action">
           <a @click="inEdit = true" href="#">
             <i class="fas fa-edit"></i>
           </a>
@@ -16,7 +16,7 @@
           <a @click="remove" href="#">
             <i class="fas fa-trash-alt"></i>
           </a>
-        </div>
+        </div>-->
       </template>
       <massage-write class="edit-msg" v-else :editMsg="msg" :user="user" @new-msg="saveMsg"></massage-write>
     </div>

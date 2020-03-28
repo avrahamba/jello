@@ -67,11 +67,10 @@
         flex-direction: column;
         // align-items: flex-start;
         padding-right: 25px;
-        p{
-          text-align: left;
+        .description-text{
           margin:0 0 0 38px;
-          word-wrap: break-word;
-          width: 100%;
+          text-align: start;
+          overflow-wrap: break-word;
         }
         .members-labels-contaner {
           display: flex;
