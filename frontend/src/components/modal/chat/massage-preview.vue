@@ -2,12 +2,14 @@
   <section class="massage-preview">
     <div class="avatar">
       <avatar-user :key="user.id" :user="user"></avatar-user>
+      <!-- <avatar username="user.name" :size="28" class="avatar-user"></avatar> -->
+
       <span class="name">{{msg.user.name}} :</span>
       <span class="time">{{msg.createdAt| date}}</span>
     </div>
     <div class="contain">
       <template v-if="!inEdit">
-        <p class="text">{{msg.txt}}</p> 
+        <p class="text">{{msg.txt}}</p>
 
         <!-- @click="inEdit = true" -->
         <!-- <div v-if="isUser" class="action">
@@ -28,6 +30,8 @@
 <script>
 import massageWrite from "./massage-write.vue";
 import avatarUser from "../../avatar-user.vue";
+import Avatar from "vue-avatar";
+
 export default {
   props: {
     msg: Object,
@@ -54,7 +58,8 @@ export default {
   },
   components: {
     massageWrite,
-    avatarUser
+    avatarUser,
+    Avatar
   }
 };
 </script>

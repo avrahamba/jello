@@ -20,8 +20,8 @@
                 />
               </div>
               <div class="title-info-container">
-                <span>in list</span>
-                <a href="#" class="list-name-container">{{listName}}</a>
+                <span>In list:</span>
+                <span class="list-name-container">{{listName}}</span>
               </div>
             </div>
             <div class="detail-area">
@@ -30,9 +30,10 @@
                   <i class="fas fa-calendar-day"></i>
                   <h3>Due Date</h3>
                   <div class="due-date-picker">
-                    <!-- {{taskToSave.dueDate}} -->
+                    <p>{{taskToSave.dueDate}}</p> 
                   </div>
                 </div>
+                <div class="date-value">{{taskToSave.dueDate}}</div>
               </div>
 
               <div class="icon-container" v-if="taskToSave.members.length">
@@ -62,7 +63,7 @@
                   v-model="taskToSave.desc"
                   @blur.native="saveDesc"
                   cols="65"
-                  rows="5"
+                  rows="3"
                   class="description-container"
                 />
                 <button @click="saveDesc">Save</button>
@@ -150,7 +151,7 @@
                 <window-overlay :dark="false" @close="addDateMode = false"></window-overlay>
                 <date-picker
                   :style="miniModalPosition"
-                  v-if="currTask.dueDate.length||addDateMode"
+                  v-if="addDateMode"
                   v-model="taskToSave.dueDate"
                   @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
                 ></date-picker>

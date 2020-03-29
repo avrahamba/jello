@@ -32,7 +32,7 @@
 			padding:  0.9rem 0.9rem;
 			border-radius: 15px;
 			border: none;
-			background-color: saturate($color: $clr3, $amount: 0);
+			background-color: darken($color: saturate($color: $clr1, $amount: 100%), $amount: 15%) ;
 			font-family: 'Poppins', sans-serif;
 			outline: none;
 			color: #fff;
@@ -91,6 +91,7 @@
 			.home-img{
 					width: 500px;
 					height: 500px;
+					cursor: unset;
 			}
 		}
 

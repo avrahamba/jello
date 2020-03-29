@@ -4,6 +4,8 @@
     <ul class="members-users-list">
       <li v-for="user in board.users" :key="user._id" @click="addMemberToTask(user)">
         <avatar-user :key="user.id" :user="user"></avatar-user>
+        <!-- <avatar username="user.name" :size="28" class="avatar-user"></avatar> -->
+
         <span class="user-name">{{user.name}}</span>
       </li>
     </ul>
@@ -12,6 +14,8 @@
 
 <script>
 import avatarUser from "../avatar-user.vue";
+import Avatar from "vue-avatar";
+
 export default {
   props: {
     value: Array,
@@ -38,7 +42,8 @@ export default {
     }
   },
   components: {
-    avatarUser
+    avatarUser,
+    Avatar
   }
 };
 </script>

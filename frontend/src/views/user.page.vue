@@ -3,7 +3,7 @@
     <h2>Hello {{user.name}}</h2>
     <!-- <div class="add-new-board-container">
       <button class="btn-add-board" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
-    </div> -->
+    </div>-->
     <h2>Your Boards</h2>
     <div class="cards-container">
       <board-card
@@ -12,10 +12,9 @@
         :key="board._id"
         :class="'board-card ' + board.title"
       ></board-card>
-       <button class="btn-add-board" @click="isAddNewBoard=true;isPublic=false">
-         <h3>+</h3>
-       </button>
-
+      <button class="btn-add-board" @click="isAddNewBoard=true;isPublic=false">
+        <h3>+</h3>
+      </button>
     </div>
     <h2>Public Boards</h2>
     <div class="cards-container">
@@ -25,8 +24,9 @@
         :key="board._id"
         :class="'board-card ' + board.title"
       ></board-card>
-       <button class="btn-add-board" @click="isAddNewBoard=true;isPublic=true">         <h3>+</h3>
-</button>
+      <button class="btn-add-board" @click="isAddNewBoard=true;isPublic=true">
+        <h3>+</h3>
+      </button>
     </div>
     <window-overlay v-if="isAddNewBoard" @close="isAddNewBoard=false"></window-overlay>
     <add-board v-if="isAddNewBoard" :public="isPublic" @addNewBoard="addNewBoard"></add-board>
@@ -45,7 +45,7 @@ export default {
       user: {},
       boards: [],
       isAddNewBoard: false,
-      isPublic:true
+      isPublic: true
     };
   },
   created() {
@@ -71,15 +71,17 @@ export default {
           user: this.$store.getters.loggedinUser,
           prefs: prefs
         })
-        .then(board => this.$router.push("/" + board._id));
+        .then(board => {
+          this.$router.push("/" + board._id);
+        });
     }
   },
   computed: {
-    UserBoards(){
-      return this.boards.filter(board=>board.onUser)
+    UserBoards() {
+      return this.boards.filter(board => board.onUser);
     },
-    publicBoard(){
-      return this.boards.filter(board=>!board.onUser)
+    publicBoard() {
+      return this.boards.filter(board => !board.onUser);
     }
   },
   components: {

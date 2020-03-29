@@ -2,6 +2,7 @@
   <section class="massage-write">
     <div class="avatar" v-if="!editMsg">
       <avatar-user :key="user.id" :user="user"></avatar-user>
+      <!-- <avatar username="user.name" :size="28"></avatar> -->
     </div>
     <form @submit.prevent="send">
       <div class="comment-frame">
@@ -10,9 +11,9 @@
             class="activity-input"
             placeholder="Write a comment..."
             ref="myTextarea"
-            :min-height="5"
             v-model="msg.txt"
-            :max-height="350"
+            cols="65"
+            rows="1"
             @blur.native="send"
           />
           <button v-if="!editMsg">Save</button>
@@ -30,6 +31,7 @@
 
 <script>
 import avatarUser from "../../avatar-user.vue";
+import Avatar from "vue-avatar";
 
 export default {
   props: {
@@ -66,7 +68,8 @@ export default {
     if (this.editMsg) this.$refs.myTextarea.$el.focus();
   },
   components: {
-    avatarUser
+    avatarUser,
+    Avatar
   }
 };
 </script>
