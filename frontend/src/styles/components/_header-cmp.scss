@@ -10,11 +10,11 @@ header.header-cmp {
   color: #fff;
   z-index: 2;
   .btn {
-    background-color: lighten($color: $clr5, $amount: 15);
+    @include bgc-lighten-clr5(15);
     border-radius: 0.3rem;
     transition: background-color 250ms;
     &:hover {
-      background-color: lighten($color: $clr5, $amount: 25);
+      @include bgc-lighten-clr5(25);
     }
   }
 
@@ -87,7 +87,7 @@ header.header-cmp {
     top: 10px;
     left: rem(10px);
     position: absolute;
-    background-color: lighten($color: $clr5, $amount: 15);
+    @include bgc-lighten-clr5(15);
     padding: 10px;
     padding-top: 60px;
     .board-preview {
@@ -97,7 +97,7 @@ header.header-cmp {
       padding: 10px;
       &:hover {
         cursor: pointer;
-        background-color: lighten($color: $clr5, $amount: 25);
+        @include bgc-lighten-clr5(25);
       }
     }
   }

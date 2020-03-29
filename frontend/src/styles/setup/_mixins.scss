@@ -85,19 +85,64 @@
   }
 }
 
-@mixin bgc-darken20-clr1 {
-  background-color: darken($color: $set1-clr1, $amount: 20);
+@mixin bgc-darken-clr1($amountSet) {
+  background-color: darken($color: $set1-clr1, $amount: $amountSet);
   .set1 & {
-    background-color: darken($color: $set1-clr1, $amount: 20);
+    background-color: darken($color: $set1-clr1, $amount: $amountSet);
   }
   .set2 & {
-    background-color: darken($color: $set1-clr1, $amount: 20);
+    background-color: darken($color: $set1-clr1, $amount: $amountSet);
   }
   .set3 & {
-    background-color: darken($color: $set1-clr1, $amount: 20);
+    background-color: darken($color: $set1-clr1, $amount: $amountSet);
   }
   .set4 & {
-    background-color: darken($color: $set1-clr1, $amount: 20);
+    background-color: darken($color: $set1-clr1, $amount: $amountSet);
+  }
+}
+@mixin bgc-lighten-clr1($amountSet) {
+  background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+  .set1 & {
+    background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+  }
+  .set2 & {
+    background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+  }
+  .set3 & {
+    background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+  }
+  .set4 & {
+    background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+  }
+}
+@mixin color-darken-clr2($set) {
+  color: darken($set1-clr2, $amount:$set);
+  .set1 & {
+    color: darken($set1-clr2,$amount: $set);
+  }
+  .set2 & {
+    color: darken($set2-clr2, $amount:$set);
+  }
+  .set3 & {
+    color: darken($set3-clr2,$amount: $set);
+  }
+  .set4 & {
+    color: darken($set4-clr2, $amount:$set);
+  }
+}
+@mixin color-lighten-clr2($set) {
+  color: lighten($set1-clr2, $amount:$set);
+  .set1 & {
+    color: lighten($set1-clr2,$amount: $set);
+  }
+  .set2 & {
+    color: lighten($set2-clr2, $amount:$set);
+  }
+  .set3 & {
+    color: lighten($set3-clr2,$amount: $set);
+  }
+  .set4 & {
+    color: lighten($set4-clr2, $amount:$set);
   }
 }
 @mixin clr2($property) {
@@ -134,18 +179,34 @@
 }
 
 @mixin bgc-darken8-clr3 {
-  background: darken($set1-clr3, 8%);
+  background-color: darken($set1-clr3, 8%);
   .set1 & {
-    background: darken($set1-clr3, 8%);
+    background-color: darken($set1-clr3, 8%);
   }
   .set2 & {
-    background: darken($set2-clr3, 8%);
+    background-color: darken($set2-clr3, 8%);
   }
   .set3 & {
-    background: darken($set3-clr3, 8%);
+    background-color: darken($set3-clr3, 8%);
   }
   .set4 & {
-    background: darken($set4-clr3, 8%);
+    background-color: darken($set4-clr3, 8%);
+  }
+}
+
+@mixin bgc-lighten-clr3($set) {
+  background: lighten($set1-clr3, $set);
+  .set1 & {
+    background: lighten($set1-clr3, $set);
+  }
+  .set2 & {
+    background: lighten($set2-clr3, $set);
+  }
+  .set3 & {
+    background: lighten($set3-clr3, $set);
+  }
+  .set4 & {
+    background: lighten($set4-clr3, $set);
   }
 }
 @mixin clr4($property) {
@@ -161,6 +222,21 @@
   }
   .set4 & {
     #{$property}: $set4-clr4;
+  }
+}
+@mixin bgc-lighten-clr4($set) {
+  background: lighten($set1-clr4, $set);
+  .set1 & {
+    background: lighten($set1-clr4, $set);
+  }
+  .set2 & {
+    background: lighten($set2-clr4, $set);
+  }
+  .set3 & {
+    background: lighten($set3-clr4, $set);
+  }
+  .set4 & {
+    background: lighten($set4-clr4, $set);
   }
 }
 
@@ -228,19 +304,51 @@
   }
 }
 
-@mixin bgc-lighten20-clr5 {
-  background-color: lighten($color: $set1-clr5, $amount: 20%);
+@mixin box-shadow-inset-clr5 {
+  box-shadow: 0 0 2px $set1-clr5;
   .set1 & {
-    background-color: lighten($color: $set1-clr5, $amount: 20%);
+    box-shadow: 0 0 2px $set1-clr5;
   }
   .set2 & {
-    background-color: lighten($color: $set2-clr5, $amount: 20%);
+    box-shadow: 0 0 2px $set2-clr5;
   }
   .set3 & {
-    background-color: lighten($color: $set3-clr5, $amount: 20%);
+    box-shadow: 0 0 2px $set3-clr5;
   }
   .set4 & {
-    background-color: lighten($color: $set4-clr5, $amount: 20%);
+    box-shadow: 0 0 2px $set4-clr5;
+  }
+}
+
+@mixin bgc-lighten-clr5($set){
+  background-color: lighten($color: $set1-clr5, $amount: $set);
+  .set1 & {
+    background-color: lighten($color: $set1-clr5, $amount: $set);
+  }
+  .set2 & {
+    background-color: lighten($color: $set2-clr5, $amount: $set);
+  }
+  .set3 & {
+    background-color: lighten($color: $set3-clr5, $amount: $set);
+  }
+  .set4 & {
+    background-color: lighten($color: $set4-clr5, $amount: $set);
+  }
+}
+
+@mixin color-lighten-clr5($set){
+  color: lighten($color: $set1-clr5, $amount: $set);
+  .set1 & {
+    color: lighten($color: $set1-clr5, $amount: $set);
+  }
+  .set2 & {
+    color: lighten($color: $set2-clr5, $amount: $set);
+  }
+  .set3 & {
+    color: lighten($color: $set3-clr5, $amount: $set);
+  }
+  .set4 & {
+    color: lighten($color: $set4-clr5, $amount: $set);
   }
 }
 

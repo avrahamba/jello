@@ -6,7 +6,7 @@
       position: absolute;
       top: 60px;
       padding: 20px;
-      background-color: lighten($color: $clr1, $amount: 25);
+      @include bgc-lighten-clr1(25);
       border-radius: 2px;
       box-shadow: 0 2px 8px 3px;
       transition: all 0.2s ease-in;
@@ -45,8 +45,7 @@
           
 
           &:focus{
-            box-shadow: inset 0 0 0 2px $clr5;
-            
+            @include box-shadow-inset-clr5;
             outline: none;
           }
         }
@@ -60,7 +59,7 @@
               margin-left: 5px;
               text-transform: capitalize;
               text-decoration: underline;
-              color: $clr2;
+              @include clr2(color);
             }
         }
       }
@@ -96,8 +95,8 @@
           outline: none;
         }
           &:hover {
-            background: darken($clr3, 8%);
-        }
+            @include bgc-darken8-clr3;
+          }
           }
     
         }
@@ -117,7 +116,7 @@
           margin:0 0 5px 36px;
           border-radius: 3px;
           &:focus{
-            box-shadow: inset 0 0 0 2px $clr5;
+            @include box-shadow-inset-clr5;
             outline: none;
           }
           

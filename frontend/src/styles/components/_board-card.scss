@@ -1,4 +1,7 @@
 .board-card {
+
+
+
   $hoverEasing: cubic-bezier(0.23, 1, 0.32, 1);
   $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
@@ -73,7 +76,7 @@
       padding:0;
       position: absolute;
       bottom: 0;
-      color: #fff;
+      color:$set1-clr2;
       transform: translateY(0%);
       transition: 0.3s 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
 
@@ -99,4 +102,21 @@
 
     }
   }
+  &.set1 .card{
+    background-color: $set1-clr1;
+    color:$set1-clr2;
+  }
+  &.set2 .card{
+    background-color: $set2-clr1;
+    color:$set2-clr2;
+  }
+  &.set3 .card{
+    background-color: $set3-clr1;
+    color:$set3-clr2;
+  }
+  &.set4 .card{
+    background-color: $set4-clr1;
+    color:$set4-clr2;
+  }
+
 }

@@ -7,7 +7,7 @@
     outline:none;
   }
   &::placeholder {
-    color: lighten($color: $clr2, $amount: 20);
+    @include color-lighten-clr2(20);
   }
   border: unset;
   
@@ -109,7 +109,7 @@
       border: unset;
       cursor: pointer;
       font-size: 1rem;
-      color: lighten($color: $clr2, $amount: 20);
+      @include color-lighten-clr2(20);
       font-family: $font;
       display: flex;
       justify-content: space-between;

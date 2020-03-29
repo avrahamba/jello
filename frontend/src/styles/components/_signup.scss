@@ -140,7 +140,7 @@
       @include box-shadow-rgba4-clr5;
     }
     &:active {
-      @include bgc-lighten20-clr5;
+      @include bgc-lighten-clr5(20%);
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-<main class="board" v-if="boardData" :style="style">
+<main :style="style" class="board" v-if="boardData">
     <nav-board @changeTitle="changeTitle" :boardData="boardData"></nav-board>
     <div class="lists-canvas">
         <draggable handle=".title" tag="section" ref="taskListsLection" class="lists-container" draggable=".unit-task-list-container" ghost-class="ghost" v-model="boardData.taskLists" v-bind="dragOptions" @end="move">
@@ -26,6 +26,11 @@ export default {
     destroyed() {
         socketService.terminate();
     },
+    data() {
+        return {
+            style:null
+        }
+    },
     methods: {
         getBoard() {
             const boardId = this.boardId || this.$route.params.id;
@@ -46,6 +51,7 @@ export default {
                         this.$store.dispatch({ type: "dataFromSocket", data });
                     })
                 })
+                .then(() => this.setStyle())
                 .then(() => playDragScroll(this.$refs.taskListsLection.$el))
                 .then(() => this.$store.dispatch({ type: "getBoards", userId: this.$store.getters.loggedinUser._id }))
 
@@ -62,6 +68,20 @@ export default {
         },
         changeTitle(title) {
             this.$store.dispatch({ type: "changeTitleBoard", title });
+        },
+        setStyle() {
+            document.body.parentElement.classList.remove('set1')
+            document.body.parentElement.classList.remove('set2')
+            document.body.parentElement.classList.remove('set3')
+            document.body.parentElement.classList.remove('set4')
+            if (this.$store.getters.board.style.background.includes('http')) {
+                this.style={
+                    'background-image': `url("${this.$store.getters.board.style.background}")`
+                    }
+            } else {
+                document.body.parentElement.classList.add(this.$store.getters.board.style.background)
+            }
+
         }
     },
     computed: {
@@ -74,16 +94,6 @@ export default {
                 group: "task-list"
             };
         },
-        style() {
-
-            if (this.boardData) {
-                if (this.boardData.style.background.includes('http')) {
-                    return { 'background-image': `url("${this.boardData.style.background}")` }
-                } else {
-                    return { 'background-color': this.boardData.style.background }
-                }
-            }
-        }
     },
     watch: {
         '$route'(to, from) {

@@ -4,7 +4,7 @@
   
   border-radius: 5px;
   &:hover {
-    @include bgc-darken20-clr1;
+    @include bgc-darken-clr1(20);
     width: 100%;
   }
 
@@ -72,7 +72,7 @@
       border-radius: 5px;
       width: 200px;
       padding: 38px 10px 10px;
-      @include bgc-darken20-clr1;
+      @include bgc-darken-clr1(20);
       .search-option {
         text-align: start;
         top: 10px;
@@ -81,7 +81,7 @@
         cursor: pointer;
         &:hover {
           border-radius: 5px;
-          background-color: darken($color: $clr1, $amount: 25);
+          @include bgc-darken-clr1(25);
         }
       }
     }
