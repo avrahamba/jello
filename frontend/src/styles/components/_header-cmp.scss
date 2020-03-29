@@ -6,8 +6,6 @@ header.header-cmp {
   box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
   display: flex;
   justify-content: space-between;
-
-  column-gap: 2rem;
   color: #fff;
 
   .btn {
@@ -20,12 +18,10 @@ header.header-cmp {
   }
 
   .boards-menu {
-    display: grid;
-    grid-template-columns: auto 1rem ;
     column-gap: rem(20px);
     font-weight: 700;
     .boards-btn {
-      padding: rem(6px) (8px);
+      padding: rem(6px) rem(8px);
       .boards-btn-icon {
         margin-right: rem(8px);
       }
@@ -52,7 +48,6 @@ header.header-cmp {
     padding-top: 10px;
     font-size: 1.5rem;
     color: rgba(255, 255, 255, 0.5);
-    margin: 0 2rem;
     transition: color 250ms;
     text-align: center;
     cursor: pointer;
