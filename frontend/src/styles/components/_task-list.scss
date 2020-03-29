@@ -1,4 +1,5 @@
 .task-list {
+  padding: 8px;
   flex: 0 0 27rem;
   display: flex;
   flex-direction: column;
@@ -71,11 +72,12 @@
       position: absolute;
       right: 0;
       top: 100%;
-      background-color: $clr4;
+      border-radius: 6px;
+      background-color: lighten($color: $clr3, $amount: 10%) ;
       font-size: rem(20px);
       font-family: $font;
       button:hover {
-        border-radius: unset;
+        // border-radius: unset;
         background-color: lighten($color: $clr4, $amount: 10);
       }
     }

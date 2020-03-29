@@ -1,7 +1,7 @@
 .user-page {
 
   .cards-container {
-    padding: 40px 40px;
+    padding: 15px 40px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
 
@@ -11,17 +11,20 @@
     $returnEasing: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
     margin: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
     cursor: pointer;
     display: inline-block;
 
     position: relative;
     // width: 240px;
-    height: 175px;
+    height: 130px;
     background-color: #333;
     border-radius: 10px;
     box-shadow: rgba(black, 0.66) 0 6px 10px 0, inset #333 0 0 0 3px, inset rgba(white, 0.5) 0 0 0 6px;
     transition: 0.3s $returnEasing;
     h3{
+      margin-top: 33px;
       color: #fff;
       font-size: 50px;
     }
