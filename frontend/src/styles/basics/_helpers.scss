@@ -48,3 +48,18 @@
       margin-bottom: 6px;
     }
   }
+
+  .flex{
+    display: flex;
+  }
+  .wrap{
+    flex-wrap: wrap;
+  }
+.dir-col{
+  flex-direction: column;
+}
+
+  .align-center{
+  align-self: center;
+  }
+  
