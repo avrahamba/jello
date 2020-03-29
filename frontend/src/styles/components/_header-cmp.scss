@@ -7,7 +7,7 @@ header.header-cmp {
   display: flex;
   justify-content: space-between;
   color: #fff;
-
+  z-index: 2;
   .btn {
     background-color: lighten($color: $clr5, $amount: 15);
     border-radius: 0.3rem;
@@ -21,6 +21,7 @@ header.header-cmp {
     column-gap: rem(20px);
     font-weight: 700;
     .boards-btn {
+      position: relative;
       padding: rem(6px) rem(8px);
       .boards-btn-icon {
         margin-right: rem(8px);
@@ -78,6 +79,25 @@ header.header-cmp {
 
     .user-settings-btn:last-of-type {
       margin-right: 0;
+    }
+  }
+  .board-list {
+    border-radius: 5px;
+    top: 10px;
+    left: rem(10px);
+    position: absolute;
+    background-color: lighten($color: $clr5, $amount: 15);
+    padding: 10px;
+    padding-top: 60px;
+    .board-preview {
+      display: block;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      &:hover {
+        cursor: pointer;
+        background-color: lighten($color: $clr5, $amount: 25);
+      }
     }
   }
 }

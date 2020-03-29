@@ -52,6 +52,7 @@ export default {
       }, 0);
     },
     saveTitle() {
+      if(this.editTitleMode)
       this.$emit('changeTitle', this.titleToChange);
       this.editTitleMode = false;
     },
