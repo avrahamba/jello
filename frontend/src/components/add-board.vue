@@ -30,6 +30,12 @@
 <script>
 import { imgService } from "../../src/services/img.service.js";
 export default {
+  props:{
+    public:Boolean
+  },
+  created() {
+    this.prefsObj.public=this.public
+  },
     data() {
         return {
             prefsObj: {
