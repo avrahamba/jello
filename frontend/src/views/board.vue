@@ -74,6 +74,7 @@ export default {
             htmlClassList.remove('set2')
             htmlClassList.remove('set3')
             htmlClassList.remove('set4')
+            this.style = null
             if (this.$store.getters.board.style.background.includes('http')) {
                 this.style = {
                     'background-image': `url("${this.$store.getters.board.style.background}")`
