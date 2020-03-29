@@ -5,7 +5,8 @@ const emitter = require('../../services/emitter.service');
 const connectSockets = (io) => {
     io.on('connection', socket => {
 
-        emitter.on('sendSocket' + socket.id, ({ data, boardId }) => {
+        emitter.on('sendSocket' + socket.id, ({ data }) => {
+            data.socketId = socket.id
             socket.broadcast.to(boardId).emit('change-data', data)
         })
 

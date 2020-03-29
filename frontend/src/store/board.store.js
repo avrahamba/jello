@@ -1,5 +1,6 @@
 import { boardService } from '../services/board.service';
 import { userService } from '../services/UserService';
+import { socketService } from '../services/SocketService';
 
 export const boardStore = {
     state: {
@@ -355,6 +356,7 @@ export const boardStore = {
             }
         },
         async dataFromSocket(context, { data }) {
+            if(data.socketId === socketService.getSocketId())return
             switch (data.type) {
                 case 'saveUsersBoard':
                     context.commit('saveUsersBoard', data.users);
