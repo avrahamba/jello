@@ -268,11 +268,11 @@ export default {
       }
       this.activeDay = ("0" + cell.day).slice(-2) + cell.month + cell.year;
       this.date =
-        ("0" + cell.day).slice(-2) + "/" + cell.month + "/" + cell.year;
+        cell.month + "/" + ("0" + cell.day).slice(-2) + "/" + cell.year;
       this.$emit("input", this.date);
     },
     isSelected(cell) {
-      if (("0" + cell.day).slice(-2) + cell.month + cell.year == this.activeDay)
+      if (cell.month + ("0" + cell.day).slice(-2) + cell.year == this.activeDay)
         return true;
     },
     isDisabled(cell) {

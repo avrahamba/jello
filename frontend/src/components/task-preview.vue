@@ -85,7 +85,8 @@ export default {
       return false;
     },
     dueDate() {
-      const dateString = this.task.dueDate[1];
+      debugger
+      const dateString = this.task.dueDate;
       if (dateString) {
         const date = new Date(dateString);
         const dateToShow = moment(date)

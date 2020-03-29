@@ -30,7 +30,7 @@
                   <i class="fas fa-calendar-day"></i>
                   <h3>Due Date</h3>
                   <div class="due-date-picker">
-                    <!-- {{taskToSave.dueDate}} -->
+                    <p>{{taskToSave.dueDate}}</p> 
                   </div>
                 </div>
               </div>
@@ -150,7 +150,7 @@
                 <window-overlay :dark="false" @close="addDateMode = false"></window-overlay>
                 <date-picker
                   :style="miniModalPosition"
-                  v-if="currTask.dueDate.length||addDateMode"
+                  v-if="addDateMode"
                   v-model="taskToSave.dueDate"
                   @input="save('setDueDate',{dueDate: taskToSave.dueDate})"
                 ></date-picker>
