@@ -34,14 +34,13 @@
     max-width: 525px;
     min-width: 200px;
     width: fit-content;
-    color: $clr2;
+    @include clr2(color);
     padding: 18px 20px;
     line-height: 26px;
     font-size: 16px;
     border-radius: 7px;
     margin-bottom: 14px;
-    background: $clr3;
-    // width: 100%;
+    @include clr3(background-color);
     position: relative;
 
     

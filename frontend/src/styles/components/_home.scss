@@ -13,7 +13,7 @@
 		}
 		h3{
 			font-size: rem(16px);
-			color: $clr1;
+			@include clr1(color);
 		}
 	}
 	

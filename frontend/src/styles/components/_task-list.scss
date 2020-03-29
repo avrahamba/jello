@@ -2,7 +2,7 @@
   flex: 0 0 27rem;
   display: flex;
   flex-direction: column;
-  background-color: $clr3;
+  @include clr3(background-color);
   max-height: 100%;
   border-radius: 0.3rem;
   flex-direction: column;
@@ -24,7 +24,7 @@
       text-align: left;
       font-size: rem(20px);
       line-height: rem(32px);
-      color: $clr2;
+      @include clr2(background-color);
       transition: background-color 150ms;
       border-radius: 5px;
       font-weight: 600;
@@ -45,7 +45,7 @@
       background-color: lighten($color: $clr3, $amount: 10);
       border: 0;
       padding-bottom: 0;
-      color: $clr2;
+      @include clr2(color);
       padding-left: 5px;
       padding-top: 0;
       font-size: rem(20px);
@@ -132,14 +132,14 @@
       width: rem(200px);
       border-radius: 5px;
       border: none;
-      color: $clr2;
+      @include clr2(color);
       background-color: lighten($color: $clr3, $amount: 10);
       padding-inline-start:rem(10px) ;
       margin-inline-end: rem(10px);
     }
     button{
       font-size: rem(18px);
-      color: $clr2;
+      @include clr2(color);
       font-weight: 500;
 
       border-radius: 5px;

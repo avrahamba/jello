@@ -25,7 +25,7 @@
         flex-direction: column;;
         .task-title{
           overflow: hidden;
-          color: $clr2;
+          @include clr2(color);
           word-wrap:break-word;
           width: 100%;
           background: transparent;
@@ -85,7 +85,7 @@
         font-size: 15px;
         line-height: 1;
         border-radius: 4px;
-        background: $clr3;
+        @include clr3(background-color);
         &:focus{
           outline: none;
         }

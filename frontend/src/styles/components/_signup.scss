@@ -17,7 +17,7 @@
 
   a {
     text-decoration: none;
-    color: $clr3;
+    @include clr3(color)
   }
 
   p {
@@ -36,7 +36,7 @@
   .bg {
     width: 500px;
     height: 550px;
-    background: $clr3;
+    @include clr3(background-color);
     position: absolute;
     top: -6em;
     left: 0;
@@ -102,7 +102,7 @@
     padding: 0.9rem 1rem;
     border-radius: 5px;
     border: none;
-    background: $clr3;
+    @include clr3(color);
     font-family: "Poppins", sans-serif;
     outline: none;
     color: #fff;
@@ -137,10 +137,10 @@
     cursor: pointer;
     &:hover {
       transform: translateY(-1px) scaleX(1.02) scaleY(1.02);
-      box-shadow: 0 0 4px rgba($clr5, 0.4);
+      @include box-shadow-rgba4-clr5;
     }
     &:active {
-      background-color: lighten($color: $clr5, $amount: 20%);
+      @include bgc-lighten20-clr5;
     }
   }
 }

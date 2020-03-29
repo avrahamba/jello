@@ -4,25 +4,30 @@
     <h3>Title</h3>
     <input type="text" placeholder="Title" v-model="prefsObj.title" />
     <h3>Choose propertis</h3>
-    <label>
+    <div class="input-container">
         <input class="input-color" @change="isColor = true" type="color" v-model="color" />
-        <div class="color" :style="{ 'background-color':color}">
+        <div @click="openSetBoard = !openSetBoard" class="color" :style="{ 'background-color':color}">
             <input type="checkbox" v-model="isColor">
             Color
         </div>
-    </label>
-    <label>
+        <div v-if="openSetBoard" class="colors">
+            <div class="color-set">
+                ss
+            </div>
+        </div>
+    </div>
+    <div class="input-container">
         <input type="file" @change="uploadImg" ref="fileInput" accept="image/*" hidden />
         <div class="img">
             <input type="checkbox" v-model="isImg">
             Image
             <img v-if="imgSrc" :src="imgSrc">
         </div>
-    </label>
-    <label class="public-checkbox">
+    </div>
+    <div class="input-container public-checkbox">
         <input type="checkbox" v-model="prefsObj.public">
         <span>Public</span>
-    </label>
+    </div>
     <button class="send" @click="addNewBoard">Add!</button>
 </section>
 </template>
@@ -45,7 +50,8 @@ export default {
             },
             color: '#dcd6f7',
             imgSrc: '',
-            isColor: true
+            isColor: true,
+            openSetBoard:false
         };
     },
     methods: {

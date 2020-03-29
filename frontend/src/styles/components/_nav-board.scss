@@ -3,11 +3,10 @@ nav.nav-board {
   justify-content: space-between;
   margin: 0 0 0.8rem;
   padding: 1rem;
-  color: $clr2;
+  @include clr2(color);
   z-index: 1;
   // background-color:  $clr1 ;
-  background-color: rgba($clr1, 0.3);
-
+  @include bgc-clr1-opasety03;
   .btn {
     font-size: 1.4rem;
     font-weight: 400;
@@ -51,14 +50,14 @@ nav.nav-board {
       font-weight: 700;
       white-space: nowrap;
       width: 100%;
-      color: $clr2;
+      @include clr2(color);
       background-color: unset;
       border: unset;
       
     }
   }
   .avatar-user{
-    color: $clr2;
+    @include clr2(color);
     background-color: darken($color: $clr1, $amount: 20);
 // padding: 10px;
 height: 40px;
