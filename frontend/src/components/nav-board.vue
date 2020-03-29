@@ -17,7 +17,7 @@
         ></add-members>
 
       <div class="members">
-              <avatar-user v-for="(user) in boardData.users" :key="user.id" :user="user"></avatar-user>
+        <avatar-user v-for="(user) in boardData.users" :key="user.id" :user="user"></avatar-user>
       </div>
 
     </div>

@@ -137,7 +137,7 @@ export const boardStore = {
         changeTitleBoard(state, title) {
             state.board.title = title
         },
-        saveUsersBoard(state, { users }) {
+        saveUsersBoard(state,  users ) {
             state.board.users = users
         }
     },

@@ -15,6 +15,7 @@ import locale from 'element-ui/lib/locale/lang/en';
 import './filters';
 import TextareaAutosize from 'vue-textarea-autosize'
 
+
 Vue.use(ElementUI, { locale })
 Vue.use(TextareaAutosize)
 

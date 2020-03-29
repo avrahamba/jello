@@ -1,7 +1,7 @@
 <template>
   <main class="board" v-if="boardData" :style="style">
     <nav-board @changeTitle="changeTitle" :boardData="boardData"></nav-board>
-    <div class="lists-canvas" >
+    <div class="lists-canvas">
       <draggable
         handle=".title"
         tag="section"
@@ -32,6 +32,7 @@ import draggable from "vuedraggable";
 import taskList from "../components/task-list.vue";
 import navBoard from "../components/nav-board.vue";
 import { socketService } from "../services/SocketService.js";
+import {playDragScroll} from '../services/drag.scroll.service.js';
 export default {
   created() {
     //TODO: remove this.boardId never called.
@@ -52,8 +53,10 @@ export default {
 
         socketService.on("change-data", data => {
           this.$store.dispatch({ type: "dataFromSocket", data });
-        });
-      });
+        })
+      })
+      .then(()=> playDragScroll(this.$refs.taskListsLection.$el))
+
   },
   destroyed() {
     socketService.terminate();
@@ -99,7 +102,7 @@ export default {
     taskList,
     navBoard,
     draggable
-  }
+  },
 };
 </script>
 
