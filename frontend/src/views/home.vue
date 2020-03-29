@@ -7,15 +7,17 @@
         <router-link to="/login">
           <button class="login">Login</button>
         </router-link>
+        <router-link to="/signup">
+              <button class="signup">Signup</button>
+            </router-link>
       </div>
 
       <div class="home-main flex wrap">
         <div class="home-text">
           <h2>Jello lets you work more collaboratively and get more done.</h2>
           <h3>Boards, lists, and cards enable you to organize and prioritize your projects in a fun, flexible, and rewarding way!</h3>
-          
         </div>
-       
+
         <div class="home-img-container">
           <img
             class="home-img"
@@ -23,16 +25,13 @@
             alt
           />
         </div>
-         <div class="signup-btn-container">
-           <h3 class="signup-text">Want to try? 
-           <router-link to="/signup">
-            <button class="signup">Signup - its Free!</button>
-          </router-link>
-           </h3>
-          
+        <div class="guest-btn-container">
+          <h3 class="guest-text">
+            Want to try?
+              <button @click="doLoginGuest" class="guest">Enter Guest mode!</button>
+          </h3>
         </div>
       </div>
-      
     </div>
   </div>
 </template>
@@ -49,6 +48,16 @@ export default {
     if (this.$store.getters.loggedinUser) {
       this.$router.push({ path: "/userPage" });
     }
-  }
+  },
+  methods: {
+   async doLoginGuest(){
+     const cred={
+        email:'guest@guest.com',
+        password:'12345'
+     }
+    await this.$store.dispatch({ type: "login", userCred: cred })
+    .then(()=>this.$router.push({ path: "/userPage" }))
+   } 
+  },
 };
 </script>
