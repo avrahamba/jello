@@ -11,7 +11,7 @@
         </header>
 
         <div class="inputs">
-          <input type="text" placeholder="Email" v-model="signupCred.email" required />
+          <input type="email" placeholder="Email" v-model="signupCred.email" required />
           <input type="text" placeholder="User Name" v-model="signupCred.username" required />
           <input type="password" placeholder="Password" v-model="signupCred.password" required />
         </div>
@@ -35,8 +35,11 @@ export default {
   name: "signup",
   data() {
     return {
-      loginCred: {},
-      signupCred: {},
+      signupCred: {
+        email:'',
+        username:'',
+        password:''
+      },
       msg: "",
       userToEdit: {}
     };
@@ -50,6 +53,7 @@ export default {
     }
   },
   created() {
+      if(this.loggedinUser)this.$router.push({ path: "/userPage" })
   },
   methods: {
     doLogout() {
@@ -60,8 +64,8 @@ export default {
       if (!this.validateEmail(cred.email) || !cred.password || !cred.username) {
         return (this.msg = "Please fill up the form");
       } else {
-        await this.$store.dispatch({ type: "signup", userCred: cred });
-        this.$router.push({ path: "/userPage" });
+        await this.$store.dispatch({ type: "signup", userCred: cred })
+        .then(()=>this.$router.push({ path: "/userPage" }))
       }
     },
     validateEmail(email) {

@@ -1,7 +1,7 @@
 <template>
   <main class="board" v-if="boardData" :style="style">
     <nav-board @changeTitle="changeTitle" :boardData="boardData"></nav-board>
-    <div class="lists-canvas">
+    <div class="lists-canvas" >
       <draggable
         handle=".title"
         tag="section"
@@ -77,20 +77,22 @@ export default {
     boardData() {
       return this.$store.getters.board;
     },
-    style() {
-      if (
-        this.boardData.style.background &&
-        !this.boardData.style.background.includes("http")
-      )
-        return {
-          boardData: null
-        };
-    },
     dragOptions() {
       return {
         animation: "200",
         group: "task-list"
       };
+    },
+    style(){
+
+      if(this.boardData){
+        if(this.boardData.style.background.includes('http')){
+          return {  'background-image': `url("${this.boardData.style.background}")`  }
+        }
+        else {
+          return {'background-color':this.boardData.style.background}
+        }
+      }
     }
   },
   components: {
@@ -102,4 +104,10 @@ export default {
 </script>
 
 <style>
+.board{
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-attachment: fixed;
+    
+}
 </style>

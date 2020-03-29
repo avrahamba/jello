@@ -3,15 +3,26 @@
     <h2>New Board</h2>
     <h3>Title</h3>
     <input type="text" placeholder="Title" v-model="prefsObj.title" />
-    <h3>Choose color or Background</h3>
-    <div class="inp">
-
-    <input class="color" type="color" v-model="prefsObj.style.background" />
-    <button class="add-img" @click="openFile">
-        <i class="fas fa-file-image"></i>
+    <h3>Choose propertis</h3>
+    <label>
+        <input class="input-color" @change="isColor = true" type="color" v-model="color" />
+        <div class="color" :style="{ 'background-color':color}">
+            <input type="checkbox" v-model="isColor">
+            Color
+        </div>
+    </label>
+    <label>
         <input type="file" @change="uploadImg" ref="fileInput" accept="image/*" hidden />
-    </button>
-    </div>
+        <div class="img">
+            <input type="checkbox" v-model="isImg">
+            Image
+            <img v-if="imgSrc" :src="imgSrc">
+        </div>
+    </label>
+    <label class="public-checkbox">
+        <input type="checkbox" v-model="prefsObj.public">
+        <span>Public</span>
+    </label>
     <button class="send" @click="addNewBoard">Add!</button>
 </section>
 </template>
@@ -22,38 +33,42 @@ export default {
     data() {
         return {
             prefsObj: {
-                title: "Title",
-                style: { background: "#FFFFF" },
+                title: 'Title',
+                style: { background: '#dcd6f7' },
                 public: true
-            }
+            },
+            color: '#dcd6f7',
+            imgSrc: '',
+            isColor: true
         };
     },
     methods: {
         addNewBoard() {
-            this.$emit("addNewBoard", this.prefsObj);
+            if (this.isColor) this.prefsObj.style = { background: this.color }
+            else this.prefsObj.style = { background: this.imgSrc }
+            this.$emit('addNewBoard', this.prefsObj);
         },
-        addImageToPrefObj(imageToSave) {
-            this.prefsObj.style.background = imageToSave.url;
-        },
-        openFile() {
-            this.$refs.fileInput.click();
+        addImageToPrefObj(imgUrl) {
+            this.imgSrc = imgUrl;
         },
         uploadImg(event) {
-            const images = event.target.files;
-            images.forEach(image => {
-                imgService.uploadImg(image).then(res => {
-                    let imageToSave = {
-                        width: res.width,
-                        height: res.height,
-                        format: res.format,
-                        created: res.created_at,
-                        url: res.url,
-                        fileName: res.original_filename
-                    };
-                    this.addImageToPrefObj(imageToSave)
+            this.isColor = false
+            const img = event.target.files[0];
+            imgService.uploadImg(img)
+                .then(res => {
+                    this.addImageToPrefObj(res.url)
                 });
-            });
         }
+    },
+    computed: {
+        isImg: {
+            get() {
+                return !this.isColor
+            },
+            set(value) {
+                this.isColor = !value
+            }
+        },
     },
     components: {
         imgService
