@@ -6,7 +6,8 @@ export const boardStore = {
     state: {
         board: null,
         currTask: null,
-        currList: null
+        currList: null,
+        boards: null
     },
     mutations: {
         //* Board Mutations
@@ -138,8 +139,11 @@ export const boardStore = {
         changeTitleBoard(state, title) {
             state.board.title = title
         },
-        saveUsersBoard(state,  users ) {
+        saveUsersBoard(state, users) {
             state.board.users = users
+        },
+        setBoardList(state, boards) {
+            state.boards = boards
         }
     },
     getters: {
@@ -155,18 +159,17 @@ export const boardStore = {
         currList(state) {
             return JSON.parse(JSON.stringify(state.currList));
         },
+        boardsList(state) {
+            return JSON.parse(JSON.stringify(state.boards));
+        },
     },
     actions: {
         //* Board Actions
         //!work
         async getBoards(context, { userId }) {
-            try {
-                const boards = await boardService.query(userId);
-                return boards;
-            }
-            catch{
-
-            }
+            const boards = await boardService.query(userId);
+            context.commit('setBoardList', boards)
+            return boards;
         },
         //!work
         async getBoard(context, { boardId }) {
@@ -356,7 +359,7 @@ export const boardStore = {
             }
         },
         async dataFromSocket(context, { data }) {
-            if(data.socketId === socketService.getSocketId())return
+            if (data.socketId === socketService.getSocketId()) return
             switch (data.type) {
                 case 'saveUsersBoard':
                     context.commit('saveUsersBoard', data.users);

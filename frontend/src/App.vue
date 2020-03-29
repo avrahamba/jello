@@ -8,7 +8,13 @@
 <script>
 import headerCmp from '@/components/header-cmp.vue'
 export default {
-  
+  computed: {
+    appClass(){
+      // console.log('this.$router :', this.$router.path);
+      if(this.$router)
+      return 
+    }
+  },
   components:{
     headerCmp
   }

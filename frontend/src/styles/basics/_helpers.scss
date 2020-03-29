@@ -13,10 +13,9 @@
 
 .ratio-poster { @include aspect-ratio(100, 150); }
 
-:focus {
-    outline-color: #fa0;
+* {
+    outline: none;
   }
-  
 
 .btn {
     display: flex;

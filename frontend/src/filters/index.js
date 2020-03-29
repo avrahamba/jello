@@ -10,3 +10,7 @@ Vue.filter('short-name', (name) => {
 Vue.filter('date', (timestamp) => {
     return moment(new Date(timestamp)).fromNow();
 })
+Vue.filter('due-date', (timestamp) => {
+    return moment(new Date(timestamp)).format("MMM Do YY");
+
+})

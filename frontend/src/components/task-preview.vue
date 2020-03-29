@@ -85,7 +85,6 @@ export default {
       return false;
     },
     dueDate() {
-      debugger
       const dateString = this.task.dueDate;
       if (dateString) {
         const date = new Date(dateString);
