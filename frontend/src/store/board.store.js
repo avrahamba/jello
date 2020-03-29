@@ -96,6 +96,12 @@ export const boardStore = {
             })
             state.currTask = task;
         },
+        setPublic(state, isPublic) {
+            state.board.public = isPublic;
+        },
+        setBackground(state, newBackground) {
+            state.board.style.background = newBackground;
+        },
         moveList(state, { newIndex, oldIndex }) {
             const list = state.board.taskLists.splice(oldIndex, 1)[0]
             state.board.taskLists.splice(newIndex, 0, list)
@@ -345,6 +351,26 @@ export const boardStore = {
                 context.commit('setBoard', boardCopy);
             }
         },
+        async setPublic(context, {  isPublic }) {
+            const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            try {
+                context.commit('setPublic', isPublic);
+                const res = await boardService.putData(context.state.board._id, { type: 'setPublic',  isPublic })
+                return res
+            } catch{
+                context.commit('setBoard', boardCopy);
+            }
+        },
+        async setBackground(context, { newBackground }) {
+            const boardCopy = JSON.parse(JSON.stringify(context.state.board));
+            try {
+                context.commit('setBackground', newBackground);
+                const res = await boardService.putData(context.state.board._id, { type: 'setBackground',  newBackground })
+                return res
+            } catch{
+                context.commit('setBoard', boardCopy);
+            }
+        },
         async changeTask(context, { task }) {
             context.commit('changeTask', task)
         },
@@ -363,6 +389,9 @@ export const boardStore = {
             switch (data.type) {
                 case 'saveUsersBoard':
                     context.commit('saveUsersBoard', data.users);
+                    break;
+                case 'setBackground':
+                    context.commit('setBackground', data.newBackground);
                     break;
                 case 'changeTitleBoard':
                     context.commit('changeTitleBoard', data.title);

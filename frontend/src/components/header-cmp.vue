@@ -1,5 +1,6 @@
 <template>
 <header class="header-cmp">
+    <window-overlay v-if="openBoard" :dark="false" @close="openBoard=false"></window-overlay>
     <div v-if="isHomePage" class="boards-menu">
         <div class="board-list" v-if="openBoard" @click="openBoard=false">
             <router-link :to="'/'+board._id" class="board-preview" v-for="board in boards" :key="board._id">
@@ -35,6 +36,7 @@
 </template>
 
 <script>
+import windowOverlay from './window-overlay.vue';
 export default {
     created() {
         this.rout = this.$router.history.current.path
@@ -67,8 +69,10 @@ export default {
         '$route'(to, from) {
             this.rout = to.path
         }
-
     },
+    components:{
+        windowOverlay
+    }
 
 };
 </script>
