@@ -91,13 +91,13 @@
     background-color: darken($color: $set1-clr1, $amount: $amountSet);
   }
   .set2 & {
-    background-color: darken($color: $set1-clr1, $amount: $amountSet);
+    background-color: darken($color: $set2-clr1, $amount: $amountSet);
   }
   .set3 & {
-    background-color: darken($color: $set1-clr1, $amount: $amountSet);
+    background-color: darken($color: $set3-clr1, $amount: $amountSet);
   }
   .set4 & {
-    background-color: darken($color: $set1-clr1, $amount: $amountSet);
+    background-color: darken($color: $set4-clr1, $amount: $amountSet);
   }
 }
 @mixin bgc-lighten-clr1($amountSet) {
@@ -106,13 +106,13 @@
     background-color: lighten($color: $set1-clr1, $amount: $amountSet);
   }
   .set2 & {
-    background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+    background-color: lighten($color: $set2-clr1, $amount: $amountSet);
   }
   .set3 & {
-    background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+    background-color: lighten($color: $set3-clr1, $amount: $amountSet);
   }
   .set4 & {
-    background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+    background-color: lighten($color: $set4-clr1, $amount: $amountSet);
   }
 }
 @mixin color-darken-clr2($set) {

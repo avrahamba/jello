@@ -70,16 +70,17 @@ export default {
             this.$store.dispatch({ type: "changeTitleBoard", title });
         },
         setStyle() {
-            document.body.parentElement.classList.remove('set1')
-            document.body.parentElement.classList.remove('set2')
-            document.body.parentElement.classList.remove('set3')
-            document.body.parentElement.classList.remove('set4')
+            const htmlClassList = document.body.parentElement.classList;
+            htmlClassList.remove('set1')
+            htmlClassList.remove('set2')
+            htmlClassList.remove('set3')
+            htmlClassList.remove('set4')
             if (this.$store.getters.board.style.background.includes('http')) {
                 this.style={
                     'background-image': `url("${this.$store.getters.board.style.background}")`
                     }
             } else {
-                document.body.parentElement.classList.add(this.$store.getters.board.style.background)
+                htmlClassList.add(this.$store.getters.board.style.background)
             }
 
         }

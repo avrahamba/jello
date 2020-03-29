@@ -6,9 +6,9 @@
             <h2 @click="changeTitle" v-else>{{boardData.title}}</h2>
         </button>
 
-        <button class="star-btn btn" aria-label="Star Board">
+        <!-- <button class="star-btn btn" aria-label="Star Board">
           <i class="far fa-star" aria-hidden="true"></i>
-        </button>
+        </button> -->
         <add-members
           @filter="filter"
           @updateBoardUsers="updateBoardUsers"
