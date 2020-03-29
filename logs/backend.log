@@ -43,3 +43,6 @@ Sat, 28 Mar 2020 17:28:20 GMT - Debug - miemg@gmail.com, itsjf, mergoierm, undef
 Sat, 28 Mar 2020 17:28:20 GMT - Debug - auth.service - signup with email: miemg@gmail.com, username: itsjf
 Sat, 28 Mar 2020 17:28:21 GMT - Debug - auth.route - new account created: [{"_id":"5e7f893457a1001ae4dae5ff","email":"miemg@gmail.com","name":"itsjf","img":"/cloudinary/","hashPassword":"$2b$10$8j486VJVlXpeawjK7uyLUOxx5HviKZS6e1w/J9wfQiXZ7KjJtpaZe","boards":[{"_id":"5e7377611c9d4400009f5d97","name":"proj1","background":"#545454"}],"alerts":[{"_id":"5e7f893457a1001ae4dae600","alertForUser":"the color change","isReade":"false","task":{"id":"","name":""},"taskList":{"id":"","name":""},"board":{"_id":"false","name":"","background":""},"user":{"_id":"","name":"","img":"/cloudinary/"}}],"comments":[{"_id":"5e7f893457a1001ae4dae601","txt":"txt","isReade":"false","taskList":{"id":"","name":""},"board":{"_id":"false","name":"","background":""},"user":{"_id":"","name":"","img":"/cloudinary/"}}],"__v":0}]
 Sat, 28 Mar 2020 17:28:21 GMT - Debug - auth.service - login with email: miemg@gmail.com
+Sat, 28 Mar 2020 20:55:34 GMT - Error - Cannot get boards
+Sat, 28 Mar 2020 20:56:57 GMT - Error - Cannot get boards
+Sat, 28 Mar 2020 20:57:50 GMT - Error - Cannot get boards

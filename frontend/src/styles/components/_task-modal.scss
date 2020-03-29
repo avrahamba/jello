@@ -83,7 +83,7 @@
         border: 1px solid transparent;
         padding: 8px 13px;
         font-size: 15px;
-        line-height: 1.42857143;
+        line-height: 1;
         border-radius: 4px;
         background: $clr3;
         &:focus{
@@ -124,7 +124,7 @@
         grid-column: 2 /3;
         grid-row: 3/ 4;
 
-
+    
         button {
           text-align: left;
           color: #172b4d;
@@ -195,6 +195,9 @@
     display: flex;
     align-items: center;
     
+    .date-icon-continer{
+      display: flex;
+    }
     
     svg {
     font-size: 24px;

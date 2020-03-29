@@ -1,19 +1,68 @@
 
-
 .home{
+
+
+
+	.home-text{
+		width: 45%;
+		margin-top: rem(20px);
+		margin-left: rem(20px);
+		h2{
+			font-size: rem(36px);
+			color: white;
+		}
+		h3{
+			font-size: rem(16px);
+			color: $clr1;
+		}
+	}
+	
+	.signup-btn-container{
+		width: 100%;
+		.signup-text{
+			margin-left: 20px;
+			position: static;
+			bottom: 0;
+			color: lighten($color: $clr5, $amount: 10%);
+}
+	.signup{
+		margin-left: rem(20px);
+		width: 30%;
+		font-size: rem(20px);
+			padding:  0.9rem 0.9rem;
+			border-radius: 15px;
+			border: none;
+			background-color: saturate($color: $clr3, $amount: 0);
+			font-family: 'Poppins', sans-serif;
+			outline: none;
+			color: #fff;
+			cursor: pointer;
+			&:hover {
+				transform: translateY(-1px) scaleX(1.02) scaleY(1.02);
+				box-shadow: 0 0 4px rgba($clr5, .4);
+			  }
+			&:active {
+				background-color: lighten($color:$clr5, $amount: 20%) ;
+			  } 
+			}
+	}
+}
+
+
 	.home-user{
+		
 		height: auto;
 		width: auto;
 		text-align: end;
 		margin-top: 0.5rem;
 		margin-right: 0.5rem;
+
+
 		.login{
 			background: none;
-			color: darken($color: $clr3, $amount: 10%);
+			font-size: rem(18px);
 		}
-		.signup{
-		  background: $clr3;
-		}
+		
 		button {	
 			width: 10%;
 			padding:  0.9rem 0.9rem;
@@ -32,19 +81,21 @@
 				background-color: lighten($color:$clr5, $amount: 20%) ;
 			  }
 			  
+			  
+			}
 		}	
-		.home-img{
-		
-			img{
-				width: 400px;
-				height: 400px;
+		.home-img-container{
+			width: 45%;
+			margin-left: rem(25px);
+			margin-right: rem(25px);
+			.home-img{
+					width: 500px;
+					height: 500px;
 			}
 		}
-		
-	}
 
 	.home-bg {
-		width: 100vw;
+		width: 100%;
 		height: 700px;
 		background: $clr3;
 		position: absolute;
@@ -63,32 +114,89 @@
 
 
 
-	@media screen and (max-width: 440px) {
-			.login {
-				width: 100%;
-				height: 100vh;
-				border-radius: 0;
-			}
-
-			.bg {
-				top: -7em;
-				width: 500px;
-				height: 95vh;
-			}
-			header {
-				width: 90%;
-				height:150px;
-			}
-			.inputs {
-				margin: 0;
-			}
-			input, button {
-				padding: 18px 15px;
+	@media screen and (max-width:1200px) {
+		.home-img-container{
+			margin-left: 30px;
+			margin-right: 30px;
+			.home-img{
+					width: 500px;
+					height: 500px;
 			}
 		}
 
+		.home{
 
-}
+			.home-text{
+				margin-top: rem(20px);
+			
+			}
+			.signup-text{
+				.signup{
+					width: 30%;
+						}
+				}
+			}
+		}
+
+		@media screen and (max-width: 1020px) {
+			.home-img-container{
+				margin-left: 30px;
+				margin-right: 30px;
+				.home-img{
+						width: 400px;
+						height: 400px;
+				}
+			}
+			.home{
+				.signup-text{
+					.signup{
+						width: 50%;
+							}
+					}
+				}
+				
+				
+			}
+			
+		
+		
+		@media screen and (max-width: 830px) {
+			.home-img-container{
+				width: unset;
+				.home-img{
+						width: 350px;
+						height: 350px;
+				}
+			}
+			.home{
+				.signup-text{
+					text-align: unset;
+					.signup{
+						width: 40%;
+							}
+					}
+				}
+				.home{
+
+					.home-main{
+						flex-direction: column;
+					}
+
+
+					.home-text{
+							width: unset;
+							margin-top: rem(20px);
+					
+					}
+					.signup-text{
+						.signup{
+							width: 30%;
+								}
+						}
+					}
+		}
+
+
 
 
 

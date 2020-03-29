@@ -38,10 +38,10 @@ nav.nav-board {
       line-height: 0;
       font-weight: 700;
       white-space: nowrap;
-      font-family: Lato;
+      font-family: $font;
     }
     input{
-      font-family: Lato;
+      font-family: $font;
       font-size: 1.4rem;
       line-height: 0;
       font-weight: 700;
@@ -63,7 +63,7 @@ width: 40px;
     align-items: center;
     .txt{
       position:relative;
-      font-family: Lato;
+      font-family: $font;
       font-size: rem(20px);
     }
   }

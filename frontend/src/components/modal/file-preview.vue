@@ -6,9 +6,7 @@
         <div class="attachment-name">{{attachment.fileName}}</div>
         <div class="created">Added {{attachment.created | date}}</div>
         <div class="actions">
-          <div class="remove" @click="removeAttachment(attachment)">
-            <i class="fas fa-trash-alt"></i>
-          </div>
+          <button class="remove" @click="removeAttachment(attachment)">Delete</button>
         </div>
       </div>
     </div>
@@ -31,7 +29,7 @@ export default {
         attachment => attachment.url === attachmentToRemove.url
       );
       this.attachments.splice(attIdx, 1);
-      this.$emit("input", this.fileList);
+      this.$emit("input", this.attachments);
     }
   }
 };

@@ -79,12 +79,9 @@ export default {
       return this.$store.getters.loggedinUser;
     }
   },
-  created() {
-    console.log("this.loggedinUser", this.loggedinUser);
-  },
+  created() {},
   methods: {
     async doLogin() {
-      debugger
       const cred = this.loginCred;
       if (!cred.email || !cred.password)
         return (this.msg = "Please enter user/password");

@@ -6,10 +6,10 @@
     </div>
     <form @submit.prevent="add">
       <label>
-        <div>Title</div>
+        <div class="title-checklist">Title:</div>
         <input type="text" v-model="title" />
       </label>
-      <button>Add</button>
+      <button id="add-check-list">Add</button>
     </form>
   </section>
 </template>

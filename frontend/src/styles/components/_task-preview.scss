@@ -11,7 +11,7 @@
 
     padding: 0.65rem 0.6rem;
     color: darken($color: $clr2, $amount: 10);
-    border-bottom: 2px solid lighten($color: $clr1, $amount: 22);
+    // border-bottom: 2px solid lighten($color: $clr1, $amount: 22);
     border-radius: 0.3rem;
     word-wrap: break-word;
     cursor: pointer;
@@ -24,7 +24,7 @@
 
     background-color: lighten($color: $clr1, $amount: 28);
     &:hover {
-      background-color: lighten($color: $clr1, $amount: 22);
+      background-color: darken($color: $clr1, $amount: 1);
     }
         .label-container {
           .label {
