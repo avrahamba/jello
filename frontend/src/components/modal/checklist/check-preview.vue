@@ -14,12 +14,6 @@
         v-model="txtToSave"
         type="text"
       />
-      <!-- <div class="btns">
-            <button @click="saveTxt">
-                <i class="far fa-save"></i>
-            </button>
-            <button class="x" @click="cancelChangeTxt">&times;</button>
-      </div>-->
     </div>
     <div v-else class="text" @click="startChangeTxt">{{checkItem.txt}}</div>
   </section>
@@ -56,6 +50,7 @@ export default {
       this.$emit("check", this.isDone);
     },
     saveTxt() {
+      if(!this.editTxt)return
       if (this.txtToSave) {
         this.$emit("saveTxt", this.txtToSave);
         this.editTxt = false;
