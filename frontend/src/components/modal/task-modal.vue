@@ -29,9 +29,6 @@
                 <div class="icon-container" v-if="taskToSave.dueDate">
                   <i class="fas fa-calendar-day"></i>
                   <h3>Due Date</h3>
-                  <div class="due-date-picker">
-                    <p>{{taskToSave.dueDate}}</p> 
-                  </div>
                 </div>
                 <div class="date-value">{{taskToSave.dueDate}}</div>
               </div>
