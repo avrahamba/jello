@@ -56,6 +56,8 @@ export default {
     htmlClassList.remove('set2')
     htmlClassList.remove('set3')
     htmlClassList.remove('set4')
+    htmlClassList.remove('set5')
+    htmlClassList.remove('set6')
 
   },
   methods: {

@@ -75,8 +75,16 @@ export default {
             htmlClassList.remove('set2')
             htmlClassList.remove('set3')
             htmlClassList.remove('set4')
+            htmlClassList.remove('set5')
+            htmlClassList.remove('set6')
             this.style = null
             if (this.$store.getters.board.style.background.includes('http')) {
+                if(this.$store.getters.board.style.background==='https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/4710b3602fafacb2a4bd92d9e337c223/photo-1585142607427-f142c1e786cb'){
+                htmlClassList.add('set4')
+                }
+                if(this.$store.getters.board.style.background==='https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/2d3a331441afc0550fef924ec37670fa/photo-1585337931905-5289c506a080'){
+                htmlClassList.add('set4')
+                }
                 this.style = {
                     'background-image': `url("${this.$store.getters.board.style.background}")`
                 }
