@@ -4,18 +4,18 @@ const emitter = require('../../services/emitter.service');
 
 const connectSockets = (io) => {
     io.on('connection', socket => {
-
-        emitter.on('sendSocket' + socket.id, ({ data, boardId }) => {
-            data.socketId = socket.id
-            socket.broadcast.to(boardId).emit('change-data', data)
+        
+//!!!!
+        emitter.on('sendSocket' + socket.id, ({ data }) => {
+            socket.broadcast.to(socket.boardId).emit('change-data', data)
         })
 
-        socket.on('connect-to-board', channelId => {
+        socket.on('connect-to-board', boardId => {
             if (socket.board) {
                 socket.leave(socket.board)
             }
-            socket.join(channelId)
-            socket.channelId = channelId;
+            socket.join(boardId)
+            socket.boardId = boardId;
         });
 
     })

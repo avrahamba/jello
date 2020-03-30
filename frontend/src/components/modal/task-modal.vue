@@ -57,6 +57,7 @@
                 <h3>Description</h3>
               </div>
               <div class="desc-container" v-if="editDesc">
+<!-- !!!! -->
                 <textarea-autosize
                   ref="descriptionTextarea"
                   placeholder="Add a more detailed description…"
@@ -68,7 +69,6 @@
                 />
                 <button @click="saveDesc">Save</button>
               </div>
-
               <p class="description-text" @click="startEditDesc" v-else>{{descToView}}</p>
 
               <checklist-list
@@ -295,6 +295,7 @@ export default {
       this.isOpen = false;
       this.$router.push("/" + this.boardId);
     },
+    //!!!!
     save(type, obj) {
       this.$emit("save", { type, taskId: this.taskToSave.id, ...obj });
     },
@@ -308,6 +309,7 @@ export default {
         this.$refs.descriptionTextarea.$el.focus();
       }, 0);
     },
+    //!!!!
     saveDesc() {
       this.save("editDesc", { desc: this.taskToSave.desc });
       this.editDesc = false;
