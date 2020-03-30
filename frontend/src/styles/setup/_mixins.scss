@@ -18,37 +18,412 @@
   }
 }
 
-
 /* Media  Mixins */
 
 //aspect ratio mixin
 @mixin aspect-ratio($width, $height) {
-    position: relative;
-    overflow: hidden;
-    &:before {
-      content: "";
-      display: block;
-      width: 100%;
-      padding-top: ($height / $width) * 100%;
-    }
-    > * {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-    }  
-    > img {
-      height: 100%;
-      object-fit: cover;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    display: block;
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  > img {
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+// Mixin for removing hover efects on iphone screen
+@mixin hover-supported {
+  @media not all and (pointer: coarse) {
+    &:hover {
+      @content;
     }
   }
-  
-  // Mixin for removing hover efects on iphone screen
-  @mixin hover-supported {    
-    @media not all and (pointer: coarse) {
-        &:hover {
-            @content;
-        }
-    }
+}
+
+@mixin clr1($property) {
+  #{$property}: $set1-clr1;
+  .set1 & {
+    #{$property}: $set1-clr1;
   }
+  .set2 & {
+    #{$property}: $set2-clr1;
+  }
+  .set3 & {
+    #{$property}: $set3-clr1;
+  }
+  .set4 & {
+    #{$property}: $set4-clr1;
+  }
+  .set5 & {
+    #{$property}: $set5-clr1;
+  }
+}
+
+
+@mixin bgc-clr1-opasety03 {
+  background-color: rgba($set1-clr1, 0.3);
+  .set1 & {
+    background-color: rgba($set1-clr1, 0.3);
+  }
+  .set2 & {
+    background-color: rgba($set2-clr1, 0.3);
+  }
+  .set3 & {
+    background-color: rgba($set3-clr1, 0.3);
+  }
+  .set4 & {
+    background-color: rgba($set4-clr1, 0.3);
+  }
+  .set5 & {
+    background-color: rgba($set5-clr1, 0.3);
+  }
+}
+
+@mixin bgc-darken-clr1($amountSet) {
+  background-color: darken($color: $set1-clr1, $amount: $amountSet);
+  .set1 & {
+    background-color: darken($color: $set1-clr1, $amount: $amountSet);
+  }
+  .set2 & {
+    background-color: darken($color: $set2-clr1, $amount: $amountSet);
+  }
+  .set3 & {
+    background-color: darken($color: $set3-clr1, $amount: $amountSet);
+  }
+  .set4 & {
+    background-color: darken($color: $set4-clr1, $amount: $amountSet);
+  }
+  .set5 & {
+    background-color: darken($color: $set5-clr1, $amount: $amountSet);
+  }
+}
+@mixin bgc-lighten-clr1($amountSet) {
+  background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+  .set1 & {
+    background-color: lighten($color: $set1-clr1, $amount: $amountSet);
+  }
+  .set2 & {
+    background-color: lighten($color: $set2-clr1, $amount: $amountSet);
+  }
+  .set3 & {
+    background-color: lighten($color: $set3-clr1, $amount: $amountSet);
+  }
+  .set4 & {
+    background-color: lighten($color: $set4-clr1, $amount: $amountSet);
+  }
+  .set5 & {
+    background-color: lighten($color: $set5-clr1, $amount: $amountSet);
+  }
+}
+@mixin color-darken-clr2($set) {
+  color: darken($set1-clr2, $amount:$set);
+  .set1 & {
+    color: darken($set1-clr2,$amount: $set);
+  }
+  .set2 & {
+    color: darken($set2-clr2, $amount:$set);
+  }
+  .set3 & {
+    color: darken($set3-clr2,$amount: $set);
+  }
+  .set4 & {
+    color: darken($set4-clr2, $amount:$set);
+  }
+  .set5 & {
+    color: darken($set5-clr2, $amount:$set);
+  }
+}
+@mixin color-lighten-clr2($set) {
+  color: lighten($set1-clr2, $amount:$set);
+  .set1 & {
+    color: lighten($set1-clr2,$amount: $set);
+  }
+  .set2 & {
+    color: lighten($set2-clr2, $amount:$set);
+  }
+  .set3 & {
+    color: lighten($set3-clr2,$amount: $set);
+  }
+  .set4 & {
+    color: lighten($set4-clr2, $amount:$set);
+  }
+  .set5 & {
+    color: lighten($set5-clr2, $amount:$set);
+  }
+}
+@mixin clr2($property) {
+  #{$property}: $set1-clr2;
+  .set1 & {
+    #{$property}: $set1-clr2;
+  }
+  .set2 & {
+    #{$property}: $set2-clr2;
+  }
+  .set3 & {
+    #{$property}: $set3-clr2;
+  }
+  .set4 & {
+    #{$property}: $set4-clr2;
+  }
+  .set5 & {
+    #{$property}: $set5-clr2;
+  }
+}
+
+
+@mixin clr3($property) {
+  #{$property}: $set1-clr3;
+  .set1 & {
+    #{$property}: $set1-clr3;
+  }
+  .set2 & {
+    #{$property}: $set2-clr3;
+  }
+  .set3 & {
+    #{$property}: $set3-clr3;
+  }
+  .set4 & {
+    #{$property}: $set4-clr3;
+  }
+  .set5 & {
+    #{$property}: $set5-clr3;
+  }
+}
+
+@mixin bgc-darken8-clr3 {
+  background-color: darken($set1-clr3, 8%);
+  .set1 & {
+    background-color: darken($set1-clr3, 8%);
+  }
+  .set2 & {
+    background-color: darken($set2-clr3, 8%);
+  }
+  .set3 & {
+    background-color: darken($set3-clr3, 8%);
+  }
+  .set4 & {
+    background-color: darken($set4-clr3, 8%);
+  }
+  .set5 & {
+    background-color: darken($set5-clr3, 8%);
+  }
+}
+
+@mixin bgc-lighten-clr3($set) {
+  background: lighten($set1-clr3, $set);
+  .set1 & {
+    background: lighten($set1-clr3, $set);
+  }
+  .set2 & {
+    background: lighten($set2-clr3, $set);
+  }
+  .set3 & {
+    background: lighten($set3-clr3, $set);
+  }
+  .set4 & {
+    background: lighten($set4-clr3, $set);
+  }
+  .set5 & {
+    background: lighten($set5-clr3, $set);
+  }
+}
+@mixin clr4($property) {
+  #{$property}: $set1-clr4;
+  .set1 & {
+    #{$property}: $set1-clr4;
+  }
+  .set2 & {
+    #{$property}: $set2-clr4;
+  }
+  .set3 & {
+    #{$property}: $set3-clr4;
+  }
+  .set4 & {
+    #{$property}: $set4-clr4;
+  }
+  .set5 & {
+    #{$property}: $set5-clr4;
+  }
+}
+@mixin bgc-lighten-clr4($set) {
+  background: lighten($set1-clr4, $set);
+  .set1 & {
+    background: lighten($set1-clr4, $set);
+  }
+  .set2 & {
+    background: lighten($set2-clr4, $set);
+  }
+  .set3 & {
+    background: lighten($set3-clr4, $set);
+  }
+  .set4 & {
+    background: lighten($set4-clr4, $set);
+  }
+  .set5 & {
+    background: lighten($set5-clr4, $set);
+  }
+}
+
+@mixin clr5($property) {
+  #{$property}: $set1-clr5;
+  .set1 & {
+    #{$property}: $set1-clr5;
+  }
+  .set2 & {
+    #{$property}: $set2-clr5;
+  }
+  .set3 & {
+    #{$property}: $set3-clr5;
+  }
+  .set4 & {
+    #{$property}: $set4-clr5;
+  }
+  .set5 & {
+    #{$property}: $set5-clr5;
+  }
+}
+
+
+@mixin color-clr5 {
+  color: $set1-clr5;
+  .set1 & {
+    color: $set1-clr5;
+  }
+  .set2 & {
+    color: $set2-clr5;
+  }
+  .set3 & {
+    color: $set3-clr5;
+  }
+  .set4 & {
+    color: $set4-clr5;
+  }
+  .set5 & {
+    color: $set5-clr5;
+  }
+}
+@mixin box-shadow-inset-clr5 {
+  box-shadow: inset 0 0 0 2px $set1-clr5;
+  .set1 & {
+    box-shadow: inset 0 0 0 2px $set1-clr5;
+  }
+  .set2 & {
+    box-shadow: inset 0 0 0 2px $set2-clr5;
+  }
+  .set3 & {
+    box-shadow: inset 0 0 0 2px $set3-clr5;
+  }
+  .set4 & {
+    box-shadow: inset 0 0 0 2px $set4-clr5;
+  }
+  .set5 & {
+    box-shadow: inset 0 0 0 2px $set5-clr5;
+  }
+}
+
+@mixin box-shadow-rgba4-clr5 {
+  box-shadow: 0 0 4px rgba($set1-clr5, 0.4);
+  .set1 & {
+    box-shadow: 0 0 4px rgba($set1-clr5, 0.4);
+  }
+  .set2 & {
+    box-shadow: 0 0 4px rgba($set2-clr5, 0.4);
+  }
+  .set3 & {
+    box-shadow: 0 0 4px rgba($set3-clr5, 0.4);
+  }
+  .set4 & {
+    box-shadow: 0 0 4px rgba($set4-clr5, 0.4);
+  }
+  .set5 & {
+    box-shadow: 0 0 4px rgba($set5-clr5, 0.4);
+  }
+}
+
+@mixin box-shadow-inset-clr5 {
+  box-shadow: 0 0 2px $set1-clr5;
+  .set1 & {
+    box-shadow: 0 0 2px $set1-clr5;
+  }
+  .set2 & {
+    box-shadow: 0 0 2px $set2-clr5;
+  }
+  .set3 & {
+    box-shadow: 0 0 2px $set3-clr5;
+  }
+  .set4 & {
+    box-shadow: 0 0 2px $set4-clr5;
+  }
+  .set5 & {
+    box-shadow: 0 0 2px $set5-clr5;
+  }
+}
+
+@mixin bgc-lighten-clr5($set){
+  background-color: lighten($color: $set1-clr5, $amount: $set);
+  .set1 & {
+    background-color: lighten($color: $set1-clr5, $amount: $set);
+  }
+  .set2 & {
+    background-color: lighten($color: $set2-clr5, $amount: $set);
+  }
+  .set3 & {
+    background-color: lighten($color: $set3-clr5, $amount: $set);
+  }
+  .set4 & {
+    background-color: lighten($color: $set4-clr5, $amount: $set);
+  }
+  .set5 & {
+    background-color: lighten($color: $set5-clr5, $amount: $set);
+  }
+}
+
+@mixin color-lighten-clr5($set){
+  color: lighten($color: $set1-clr5, $amount: $set);
+  .set1 & {
+    color: lighten($color: $set1-clr5, $amount: $set);
+  }
+  .set2 & {
+    color: lighten($color: $set2-clr5, $amount: $set);
+  }
+  .set3 & {
+    color: lighten($color: $set3-clr5, $amount: $set);
+  }
+  .set4 & {
+    color: lighten($color: $set4-clr5, $amount: $set);
+  }
+  .set5 & {
+    color: lighten($color: $set5-clr5, $amount: $set);
+  }
+}
+
+@mixin border-2px-clr5 {
+  border: 2px $set1-clr5 solid;
+  .set1 & {
+    border: 2px $set1-clr5 solid;
+  }
+  .set2 & {
+    border: 2px $set2-clr5 solid;
+  }
+  .set3 & {
+    border: 2px $set3-clr5 solid;
+  }
+  .set4 & {
+    border: 2px $set4-clr5 solid;
+  }
+  .set4 & {
+    border: 2px $set5-clr5 solid;
+  }
+}

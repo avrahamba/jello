@@ -10,7 +10,7 @@
         v-for="board in UserBoards"
         :board="board"
         :key="board._id"
-        :class="'board-card ' + board.title"
+        :class="'board-card ' + board.title+' '+board.background "
       ></board-card>
       <button class="btn-add-board" @click="isAddNewBoard=true;isPublic=false">
         <h3>+</h3>

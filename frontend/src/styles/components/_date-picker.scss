@@ -1,7 +1,7 @@
 .calendar {
   .input-date{
  
-      box-shadow: inset 0 0 0 2px $clr5;
+      @include box-shadow-inset-clr5;
       border-radius: 3px;
       outline: none;
       line-height: 15px;
@@ -22,7 +22,7 @@
       animation: appear .3s ease forwards;
       .calendar-header {
         width: 100%;
-        background-color: $clr5;
+        @include clr5(background-color);
         height: 60px;
         display: flex;
         flex-direction: column;
@@ -82,7 +82,7 @@
               background-color: #f3f3f3 !important;
             }
             &.selected {
-              color: $clr5;
+              @include clr5(color);
               &:after {
                 width: 100%;
               }
@@ -91,13 +91,13 @@
               content: "";
               height: 3px;
               width: 0px;
-              background: $clr5;
+              @include clr5(background-color);
               position: absolute;
               bottom: 0;
               transition: all .3s ease;
             }
             &:hover {
-              color: $clr5;
+              @include clr5(color);
             }
             &:hover:after {
               width: 100%;

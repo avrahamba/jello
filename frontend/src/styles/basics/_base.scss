@@ -1,3 +1,5 @@
+
+
 *,
 *::before,
 *::after {
@@ -10,20 +12,18 @@ img {
 
 html {
   font-family: $font;
-  color: $clr2;
   text-align: center;
   line-height: 1.9;
 }
 
 body {
   margin: 0;
-  color: $clr2;
-  font-family: $font , sans-serif;
+  @include clr2(color);
+  font-family: $font, sans-serif;
   display: flex;
   flex-direction: column;
-  background-color: $clr1;
+  @include clr1(background-color);
 }
-
 
 a {
   text-decoration: none;
@@ -36,11 +36,11 @@ p {
   overflow-wrap: break-word;
   text-align: start;
   font-size: 14px;
-    line-height: 20px;
-    font-weight: 400;
+  line-height: 20px;
+  font-weight: 400;
 }
 
-textarea{  
-   font-family: Arial, sans-serif;  
-   font-size: 1rem;   
+textarea {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
 }

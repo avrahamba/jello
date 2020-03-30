@@ -44,8 +44,8 @@
         display: block;
         font-size: 1.2rem;
         font-weight: 500;
-        background-color: lighten($color: $clr3, $amount: 10);
-        color: $clr2;
+          @include bgc-lighten-clr3(10);
+        @include clr2(color);
         padding: 1rem;
         border-radius: 0.3rem;
         cursor: pointer;
@@ -53,7 +53,7 @@
         text-align: left;
 
         &:hover {
-          background-color: lighten($color: $clr3, $amount: 15);
+          @include bgc-lighten-clr3(15);
         }
         &::after {
           content: "...";
