@@ -90,10 +90,10 @@
     background-color: rgba(darken($color:$set4-clr1, $amount: 10), 0.3);
   }
   .set5 & {
-    background-color: rgba($set5-clr1, 0.3);
+    background-color: rgba(darken($color:$set5-clr1, $amount: 10), 0.3);
   }
   .set6 & {
-    background-color: rgba($set6-clr1, 0.3);
+    background-color: rgba(darken($color:$set6-clr1, $amount: 10), 0.3);
   }
 }
 

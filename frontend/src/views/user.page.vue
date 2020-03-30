@@ -4,7 +4,7 @@
     <!-- <div class="add-new-board-container">
       <button class="btn-add-board" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
     </div>-->
-    <h2>Your Boards</h2>
+    <h2 class="boards-title">Personal Boards</h2>
     <div class="cards-container">
       <board-card
         v-for="board in UserBoards"
@@ -16,7 +16,7 @@
         <h3>+</h3>
       </button>
     </div>
-    <h2>Public Boards</h2>
+    <h2 class="boards-title">Public Boards</h2>
     <div class="cards-container">
       <board-card
         v-for="board in publicBoard"

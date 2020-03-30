@@ -10,10 +10,10 @@
             <input type="checkbox" v-model="isColor">
             Color
         </div>
+    </div>
         <div v-if="openSetBoard" class="colors">
             <div @click="setColor(idx)" :style="{'background-color':colorSet.color}" class="color-set" v-for="(colorSet,idx) in colorsSet" :key="colorSet.name"></div>
         </div>
-    </div>
     <div v-if="!checkImg" class="input-container">
         <div @click="checkImg = true" class="img">
             <input type="checkbox" v-model="isImg">
