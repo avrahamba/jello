@@ -1,6 +1,5 @@
 <template>
   <div class="user-page">
-    <!-- <h2 class="user-title">Hello {{user.name}}</h2>-->
     <h2>Your Boards</h2>
     <div class="cards-container">
       <board-card
@@ -13,7 +12,7 @@
         <h3>+</h3>
       </button>
     </div>
-    <h2>Public Boards</h2>
+    <h2 class="boards-title">Public Boards</h2>
     <div class="cards-container">
       <board-card
         v-for="board in publicBoard"

@@ -46,6 +46,7 @@ export default {
                 .then(board => {
                     socketService.setup();
                     socketService.emit("connect-to-board", board._id);
+                    //!!!!
                     socketService.on("change-data", data => {
                         this.$store.dispatch({ type: "dataFromSocket", data });
                     })

@@ -70,13 +70,14 @@ const save = async (board) => {
     return board;
 }
 
-
+//!!!!
 const changeData = async (boardId, data) => {
     switch (data.type) {
         case 'changeTitleBoard':
             await Board.updateOne({ _id: boardId }, { $set: { title: data.title } })
             break;
         case 'removeTaskList':
+            console.log('removeTaskList');
             await Board.updateOne({ _id: boardId }, { $pull: { taskLists: { id: data.taskListId } } })
             break;
         case 'moveList':
@@ -119,8 +120,12 @@ const changeData = async (boardId, data) => {
             break;
         case 'removeTask':
             {
+                console.log('removeTask');
+                // let boards = await Board.find({ _id: boardId, 'taskLists.tasks.id': taskId }, { 'taskLists.tasks.$': true })
+                // const taskIdx = boards[0].taskLists[0].tasks.findIndex(task => task.id === taskId)
+
                 const { taskId } = data;
-                await Board.updateOne({ _id: boardId }, { $pull: { taskLists: { tasks: { $elemMatch: { id: taskId } } } } })
+                await Board.updateOne({ _id: boardId }, { $pull: { taskLists: { tasks:{$elemMatch:{id:taskId}} } } });
             }
             break;
         case 'saveUsersBoard':
@@ -145,41 +150,52 @@ const changeData = async (boardId, data) => {
             {
                 const { objSave } = data
                 const { taskId, type } = objSave
-                let obj = await Board.find({ _id: boardId, 'taskLists.tasks.id': taskId }, { 'taskLists.tasks.$': true })
-                const taskIdx = obj[0].taskLists[0].tasks.findIndex(task => task.id === taskId)
+                let boards = await Board.find({ _id: boardId, 'taskLists.tasks.id': taskId }, { 'taskLists.tasks.$': true })
+                const taskIdx = boards[0].taskLists[0].tasks.findIndex(task => task.id === taskId)
+                let name, dataChange;
                 switch (type) {
                     case 'setTitle':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.title']: objSave.title } })
+                        name = 'title';
+                        dataChange = objSave.title;
                         break;
                     case 'setDueDate':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.dueDate']: objSave.dueDate } })
+                        name = 'dueDate';
+                        dataChange = objSave.dueDate;
                         break;
                     case 'setLabel':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.labels']: objSave.labels } })
+                        name = 'labels';
+                        dataChange = objSave.labels;
                         break;
                     case 'attachments':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.attachments']: objSave.attachments } })
+                        name = 'attachments';
+                        dataChange = objSave.attachments;
                         break;
                     case 'editDesc':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.desc']: objSave.desc } })
+                        name = 'desc';
+                        dataChange = objSave.desc;
                         break;
                     case 'setChecklists':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.checklists']: objSave.checklists } })
+                        name = 'checklists';
+                        dataChange = objSave.checklists;
                         break;
                     case 'setMsgs':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.msgs']: objSave.msgs } })
+                        name = 'msgs';
+                        dataChange = objSave.msgs;
                         break;
                     case 'addMember':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.members']: objSave.users } })
+                        name = 'members';
+                        dataChange = objSave.users;
                         break;
                     case 'setCover':
-                        await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { ['taskLists.$.tasks.' + taskIdx + '.cover']: objSave.cover } })
+                        name = 'cover';
+                        dataChange = objSave.cover;
                         break;
                 }
+                await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $set: { [`taskLists.$.tasks.${taskIdx}.${name}`]: dataChange } })
             }
             break
     }
-    emitter.emit('sendSocket' + data.socketId, { data, boardId })
+    emitter.emit('sendSocket' + data.socketId, { data })
     return true
 }
 

@@ -61,11 +61,15 @@
   }
 
   .colors{
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    gap: 10px;
+    padding: 0 0 10px ;
     .color-set{
       text-align: left;
       border: 1px solid #000;
       height: 50px;
-      margin-top: 8px;
+      cursor: pointer;
     }
   }
   .modal-img{
