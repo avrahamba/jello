@@ -1,26 +1,13 @@
 <template>
   <section class="massage-preview">
     <div class="avatar">
-      <avatar-user :key="user.id" :user="user"></avatar-user>
-      <!-- <avatar username="user.name" :size="28" class="avatar-user"></avatar> -->
-
+      <avatar-user :key="msg.user.id" :user="msg.user"></avatar-user>
       <span class="name">{{msg.user.name}} :</span>
       <span class="time">{{msg.createdAt| date}}</span>
     </div>
     <div class="contain">
       <template v-if="!inEdit">
         <p class="text">{{msg.txt}}</p>
-
-        <!-- @click="inEdit = true" -->
-        <!-- <div v-if="isUser" class="action">
-          <a @click="inEdit = true" href="#">
-            <i class="fas fa-edit"></i>
-          </a>
-
-          <a @click="remove" href="#">
-            <i class="fas fa-trash-alt"></i>
-          </a>
-        </div>-->
       </template>
       <massage-write class="edit-msg" v-else :editMsg="msg" :user="user" @new-msg="saveMsg"></massage-write>
     </div>

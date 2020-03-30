@@ -16,13 +16,7 @@
             rows="1"
             @blur.native="send"
           />
-          <button v-if="!editMsg">Save</button>
-          <!-- <input
-            class="activity-input"
-            v-model="msg.txt"
-            placeholder="Write a comment..."
-            @blur="send"
-          />-->
+          <button v-if="!editMsg">Send</button>
         </div>
       </div>
     </form>

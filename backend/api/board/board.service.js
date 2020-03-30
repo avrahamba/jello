@@ -71,18 +71,18 @@ const save = async (board) => {
 }
 
 //!!!!
-const changeData = async (boardId, data) => {
-    switch (data.type) {
+const changeData = async (boardId, objData) => {
+    switch (objData.type) {
         case 'changeTitleBoard':
-            await Board.updateOne({ _id: boardId }, { $set: { title: data.title } })
+            await Board.updateOne({ _id: boardId }, { $set: { title: objData.title } })
             break;
         case 'removeTaskList':
             console.log('removeTaskList');
-            await Board.updateOne({ _id: boardId }, { $pull: { taskLists: { id: data.taskListId } } })
+            await Board.updateOne({ _id: boardId }, { $pull: { taskLists: { id: objData.taskListId } } })
             break;
         case 'moveList':
             {
-                const { oldIndex, newIndex } = data
+                const { oldIndex, newIndex } = objData
                 const board = await Board.findById(boardId)
                 const list = board.taskLists.splice(oldIndex, 1)[0]
                 board.taskLists.splice(newIndex, 0, list)
@@ -91,7 +91,7 @@ const changeData = async (boardId, data) => {
             break;
         case 'moveTask':
             {
-                const { idMoveFrom, idMoveTo, oldIndex, newIndex } = data;
+                const { idMoveFrom, idMoveTo, oldIndex, newIndex } = objData;
                 const board = await Board.findById(boardId)
                 const oldListIdx = board.taskLists.findIndex(list => list.id === idMoveFrom);
                 const newListIdx = board.taskLists.findIndex(list => list.id === idMoveTo);
@@ -102,19 +102,19 @@ const changeData = async (boardId, data) => {
             break;
         case 'addTask':
             {
-                const { task, taskListId } = data;
+                const { task, taskListId } = objData;
                 await Board.updateOne({ _id: boardId, 'taskLists.id': taskListId }, { $push: { 'taskLists.$.tasks': task } })
             }
             break;
         case 'addList':
             {
-                const { newList } = data;
+                const { newList } = objData;
                 await Board.updateOne({ _id: boardId }, { $push: { taskLists: newList } })
             }
             break;
         case 'setListTitle':
             {
-                const { taskListId, title } = data;
+                const { taskListId, title } = objData;
                 await Board.updateOne({ _id: boardId, 'taskLists.id': taskListId }, { $set: { 'taskLists.$.title': title } })
             }
             break;
@@ -124,31 +124,31 @@ const changeData = async (boardId, data) => {
                 // let boards = await Board.find({ _id: boardId, 'taskLists.tasks.id': taskId }, { 'taskLists.tasks.$': true })
                 // const taskIdx = boards[0].taskLists[0].tasks.findIndex(task => task.id === taskId)
 
-                const { taskId } = data;
+                const { taskId } = objData;
                 await Board.updateOne({ _id: boardId }, { $pull: { taskLists: { tasks:{$elemMatch:{id:taskId}} } } });
             }
             break;
         case 'saveUsersBoard':
             {
-                const { users } = data;
+                const { users } = objData;
                 await Board.updateOne({ _id: boardId }, { $set: { 'users': users } })
             }
             break;
         case 'setPublic':
             {
-                const { isPublic } = data;
+                const { isPublic } = objData;
                 await Board.updateOne({ _id: boardId }, { $set: { 'public': isPublic } })
             }
             break;
         case 'setBackground':
             {
-                const { newBackground } = data;
+                const { newBackground } = objData;
                 await Board.updateOne({ _id: boardId }, { $set: { 'style.background': newBackground } })
             }
             break;
         case 'saveTask':
             {
-                const { objSave } = data
+                const { objSave } = objData
                 const { taskId, type } = objSave
                 let boards = await Board.find({ _id: boardId, 'taskLists.tasks.id': taskId }, { 'taskLists.tasks.$': true })
                 const taskIdx = boards[0].taskLists[0].tasks.findIndex(task => task.id === taskId)
@@ -195,7 +195,7 @@ const changeData = async (boardId, data) => {
             }
             break
     }
-    emitter.emit('sendSocket' + data.socketId, { data })
+    emitter.emit('sendSocket' + objData.socketId, { objData })
     return true
 }
 

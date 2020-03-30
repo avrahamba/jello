@@ -62,11 +62,13 @@
     .mini-details {
       font-size: 1rem;
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
       .oders {
         display: flex;
         justify-content: start;
         align-items: end;
+        margin-left: 0px;
         > * {
           margin-left: 10px;
         }
@@ -74,11 +76,11 @@
           margin-left: 0;
         }
         .label-container {
+
           .label {
             border-radius: 4px;
             color: #fff;
             display: block;
-            margin-right: 4px;
             max-width: 100%;
 
             overflow: hidden;
@@ -105,6 +107,8 @@
         }
       }
       .users {
+        margin-left: -4px;
+        margin-top: 6px;
         justify-self: end;
         .avatar-user {
           height: 23px;

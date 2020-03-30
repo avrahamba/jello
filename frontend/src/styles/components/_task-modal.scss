@@ -1,6 +1,32 @@
 .task-modal {
   .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: #00000094;
+    z-index: 999;
+    transition: opacity 0.2s ease;
+    overflow-y: scroll;
+    max-height: 100vh;
     .modal {
+      button.close {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: rem(30px);
+        border: none;
+        border-radius: 3px;
+        background: none;
+        &:hover {
+          background-color: #cdd2d4;
+          cursor: pointer;
+        }
+      }
       width: auto;
       margin: 0px auto;
       position: absolute;
@@ -22,11 +48,11 @@
         grid-column: 1 /-1;
         grid-row: 2/ 3;
         display: flex;
-        flex-direction: column;;
-        .task-title{
+        flex-direction: column;
+        .task-title {
           overflow: hidden;
           @include clr2(color);
-          word-wrap:break-word;
+          word-wrap: break-word;
           width: 100%;
           background: transparent;
           border-radius: 3px;
@@ -34,7 +60,7 @@
           box-shadow: none;
           font-size: 20px;
           font-weight: 600;
-          height: 32px; 
+          height: 32px;
           line-height: 24px;
           min-height: 24px;
           padding: 4px 4px;
@@ -42,25 +68,23 @@
           margin-bottom: 3px;
           margin-left: 7px;
 
-          
-
-          &:focus{
+          &:focus {
             @include box-shadow-inset-clr5;
             outline: none;
           }
         }
-        .title-info-container{
-            font-size: 14px;
-            font-weight: 500;
-            display: flex;
-            margin-left: 36px;
-          
-            .list-name-container{
-              margin-left: 5px;
-              text-transform: capitalize;
-              text-decoration: underline;
-              @include clr2(color);
-            }
+        .title-info-container {
+          font-size: 14px;
+          font-weight: 500;
+          display: flex;
+          margin-left: 36px;
+
+          .list-name-container {
+            margin-left: 5px;
+            text-transform: capitalize;
+            text-decoration: underline;
+            @include clr2(color);
+          }
         }
       }
       .detail-area {
@@ -69,42 +93,40 @@
         display: flex;
         flex-direction: column;
         padding-right: 25px;
-        .description-text{
-          margin:0 0 0 38px;
+        .description-text {
+          margin: 0 0 0 38px;
           text-align: start;
           overflow-wrap: break-word;
         }
-        .date-value{
+        .date-value {
           text-align: start;
           margin-left: 36px;
         }
-        .desc-container{
-            display: flex;
-            flex-direction: column;
-          button{
-            margin-left:36px;
+        .desc-container {
+          display: flex;
+          flex-direction: column;
+          button {
+            margin-left: 36px;
             width: 100px;
             cursor: pointer;
-        border: 1px solid transparent;
-        padding: 8px 13px;
-        font-size: 15px;
-        line-height: 1;
-        border-radius: 4px;
-        @include clr3(background-color);
-        &:focus{
-          outline: none;
-        }
-          &:hover {
-            @include bgc-darken8-clr3;
+            border: 1px solid transparent;
+            padding: 8px 13px;
+            font-size: 15px;
+            line-height: 1;
+            border-radius: 4px;
+            @include clr3(background-color);
+            &:focus {
+              outline: none;
+            }
+            &:hover {
+              @include bgc-darken8-clr3;
+            }
           }
-          }
-    
         }
         .members-labels-contaner {
           display: flex;
         }
-        .description-container{
-         
+        .description-tesxtarea {
           overflow-wrap: break-word;
           resize: none;
           border: none;
@@ -113,20 +135,18 @@
           font-size: 14px;
           line-height: 20px;
           font-weight: 400;
-          margin:0 0 5px 36px;
+          margin: 0 0 5px 36px;
           border-radius: 3px;
-          &:focus{
+          &:focus {
             @include box-shadow-inset-clr5;
             outline: none;
           }
-          
         }
       }
       .add-area {
         grid-column: 2 /3;
         grid-row: 3/ 4;
 
-    
         button {
           text-align: left;
           color: #172b4d;
@@ -144,41 +164,32 @@
           padding: 6px 0 6px 6px;
           text-decoration: none;
           text-overflow: ellipsis;
-          -webkit-transition: all .3s ease;
-          transition: all .3s ease;
+          -webkit-transition: all 0.3s ease;
+          transition: all 0.3s ease;
           outline: none;
           line-height: 15px;
           position: relative;
-          &:hover{
+          &:hover {
             background-color: #cdd2d4;
             color: #4d4d4d;
             text-decoration: underline;
           }
-          
-   svg{
-    margin-right:5px;
-    font-size: 17px;
-   }
+
+          svg {
+            margin-right: 5px;
+            font-size: 17px;
+          }
         }
       }
 
-      
+      .date-area,
+      .members-container,
+      .label-container,
+      .description-container,
+      .attachments-container {
+        margin-bottom: 30px;
+      }
     }
-
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    background: #00000094;
-    z-index: 999;
-    transition: opacity 0.2s ease;
-    overflow-y: scroll;
-
-    max-height: 100vh;
   }
   .fadeIn-enter {
     opacity: 0;
@@ -193,27 +204,22 @@
   .fadeIn-leave-active.modal {
     transform: scale(1.1);
   }
-  .icon-container{
+  .icon-container {
     display: flex;
     align-items: center;
-    
-    .date-icon-continer{
+
+    .date-icon-continer {
       display: flex;
     }
-    
+
     svg {
-    font-size: 24px;
-    height: 24px;
-    width: 24px;
-    
+      font-size: 24px;
+      height: 24px;
+      width: 24px;
+    }
+    h3 {
+      font-size: 20px;
+      margin: 0 0 0 12px;
+    }
   }
-h3{
-  font-size: 20px;
-  margin: 0 0 0 12px;
 }
-
-
-  }
-
-}
-

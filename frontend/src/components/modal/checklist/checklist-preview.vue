@@ -30,7 +30,6 @@
     </draggable>
     <check-edit v-if="addItemMode" @close="addItemMode = false" @add="editCheckItem"></check-edit>
     <button class="add-item-btn" v-else @click="addItemMode = true">Add an item</button>
-    <hr>
   </section>
 </template>
 

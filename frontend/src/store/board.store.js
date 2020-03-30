@@ -73,8 +73,7 @@ export const boardStore = {
                     break;
             }
             if (state.currTask.id === task.id) state.currTask = task
-            state.board.taskLists[taskListIdx].tasks.splice(taskIdx, 1, task)
-        },
+                                },
         removeTask(state, taskId) {
             let taskIdx;
             const taskListIdx = state.board.taskLists.findIndex(tl => {
