@@ -44,7 +44,6 @@
                             <label-preview v-if="taskToSave.labels.length" @input="save('setLabel',{labels: taskToSave.labels})" v-model="taskToSave.labels"></label-preview>
                         </div>
                         <div class="description-container">
-
                             <div class="icon-container">
                                 <i class="fas fa-align-justify"></i>
                                 <h3>Description</h3>

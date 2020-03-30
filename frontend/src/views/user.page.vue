@@ -1,10 +1,6 @@
 <template>
   <div class="user-page">
-    <h2>Hello {{user.name}}</h2>
-    <!-- <div class="add-new-board-container">
-      <button class="btn-add-board" @click="isAddNewBoard=!isAddNewBoard">Add new board</button>
-    </div>-->
-    <h2 class="boards-title">Personal Boards</h2>
+    <h2>Your Boards</h2>
     <div class="cards-container">
       <board-card
         v-for="board in UserBoards"
