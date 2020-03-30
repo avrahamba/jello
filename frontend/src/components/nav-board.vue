@@ -66,6 +66,8 @@ export default {
                 { color: '#e9e2d0', name: 'set2' },
                 { color: '#effcef', name: 'set3' },
                 { color: '#a8c9ff', name: 'set4' },
+                { color: '#ffb99a', name: 'set5' },
+                { color: '#fffe9f', name: 'set6' },
             ],
             imgsSet: [
                 { url: 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/2d3a331441afc0550fef924ec37670fa/photo-1585337931905-5289c506a080', name: 'img1' },
