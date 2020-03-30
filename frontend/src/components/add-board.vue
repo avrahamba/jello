@@ -58,6 +58,7 @@ export default {
                 { color: '#effcef', name: 'set3' },
                 { color: '#a8c9ff', name: 'set4' },
                 { color: '#ff6464', name: 'set5' },
+                { color: '#fffe9f', name: 'set6' },
             ],
             colorIdx: 0,
             imgSet: [
