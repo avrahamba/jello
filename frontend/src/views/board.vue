@@ -28,13 +28,12 @@ export default {
     },
     data() {
         return {
-            style:null
+            style: null
         }
     },
     methods: {
         getBoard() {
             const boardId = this.boardId || this.$route.params.id;
-
             this.$store
                 .dispatch({ type: "getBoard", boardId })
                 .then(board => {
@@ -70,16 +69,18 @@ export default {
             this.$store.dispatch({ type: "changeTitleBoard", title });
         },
         setStyle() {
-            document.body.parentElement.classList.remove('set1')
-            document.body.parentElement.classList.remove('set2')
-            document.body.parentElement.classList.remove('set3')
-            document.body.parentElement.classList.remove('set4')
+            const htmlClassList = document.body.parentElement.classList;
+            htmlClassList.remove('set1')
+            htmlClassList.remove('set2')
+            htmlClassList.remove('set3')
+            htmlClassList.remove('set4')
+            this.style = null
             if (this.$store.getters.board.style.background.includes('http')) {
-                this.style={
+                this.style = {
                     'background-image': `url("${this.$store.getters.board.style.background}")`
-                    }
+                }
             } else {
-                document.body.parentElement.classList.add(this.$store.getters.board.style.background)
+                htmlClassList.add(this.$store.getters.board.style.background)
             }
 
         }
@@ -98,6 +99,9 @@ export default {
     watch: {
         '$route'(to, from) {
             this.getBoard()
+        },
+        '$store.getters.board.style.background'() {
+            this.setStyle()
         }
     },
     components: {

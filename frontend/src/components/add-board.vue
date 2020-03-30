@@ -95,7 +95,7 @@ export default {
             this.colorIdx = idx
             this.color = this.colorsSet[idx].color
             this.openSetBoard = false
-            this.isColor = false
+            this.isColor = true
         },
         setImg(idx) {
             this.imgIdx = idx

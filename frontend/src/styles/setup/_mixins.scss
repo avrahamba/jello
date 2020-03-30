@@ -73,18 +73,18 @@
 
 
 @mixin bgc-clr1-opasety03 {
-  background-color: rgba($set1-clr1, 0.3);
+  background-color: rgba(darken($color:$set1-clr1, $amount: 10), 0.3);
   .set1 & {
-    background-color: rgba($set1-clr1, 0.3);
+    background-color: rgba(darken($color:$set1-clr1, $amount: 10), 0.3);
   }
   .set2 & {
-    background-color: rgba($set2-clr1, 0.3);
+    background-color: rgba(darken($color:$set2-clr1, $amount: 10), 0.3);
   }
   .set3 & {
-    background-color: rgba($set3-clr1, 0.3);
+    background-color: rgba(darken($color:$set3-clr1, $amount: 10), 0.3);
   }
   .set4 & {
-    background-color: rgba($set4-clr1, 0.3);
+    background-color: rgba(darken($color:$set4-clr1, $amount: 10), 0.3);
   }
   .set5 & {
     background-color: rgba($set5-clr1, 0.3);

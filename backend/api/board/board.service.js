@@ -129,6 +129,18 @@ const changeData = async (boardId, data) => {
                 await Board.updateOne({ _id: boardId }, { $set: { 'users': users } })
             }
             break;
+        case 'setPublic':
+            {
+                const { isPublic } = data;
+                await Board.updateOne({ _id: boardId }, { $set: { 'public': isPublic } })
+            }
+            break;
+        case 'setBackground':
+            {
+                const { newBackground } = data;
+                await Board.updateOne({ _id: boardId }, { $set: { 'style.background': newBackground } })
+            }
+            break;
         case 'saveTask':
             {
                 const { objSave } = data

@@ -6,6 +6,7 @@ nav.nav-board {
   @include clr2(color);
   z-index: 1;
   @include bgc-clr1-opasety03;
+  box-shadow: 0 0 49px 0 rgba(255, 255, 255, 0.3);
   .btn {
     font-size: 1.4rem;
     font-weight: 400;
@@ -30,8 +31,7 @@ nav.nav-board {
   }
 
   .board-title {
-
-    &.action{
+    &.action {
       @include bgc-darken-clr1(20);
       width: 100%;
     }
@@ -42,8 +42,8 @@ nav.nav-board {
       white-space: nowrap;
       font-family: $font;
     }
-    input{
-   font-family: $font;
+    input {
+      font-family: $font;
       font-size: 1.4rem;
       line-height: 0;
       font-weight: 700;
@@ -51,22 +51,60 @@ nav.nav-board {
       width: 100%;
       @include clr2(color);
       background-color: unset;
-      border: unset;      
+      border: unset;
     }
   }
-  .avatar-user{
+  .avatar-user {
     @include clr2(color);
     @include bgc-darken-clr1(20);
     // padding: 10px;
-height: 40px;
-width: 40px;
+    height: 40px;
+    width: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    .txt{
-      position:relative;
+    .txt {
+      position: relative;
       font-family: $font;
       font-size: rem(20px);
+    }
+  }
+  .menu-board{
+    position: relative;
+    .menu-bar{
+      padding: 10px;
+      border-radius: 5px;
+      padding-top: 75px;
+      right: 0;
+      position: absolute;
+      @include bgc-darken-clr1(20);
+      // height: 400px;
+      width: 250px;
+    }
+    .menu-btn{
+      position: relative;
+    }
+
+    label{
+  display: block;
+  text-align: left;
+}
+
+    .colors{
+display: grid;
+gap: 5px;
+grid-template-columns: 1fr 1fr;
+.color{
+  width: 110px;
+  height: 110px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+}
+.imgs{
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 1fr 1fr;
     }
   }
 }

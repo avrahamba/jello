@@ -6,7 +6,6 @@ const connectSockets = (io) => {
     io.on('connection', socket => {
 
         emitter.on('sendSocket' + socket.id, ({ data, boardId }) => {
-            console.log('socket.id :', socket.id, data.type);
             data.socketId = socket.id
             socket.broadcast.to(boardId).emit('change-data', data)
         })

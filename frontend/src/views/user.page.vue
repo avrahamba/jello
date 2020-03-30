@@ -10,7 +10,7 @@
         v-for="board in UserBoards"
         :board="board"
         :key="board._id"
-        :class="'board-card ' + board.title+' '+board.background "
+        :class="'board-card '+board.background "
       ></board-card>
       <button class="btn-add-board" @click="isAddNewBoard=true;isPublic=false">
         <h3>+</h3>
@@ -22,7 +22,7 @@
         v-for="board in publicBoard"
         :board="board"
         :key="board._id"
-        :class="'board-card ' + board.title"
+        :class="'board-card '+board.background "
       ></board-card>
       <button class="btn-add-board" @click="isAddNewBoard=true;isPublic=true">
         <h3>+</h3>
@@ -51,6 +51,12 @@ export default {
   created() {
     this.user = this.$store.getters.loggedinUser;
     this.getBoardsFromStore();
+    const htmlClassList = document.body.parentElement.classList;
+    htmlClassList.remove('set1')
+    htmlClassList.remove('set2')
+    htmlClassList.remove('set3')
+    htmlClassList.remove('set4')
+
   },
   methods: {
     addMembers(board) {
