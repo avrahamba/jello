@@ -178,7 +178,7 @@ export default {
     },
     removeList() {
       Swal.fire({
-        title: `Are you sure of You won't remove the List?`,
+        title: `Are you sure of You want to remove the List?`,
         icon: "warning",
         showCancelButton: true,
         confirmButtonColor: "#d33",

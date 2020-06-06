@@ -323,7 +323,7 @@ export default {
         },
         startRemoveTask() {
             Swal.fire({
-                title: `Are you sure of You won't remove the Task?`,
+                title: `Are you sure of You want to remove the Task?`,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#d33",
