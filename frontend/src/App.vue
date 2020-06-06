@@ -1,25 +1,27 @@
 <template>
-  <div id="app">
-    <header-cmp/>
-    <router-view/>
-    
-  </div>
+<div id="app">
+    <header-cmp />
+    <router-view />
+
+</div>
 </template>
+
 <script>
 import headerCmp from '@/components/header-cmp.vue'
+import { socketService } from './services/SocketService';
 export default {
-  created() {
-    // document.body.parentElement.classList.add('set2')
-  },
-  computed: {
-    appClass(){
-      if(this.$router)
-      return 
+    created() {
+        socketService.setup();
+    },
+    computed: {
+        appClass() {
+            if (this.$router)
+                return
+        }
+    },
+    components: {
+        headerCmp
     }
-  },
-  components:{
-    headerCmp
-  }
 }
 </script>
 

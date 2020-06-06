@@ -120,12 +120,8 @@ const changeData = async (boardId, objData) => {
             break;
         case 'removeTask':
             {
-                console.log('removeTask');
-                // let boards = await Board.find({ _id: boardId, 'taskLists.tasks.id': taskId }, { 'taskLists.tasks.$': true })
-                // const taskIdx = boards[0].taskLists[0].tasks.findIndex(task => task.id === taskId)
-
                 const { taskId } = objData;
-                await Board.updateOne({ _id: boardId }, { $pull: { taskLists: { tasks:{$elemMatch:{id:taskId}} } } });
+                await Board.updateOne({ _id: boardId, 'taskLists.tasks.id': taskId }, { $pull: { 'taskLists.$.tasks': { id: taskId } } });
             }
             break;
         case 'saveUsersBoard':

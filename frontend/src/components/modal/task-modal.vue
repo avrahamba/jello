@@ -19,8 +19,8 @@
                         </div>
                     </div>
                     <div class="detail-area">
-                        <div class="date-area" v-if="currTask">
-                            <div class="icon-container" v-if="taskToSave.dueDate">
+                        <div class="date-area" v-if="taskToSave.dueDate">
+                            <div class="icon-container">
                                 <i class="fas fa-calendar-day"></i>
                                 <h3>Due Date</h3>
                                 <div class="due-date-picker">
@@ -29,19 +29,19 @@
                             </div>
                             <div class="date-value">{{taskToSave.dueDate}}</div>
                         </div>
-                        <div class="members-container">
-                            <div class="icon-container" v-if="taskToSave.members.length">
+                        <div class="members-container" v-if="taskToSave.members.length">
+                            <div class="icon-container">
                                 <i class="fas fa-users"></i>
                                 <h3>Members</h3>
                             </div>
                             <show-members :members="taskToSave.members" v-if="taskToSave.members.length"></show-members>
                         </div>
-                        <div class="label-container">
-                            <div class="icon-container" v-if="taskToSave.labels.length">
+                        <div class="label-container" v-if="taskToSave.labels.length">
+                            <div class="icon-container">
                                 <i class="fas fa-tags"></i>
                                 <h3>Labels</h3>
                             </div>
-                            <label-preview v-if="taskToSave.labels.length" @input="save('setLabel',{labels: taskToSave.labels})" v-model="taskToSave.labels"></label-preview>
+                            <label-preview @input="save('setLabel',{labels: taskToSave.labels})" v-model="taskToSave.labels"></label-preview>
                         </div>
                         <div class="description-container">
                             <div class="icon-container">
@@ -54,20 +54,17 @@
                             </div>
                             <p class="description-text" @click="startEditDesc" v-else>{{descToView}}</p>
                         </div>
-                        <div class="checklist-list-container">
-
-                            <checklist-list v-if="taskToSave.checklists" :boardId="boardId" :checklists="taskToSave.checklists" @save="saveCheckList"></checklist-list>
+                        <div class="checklist-list-container" v-if="taskToSave.checklists">
+                            <checklist-list :boardId="boardId" :checklists="taskToSave.checklists" @save="saveCheckList"></checklist-list>
                         </div>
-                        <div class="attachments-container">
-
-                            <div class="icon-container" v-if="taskToSave.attachments.length">
+                        <div class="attachments-container" v-if="taskToSave.attachments.length">
+                            <div class="icon-container">
                                 <i class="fas fa-file-image"></i>
                                 <h3>Attachments</h3>
                             </div>
-                            <file-preview v-if="taskToSave.attachments.length" v-model="taskToSave.attachments" @add-attachment="openFile" @input="save('attachments',{attachments: taskToSave.attachments})"></file-preview>
+                            <file-preview v-model="taskToSave.attachments" @add-attachment="openFile" @input="save('attachments',{attachments: taskToSave.attachments})"></file-preview>
                         </div>
                         <div class="activity-container">
-
                             <div class="icon-container">
                                 <i class="far fa-comment-dots"></i>
                                 <h3>Activity</h3>

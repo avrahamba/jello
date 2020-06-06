@@ -386,6 +386,7 @@ export const boardStore = {
         },
         //!!!!
         async dataFromSocket(context, { data }) {
+            console.log('dataFromSocket',data.type,data.socketId);
             if (data.socketId === socketService.getSocketId()) return
             switch (data.type) {
                 case 'saveUsersBoard':

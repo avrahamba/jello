@@ -24,7 +24,7 @@ export default {
         this.getBoard()
     },
     destroyed() {
-        socketService.terminate();
+        socketService.off("change-data", this.dataFromSocket)
     },
     data() {
         return {
@@ -44,16 +44,17 @@ export default {
                     return board;
                 })
                 .then(board => {
-                    socketService.setup();
                     socketService.emit("connect-to-board", board._id);
-                    //!!!!
-                    socketService.on("change-data", data => {
-                        this.$store.dispatch({ type: "dataFromSocket", data });
-                    })
+                    socketService.off("change-data", this.dataFromSocket)
+                    socketService.on("change-data", this.dataFromSocket)
                 })
                 .then(() => this.setStyle())
                 .then(() => playDragScroll(this.$refs.taskListsLection.$el))
                 .then(() => this.$store.dispatch({ type: "getBoards", userId: this.$store.getters.loggedinUser._id }))
+
+        },
+        dataFromSocket(data) {
+            this.$store.dispatch({ type: "dataFromSocket", data });
 
         },
         createList() {
@@ -79,11 +80,11 @@ export default {
             htmlClassList.remove('set6')
             this.style = null
             if (this.$store.getters.board.style.background.includes('http')) {
-                if(this.$store.getters.board.style.background==='https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/4710b3602fafacb2a4bd92d9e337c223/photo-1585142607427-f142c1e786cb'){
-                htmlClassList.add('set4')
+                if (this.$store.getters.board.style.background === 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/4710b3602fafacb2a4bd92d9e337c223/photo-1585142607427-f142c1e786cb') {
+                    htmlClassList.add('set4')
                 }
-                if(this.$store.getters.board.style.background==='https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/2d3a331441afc0550fef924ec37670fa/photo-1585337931905-5289c506a080'){
-                htmlClassList.add('set4')
+                if (this.$store.getters.board.style.background === 'https://trello-backgrounds.s3.amazonaws.com/SharedBackground/original/2d3a331441afc0550fef924ec37670fa/photo-1585337931905-5289c506a080') {
+                    htmlClassList.add('set4')
                 }
                 this.style = {
                     'background-image': `url("${this.$store.getters.board.style.background}")`

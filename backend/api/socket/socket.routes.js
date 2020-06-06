@@ -13,8 +13,8 @@ const connectSockets = (io) => {
         });
 
         socket.on('connect-to-board', boardId => {
-            if (socket.board) {
-                socket.leave(socket.board)
+            if (socket.boardId) {
+                socket.leave(socket.boardId)
             }
             socket.join(boardId)
             socket.boardId = boardId;
